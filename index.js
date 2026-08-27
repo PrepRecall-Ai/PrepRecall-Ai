@@ -26,7 +26,7 @@ async function generateDailyMock() {
     const articles = newsResponse.articles.map(a => `${a.title} - ${a.description || ""}`).join('\n');
     
     console.log("Generating mock test with Gemini...");
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const prompt = `Based on the following news headlines, generate a 10-question multiple-choice quiz for competitive exam preparation. 
     Format the output strictly as a JSON array of objects with the keys: "question", "optionA", "optionB", "optionC", "optionD", and "correctAnswer" (which must be A, B, C, or D). 
     News:\n${articles}`;
