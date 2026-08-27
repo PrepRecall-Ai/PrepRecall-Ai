@@ -1,0 +1,10 @@
+{
+  "name": "daily-mock-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.0.0",
+    "@google/generative-ai": "^0.2.0",
+    "newsapi": "^2.4.1"
+  }
+}
