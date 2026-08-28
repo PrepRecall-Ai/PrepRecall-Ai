@@ -14,10 +14,10 @@ async function generateDailyContent() {
   const today = new Date().toISOString().split('T')[0];
   console.log(`Starting generation for Indian SSC Exams: ${today}`);
 
-  // Fallback to the universally available model to prevent 404 errors
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  // Using the absolute latest and fastest Flash model
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-  // 2. Strong Prompt to guarantee JSON output without markdown
+  // Strong Prompt to guarantee JSON output without markdown
   const prompt = `
     Generate today's top current affairs for Indian SSC competitive exams.
     You MUST output ONLY a raw, valid JSON object. Do NOT include markdown blocks like \`\`\`json.
@@ -37,7 +37,7 @@ async function generateDailyContent() {
           "correctAnswer": "Exact string of the correct option",
           "explanation": "1-sentence explanation"
         }
-      ] // Generate exactly 10 questions in this array
+      ]
     }
   `;
 
@@ -50,7 +50,7 @@ async function generateDailyContent() {
     
     const data = JSON.parse(rawText);
 
-    // 3. Push to Firestore
+    // Push to Firestore
     const batch = db.batch();
 
     batch.set(db.collection('daily_mocks').doc(today), { questions: data.mocks, date: today });
