@@ -1,30 +1,28 @@
-name: Daily Mock Test Generator
+name: Daily Content Automation
 
 on:
   schedule:
-    # Runs automatically at 1:00 AM IST every day
-    - cron: '30 19 * * *'
-  workflow_dispatch: # This adds a manual button to test the script
+    # Runs every morning at 00:00 UTC (05:30 AM IST)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual trigger anytime from the GitHub Actions tab
 
 jobs:
-  generate-mock:
+  generate:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run AI Generator
-      env:
-        FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-        NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      run: node index.js
+      - name: Run Daily Generation Script
+        env:
+          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/generate-daily.js
