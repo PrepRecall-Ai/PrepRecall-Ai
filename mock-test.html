@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Mock Test - PrepRecall</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      color: #334155;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 20px;
+    }
+
+    .top-nav {
+      max-width: 760px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .quiz-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    #quiz-header {
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    #quiz-title {
+      font-size: 1.6rem;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+
+    #quiz-date {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    .status-msg {
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    .question-card {
+      margin-bottom: 1.75rem;
+      padding: 1.25rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    .option-label:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .option-label input[type="radio"] {
+      accent-color: #2563eb;
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Result styles */
+    .option-label.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d;
+      font-weight: 600;
+    }
+
+    .option-label.incorrect {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover {
+      background: #1d4ed8;
+    }
+
+    .result-container {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .score-display {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 1rem 0 1.5rem 0;
+    }
+
+    .btn-secondary {
+      padding: 0.75rem 1.5rem;
+      background: #e2e8f0;
+      color: #334155;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-nav">
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+  </div>
+
+  <div class="quiz-wrapper">
+    <div id="quiz-header">
+      <h1 id="quiz-title">Daily Mock Test</h1>
+      <p id="quiz-date"></p>
+      <div id="quiz-status" class="status-msg">Loading today's test...</div>
+    </div>
+
+    <div id="quiz-container" style="display: none;">
+      <div id="questions-list"></div>
+      <button id="submit-quiz-btn" class="btn-submit">Submit Mock Test</button>
+    </div>
+
+    <div id="result-container" class="result-container" style="display: none;">
+      <h2>Test Summary</h2>
+      <p class="score-display">Your Score: <span id="user-score">0</span> / <span id="total-score">10</span></p>
+      <button class="btn-secondary" onclick="location.reload()">Retake Test</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Insert your Firebase web project configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCt5_Ptpky19EcZrhZkBZKz9BVJnsJGfDg",
+      authDomain: "preprecall-94a8d.firebaseapp.com",
+      projectId: "preprecall-94a8d",
+      storageBucket: "preprecall-94a8d.firebasestorage.app",
+      messagingSenderId: "101540367024",
+      appId: "1:101540367024:web:0dfa73da6518b90e5a4975",
+      measurementId: "G-W93HM3DNQZ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    function getTodayDocId() {
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    let mockQuestions = [];
+
+    async function loadDailyMock() {
+      const dateId = getTodayDocId();
+      const dateLabel = document.getElementById("quiz-date");
+      const statusMsg = document.getElementById("quiz-status");
+      const quizContainer = document.getElementById("quiz-container");
+
+      dateLabel.textContent = `Date: ${dateId}`;
+
+      try {
+        const docRef = doc(db, "daily_mocks", dateId);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          mockQuestions = data.questions || (Array.isArray(data) ? data : Object.values(data));
+
+          if (mockQuestions.length > 0) {
+            statusMsg.style.display = "none";
+            renderQuiz(mockQuestions);
+            quizContainer.style.display = "block";
+          } else {
+            statusMsg.textContent = "No questions found inside today's test record.";
+          }
+        } else {
+          statusMsg.textContent = "Today's mock test has not been generated yet. Please check back later!";
+        }
+      } catch (error) {
+        console.error("Error loading test:", error);
+        statusMsg.textContent = "Unable to connect to the database. Please try refreshing.";
+      }
+    }
+
+    function renderQuiz(questions) {
+      const container = document.getElementById("questions-list");
+      container.innerHTML = "";
+
+      questions.forEach((q, index) => {
+        const card = document.createElement("div");
+        card.className = "question-card";
+
+        card.innerHTML = `
+          <div class="question-text">${index + 1}. ${q.question}</div>
+          <div class="options-group">
+            <label class="option-label" id="label-${index}-A">
+              <input type="radio" name="question-${index}" value="A">
+              <span>A) ${q.optionA}</span>
+            </label>
+            <label class="option-label" id="label-${index}-B">
+              <input type="radio" name="question-${index}" value="B">
+              <span>B) ${q.optionB}</span>
+            </label>
+            <label class="option-label" id="label-${index}-C">
+              <input type="radio" name="question-${index}" value="C">
+              <span>C) ${q.optionC}</span>
+            </label>
+            <label class="option-label" id="label-${index}-D">
+              <input type="radio" name="question-${index}" value="D">
+              <span>D) ${q.optionD}</span>
+            </label>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+
+      mockQuestions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="question-${index}"]:checked`);
+        const correctKey = (q.correctAnswer || "").trim().toUpperCase();
+
+        document.querySelectorAll(`input[name="question-${index}"]`).forEach(input => {
+          input.disabled = true;
+        });
+
+        const correctLabel = document.getElementById(`label-${index}-${correctKey}`);
+        if (correctLabel) {
+          correctLabel.classList.add("correct");
+        }
+
+        if (selected) {
+          if (selected.value === correctKey) {
+            score++;
+          } else {
+            const wrongLabel = document.getElementById(`label-${index}-${selected.value}`);
+            if (wrongLabel) {
+              wrongLabel.classList.add("incorrect");
+            }
+          }
+        }
+      });
+
+      document.getElementById("submit-quiz-btn").style.display = "none";
+      document.getElementById("user-score").textContent = score;
+      document.getElementById("total-score").textContent = mockQuestions.length;
+      document.getElementById("result-container").style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    document.getElementById("submit-quiz-btn").addEventListener("click", submitQuiz);
+
+    loadDailyMock();
+  </script>
+</body>
+</html>
