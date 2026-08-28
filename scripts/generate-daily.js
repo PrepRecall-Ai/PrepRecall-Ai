@@ -49,7 +49,9 @@ async function generateDailyContent() {
   };
 
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+  model: "gemini-1.5-pro",
+  // ... rest of the code stays the same
+});
     generationConfig: {
       responseMimeType: "application/json",
       responseSchema: schema,
