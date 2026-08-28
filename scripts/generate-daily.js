@@ -15,7 +15,7 @@ async function generateDailyContent() {
   console.log(`Starting generation for Indian SSC Exams: ${today}`);
 
   // Using the absolute latest and fastest Flash model
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-3.6-flash" });
 
   // Strong Prompt to guarantee JSON output without markdown
   const prompt = `
