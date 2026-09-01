@@ -6,14 +6,18 @@ import firebase_admin
 from firebase_admin import credentials, firestore, storage
 from datetime import datetime, timezone, timedelta
 
-# 1. Connect to Firebase using your GitHub Secrets
+# 1. Connect to Firebase using your GitHub Secrets 
 cred_json = os.environ.get('FIREBASE_CREDENTIALS')
 if cred_json:
     cred_dict = json.loads(cred_json)
     cred = credentials.Certificate(cred_dict)
-    firebase_admin.initialize_app(cred, {
-        'storageBucket': 'preprecall-94a8d.firebasestorage.app'
-    })
+    firebase_admin.initialize_app(cred)
+else:
+    raise Exception("FIREBASE_CREDENTIALS not found in environment!")
+
+db = firestore.client()
+bucket = storage.bucket()
+    
 else:
     raise Exception("FIREBASE_CREDENTIALS not found in environment!")
 
