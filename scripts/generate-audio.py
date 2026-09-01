@@ -26,7 +26,7 @@ async def generate_audio():
     today_str = datetime.now(ist).strftime("%Y-%m-%d")
 
     print(f"Checking for articles on {today_str}...")
-    doc_ref = db.collection("daily_articles").doc(today_str)
+    doc_ref = db.collection("daily_articles").document(today_str)
     doc_snap = doc_ref.get()
 
     if not doc_snap.exists:
