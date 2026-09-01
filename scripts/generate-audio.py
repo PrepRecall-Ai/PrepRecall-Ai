@@ -11,7 +11,9 @@ cred_json = os.environ.get('FIREBASE_CREDENTIALS')
 if cred_json:
     cred_dict = json.loads(cred_json)
     cred = credentials.Certificate(cred_dict)
-    firebase_admin.initialize_app(cred)
+    firebase_admin.initialize_app(cred, {
+        'storageBucket': 'preprecall-94a8d.firebasestorage.app'
+    })
 else:
     raise Exception("FIREBASE_CREDENTIALS not found in environment!")
 
