@@ -6,18 +6,12 @@ import firebase_admin
 from firebase_admin import credentials, firestore, storage
 from datetime import datetime, timezone, timedelta
 
-# 1. Connect to Firebase using your GitHub Secrets 
+# 1. Connect to Firebase
 cred_json = os.environ.get('FIREBASE_CREDENTIALS')
 if cred_json:
     cred_dict = json.loads(cred_json)
     cred = credentials.Certificate(cred_dict)
     firebase_admin.initialize_app(cred)
-else:
-    raise Exception("FIREBASE_CREDENTIALS not found in environment!")
-
-db = firestore.client()
-bucket = storage.bucket()
-    
 else:
     raise Exception("FIREBASE_CREDENTIALS not found in environment!")
 
@@ -66,7 +60,7 @@ async def generate_audio():
     print("Uploading MP3 to Firebase Storage...")
     blob = bucket.blob(f"daily_audio/{mp3_filename}")
     blob.upload_from_filename(mp3_filename, content_type="audio/mpeg")
-    blob.make_public() # Makes the link streamable
+    blob.make_public()
     audio_url = blob.public_url
 
     # 6. Save the audio link to the database
