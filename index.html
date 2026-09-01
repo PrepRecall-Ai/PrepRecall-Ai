@@ -800,6 +800,22 @@
         <span class="hero-tagline">Learn • Listen • Revise • Remember</span>
         <h1 class="hero-title" id="homeGreeting">Today's Current Affairs</h1>
       </div>
+      <div class="card daily-news-card" style="background: #1e293b; padding: 20px; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1);">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h3 style="color: #fff; margin: 0;">📰 Today's Curated Brief</h3>
+        <button id="listen-news-btn" onclick="playAudioBrief()" style="background: #0ea5e9; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 600;">
+            🔊 Listen
+        </button>
+    </div>
+
+    <div id="home-news-feed" style="color: #cbd5e1; font-size: 14px; margin-bottom: 20px;">
+        <p>Loading today's current affairs...</p>
+    </div>
+
+    <button onclick="window.location.href='mock-test.html'" style="width: 100%; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center;">
+        ✍️ Give Today's Mock Test
+    </button>
+</div>
 
       <div class="audio-player-banner">
         <div>
@@ -829,9 +845,7 @@
       </div>
 
       <div class="section-label">Quick Action Center</div>
-      <button onclick="window.location.href='mock-test.html'" style="width: 100%; padding: 12px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-bottom: 15px;">
-  📝 Take Today's Daily Mock Test
-</button>
+      
       <div class="card-grid">
         <div class="dash-card" onclick="navigateToTab('vault')">
           <div class="dash-card-header">
@@ -1064,9 +1078,80 @@
         <span>Progress</span>
       </button>
     </nav>
+    </div>    
+<script>
+async function loadHomeCurrentAffairs() {
+    const container = document.getElementById("home-news-feed");
+    if (!container) return; 
 
-    </div>
-      <script>
+    // 1. Safety check for Firestore connection
+    if (!window.db) {
+        console.warn("Database not initialized. Falling back to local vault data.");
+        container.innerHTML = "<p>Offline mode: Showing local vault repository.</p>";
+        return;
+    }
+
+    const today = new Date();
+    const dateId = today.getFullYear() + "-" + 
+                   String(today.getMonth() + 1).padStart(2, '0') + "-" + 
+                   String(today.getDate()).padStart(2, '0');
+
+    try {
+        const docRef = window.db.collection("daily_articles").doc(dateId);
+        const docSnap = await docRef.get();
+
+        if (docSnap.exists) {
+            const data = docSnap.data();
+            const articles = data.articles || [];
+            
+            if (articles.length > 0) {
+                let htmlContent = "";
+                window.currentNewsText = ""; 
+
+                articles.forEach((article, index) => {
+                    // Normalize properties to support both automated and static formats
+                    const headline = article.Headline || article.title || "Untitled";
+                    const summary = article.Summary || article.summary || "";
+
+                    window.currentNewsText += `${headline}. ${summary} `;
+                    htmlContent += `
+                        <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <strong style="color: #f8fafc; display: block; margin-bottom: 4px;">${index + 1}. ${headline}</strong>
+                            <p style="margin: 0; color: #94a3b8; line-height: 1.4;">${summary}</p>
+                        </div>
+                    `;
+                });
+                container.innerHTML = htmlContent;
+                return;
+            }
+        }
+
+        // 2. Fallback if today's document isn't published yet
+        container.innerHTML = "<p>Today's curated brief hasn't been published by the automated pipeline yet. Check back soon!</p>";
+
+    } catch (error) {
+        console.error("Error loading home news feed:", error);
+        container.innerHTML = "<p>Unable to connect to live news feed. Please check your network.</p>";
+    }
+}
+
+window.playAudioBrief = function() {
+    if (!window.currentNewsText) {
+        alert("News content is still loading or unavailable.");
+        return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(window.currentNewsText);
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+    window.speechSynthesis.speak(utterance);
+};
+
+// Wait for the window to load so Firebase has time to initialize
+window.addEventListener('load', () => {
+    // Slight delay to ensure window.db is populated by the other script
+    setTimeout(loadHomeCurrentAffairs, 500); 
+});
     /* ==========================================================================
        FIREBASE CONFIGURATION
        ========================================================================== */
@@ -1085,6 +1170,7 @@
       fbApp = firebase.initializeApp(firebaseConfig);
       fbAuth = firebase.auth();
       fbDb = firebase.firestore();
+      window.db = fbDb; 
       console.log("✓ Firebase successfully connected");
     } catch (e) {
       console.log("Firebase initialized in local/offline fallback mode.");
@@ -1489,19 +1575,26 @@
         { t: "INS Arighat Commissioned into Indian Navy", c: "Science & Defence", d: "2026-08-29", f: "India's second nuclear-powered ballistic missile submarine enters service.", s: "Ministry of Defence", k: "INS Arighat | SSBN | Indian Navy" },
         { t: "G20 Digital Economy Ministers Meet in Bengaluru", c: "International Affairs", d: "2026-08-18", f: "Focus on DPI (Digital Public Infrastructure) and global cybersecurity.", s: "MeitY", k: "G20 Digital Economy | Bengaluru | DPI" },
         { t: "PM PRANAM Scheme Rolled Out Nationwide for Alternative Fertilizers", c: "Government Schemes", d: "2026-08-05", f: "Incentivizes states to promote alternative fertilizers and reduce chemical use.", s: "Ministry of Chemicals", k: "PM PRANAM | Alternative Fertilizers" },
-        { t: "Duleep Trophy 2026 Won by South Zone", c: "Sports & Awards", d: "2026-08-30", f: "South Zone defeats West Zone by 75 runs to lift the domestic cricket title.", s: "BCCI", k: "Duleep Trophy 2026 | South Zone Winner" }
-      ],
-      "Jul 2026": [
-        { t: "India-Japan Conduct Maritime Exercise JIMEX 2026", c: "Science & Defence", d: "2026-07-12", f: "Bilateral naval exercise held in the Bay of Bengal focusing on interoperability.", s: "Indian Navy", k: "JIMEX 2026 | India-Japan | Bay of Bengal" },
-        { t: "PM Kisan Samman Nidhi 17th Installment Released", c: "Government Schemes", d: "2026-07-18", f: "Over ₹20,000 crore directly transferred to 9.5 crore beneficiary farmers.", s: "Ministry of Agriculture", k: "PM KISAN 17th Installment | ₹20,000 Crore" },
-        { t: "NITI Aayog Releases Export Preparedness Index 2026", c: "Reports & Indexes", d: "2026-07-22", f: "Tamil Nadu tops the index followed by Maharashtra and Gujarat.", s: "NITI Aayog", k: "Export Preparedness Index | Tamil Nadu Tops" },
-        { t: "Indian Army Inducts Hermes 900 Starliner Drones", c: "Science & Defence", d: "2026-07-15", f: "Advanced MALE UAVs inducted to boost surveillance along northern borders.", s: "Ministry of Defence", k: "Hermes 900 Drones | Indian Army Surveillance" },
-        { t: "UNEP Releases Global Emission Gap Report 2026", c: "Environment", d: "2026-07-28", f: "Warns that current climate pledges lead to a 2.5°C temperature rise.", s: "UNEP", k: "Emission Gap Report | UNEP | 2.5°C Warning" },
-        { t: "Max Verstappen Wins British Grand Prix 2026", c: "Sports & Awards", d: "2026-07-05", f: "Red Bull driver secures victory at the Silverstone Circuit.", s: "Formula 1", k: "British Grand Prix 2026 | Max Verstappen" },
-        { t: "Lokmanya Tilak National Award Conferred on Dr. K. Sivan", c: "Sports & Awards", d: "2026-07-31", f: "Former ISRO Chairman honored for contributions to India's space program.", s: "Tilak Smarak Trust", k: "Lokmanya Tilak Award | Dr. K. Sivan" },
-        { t: "India's Forex Reserves Cross Historic $700 Billion Mark", c: "Economy", d: "2026-07-25", f: "Foreign exchange reserves hit an all-time high amid strong FPI inflows.", s: "RBI", k: "Forex Reserves | $700 Billion Mark" },
-        { t: "Kargil Vijay Diwas Celebrated Across India", c: "Health, Welfare & Culture", d: "2026-07-26", f: "Commemorates India's victory in the 1999 Kargil War.", s: "Ministry of Defence", k: "Kargil Vijay Diwas | 26 July | 1999 War" },
-        { t: "New Chief Election Commissioner Assumes Office", c: "Appointments", d: "2026-07-02", f: "Senior IAS officer takes charge as the head of the Election Commission.", s: "Election Commission", k: "Chief Election Commissioner | Article 324" }
+        { t: "Duleep Trophy 2026 Won by South Zone", c: "Sports & Awards", d: "2026-08-30", f: "South Zone defeats West Zone by 75 runs to lift the domestic cricket title.", s: "BCCI", k: "Duleep Trophy 2026 | South Zone Winner" },
+        // aug 25 to 30 
+   { t: "McLaren driver Lando Norris wins Formula One Dutch Grand Prix 2026 at Circuit Zandvoort", c: "Sports", d: "2026-08-30", f: "Norris dominated the race from pole position, securing maximum championship points for McLaren.", s: "Formula 1", k: "Winner: Lando Norris (McLaren) | Venue: Circuit Zandvoort" },
+        { t: "East Bengal FC wins prestigious Durand Cup 2026 football tournament title", c: "Sports", d: "2026-08-30", f: "East Bengal FC lifted the historic trophy, adding another title to their legacy in Asia's oldest football tournament.", s: "Durand Cup Media", k: "Durand Cup is Asia's oldest existing football tournament (Est. 1888)" },
+        { t: "Renowned Odia poet Ashutosh Parida selected for 47th Sarala Puraskar", c: "Awards", d: "2026-08-29", f: "The annual literary award honors exceptional contributions to Odia literature.", s: "Literary Trust Odisha", k: "47th Sarala Puraskar | Winner: Ashutosh Parida | Work: Bishwas De Pruthwi" },
+        { t: "National Sports Day observed across India marking Major Dhyan Chand's birth anniversary", c: "Important Days", d: "2026-08-29", f: "Nationwide youth fitness initiatives were held across regional centers in memory of 'The Wizard of Hockey'.", s: "PIB Sports", k: "August 29 | Commemorates hockey legend Major Dhyan Chand" },
+        { t: "Department of Consumer Affairs notifies Legal Metrology (IST) Rules 2026", c: "National Affairs", d: "2026-08-28", f: "Standardizes all telecom networks, banking ledgers, and digital services to synchronize strictly with Indian Standard Time.", s: "Consumer Affairs", k: "Mandates IST tracking to CSIR-NPL atomic clocks" },
+        { t: "Government appoints three new part-time non-official directors to Central Board of RBI", c: "Economy", d: "2026-08-28", f: "Appointments were made under the RBI Act, 1934 to fill strategic policy and governance vacancies on the board.", s: "RBI Press Cell", k: "Appointed under Section 8 of the Reserve Bank of India Act, 1934" },
+        { t: "Scientists discover first subterranean fish species in Indo-Gangetic Basin", c: "Science & Technology", d: "2026-08-28", f: "The blind, pigmentless freshwater species was collected from deep aquifer borewells.", s: "Zoological Survey", k: "First subterranean fish in Indo-Gangetic Basin | Gangaichthys Indonepalicus" },
+        { t: "Punjab National Bank and Indian Army launch specialized 'PNB LUXURA Metal' credit cards", c: "Economy", d: "2026-08-28", f: "The specialized cards offer customized insurance covers and financial perks for serving and veteran personnel.", s: "PNB Media", k: "Partner: Indian Army | Variants: LUXURA Metal & Parakram" },
+        { t: "PM SVANidhi Scheme extended up to March 31, 2030 to support street vendors", c: "Government Schemes", d: "2026-08-27", f: "The government extended the micro-credit scheme to sustain collateral-free working capital loans.", s: "MoHUA Gazette", k: "Extended to March 31, 2030 | Nodal Ministry: MoHUA" },
+        { t: "India secures Dialogue Partner Status in 6th-gen Global Combat Air Program (GCAP)", c: "Defence", d: "2026-08-27", f: "Enhances aerospace cooperation and high-end aviation technology exchange with the UK, Japan, and Italy.", s: "Defence International", k: "Dialogue Partner Status | GCAP 6th-Gen Fighter Jet Program" },
+        { t: "CISF signs pact with Drone Federation of India to elevate counter-drone security", c: "Defence", d: "2026-08-27", f: "The alliance establishes standard operating protocols and indigenous anti-drone neutralization systems.", s: "CISF HQ", k: "CISF MoU with DFI | Airport & Infrastructure Security" },
+        { t: "WHO officially confirms elimination of type-2 poliovirus outbreaks across 5 African nations", c: "International Affairs", d: "2026-08-27", f: "Sustained immunization campaigns eradicated active circulating variant type-2 polio in the 5 nations.", s: "WHO Bulletin", k: "Cleared Nations: Burundi, Ghana, Guinea-Bissau, Congo, Uganda" },
+        { t: "10th Taiwan-India Industrial Collaboration Summit held in Bengaluru", c: "International Affairs", d: "2026-08-27", f: "Industry delegations agreed on technology transfer and joint electronics design laboratories.", s: "CII Press", k: "10th Edition | Host: Bengaluru | Focus: Semiconductor Ecosystem" },
+        { t: "Indian Army signs $93 million deal with USA to procure FGM-148 Javelin missiles", c: "Defence", d: "2026-08-26", f: "Procured via Foreign Military Sales to bolster infantry anti-armor strike readiness along borders.", s: "MoD Press Release", k: "$93M Contract | Supplier: USA | System: FGM-148 Javelin" },
+        { t: "Vice President launches 'Gnani Artha' sovereign AI stack", c: "Science & Technology", d: "2026-08-26", f: "The framework offers enterprise-grade LLM processing tailored for Indian languages and data sovereignty.", s: "PIB Tech", k: "Sovereign AI Stack: Gnani Artha | Models: Evon 3.3 & Plexus" },
+        { t: "Banaras Hindu University and CII partner to organize Banaras Biennale 2026", c: "National Affairs", d: "2026-08-26", f: "The cultural biennale showcases classical Indian artwork and modern installations along the ghats of Varanasi.", s: "Culture Ministry", k: "Organizers: BHU and CII | Location: Varanasi" },
+        { t: "Department of Legal Affairs establishes Mediation Council of India in New Delhi", c: "National Affairs", d: "2026-08-25", f: "The statutory body will register mediators and promote institutional mediation to reduce civil court backlogs.", s: "Ministry of Law", k: "Established under Mediation Act 2023 | Headquartered in New Delhi" },
+        { t: "Indian Coast Guard decommissions Fast Patrol Vessels Meera Behn and Subhadra Kumari Chauhan", c: "Defence", d: "2026-08-25", f: "Both vessels completed two decades of maritime boundary security and search-and-rescue operations.", s: "ICG Media", k: "Decommissioned FPVs: ICGS Meera Behn & ICGS Subhadra Kumari Chauhan" },
       ],
       "Jun 2026": [
         { t: "World Environment Day 2026 Hosted by Republic of Korea", c: "Environment", d: "2026-06-05", f: "Theme focused on 'Ending Plastic Pollution' with global commitments.", s: "UNEP", k: "World Environment Day | June 5 | Hosted by South Korea" },
@@ -1553,7 +1646,19 @@
       { id: "Q-AUG-040", month: "Aug 2026", batch: 4, category: "International Affairs", question: "Which Indian city hosted the G20 Digital Economy Ministers Meeting in 2026?", options: ["Hyderabad", "Bengaluru", "Chennai", "Pune"], answer: 1, explanation: "Bengaluru hosted the G20 Digital Economy Ministers meeting focusing on DPI.", articleId: "CA-2026-AUG-40" },
       { id: "Q-AUG-041", month: "Aug 2026", batch: 4, category: "Government Schemes", question: "The PM PRANAM scheme is primarily aimed at promoting the use of:", options: ["Electric Vehicles", "Solar Water Pumps", "Alternative Fertilizers", "Rural Broadband"], answer: 2, explanation: "PM PRANAM incentivizes states to promote alternative fertilizers.", articleId: "CA-2026-AUG-41" },
       { id: "Q-AUG-042", month: "Aug 2026", batch: 4, category: "Sports & Awards", question: "Which zone won the Duleep Trophy domestic cricket title in 2026?", options: ["North Zone", "West Zone", "South Zone", "East Zone"], answer: 2, explanation: "South Zone won the 2026 Duleep Trophy by defeating West Zone.", articleId: "CA-2026-AUG-42" },
-
+      // AUGUST 2026 - BATCH 5
+      { id: "Q-AUG-043", month: "Aug 2026", batch: 5, category: "Polity & Governance", question: "Which rule, notified by the Department of Consumer Affairs in August 2026, mandates a singular, common time reference across India for official digital time-stamping?", options: ["Indian Digital Stamp Act, 2026", "Legal Metrology (IST) Rules, 2026", "National Time Standardization Order, 2026", "Central Metrology Timepiece Regulation"], answer: 1, explanation: "The Legal Metrology (IST) Rules 2026 mandate Indian Standard Time (IST) as the singular reference for official and commercial digital time-stamping.", articleId: "CA-2026-AUG-38" },
+      { id: "Q-AUG-044", month: "Aug 2026", batch: 5, category: "Defence", question: "The Indian Army signed a USD 93 million deal to procure FGM-148 Javelin anti-tank guided missiles from which country?", options: ["France", "Russia", "USA", "Israel"], answer: 2, explanation: "The Indian Army signed a $93 million Foreign Military Sales agreement with the USA for FGM-148 Javelin missile systems.", articleId: "CA-2026-AUG-47" },
+      { id: "Q-AUG-045", month: "Aug 2026", batch: 5, category: "National Security", question: "Which organization signed a pact with the Drone Federation of India (DFI) in August 2026 to elevate counter-drone capabilities at sensitive locations like airports?", options: ["Central Industrial Security Force (CISF)", "National Security Guard (NSG)", "Border Security Force (BSF)", "Central Reserve Police Force (CRPF)"], answer: 0, explanation: "CISF partnered with the Drone Federation of India to boost anti-drone protection at airports and critical infrastructure.", articleId: "CA-2026-AUG-44" },
+      { id: "Q-AUG-046", month: "Aug 2026", batch: 5, category: "Science & Tech", question: "What is the scientific name of the first subterranean fish species discovered in the Indo-Gangetic Basin in August 2026?", options: ["Gangaichthys Indonepalicus", "Indonemacheilus Gangetica", "Basinus Subterraneus", "Gangesia Blindus"], answer: 0, explanation: "Gangaichthys Indonepalicus is the first subterranean underground-dwelling fish species found in deep aquifers of the Indo-Gangetic Basin.", articleId: "CA-2026-AUG-40" },
+      { id: "Q-AUG-047", month: "Aug 2026", batch: 5, category: "International & Health", question: "In August 2026, the World Health Organization (WHO) confirmed the closure of poliovirus type 2 outbreaks across five African nations. Which country is NOT one of those five?", options: ["Republic of the Congo", "Guinea-Bissau", "Burundi", "South Africa"], answer: 3, explanation: "The five cleared nations are Burundi, Ghana, Guinea-Bissau, Republic of the Congo, and Uganda. South Africa was not among them.", articleId: "CA-2026-AUG-45" },
+      { id: "Q-AUG-048", month: "Aug 2026", batch: 5, category: "Government Schemes", question: "The revamped PM SVANidhi (Prime Minister Street Vendor's AtmaNirbhar Nidhi) scheme has been extended by the government up to which date?", options: ["December 31, 2028", "March 31, 2032", "March 31, 2030", "June 30, 2029"], answer: 2, explanation: "The government extended the PM SVANidhi micro-credit scheme for street vendors up to March 31, 2030.", articleId: "CA-2026-AUG-42" },
+      { id: "Q-AUG-049", month: "Aug 2026", batch: 5, category: "Economy & Industry", question: "What is the total financial outlay approved for the Mobile Phone Manufacturing Scheme (MPMS) notified by MeitY to scale up handset manufacturing in India?", options: ["₹62,500 crore", "₹45,000 crore", "₹50,000 crore", "₹75,500 crore"], answer: 0, explanation: "MeitY notified the Mobile Phone Manufacturing Scheme (MPMS) with an outlay of ₹62,500 crore.", articleId: "CA-2026-AUG-34" },
+      { id: "Q-AUG-050", month: "Aug 2026", batch: 5, category: "National Affairs", question: "Where has the Department of Legal Affairs established the new Mediation Council of India under the Mediation Act, 2023?", options: ["Mumbai", "Bengaluru", "New Delhi", "Hyderabad"], answer: 2, explanation: "The Mediation Council of India was set up in New Delhi under the Mediation Act, 2023.", articleId: "CA-2026-AUG-50" },
+      { id: "Q-AUG-051", month: "Aug 2026", batch: 5, category: "Sports", question: "Who won the Formula One Dutch Grand Prix 2026 tournament held at the Zandvoort circuit?", options: ["Max Verstappen", "Lando Norris", "Lewis Hamilton", "Charles Leclerc"], answer: 1, explanation: "McLaren driver Lando Norris won the 2026 Formula One Dutch Grand Prix.", articleId: "CA-2026-AUG-33" },
+      { id: "Q-AUG-052", month: "Aug 2026", batch: 5, category: "Sports", question: "Which football club won the prestigious Durand Cup 2026 title?", options: ["NorthEast United FC", "Mohun Bagan SG", "East Bengal FC", "Mumbai City FC"], answer: 2, explanation: "East Bengal FC won the 2026 Durand Cup title, Asia's oldest football tournament.", articleId: "CA-2026-AUG-34" },
+      { id: "Q-AUG-053", month: "Aug 2026", batch: 5, category: "Awards & Honors", question: "Odia poet Ashutosh Parida has been selected for the 47th Sarala Puraskar for which of his notable poetry works?", options: ["Bishwas De Pruthwi", "Mati Swara", "Katha Kathan", "Sabda Niraba"], answer: 0, explanation: "Ashutosh Parida was chosen for the 47th Sarala Puraskar for his poetry work 'Bishwas De Pruthwi'.", articleId: "CA-2026-AUG-35" },
+      { id: "Q-AUG-054", month: "Aug 2026", batch: 5, category: "Important Days", question: "National Sports Day is observed annually across India on August 29 to commemorate the birth anniversary of which legendary sports personality?", options: ["Milkha Singh", "KD Jadhav", "Major Dhyan Chand", "Sunil Gavaskar"], answer: 2, explanation: "National Sports Day is celebrated every year on August 29 to honor hockey legend Major Dhyan Chand.", articleId: "CA-2026-AUG-36" },
       // JULY 2026 - BATCH 4
       { id: "Q-JUL-031", month: "Jul 2026", batch: 4, category: "Science & Defence", question: "JIMEX 2026 is a bilateral maritime exercise conducted between India and which country?", options: ["USA", "Japan", "Australia", "France"], answer: 1, explanation: "JIMEX is a bilateral naval exercise between India and Japan.", articleId: "CA-2026-JUL-31" },
       { id: "Q-JUL-032", month: "Jul 2026", batch: 4, category: "Government Schemes", question: "How much total financial support was distributed in the 17th installment of PM KISAN?", options: ["₹10,000 Crore", "₹15,000 Crore", "Over ₹20,000 Crore", "₹25,000 Crore"], answer: 2, explanation: "Over ₹20,000 crore was released under the 17th PM KISAN installment.", articleId: "CA-2026-JUL-32" },
@@ -1599,10 +1704,26 @@
       { id: "Q-APR-038", month: "Apr 2026", batch: 4, category: "Environment", question: "What was the official theme for Earth Day 2026?", options: ["Invest In Our Planet", "Restore Our Earth", "Planet vs. Plastics", "Climate Action Now"], answer: 2, explanation: "The theme for Earth Day 2026 was 'Planet vs. Plastics'.", articleId: "CA-2026-APR-38" },
       { id: "Q-APR-039", month: "Apr 2026", batch: 4, category: "Health, Welfare & Culture", question: "What was the theme for World Health Day celebrated on April 7, 2026?", options: ["Health for All", "My Health, My Right", "Building a Fairer World", "Our Planet, Our Health"], answer: 1, explanation: "The World Health Day 2026 theme was 'My Health, My Right'.", articleId: "CA-2026-APR-39" },
       { id: "Q-APR-040", month: "Apr 2026", batch: 4, category: "Sports & Awards", question: "Who won the prestigious 2026 Masters Tournament in golf?", options: ["Tiger Woods", "Rory McIlroy", "Scottie Scheffler", "Jon Rahm"], answer: 2, explanation: "Scottie Scheffler won the 2026 Masters Tournament.", articleId: "CA-2026-APR-40" },
-      { id: "Q-APR-041", month: "Apr 2026", batch: 4, category: "Health, Welfare & Culture", question: "The tragic Jallianwala Bagh massacre, commemorated every April 13, occurred in which year?", options: ["1905", "1919", "1922", "1931"], answer: 1, explanation: "The Jallianwala Bagh massacre occurred in 1919.", articleId: "CA-2026-APR-41" },
-      { id: "Q-APR-042", month: "Apr 2026", batch: 4, category: "Sports & Awards", question: "Who was conferred with the Lata Deenanath Mangeshkar Award in April 2026?", options: ["A.R. Rahman", "Amitabh Bachchan", "Asha Bhosle", "Shah Rukh Khan"], answer: 1, explanation: "Veteran actor Amitabh Bachchan received the Lata Deenanath Mangeshkar Award.", articleId: "CA-2026-APR-42" }
-    ];
+      ];
+function startStaticMock(monthString, batchNumber) {
+  // 1. Combine both your question arrays into one master list
+  let allQuestions = [];
+  if (typeof questionBank !== 'undefined') allQuestions.push(...questionBank);
+  if (typeof expansionQuestions !== 'undefined') allQuestions.push(...expansionQuestions);
 
+  // 2. Filter for the specific month and batch the user clicked
+  let targetQuestions = allQuestions.filter(q => q.month === monthString);
+  if (batchNumber) {
+    targetQuestions = targetQuestions.filter(q => q.batch === batchNumber);
+  }
+
+  // 3. Save ONLY the target questions to the browser's memory
+  localStorage.setItem("sharedQuestionBank", JSON.stringify(targetQuestions));
+  localStorage.setItem("targetMockTitle", `${monthString} - Batch ${batchNumber || 1}`);
+  
+// 4. Redirect to the test page with a special flag
+  window.location.href = "mock-test.html?mode=monthly";
+}
     // 1. Inject into rawEventsData
     Object.keys(expansionEvents).forEach(mKey => {
       if(!rawEventsData[mKey]) rawEventsData[mKey] = [];
@@ -1650,6 +1771,12 @@
       if (!id) return null;
       const cleanId = sanitizeId(id);
       
+      // 👉 NEW: Check the user's saved Ghost Articles FIRST before giving up!
+      if (typeof activeUser !== 'undefined' && activeUser && activeUser.autoNewsCache) {
+          const cachedArt = activeUser.autoNewsCache.find(a => sanitizeId(a.id) === cleanId);
+          if (cachedArt) return cachedArt;
+      }
+
       for (const m of Object.keys(currentAffairs)) {
         for (const a of currentAffairs[m]) {
           if (sanitizeId(a.id) === cleanId) return a;
@@ -1828,9 +1955,13 @@
               document.getElementById('authModal').classList.add('hidden');
               syncUserDataToUI();
               navigateToTab('home');
-            } else {
-              await firebase.auth().signOut();
-            }
+              syncUserDataToUI();
+            navigateToTab('home');
+            runDailyAutomationEngine(); // <--- ADD THIS LINE HERE
+        } else {
+            await firebase.auth().signOut();
+        
+            } 
           } catch (error) {
             console.error("Error loading user data:", error);
           }
@@ -1887,7 +2018,7 @@
       }
     }
 
-    async function handleAuthRegister(e) {
+async function handleAuthRegister(e) {
       e.preventDefault();
       const name = document.getElementById('regName').value.trim();
       const email = document.getElementById('regEmail').value.trim().toLowerCase();
@@ -1909,6 +2040,8 @@
           mockHistory: [],
           revisionQueue: [],
           mockMistakeQueue: [], 
+          autoMocksCache: [], 
+          autoNewsCache: [],  
           currentStreak: 0,
           highestStreak: 0,
           lastStudiedDate: null
@@ -2044,15 +2177,58 @@
       renderHomeScreen();
     }
 
-    function getDueSRSItems() {
-      if (!activeUser || !activeUser.revisionQueue) return [];
-      const today = getTodayDateString();
-      return activeUser.revisionQueue.filter(item => {
-        item.articleId = sanitizeId(item.articleId);
-        return item.articleId && getArticleById(item.articleId) && item.nextReviewDate <= today;
-      });
+function getDailyFallbackBoosters() {
+        if (!activeUser) return [];
+        
+        let allArticles = [];
+        Object.keys(currentAffairs).forEach(monthKey => {
+            if (currentAffairs[monthKey]) {
+                allArticles.push(...currentAffairs[monthKey]);
+            }
+        });
+
+        if (allArticles.length === 0) return [];
+
+        const todayStr = getTodayDateString();
+        let seed = 0;
+        for (let i = 0; i < todayStr.length; i++) {
+            seed += todayStr.charCodeAt(i);
+        }
+
+        const boosters = [];
+        for (let i = 0; i < 3; i++) {
+            const index = (seed + i * 7) % allArticles.length;
+            const art = allArticles[index];
+            if (art && !boosters.some(b => b.articleId === art.id)) {
+                boosters.push({
+                    articleId: art.id,
+                    stage: 0,
+                    isBooster: true,
+                    nextReviewDate: todayStr
+                });
+            }
+        }
+        return boosters;
     }
 
+    function getDueSRSItems() {
+        if (!activeUser) return [];
+        const today = getTodayDateString();
+        
+        // 1. Get genuine due SRS items
+        let dueItems = (activeUser.revisionQueue || []).filter(item => {
+            item.articleId = sanitizeId(item.articleId);
+            return item.articleId && getArticleById(item.articleId) && item.nextReviewDate <= today;
+        });
+
+        // 2. FALLBACK: If nothing is due and there are no mock mistakes, load daily general knowledge boosters!
+        const mockMistakes = activeUser.mockMistakeQueue || [];
+        if (dueItems.length === 0 && mockMistakes.length === 0) {
+            return getDailyFallbackBoosters();
+        }
+
+        return dueItems;
+    }
     function normalizeUserRevisionData() {
       if (!activeUser) return;
       activeUser.revisionQueue = (activeUser.revisionQueue || [])
@@ -2309,7 +2485,18 @@
 
       const revContainer = document.getElementById('quickRevisionContainer');
       revContainer.innerHTML = '';
-      const sample = (currentAffairs["Aug 2026"] || []).slice(0, 3);
+    
+   
+      // Automatically grab the most recent month instead of hardcoding
+      const latestMonth = monthsList[0]; 
+      const allCurrentMonth = currentAffairs[latestMonth] || [];
+      
+      // Filter to ensure they are strictly SSC focused
+      const sscFocused = allCurrentMonth.filter(art => art.importantFor && art.importantFor.some(e => e.includes("SSC")));
+      
+      // Pull the top 10 instead of 3
+      const sample = sscFocused.slice(0, 10);
+      
       sample.forEach(art => {
         const el = document.createElement('div');
         el.className = 'remember-card';
@@ -2320,7 +2507,6 @@
         revContainer.appendChild(el);
       });
     }
-
     /* ==========================================================================
        G. VAULT & FILTERS
        ========================================================================== */
@@ -2379,7 +2565,7 @@
           art.quickRemember.toLowerCase().includes(currentSearchTerm);
         return catMatch && examMatch && searchMatch;
       });
-
+      filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
       if (filtered.length === 0) {
         feed.innerHTML = `<div style="text-align:center; padding:30px 10px; font-size:0.8rem; color:var(--text-muted);">No current affairs found matching filters for ${activeMonthFilter}.</div>`;
         return;
@@ -2565,7 +2751,7 @@
             <div style="font-weight:700; font-size:0.88rem;">${selectedMockMonth} - Mock Batch ${b}</div>
             <div style="font-size:0.72rem; color:var(--text-muted);">${bQuestions.length} Questions • Full Explanations • Timer</div>
           </div>
-          <button class="btn-action primary" style="flex:0; padding:6px 12px;" onclick="startMockBatch(${b}, '${selectedMockMonth} - Mock Batch ${b}')">Start →</button>
+          <button class="btn-action primary" style="flex:0; padding:6px 12px;" onclick="startStaticMock('${selectedMockMonth}', ${b})">Start &rarr;</button>
         `;
         listContainer.appendChild(card);
       }
@@ -2619,28 +2805,58 @@
     }
 
     function selectMockAnswer(btnEl, idx) {
-      if (selectedMockOption !== null) return;
-      selectedMockOption = idx;
-      const q = mockQuestionsPool[mockQIndex];
-      const allBtns = document.querySelectorAll('.option-btn');
+    if (selectedMockOption !== null) return;
+    selectedMockOption = idx;
+    const q = mockQuestionsPool[mockQIndex];
+    const allBtns = document.querySelectorAll('.option-btn');
 
-      if (idx === q.answer) {
+    if (idx === q.answer) {
         btnEl.classList.add('correct');
         mockScore++;
-      } else {
+    } else {
         btnEl.classList.add('wrong');
-        allBtns[q.answer].classList.add('correct');
+        // Safely light up the correct answer
+        if (allBtns[q.answer]) allBtns[q.answer].classList.add('correct');
+        
         mockMistakes.push({ topic: q.category, question: q.question, articleId: q.articleId });
         
+        // MISSING ARTICLE GENERATOR (Permanent fallback for any month)
         if (q.articleId) {
-           const art = getArticleById(q.articleId);
-           if (art) addMockMistakeRevision(art.id);
+            let art = getArticleById(q.articleId);
+            if (!art) {
+                art = {
+                    id: q.articleId,
+                    date: q.injectedDate || getTodayDateString(),
+                    month: q.month,
+                    category: q.category || "Mock Mistake",
+                    title: "Revision: " + (q.category || "General Topic"),
+                    summary: q.question,
+                    whatHappened: `You answered this mock question incorrectly.\n\n**Question:** ${q.question}\n\n**Correct Explanation:** ${q.explanation || 'Please review this topic.'}`,
+                    importantPoints: [q.question, q.explanation || "Focus on this topic."],
+                    examFacts: ["Added from Daily Mock Test Mistakes"],
+                    quickRemember: q.explanation || "Review required.",
+                    audioText: `Question: ${q.question}. Explanation: ${q.explanation}`,
+                    source: "PrepRecall Auto-Generator",
+                    importantFor: ["SSC CGL", "SSC CHSL", "CDS", "UPSC"]
+                };
+                
+                if (!currentAffairs[q.month]) currentAffairs[q.month] = [];
+                currentAffairs[q.month].unshift(art);
+                
+                if (typeof activeUser !== 'undefined' && activeUser) {
+                    if (!activeUser.autoNewsCache) activeUser.autoNewsCache = [];
+                    activeUser.autoNewsCache.unshift(art);
+                    saveActiveUser();
+                }
+            }
+            if (typeof addMockMistakeRevision === 'function') {
+                addMockMistakeRevision(art.id);
+            }
         }
-      }
-      document.getElementById('mockExplanationText').innerText = q.explanation;
-      document.getElementById('instantExplanationBox').classList.remove('hidden');
     }
-
+    document.getElementById('mockExplanationText').innerText = q.explanation || "No explanation provided.";
+    document.getElementById('instantExplanationBox').classList.remove('hidden');
+}
     function handleNextMockQuestion() {
       if (selectedMockOption === null) { alert("Please select an option to continue."); return; }
       mockQIndex++;
@@ -2680,11 +2896,13 @@
         const row = document.createElement('div');
         row.className = 'cat-perf-row';
         row.innerHTML = `
-          <div style="display:flex; justify-content:space-between;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
             <span>${cName} (${cStat.correct}/${cStat.total})</span>
-            <span style="font-weight:700;">${cAcc}%</span>
+            <span style="font-weight: 700;">${cAcc}%</span>
           </div>
-          <div class="cat-perf-bar-bg"><div class="cat-perf-bar-fill" style="width: ${cAcc}%;"></div></div>
+          <div class="cat-perf-bar-bg" style="background: rgba(255,255,255,0.1); border-radius: 4px; height: 8px; overflow: hidden;">
+            <div class="cat-perf-bar-fill" style="width: ${cAcc}%; background: #0ea5e9; height: 100%;"></div>
+          </div>
         `;
         catBreakdownContainer.appendChild(row);
       });
@@ -2802,14 +3020,182 @@
       }
     }
 
-    /* ==========================================================================
-       K. INITIALIZATION
+   /* ==========================================================================
+       K. INITIALIZATION & AUTOMATION ENGINE
        ========================================================================== */
-    window.addEventListener('DOMContentLoaded', () => {
-      validateMockDataset();
-      initUserSession();
+    async function runDailyAutomationEngine() {
+    if (!window.db) return;
+
+    // 1. PULL CACHE
+    let autoMocksCache = (activeUser && activeUser.autoMocksCache) ? activeUser.autoMocksCache : JSON.parse(localStorage.getItem('prepRecall_autoMocks') || '[]');
+    let autoNewsCache = (activeUser && activeUser.autoNewsCache) ? activeUser.autoNewsCache : JSON.parse(localStorage.getItem('prepRecall_autoNews') || '[]');
+
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    const initialMockCount = autoMocksCache.length;
+    const initialNewsCount = autoNewsCache.length;
+
+    autoMocksCache = autoMocksCache.filter(q => new Date(q.injectedDate) >= sixMonthsAgo);
+    autoNewsCache = autoNewsCache.filter(art => new Date(art.date) >= sixMonthsAgo);
+    let needsSave = (autoMocksCache.length !== initialMockCount || autoNewsCache.length !== initialNewsCount);
+
+    autoMocksCache.forEach(q => {
+        if (!monthsList.includes(q.month)) monthsList.unshift(q.month);
+        if (!questionBank.some(existing => existing.id === q.id)) questionBank.push(q);
     });
-</script>
+
+    autoNewsCache.forEach(art => {
+        if (!monthsList.includes(art.month)) monthsList.unshift(art.month);
+        if (!currentAffairs[art.month]) currentAffairs[art.month] = [];
+        if (!currentAffairs[art.month].some(a => a.id === art.id)) currentAffairs[art.month].push(art);
+    });
+
+    // 2. AUTOMATIC MONTH GENERATOR
+    const today = new Date();
+    const currentMonthStr = today.toLocaleString('default', { month: 'short' }) + ' ' + today.getFullYear();
+    if (!monthsList.includes(currentMonthStr)) {
+        monthsList.unshift(currentMonthStr);
+        if (!currentAffairs[currentMonthStr]) currentAffairs[currentMonthStr] = [];
+    }
+
+    // 3. FETCH LOOP (Last 5 days)
+    for (let i = 0; i <= 5; i++) {
+        let d = new Date();
+        d.setDate(d.getDate() - i);
+        let dateId = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, '0') + "-" + String(d.getDate()).padStart(2, '0');
+        let monthStr = d.toLocaleString('default', { month: 'short' }) + ' ' + d.getFullYear();
+
+        // A. FETCH MOCKS
+        try {
+            if (!autoMocksCache.some(q => q.injectedDate === dateId)) {
+                const mockSnap = await window.db.collection("daily_mocks").doc(dateId).get();
+                if (mockSnap.exists) {
+                    let data = mockSnap.data();
+                    let dailyQs = Array.isArray(data) ? data : (data.questions || Object.values(data).find(val => Array.isArray(val)) || []);
+                    
+                    if (dailyQs.length > 0) {
+                        if (!monthsList.includes(monthStr)) monthsList.unshift(monthStr);
+
+                        dailyQs.forEach((q, idx) => {
+                            // DYNAMIC BATCHING (Max 10 per batch, independent of month)
+                            const monthQuestions = questionBank.filter(mq => mq.month === monthStr);
+                            let targetBatch = 1;
+                            if (monthQuestions.length > 0) {
+                                const maxBatch = Math.max(...monthQuestions.map(mq => mq.batch));
+                                const currentBatchSize = monthQuestions.filter(mq => mq.batch === maxBatch).length;
+                                targetBatch = currentBatchSize < 10 ? maxBatch : maxBatch + 1;
+                            }
+
+                            // UNIVERSAL ANSWER TRANSLATOR
+                            let finalAnswer = 0;
+                            let rawAns = q.answer !== undefined ? q.answer : q.correctAnswer;
+                            
+                            if (typeof rawAns === 'number') {
+                                finalAnswer = rawAns;
+                            } else if (typeof rawAns === 'string') {
+                                let cleanAns = rawAns.trim().toUpperCase();
+                                if (cleanAns === "A" || cleanAns.startsWith("A)")) finalAnswer = 0;
+                                else if (cleanAns === "B" || cleanAns.startsWith("B)")) finalAnswer = 1;
+                                else if (cleanAns === "C" || cleanAns.startsWith("C)")) finalAnswer = 2;
+                                else if (cleanAns === "D" || cleanAns.startsWith("D)")) finalAnswer = 3;
+                                else if (q.options) {
+                                    let matchIdx = q.options.findIndex(opt => opt.toLowerCase().includes(rawAns.toLowerCase()));
+                                    if (matchIdx !== -1) finalAnswer = matchIdx;
+                                }
+                            }
+
+                            const newQ = { 
+                                ...q, 
+                                id: `Q-AUTO-${dateId}-${idx}`, 
+                                month: monthStr, 
+                                batch: targetBatch, 
+                                injectedDate: dateId, 
+                                category: q.category || "General",
+                                answer: finalAnswer, 
+                                articleId: q.articleId || `CA-AUTO-${dateId}-${idx}`
+                            };
+                            questionBank.unshift(newQ);
+                            autoMocksCache.unshift(newQ);
+                        });
+                        needsSave = true;
+                    }
+                }
+            }
+        } catch (e) { console.error("Error fetching daily mocks:", e); }
+
+        // B. FETCH NEWS
+        try {
+            if (!autoNewsCache.some(a => a.date === dateId)) {
+                const newsSnap = await window.db.collection("daily_articles").doc(dateId).get();
+                if (newsSnap.exists) {
+                    let data = newsSnap.data();
+                    let articles = data.articles || [];
+                    
+                    if (articles.length > 0) {
+                        if (!monthsList.includes(monthStr)) { 
+                            monthsList.unshift(monthStr); 
+                            currentAffairs[monthStr] = []; 
+                        }
+
+                        articles.forEach((article, idx) => {
+                            const headline = article.Headline || article.title || "Untitled";
+                            const summary = article.Summary || article.summary || "";
+                            const newArt = {
+                                id: `CA-AUTO-${dateId}-${idx}`, 
+                                date: dateId, 
+                                month: monthStr, 
+                                category: article.Category || "National Affairs",
+                                title: headline, 
+                                summary: summary, 
+                                whatHappened: summary, 
+                                importantPoints: [headline, summary], 
+                                examFacts: ["Sourced from Daily AI Feed"], 
+                                quickRemember: headline, 
+                                audioText: `${headline}. ${summary}`,
+                                source: "Daily AI Brief", 
+                                importantFor: ["SSC CGL", "SSC CHSL", "CDS", "UPSC"]
+                            };
+                            currentAffairs[monthStr].unshift(newArt);
+                            autoNewsCache.unshift(newArt);
+                        });
+                        needsSave = true;
+                    }
+                }
+            }
+        } catch (e) { console.error("Error fetching daily news:", e); }
+    }
+
+    // 4. SAVE & RENDER
+    if (needsSave) {
+        if (activeUser) {
+            activeUser.autoMocksCache = autoMocksCache;
+            activeUser.autoNewsCache = autoNewsCache;
+            saveActiveUser(); 
+        } else {
+            localStorage.setItem('prepRecall_autoMocks', JSON.stringify(autoMocksCache));
+            localStorage.setItem('prepRecall_autoNews', JSON.stringify(autoNewsCache));
+        }
+    }
+    
+    if (typeof renderVaultScreen === 'function') renderVaultScreen();
+    if (typeof renderMocksDirectory === 'function') renderMocksDirectory();
+    if (typeof renderHomeScreen === 'function') renderHomeScreen();
+}
+    // MAIN APP ENTRY POINT
+    window.addEventListener('DOMContentLoaded', () => {
+        // Safe startup sequence
+        if (typeof validateMockDataset === 'function') {
+            try { validateMockDataset(); } catch(e) { console.log("Validation skipped"); }
+        }
         
+        initUserSession();
+        
+        // Load your current affairs view/data function safely
+        if (typeof renderVaultScreen === 'function') {
+            renderVaultScreen();
+        }
+    });
+    </script>  
 </body>
 </html>
+   

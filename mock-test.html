@@ -3,338 +3,367 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily Mock Test - PrepRecall</title>
+  <title>Mock Test - PrepRecall</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #f1f5f9;
-      color: #334155;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      padding: 20px;
-    }
-
-    .top-nav {
-      max-width: 760px;
-      margin: 0 auto 1.5rem auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .back-link {
-      text-decoration: none;
-      color: #2563eb;
-      font-weight: 600;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-
-    .quiz-wrapper {
-      max-width: 760px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e2e8f0;
-    }
-
-    #quiz-header {
-      border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-
-    #quiz-title {
-      font-size: 1.6rem;
-      color: #0f172a;
-      margin-bottom: 0.25rem;
-    }
-
-    #quiz-date {
-      color: #64748b;
-      font-size: 0.95rem;
-    }
-
-    .status-msg {
-      margin-top: 1rem;
-      font-weight: 500;
-      color: #64748b;
-    }
-
-    .question-card {
-      margin-bottom: 1.75rem;
-      padding: 1.25rem;
-      background: #f8fafc;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .question-text {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .options-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .option-label {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.85rem 1rem;
-      background: #ffffff;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 0.95rem;
-      user-select: none;
-    }
-
-    .option-label:hover {
-      background: #f1f5f9;
-      border-color: #94a3b8;
-    }
-
-    .option-label input[type="radio"] {
-      accent-color: #2563eb;
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Result styles */
-    .option-label.correct {
-      background: #dcfce7 !important;
-      border-color: #22c55e !important;
-      color: #15803d;
-      font-weight: 600;
-    }
-
-    .option-label.incorrect {
-      background: #fee2e2 !important;
-      border-color: #ef4444 !important;
-      color: #b91c1c;
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 1rem;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      margin-top: 1rem;
-    }
-
-    .btn-submit:hover {
-      background: #1d4ed8;
-    }
-
-    .result-container {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    .score-display {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin: 1rem 0 1.5rem 0;
-    }
-
-    .btn-secondary {
-      padding: 0.75rem 1.5rem;
-      background: #e2e8f0;
-      color: #334155;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .btn-secondary:hover {
-      background: #cbd5e1;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: #0f172a; color: #f8fafc; padding: 20px; display: flex; justify-content: center; }
+    
+    .app-shell { width: 100%; max-width: 600px; }
+    
+    .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .back-link { text-decoration: none; color: #3b82f6; font-weight: 700; font-size: 1rem; }
+    
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+    
+    /* Timer & Header */
+    .test-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px; }
+    .test-title { font-size: 1.2rem; font-weight: 800; color: #fff; }
+    .timer-badge { background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
+    
+    /* Active Question UI */
+    .progress-text { font-size: 0.85rem; color: #94a3b8; margin-bottom: 10px; display: block; }
+    .question-text { font-size: 1.1rem; font-weight: 600; line-height: 1.5; margin-bottom: 20px; color: #e2e8f0; }
+    
+    .options-group { display: flex; flex-direction: column; gap: 10px; }
+    .option-btn { background: #0f172a; border: 1px solid #334155; padding: 14px 18px; border-radius: 8px; color: #cbd5e1; font-size: 1rem; text-align: left; cursor: pointer; transition: all 0.2s; }
+    .option-btn:hover { border-color: #3b82f6; }
+    
+    /* Result States */
+    .option-btn.selected { border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); }
+    .option-btn.correct { border-color: #22c55e !important; background: rgba(34, 197, 94, 0.15) !important; color: #86efac !important; font-weight: 700; }
+    .option-btn.wrong { border-color: #ef4444 !important; background: rgba(239, 68, 68, 0.15) !important; color: #fca5a5 !important; }
+    
+    .explanation-box { margin-top: 15px; padding: 12px; background: rgba(255,255,255,0.03); border-left: 3px solid #3b82f6; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.5; display: none; }
+    
+    .action-btn { width: 100%; padding: 14px; background: #3b82f6; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; margin-top: 20px; cursor: pointer; transition: 0.2s; }
+    .action-btn:disabled { background: #334155; color: #64748b; cursor: not-allowed; }
+    
+    /* Results Screen */
+    .score-circle { text-align: center; padding: 20px 0; }
+    .score-big { font-size: 3rem; font-weight: 800; color: #3b82f6; }
+    .weak-topic-item { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); padding: 10px; border-radius: 8px; margin-bottom: 8px; font-size: 0.85rem; color: #fca5a5; }
+    
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
 
-  <div class="top-nav">
-    <a href="index.html" class="back-link">&larr; Back to Home</a>
-  </div>
-
-  <div class="quiz-wrapper">
-    <div id="quiz-header">
-      <h1 id="quiz-title">Daily Mock Test</h1>
-      <p id="quiz-date"></p>
-      <div id="quiz-status" class="status-msg">Loading today's test...</div>
+  <div class="app-shell">
+    <div class="top-nav">
+      <a href="index.html" class="back-link">&larr; Back to Dashboard</a>
     </div>
 
-    <div id="quiz-container" style="display: none;">
-      <div id="questions-list"></div>
-      <button id="submit-quiz-btn" class="btn-submit">Submit Mock Test</button>
+    <!-- 1. LOADING SCREEN -->
+    <div id="loading-screen" class="card" style="text-align: center; padding: 40px 20px;">
+      <h2 style="color: #94a3b8;" id="loading-text">Loading secure test environment...</h2>
     </div>
 
-    <div id="result-container" class="result-container" style="display: none;">
-      <h2>Test Summary</h2>
-      <p class="score-display">Your Score: <span id="user-score">0</span> / <span id="total-score">10</span></p>
-      <button class="btn-secondary" onclick="location.reload()">Retake Test</button>
+    <!-- 2. ACTIVE TEST SCREEN -->
+    <div id="active-test-screen" class="card hidden">
+      <div class="test-header">
+        <div class="test-title" id="test-title-display">Mock Test</div>
+        <div class="timer-badge" id="timer-display">⏱ 00:00</div>
+      </div>
+      
+      <span class="progress-text" id="question-progress">Question 1 of 10</span>
+      <div class="question-text" id="question-text">Question loading...</div>
+      
+      <div class="options-group" id="options-container"></div>
+      
+      <div class="explanation-box" id="explanation-box"></div>
+      
+      <button class="action-btn" id="next-btn" disabled onclick="submitAnswer()">Submit Answer</button>
     </div>
+
+    <!-- 3. RESULTS SCREEN -->
+    <div id="results-screen" class="card hidden">
+      <h2 style="text-align:center; color: #fff; margin-bottom: 10px;">Test Complete!</h2>
+      <div class="score-circle">
+        <div class="score-big" id="final-score">0/10</div>
+        <div style="color: #94a3b8; margin-top: 5px;" id="final-accuracy">Accuracy: 0% • Time: 00:00</div>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <h4 style="color: #f8fafc; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 10px;">⚠️ Weak Topics to Revise</h4>
+        <div id="weak-topics-list"></div>
+      </div>
+      
+      <p style="text-align:center; font-size:0.8rem; color:#22c55e; margin-top:15px;">✓ Results synced to Progress Tab & Revision Engine</p>
+      <button class="action-btn" onclick="window.location.href='index.html'">Return to Home</button>
+    </div>
+
   </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-    // Insert your Firebase web project configuration
     const firebaseConfig = {
       apiKey: "AIzaSyCt5_Ptpky19EcZrhZkBZKz9BVJnsJGfDg",
       authDomain: "preprecall-94a8d.firebaseapp.com",
       projectId: "preprecall-94a8d",
       storageBucket: "preprecall-94a8d.firebasestorage.app",
       messagingSenderId: "101540367024",
-      appId: "1:101540367024:web:0dfa73da6518b90e5a4975",
-      measurementId: "G-W93HM3DNQZ"
+      appId: "1:101540367024:web:0dfa73da6518b90e5a4975"
     };
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const auth = getAuth(app);
 
-    function getTodayDocId() {
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = String(today.getMonth() + 1).padStart(2, '0');
-      const day = String(today.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    }
-
+    // State Variables
     let mockQuestions = [];
+    let currentQIndex = 0;
+    let score = 0;
+    let mistakes = []; 
+    let selectedOptionIndex = null;
+    let testTitle = "Daily Mock Test";
+    
+    // Timer Variables
+    let startTime = 0;
+    let timerInterval = null;
+    let finalTimeStr = "00:00";
 
-    async function loadDailyMock() {
-      const dateId = getTodayDocId();
-      const dateLabel = document.getElementById("quiz-date");
-      const statusMsg = document.getElementById("quiz-status");
-      const quizContainer = document.getElementById("quiz-container");
+    // Track User for Data Syncing
+    let currentUserUid = 'guest';
+    onAuthStateChanged(auth, (user) => {
+      if (user) currentUserUid = user.uid;
+    });
 
-      dateLabel.textContent = `Date: ${dateId}`;
+    // 1. INITIALIZATION & TRAFFIC COP
+    async function loadTest() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const isMonthlyMode = urlParams.get('mode') === 'monthly';
+
+      if (isMonthlyMode) {
+        const savedBank = JSON.parse(localStorage.getItem("sharedQuestionBank") || "[]");
+        testTitle = localStorage.getItem("targetMockTitle") || "Monthly Mock Test";
+        mockQuestions = savedBank.slice(0, 10);
+        
+        if (mockQuestions.length > 0) {
+          startUI();
+        } else {
+          document.getElementById("loading-text").innerText = "Error: No questions found in memory.";
+        }
+        return;
+      }
+
+      // Fetch from Firebase for Daily Automated Test
+      const today = new Date();
+      const dateId = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      testTitle = `Daily Mock - ${dateId}`;
 
       try {
-        const docRef = doc(db, "daily_mocks", dateId);
-        const docSnap = await getDoc(docRef);
-
+        const docSnap = await getDoc(doc(db, "daily_mocks", dateId));
         if (docSnap.exists()) {
           const data = docSnap.data();
-          mockQuestions = data.questions || (Array.isArray(data) ? data : Object.values(data));
-
-          if (mockQuestions.length > 0) {
-            statusMsg.style.display = "none";
-            renderQuiz(mockQuestions);
-            quizContainer.style.display = "block";
-          } else {
-            statusMsg.textContent = "No questions found inside today's test record.";
-          }
+          mockQuestions = Array.isArray(data) ? data : (data.questions || []);
+        }
+        
+        if (mockQuestions.length > 0) {
+          startUI();
         } else {
-          statusMsg.textContent = "Today's mock test has not been generated yet. Please check back later!";
+          document.getElementById("loading-text").innerText = "No automated test available for today yet.";
         }
       } catch (error) {
-        console.error("Error loading test:", error);
-        statusMsg.textContent = "Unable to connect to the database. Please try refreshing.";
+        document.getElementById("loading-text").innerText = "Network Error loading test.";
       }
     }
 
-    function renderQuiz(questions) {
-      const container = document.getElementById("questions-list");
-      container.innerHTML = "";
+    // 2. START THE TEST
+    function startUI() {
+      document.getElementById('loading-screen').classList.add('hidden');
+      document.getElementById('active-test-screen').classList.remove('hidden');
+      document.getElementById('test-title-display').innerText = testTitle;
+      
+      startTime = Date.now();
+      timerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        const mins = String(Math.floor(elapsed / 60)).padStart(2, '0');
+        const secs = String(elapsed % 60).padStart(2, '0');
+        finalTimeStr = `${mins}:${secs}`;
+        document.getElementById('timer-display').innerText = `⏱ ${finalTimeStr}`;
+      }, 1000);
 
-      questions.forEach((q, index) => {
-        const card = document.createElement("div");
-        card.className = "question-card";
+      renderQuestion();
+    }
 
-        card.innerHTML = `
-          <div class="question-text">${index + 1}. ${q.question}</div>
-          <div class="options-group">
-            <label class="option-label" id="label-${index}-A">
-              <input type="radio" name="question-${index}" value="A">
-              <span>A) ${q.optionA}</span>
-            </label>
-            <label class="option-label" id="label-${index}-B">
-              <input type="radio" name="question-${index}" value="B">
-              <span>B) ${q.optionB}</span>
-            </label>
-            <label class="option-label" id="label-${index}-C">
-              <input type="radio" name="question-${index}" value="C">
-              <span>C) ${q.optionC}</span>
-            </label>
-            <label class="option-label" id="label-${index}-D">
-              <input type="radio" name="question-${index}" value="D">
-              <span>D) ${q.optionD}</span>
-            </label>
-          </div>
-        `;
-        container.appendChild(card);
+    // 3. RENDER ONE QUESTION
+    function renderQuestion() {
+      selectedOptionIndex = null;
+      const q = mockQuestions[currentQIndex];
+      
+      document.getElementById('question-progress').innerText = `Question ${currentQIndex + 1} of ${mockQuestions.length}`;
+      document.getElementById('question-text').innerText = q.question;
+      document.getElementById('explanation-box').style.display = 'none';
+      
+      const btn = document.getElementById('next-btn');
+      btn.innerText = "Submit Answer";
+      btn.disabled = true;
+      btn.onclick = submitAnswer;
+
+      const optsBox = document.getElementById('options-container');
+      optsBox.innerHTML = '';
+      
+      const optionsArray = q.options ? q.options : [q.optionA, q.optionB, q.optionC, q.optionD];
+      
+      optionsArray.forEach((optText, idx) => {
+        if(!optText) return;
+        const optBtn = document.createElement('button');
+        optBtn.className = 'option-btn';
+        optBtn.innerText = `${String.fromCharCode(65 + idx)}) ${optText}`;
+        optBtn.onclick = () => selectOption(optBtn, idx);
+        optsBox.appendChild(optBtn);
       });
     }
 
-    function submitQuiz() {
-      let score = 0;
+    // 4. SELECT AN OPTION
+    function selectOption(btnEl, idx) {
+      if (document.getElementById('next-btn').innerText !== "Submit Answer") return; 
+      
+      selectedOptionIndex = idx;
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btnEl.classList.add('selected');
+      document.getElementById('next-btn').disabled = false;
+    }
 
-      mockQuestions.forEach((q, index) => {
-        const selected = document.querySelector(`input[name="question-${index}"]:checked`);
-        const correctKey = (q.correctAnswer || "").trim().toUpperCase();
+    // 5. SUBMIT ANSWER & SHOW EXPLANATION
+    window.submitAnswer = function() {
+      const q = mockQuestions[currentQIndex];
+      const allBtns = document.querySelectorAll('.option-btn');
+      
+      // --- UNIVERSAL ANSWER TRANSLATOR ---
+      let correctIdx = 0;
+      let rawAns = q.answer !== undefined ? q.answer : q.correctAnswer;
+      
+      if (typeof rawAns === 'number') {
+          correctIdx = rawAns;
+      } else if (typeof rawAns === 'string') {
+          let cleanAns = rawAns.trim().toUpperCase();
+          if (cleanAns === "A" || cleanAns.startsWith("A)")) correctIdx = 0;
+          else if (cleanAns === "B" || cleanAns.startsWith("B)")) correctIdx = 1;
+          else if (cleanAns === "C" || cleanAns.startsWith("C)")) correctIdx = 2;
+          else if (cleanAns === "D" || cleanAns.startsWith("D)")) correctIdx = 3;
+          else {
+              const opts = q.options ? q.options : [q.optionA, q.optionB, q.optionC, q.optionD];
+              let match = opts.findIndex(opt => opt && opt.toLowerCase().includes(rawAns.toLowerCase()));
+              if(match !== -1) correctIdx = match;
+          }
+      }
 
-        document.querySelectorAll(`input[name="question-${index}"]`).forEach(input => {
-          input.disabled = true;
+      if (selectedOptionIndex === correctIdx) {
+        allBtns[selectedOptionIndex].classList.add('correct');
+        score++;
+      } else {
+        allBtns[selectedOptionIndex].classList.add('wrong');
+        if(allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct');
+        
+        // Pack all details so we can build a Ghost Article later if needed
+        mistakes.push({
+          topic: q.category || "General Knowledge",
+          questionText: q.question,
+          articleId: q.articleId || null,
+          explanation: q.explanation,
+          month: q.month,
+          date: q.injectedDate
         });
+      }
 
-        const correctLabel = document.getElementById(`label-${index}-${correctKey}`);
-        if (correctLabel) {
-          correctLabel.classList.add("correct");
-        }
+      const expBox = document.getElementById('explanation-box');
+      expBox.innerHTML = `<strong>💡 Explanation:</strong> ${q.explanation || "No explanation provided for this question."}`;
+      expBox.style.display = 'block';
 
-        if (selected) {
-          if (selected.value === correctKey) {
-            score++;
-          } else {
-            const wrongLabel = document.getElementById(`label-${index}-${selected.value}`);
-            if (wrongLabel) {
-              wrongLabel.classList.add("incorrect");
-            }
+      const btn = document.getElementById('next-btn');
+      btn.innerHTML = currentQIndex === mockQuestions.length - 1 ? "Finish Test" : "Next Question &rarr;";
+      btn.onclick = () => {
+        currentQIndex++;
+        if (currentQIndex < mockQuestions.length) renderQuestion();
+        else finishTest();
+      };
+    };
+
+    // 6. FINISH TEST & SYNC TO FIREBASE CLOUD
+    async function finishTest() {
+      clearInterval(timerInterval);
+      document.getElementById('active-test-screen').classList.add('hidden');
+      document.getElementById('results-screen').classList.remove('hidden');
+
+      const acc = Math.round((score / mockQuestions.length) * 100);
+      document.getElementById('final-score').innerText = `${score}/${mockQuestions.length}`;
+      document.getElementById('final-accuracy').innerText = `Accuracy: ${acc}% • Time: ${finalTimeStr}`;
+
+      const weakBox = document.getElementById('weak-topics-list');
+      if (mistakes.length === 0) {
+        weakBox.innerHTML = `<div style="color:#22c55e;">Perfect Score! No weak topics identified.</div>`;
+      } else {
+        mistakes.forEach(m => {
+          weakBox.innerHTML += `<div class="weak-topic-item"><strong>${m.topic}:</strong> ${m.questionText.substring(0,40)}...</div>`;
+        });
+      }
+
+      // Sync to local storage
+      const lsKey = `preprecall_user_${currentUserUid}`;
+      let userData = JSON.parse(localStorage.getItem(lsKey)) || {};
+      
+      if (!userData.mockHistory) userData.mockHistory = [];
+      if (!userData.mockMistakeQueue) userData.mockMistakeQueue = [];
+      if (!userData.autoNewsCache) userData.autoNewsCache = [];
+
+      userData.mockHistory.unshift({
+        mockTitle: testTitle,
+        date: new Date().toLocaleDateString('en-GB'),
+        score: score,
+        total: mockQuestions.length,
+        accuracy: acc,
+        timeTaken: finalTimeStr
+      });
+
+      mistakes.forEach(m => {
+        if (m.articleId) {
+          if (!userData.mockMistakeQueue.includes(m.articleId)) {
+            userData.mockMistakeQueue.push(m.articleId);
+          }
+          
+          // --- GHOST ARTICLE GENERATOR FOR MISSING FIREBASE ARTICLES ---
+          if (m.articleId.includes('AUTO') && !userData.autoNewsCache.some(a => a.id === m.articleId)) {
+              userData.autoNewsCache.unshift({
+                  id: m.articleId,
+                  date: m.date || new Date().toISOString().split('T')[0],
+                  month: m.month || "Unknown Month",
+                  category: m.topic || "Mock Mistake",
+                  title: "Revision: " + (m.topic || "General Topic"),
+                  summary: m.questionText,
+                  whatHappened: `You answered this mock question incorrectly.\n\n**Question:** ${m.questionText}\n\n**Correct Explanation:** ${m.explanation || 'Please review this topic.'}`,
+                  importantPoints: [m.questionText, m.explanation || "Focus on this topic."],
+                  examFacts: ["Added from Daily Mock Test Mistakes"],
+                  quickRemember: m.explanation || "Review required.",
+                  audioText: `Question: ${m.questionText}. Explanation: ${m.explanation}`,
+                  source: "PrepRecall Auto-Generator",
+                  importantFor: ["SSC CGL", "SSC CHSL", "CDS", "UPSC"]
+              });
           }
         }
       });
 
-      document.getElementById("submit-quiz-btn").style.display = "none";
-      document.getElementById("user-score").textContent = score;
-      document.getElementById("total-score").textContent = mockQuestions.length;
-      document.getElementById("result-container").style.display = "block";
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      localStorage.setItem(lsKey, JSON.stringify(userData));
+
+      // CLOUD SYNC: Overwrite Firebase document so index.html loads the new data instantly
+      if (currentUserUid !== 'guest') {
+         try {
+           await setDoc(doc(db, "users", currentUserUid), {
+             mockHistory: userData.mockHistory,
+             mockMistakeQueue: userData.mockMistakeQueue,
+             autoNewsCache: userData.autoNewsCache // <-- Saves the Ghost Article!
+           }, { merge: true });
+         } catch(error) {
+           console.error("Firebase Sync Error:", error);
+         }
+      }
     }
 
-    document.getElementById("submit-quiz-btn").addEventListener("click", submitQuiz);
-
-    loadDailyMock();
+    // Start everything
+    loadTest();
   </script>
 </body>
 </html>

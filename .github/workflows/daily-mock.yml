@@ -13,12 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 1. RUN YOUR EXISTING NODE.JS SCRIPT
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: Install Node dependencies
         run: npm install
 
       - name: Run Daily Generation Script
@@ -26,3 +27,17 @@ jobs:
           FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/generate-daily.js
+
+      # 2. RUN THE NEW PYTHON AUDIO SCRIPT
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python dependencies
+        run: pip install edge-tts firebase-admin
+
+      - name: Run Daily Audio Generation Script
+        env:
+          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+        run: python scripts/generate-audio.py
