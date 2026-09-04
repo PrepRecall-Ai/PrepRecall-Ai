@@ -22,11 +22,11 @@ async function generateDailyContent() {
 
   // generationConfig strictly forces the API to return clean JSON without Markdown tags
   const model = genAI.getGenerativeModel({ 
-    model: "gemini-1.5-flash", // Make sure you are using 1.5-flash or your desired current model
+    model: "gemini-3.6-flash",
     generationConfig: { responseMimeType: "application/json" }
   });
 
-  // Prompt enforces grounding and accuracy rules for the mock questions + AI Insight
+  // Prompt enforces grounding rules, mocks generation, and the new AI diagnostic insight
   const prompt = `
     You are an expert Indian SSC Exam content creator.
     Today's exact date is ${today} (Year is ${currentYear}). 
@@ -76,10 +76,9 @@ async function generateDailyContent() {
         console.log(`⏳ Requesting content from Gemini (Attempt ${attempt}/${maxRetries})...`);
         result = await model.generateContent(prompt);
         rawText = result.response.text();
-        break; // Success! Exit the retry loop
+        break; // Success! Exit retry loop
         
       } catch (error) {
-        // Safely extract error properties to catch SDK-hidden status codes
         const errString = `${error.message || ''} ${error.status || ''} ${error.statusCode || ''} ${JSON.stringify(error)}`;
         const is503 = errString.includes('503') || errString.includes('Service Unavailable');
         
@@ -88,16 +87,15 @@ async function generateDailyContent() {
           console.warn(`⚠️ [API 503] Server overloaded. Retrying in ${waitTime / 1000} seconds (Attempt ${attempt}/${maxRetries})...`);
           await delay(waitTime);
         } else {
-          // If it's a different error or out of retries, throw it down to the catch block
           throw error;
         }
       }
     }
       
-    // Parse JSON directly (no regex stripping needed due to responseMimeType setting)
+    // Parse JSON directly
     const data = JSON.parse(rawText);
 
-    // Pre-Database Validation Checks (Fails the GitHub Action if the AI makes a mistake)
+    // Pre-Database Validation Checks
     if (!data.articles || data.articles.length !== 10) {
       throw new Error(`Quality Check Failed: Expected 10 articles, got ${data.articles?.length || 0}`);
     }
@@ -105,14 +103,14 @@ async function generateDailyContent() {
       throw new Error(`Quality Check Failed: Expected 10 mocks, got ${data.mocks?.length || 0}`);
     }
 
-    // Verify that every correct answer literally exists in the options array
+    // Verify correct answers exist in options
     data.mocks.forEach((mock, index) => {
       if (!mock.options.includes(mock.correctAnswer)) {
         throw new Error(`Quality Check Failed: Mock Question ${index + 1} has a correctAnswer ("${mock.correctAnswer}") that does not exist in its options array.`);
       }
     });
 
-    // Push to Firestore if all checks pass
+    // Push all components to Firestore safely in a single batch
     const batch = db.batch();
 
     batch.set(db.collection('daily_mocks').doc(today), { questions: data.mocks, date: today });
@@ -122,7 +120,6 @@ async function generateDailyContent() {
       date: today 
     });
 
-    // Add the secure daily AI insight
     if (data.aiInsight) {
         batch.set(db.collection('daily_insights').doc(today), { 
           report: data.aiInsight, 
