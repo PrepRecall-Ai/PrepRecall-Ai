@@ -7,8 +7,13 @@ const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS || "{}");
 initializeApp({ credential: cert(serviceAccount) });
 const db = getFirestore();
 
-// Initialize Gemini
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+// Initialize Gemini with safety validation check
+const API_KEY = process.env.GEMINI_API_KEY;
+if (!API_KEY) {
+  console.error("CRITICAL ERROR: Gemini API key is missing from environment variables!");
+  process.exit(1);
+}
+const genAI = new GoogleGenerativeAI(API_KEY);
 
 async function generateDailyContent() {
   const today = new Date().toISOString().split('T')[0];
@@ -17,11 +22,11 @@ async function generateDailyContent() {
 
   // generationConfig strictly forces the API to return clean JSON without Markdown tags
   const model = genAI.getGenerativeModel({ 
-    model: "gemini-3.6-flash",
+    model: "gemini-1.5-flash", // Make sure you are using 1.5-flash or your desired current model
     generationConfig: { responseMimeType: "application/json" }
   });
 
-  // Prompt enforces grounding and accuracy rules for the mock questions
+  // Prompt enforces grounding and accuracy rules for the mock questions + AI Insight
   const prompt = `
     You are an expert Indian SSC Exam content creator.
     Today's exact date is ${today} (Year is ${currentYear}). 
@@ -35,6 +40,8 @@ async function generateDailyContent() {
     CRITICAL QUALITY CONTROL RULES FOR MOCKS:
     - GROUNDING: Do not invent facts or use outside knowledge. Every question MUST be answerable solely using the facts provided in the 'articles' array.
     - ACCURACY: The 'correctAnswer' string MUST be an exact, word-for-word match to one of the 4 strings inside the 'options' array.
+
+    Task 3: Generate a short, highly motivating 3-sentence expert daily diagnostic and study tip for SSC/CDS/UPSC aspirants. Highlight key focus areas based on today's current affairs and potential mock test pitfalls.
 
     Strictly use this exact JSON structure:
     {
@@ -50,7 +57,8 @@ async function generateDailyContent() {
           "explanation": "1-sentence explanation based on the article",
           "category": "String"
         }
-      ]
+      ],
+      "aiInsight": "Your 3-sentence expert diagnostic and study tip here."
     }
   `;
 
@@ -114,8 +122,16 @@ async function generateDailyContent() {
       date: today 
     });
 
+    // Add the secure daily AI insight
+    if (data.aiInsight) {
+        batch.set(db.collection('daily_insights').doc(today), { 
+          report: data.aiInsight, 
+          date: today 
+        });
+    }
+
     await batch.commit();
-    console.log(`✅ Successfully saved ${today} content to Firestore! (${data.articles.length} articles, ${data.mocks.length} mocks)`);
+    console.log(`✅ Successfully saved ${today} content and AI insight to Firestore! (${data.articles.length} articles, ${data.mocks.length} mocks)`);
 
   } catch (error) {
     console.error("❌ Error generating content:", error);

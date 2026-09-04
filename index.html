@@ -977,31 +977,53 @@
         </div>
       </div>
 
-      <!-- 🔴 AI DIAGNOSTIC UI (Properly Inserted) 🔴 -->
-      <div class="section-label" style="margin-top: 14px;">🤖 AI Performance Diagnostic</div>
-      <div class="quiz-card" style="border-color: var(--purple); padding: 14px;">
-        <div id="diagnostic-locked-view">
-          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">🔒 Unlock AI Weakness Report</div>
-          <div style="font-size: 0.7rem; color: #64748b; margin-top: 4px;">Maintain a 10-day streak to generate a deep-dive AI analysis of your mock mistakes.</div>
-          <div style="margin-top: 10px;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 4px;">
-              <span id="streak-progress-text">0/10 Days (0%)</span>
-              <span>Goal: 10 Days</span>
-            </div>
-            <div class="cat-perf-bar-bg">
-              <div id="streak-progress-fill" class="cat-perf-bar-fill" style="background: var(--purple); width: 0%;"></div>
-            </div>
+      <!-- 🔴 NEW AI DIAGNOSTIC UI (DUAL CARDS) 🔴 -->
+      <div class="ai-diagnostic-container" style="margin-top: 14px;">
+          <div class="section-label" style="margin-bottom: 8px;">🤖 AI PERFORMANCE DIAGNOSTIC</div>
+          
+          <!-- CARD 1: Daily Weakness Report -->
+          <div class="quiz-card daily-report-card" style="border-color: var(--border); padding: 14px; margin-bottom: 12px;">
+              <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <h4 style="font-size: 0.85rem; font-weight: 700; color: #fff;">Daily Weakness Report</h4>
+                  <!-- Dynamic Date Badge -->
+                  <span class="date-badge" id="daily-report-date" style="font-size: 0.65rem; background: rgba(255,255,255,0.1); padding: 3px 6px; border-radius: 4px; color: var(--text-muted);">
+                      Last Updated: --
+                  </span>
+              </div>
+              
+              <!-- The Actual Report Content -->
+              <div id="daily-report-content" style="font-size: 0.8rem; line-height: 1.4; color: #e2e8f0; background: rgba(255, 255, 255, 0.03); padding: 8px; border-radius: 8px;">
+                  <p class="report-text" id="daily-report-text">
+                      Loading your latest insights...
+                  </p>
+              </div>
+              
+              <!-- The 4:00 AM Queue Subnote -->
+              <div class="queue-subnote" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+                  <small style="color: #94a3b8; font-size: 0.7rem;">
+                      💡 Mocks submitted today are queued. Your updated daily report will be ready after 4:00 AM tomorrow.
+                  </small>
+              </div>
           </div>
-        </div>
 
-        <div id="diagnostic-unlocked-view" class="hidden">
-          <div style="font-size: 0.85rem; font-weight: 700; color: #c084fc;">✨ AI Report Unlocked!</div>
-          <div style="font-size: 0.7rem; color: #cbd5e1; margin-top: 4px;">You've maintained a <span id="current-streak-count">10</span>-day streak. Generate your personalized weakness report.</div>
-          <button id="generate-report-btn" class="btn-action" style="width: 100%; margin-top: 10px; background: rgba(168, 85, 247, 0.15); border-color: var(--purple); color: #e9d5ff; font-weight: 700;" onclick="generateAIReport()">
-            🧠 Generate AI Report
-          </button>
-          <div id="ai-report-display" class="remember-box hidden" style="margin-top: 10px; border-left: 3px solid var(--purple);"></div>
-        </div>
+          <!-- CARD 2: Ultimate AI Weakness Report (Streak Based) -->
+          <div class="quiz-card ultimate-report-card" style="border-color: var(--purple); padding: 14px;">
+              <div class="card-header" style="margin-bottom: 4px;">
+                  <h4 style="font-size: 0.85rem; font-weight: 700; color: #c084fc;">Unlock Ultimate AI Weakness Report</h4>
+              </div>
+              <p style="font-size: 0.7rem; color: #64748b; margin-bottom: 12px;">
+                  Maintain your study streak to generate a deep-dive comprehensive AI analysis of your mock test mistakes.
+              </p>
+              
+              <!-- Dynamic Milestone Progress Bar -->
+              <div class="progress-info" style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 4px;">
+                  <span><span id="streak-count">0</span>/<span id="goal-days">30</span> Days (<span id="streak-percentage">0%</span>)</span>
+                  <span class="goal-label">Goal: <span id="goal-label-days">30</span> Days</span>
+              </div>
+              <div class="cat-perf-bar-bg" style="background: rgba(255,255,255,0.05);">
+                  <div id="streak-progress-fill" class="cat-perf-bar-fill" style="background: var(--purple); width: 0%; transition: width 0.3s ease;"></div>
+              </div>
+          </div>
       </div>
 
       <div class="section-label" style="margin-top: 14px;">Recent Mock Test History</div>
@@ -1626,6 +1648,19 @@ window.addEventListener('load', () => {
         { t: "Department of Legal Affairs establishes Mediation Council of India in New Delhi", c: "National Affairs", d: "2026-08-25", f: "The statutory body will register mediators and promote institutional mediation to reduce civil court backlogs.", s: "Ministry of Law", k: "Established under Mediation Act 2023 | Headquartered in New Delhi" },
         { t: "Indian Coast Guard decommissions Fast Patrol Vessels Meera Behn and Subhadra Kumari Chauhan", c: "Defence", d: "2026-08-25", f: "Both vessels completed two decades of maritime boundary security and search-and-rescue operations.", s: "ICG Media", k: "Decommissioned FPVs: ICGS Meera Behn & ICGS Subhadra Kumari Chauhan" },
       ],
+
+      "Jul 2026": [
+        { t: "India & Japan Conduct Bilateral Maritime Exercise JIMEX 2026", c: "Science & Defence", d: "2026-07-05", f: "Bilateral naval exercise held to enhance interoperability between the two navies.", s: "Indian Navy", k: "JIMEX 2026 | India & Japan" },
+        { t: "17th Installment of PM KISAN Released Distributing Over ₹20,000 Crore", c: "Government Schemes", d: "2026-07-10", f: "Direct benefit transfer reaches millions of farmers across the nation.", s: "Ministry of Agriculture", k: "PM KISAN 17th Installment | Over ₹20,000 Crore" },
+        { t: "Tamil Nadu Tops NITI Aayog Export Preparedness Index 2026", c: "Reports & Indexes", d: "2026-07-12", f: "State recognized for robust export infrastructure and policy framework.", s: "NITI Aayog", k: "Export Preparedness Index 2026 | Tamil Nadu Tops" },
+        { t: "Indian Army Inducts Hermes 900 Starliner Drones for Border Surveillance", c: "Science & Defence", d: "2026-07-15", f: "Advanced MALE UAVs deployed to boost tactical reconnaissance.", s: "Ministry of Defence", k: "Hermes 900 Starliner | Indian Army" },
+        { t: "UNEP Emission Gap Report Warns of 2.5°C Global Temperature Rise", c: "Environment", d: "2026-07-18", f: "Report indicates current climate pledges fall short of the Paris Agreement targets.", s: "UNEP", k: "UNEP Emission Gap Report | 2.5°C Rise" },
+        { t: "Max Verstappen Wins British Grand Prix 2026 at Silverstone", c: "Sports & Awards", d: "2026-07-20", f: "Secures victory at the iconic British circuit extending his championship lead.", s: "Formula 1", k: "British Grand Prix 2026 | Max Verstappen" },
+        { t: "Dr. K. Sivan Conferred with Lokmanya Tilak National Award 2026", c: "Sports & Awards", d: "2026-07-22", f: "Former ISRO Chairman honored for his outstanding contributions to space science.", s: "Tilak Smarak Trust", k: "Lokmanya Tilak Award 2026 | Dr. K. Sivan" },
+        { t: "India's Foreign Exchange Reserves Cross Historic $700 Billion Mark", c: "Economy", d: "2026-07-25", f: "Forex reserves reach an all-time high, bolstering economic stability.", s: "RBI", k: "Forex Reserves | $700 Billion Milestone" },
+        { t: "Nation Observes Kargil Vijay Diwas on July 26", c: "Health, Welfare & Culture", d: "2026-07-26", f: "Tributes paid to the brave soldiers of the 1999 Kargil War.", s: "Ministry of Defence", k: "Kargil Vijay Diwas | July 26" },
+        { t: "New Chief Election Commissioner Appointed Under Article 324", c: "Appointments", d: "2026-07-30", f: "Appointment made per constitutional provisions guiding the Election Commission.", s: "Election Commission", k: "Chief Election Commissioner | Article 324" }
+      ],
       "Jun 2026": [
         { t: "World Environment Day 2026 Hosted by Republic of Korea", c: "Environment", d: "2026-06-05", f: "Theme focused on 'Ending Plastic Pollution' with global commitments.", s: "UNEP", k: "World Environment Day | June 5 | Hosted by South Korea" },
         { t: "India & Mongolia Conduct Joint Exercise 'Nomadic Elephant 2026'", c: "Science & Defence", d: "2026-06-18", f: "Bilateral military training exercise held in Ulaanbaatar.", s: "Indian Army", k: "Nomadic Elephant 2026 | India-Mongolia" },
@@ -1943,7 +1978,7 @@ function startStaticMock(monthString, batchNumber) {
       return `preprecall_user_${uid || 'guest'}`;
     }
 
-function initUserSession() {s
+function initUserSession() {
       firebase.auth().onAuthStateChanged(async (user) => {
         if (user) {
           try {
@@ -2778,7 +2813,7 @@ function getDailyFallbackBoosters() {
             <div style="font-weight:700; font-size:0.88rem;">${selectedMockMonth} - Mock Batch ${b}</div>
             <div style="font-size:0.72rem; color:var(--text-muted);">${bQuestions.length} Questions • Full Explanations • Timer</div>
           </div>
-          <button class="btn-action primary" style="flex:0; padding:6px 12px;" onclick="startStaticMock('${selectedMockMonth}', ${b})">Start &rarr;</button>
+          <button class="btn-action primary" style="flex:0; padding:6px 12px;" onclick="startMockBatch(${b}, '${selectedMockMonth} - Batch ${b}')">Start &rarr;</button>
         `;
         listContainer.appendChild(card);
       }
@@ -3216,81 +3251,80 @@ function getDailyFallbackBoosters() {
     if (typeof renderHomeScreen === 'function') renderHomeScreen();
 }
 /* ==========================================================================
-       AI PERFORMANCE DIAGNOSTIC LOGIC
-       ========================================================================== */
-    function renderDiagnosticUI() {
-      const lockedView = document.getElementById("diagnostic-locked-view");
-      const unlockedView = document.getElementById("diagnostic-unlocked-view");
-      const streakCount = document.getElementById("current-streak-count");
-      const progressFill = document.getElementById("streak-progress-fill");
-      const progressText = document.getElementById("streak-progress-text");
+   AI PERFORMANCE DIAGNOSTIC LOGIC
+   ========================================================================== */
 
-      if (!activeUser) return;
-      
-      const streak = activeUser.currentStreak || 0;
-      if (streakCount) streakCount.textContent = streak;
+// 1. Calculate the dynamic Ultimate Goal (30, 50, 75, 100)
+function getMilestoneGoal(streak) {
+    if (streak < 30) return 30;
+    if (streak < 50) return 50;
+    if (streak < 75) return 75;
+    return 100;
+}
 
-      // Calculate percentage capped at 100%
-      const percentage = Math.min(Math.round((streak / 10) * 100), 100);
-      if (progressFill) progressFill.style.width = `${percentage}%`;
-      if (progressText) progressText.textContent = `${streak}/10 Days (${percentage}%)`;
+// 2. Update the UI for the AI Diagnostic section
+function renderDiagnosticUI() {
+    if (!activeUser) return;
+    
+    try {
+        const streak = activeUser.currentStreak || 0;
+        const targetGoal = getMilestoneGoal(streak);
+        const percentage = Math.min(Math.round((streak / targetGoal) * 100), 100);
 
-      // Unlock if streak is 10 or more
-      if (streak >= 10) {
-        lockedView.style.display = "none";
-        unlockedView.style.display = "block";
-      } else {
-        lockedView.style.display = "block";
-        unlockedView.style.display = "none";
-      }
+        const streakCountEl = document.getElementById("streak-count");
+        if (streakCountEl) streakCountEl.textContent = streak;
+        
+        const goalDaysEl = document.getElementById("goal-days");
+        if (goalDaysEl) goalDaysEl.textContent = targetGoal;
+        
+        const goalLabelEl = document.getElementById("goal-label-days");
+        if (goalLabelEl) goalLabelEl.textContent = targetGoal;
+        
+        const streakPctEl = document.getElementById("streak-percentage");
+        if (streakPctEl) streakPctEl.textContent = `${percentage}%`;
+        
+        const streakFillEl = document.getElementById("streak-progress-fill");
+        if (streakFillEl) streakFillEl.style.width = `${percentage}%`;
+    } catch (err) {
+        console.error("UI Update Error:", err);
     }
 
-    async function generateAIReport() {
-      const btn = document.getElementById("generate-report-btn");
-      const display = document.getElementById("ai-report-display");
-      
-      btn.textContent = "Analyzing 10 days of data...";
-      btn.disabled = true;
-
-      const topics = activeUser.weaknessCategories || [];
-      
-      if (topics.length === 0) {
-        display.innerHTML = "<strong>Perfect accuracy! You have no major weaknesses identified in this streak.</strong>";
-        display.style.display = "block";
-        btn.style.display = "none";
-        return;
-      }
-
-      // 🔴 IMPORTANT: Paste your actual Gemini API Key here
-      const API_KEY = "AQ.Ab8RN6L4h6wburSINHMqsQg5lFpLQ0C01CcOMOtqiWyQ6G3xcg"; 
-      const promptText = `I am preparing for SSC exams. Over my last 10 days of mock tests, I got questions wrong in these categories: ${topics.join(', ')}. Write a highly encouraging, 3-sentence diagnostic report telling me my biggest weakness and what to study next.`;
-
-      try {
-        // Fetching directly via REST API so you don't need to load the heavy AI SDK on the frontend
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ contents: [{ parts: [{ text: promptText }] }] })
-        });
-        
-        const data = await response.json();
-        const aiText = data.candidates[0].content.parts[0].text;
-        
-        display.innerHTML = `<p>${aiText.replace(/\n/g, '<br>')}</p>`;
-        display.style.display = "block";
-        btn.style.display = "none";
-        
-        // Reset the tracked topics for their next 10-day streak
-        activeUser.weaknessCategories = [];
-        saveActiveUser();
-        
-      } catch (error) {
-        console.error("AI Report Error:", error);
-        btn.textContent = "Error generating report. Try again.";
-        btn.disabled = false;
-      }
+    if (typeof loadDailyWeaknessReport === 'function') {
+        loadDailyWeaknessReport();
     }
-    // MAIN APP ENTRY POINT
+}
+
+// 3. Fetch the Daily Report safely
+async function loadDailyWeaknessReport() {
+    const today = new Date().toISOString().split('T')[0];
+    const dateBadge = document.getElementById("daily-report-date");
+    const contentText = document.getElementById("daily-report-text");
+
+    if (!contentText) return;
+
+    const displayDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    if (dateBadge) {
+        dateBadge.textContent = `Last Updated: ${displayDate} (4:00 AM)`;
+    }
+
+    try {
+        if (!window.db) throw new Error("Database not connected yet.");
+        
+        const doc = await window.db.collection('daily_insights').doc(today).get();
+        
+        if (doc.exists && (doc.data().insight || doc.data().report)) {
+            const reportData = doc.data().insight || doc.data().report;
+            contentText.innerHTML = reportData.replace(/\n/g, '<br>');
+        } else {
+            contentText.innerHTML = "<em>AI is analyzing your recent mistakes. Your personalized daily breakdown will be ready after 4:00 AM tomorrow!</em>";
+        }
+    } catch (error) {
+        console.error("Firestore Error:", error);
+        contentText.innerHTML = "<em>AI is analyzing your recent mistakes. Your personalized daily breakdown will be ready after 4:00 AM tomorrow!</em>";
+    }
+}
+
+            // MAIN APP ENTRY POINT
     window.addEventListener('DOMContentLoaded', () => {
         // Safe startup sequence
         if (typeof validateMockDataset === 'function') {
