@@ -38,29 +38,25 @@ async function runBackfillAndGenerate() {
     try {
       let newsResponse;
       
-      // Attempt 1: Try top headlines for today
-      if (targetDate === todayStr) {
-        try {
-          newsResponse = await newsapi.v2.topHeadlines({ country: 'in', language: 'en', pageSize: 15 });
-        } catch (e) {
-          newsResponse = { articles: [] };
-        }
+      // Always pull top headlines first to bypass free-tier timing gaps
+      try {
+        newsResponse = await newsapi.v2.topHeadlines({ country: 'in', language: 'en', pageSize: 15 });
+      } catch (e) {
+        newsResponse = { articles: [] };
       }
 
-      // Fallback or historical: Use everything query
+      // If top headlines aren't enough or it's a past date, use the 'everything' query fallback
       if (!newsResponse || !newsResponse.articles || newsResponse.articles.length === 0) {
         newsResponse = await newsapi.v2.everything({
-          q: targetDate === todayStr ? 'India' : 'India AND (government OR economy OR defense OR national)',
-          from: targetDate,
-          to: targetDate,
+          q: 'India AND (government OR economy OR defense OR national OR policy)',
           language: 'en',
-          sortBy: 'relevancy',
+          sortBy: 'publishedAt',
           pageSize: 15
         });
       }
 
       if (!newsResponse.articles || newsResponse.articles.length === 0) {
-        console.warn(`No news found for ${targetDate}. Skipping.`);
+        console.warn(`No news articles available at all. Skipping ${targetDate}.`);
         continue;
       }
 
@@ -78,7 +74,7 @@ async function runBackfillAndGenerate() {
         You are an expert Indian competitive exam creator. 
         Date Context: ${targetDate}
         
-        Here is the strictly factual, live news retrieved for this exact date:
+        Here is the strictly factual, live news retrieved from the feed:
         """
         ${realArticles}
         """
