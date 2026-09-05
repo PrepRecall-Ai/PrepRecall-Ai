@@ -976,8 +976,7 @@
           <div class="dash-card-value" style="color: var(--success);" id="statsOverallAccuracy">0%</div>
         </div>
       </div>
-
-      <!-- 🔴 NEW AI DIAGNOSTIC UI (DUAL CARDS) 🔴 -->
+<!-- 🔴 NEW AI DIAGNOSTIC UI (DUAL CARDS) 🔴 -->
       <div class="ai-diagnostic-container" style="margin-top: 14px;">
           <div class="section-label" style="margin-bottom: 8px;">🤖 AI PERFORMANCE DIAGNOSTIC</div>
           
@@ -991,8 +990,13 @@
                   </span>
               </div>
               
-              <!-- The Actual Report Content -->
-              <div id="daily-report-content" style="font-size: 0.8rem; line-height: 1.4; color: #e2e8f0; background: rgba(255, 255, 255, 0.03); padding: 8px; border-radius: 8px;">
+              <!-- NEW: The Reveal Button -->
+              <button id="revealDailyReportBtn" style="margin-bottom: 10px; padding: 10px; background-color: #2563eb; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 0.8rem; font-weight: bold;">
+                  Reveal Today's AI Weaknesses
+              </button>
+
+              <!-- The Actual Report Content (Now hidden by default) -->
+              <div id="daily-report-content" style="display: none; font-size: 0.8rem; line-height: 1.4; color: #e2e8f0; background: rgba(255, 255, 255, 0.03); padding: 8px; border-radius: 8px;">
                   <p class="report-text" id="daily-report-text">
                       Loading your latest insights...
                   </p>
@@ -1025,7 +1029,6 @@
               </div>
           </div>
       </div>
-
       <div class="section-label" style="margin-top: 14px;">Recent Mock Test History</div>
       <div id="mockHistoryList" style="display: flex; flex-direction: column; gap: 8px;"></div>
       
@@ -3340,6 +3343,10 @@ async function loadDailyWeaknessReport() {
         
         // Load the diagnostic UI
         renderDiagnosticUI();
+        document.getElementById('revealDailyReportBtn').addEventListener('click', function() {
+       document.getElementById('daily-report-content').style.display = 'block';
+       this.style.display = 'none';
+    });
     });
     </script>  
 </body>

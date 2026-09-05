@@ -17,7 +17,7 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 
 async function generateDailyContent() {
   // Force the date to Indian Standard Time (IST) to match your target audience
-const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date());
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date());
   const currentYear = today.split('-')[0];
   console.log(`Starting generation for Indian SSC Exams: ${today}`);
 

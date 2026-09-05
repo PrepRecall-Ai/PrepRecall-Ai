@@ -26,9 +26,10 @@ async function generateDailyMock() {
     const articles = newsResponse.articles.map(a => `${a.title} - ${a.description || ""}`).join('\n');
     
     console.log("Generating mock test with Gemini...");
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // Changed back to your preferred model
+    const model = genAI.getGenerativeModel({ model: "gemini-3.6-flash" });
   
-  prompt = `Based on the following news headlines and articles:
+    const prompt = `Based on the following news headlines and articles:
 \n${articles}
 
 Generate the mock test output strictly as a JSON array of objects. 
@@ -42,7 +43,9 @@ CRITICAL RULE: You must ONLY use the exact Article IDs provided in the source te
     const quizData = JSON.parse(aiResponse);
 
     console.log("Saving mock test to Firebase...");
-    const today = new Date().toISOString().split('T')[0];
+    
+    // 🔴 CRITICAL FIX: Forces date to Indian Standard Time (IST)
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date());
     
     await db.collection('daily_mocks').doc(today).set({
       date: today,
@@ -50,7 +53,7 @@ CRITICAL RULE: You must ONLY use the exact Article IDs provided in the source te
       createdAt: admin.firestore.FieldValue.serverTimestamp()
     });
 
-    console.log("Success! Daily mock test generated and saved to Firestore.");
+    console.log(`Success! Daily mock test for ${today} generated and saved to Firestore.`);
   } catch (error) {
     console.error("Error generating mock test:", error);
     process.exit(1); 
