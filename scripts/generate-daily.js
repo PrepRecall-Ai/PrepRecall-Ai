@@ -1,10 +1,12 @@
-const admin = require('firebase-admin');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
-const NewsAPI = require('newsapi');
+import { initializeApp, cert } from 'firebase-admin/app';
+import { getFirestore, FieldValue } from 'firebase-admin/firestore';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import NewsAPI from 'newsapi';
 
+// 1. Authenticate Systems
 const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS || "{}");
-admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
-const db = admin.firestore();
+initializeApp({ credential: cert(serviceAccount) });
+const db = getFirestore();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
@@ -60,7 +62,6 @@ async function runBackfillAndGenerate() {
         .map(a => `Title: ${a.title}\nDescription: ${a.description || "N/A"}`)
         .join('\n\n');
 
-      // Updated to 3.6-flash
       const model = genAI.getGenerativeModel({ 
         model: "gemini-3.6-flash",
         generationConfig: { responseMimeType: "application/json" }
@@ -109,7 +110,7 @@ async function runBackfillAndGenerate() {
       batch.set(db.collection('daily_mocks').doc(targetDate), { 
         questions: quizData.mocks, 
         date: targetDate,
-        createdAt: admin.firestore.FieldValue.serverTimestamp()
+        createdAt: FieldValue.serverTimestamp()
       });
       batch.set(db.collection('daily_articles').doc(targetDate), { 
         articles: quizData.articles, 
