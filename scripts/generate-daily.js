@@ -1,17 +1,14 @@
-import { initializeApp, cert } from 'firebase-admin/app';
-import { getFirestore, FieldValue } from 'firebase-admin/firestore';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import NewsAPI from 'newsapi';
+const admin = require('firebase-admin');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
+const NewsAPI = require('newsapi');
 
-// 1. Authenticate Systems
 const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS || "{}");
-initializeApp({ credential: cert(serviceAccount) });
-const db = getFirestore();
+admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
+const db = admin.firestore();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
-// Helper: Get date string in Asia/Kolkata
 function getISTDateString(daysAgo) {
   const date = new Date();
   date.setDate(date.getDate() - daysAgo);
@@ -22,11 +19,11 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function runBackfillAndGenerate() {
   console.log("Starting 5-Day Audit & Generation System...");
+  const todayStr = getISTDateString(0); 
 
   for (let i = 4; i >= 0; i--) {
     const targetDate = getISTDateString(i);
     
-    // Check if data already exists in Firestore
     const docRef = db.collection('daily_mocks').doc(targetDate);
     const docSnap = await docRef.get();
 
@@ -38,14 +35,20 @@ async function runBackfillAndGenerate() {
     console.log(`⚠️ [${targetDate}] Missing data detected. Initiating fetch...`);
 
     try {
-      const newsResponse = await newsapi.v2.everything({
-        q: 'India AND (government OR economy OR defense OR national)',
-        from: targetDate,
-        to: targetDate,
-        language: 'en',
-        sortBy: 'relevancy',
-        pageSize: 15
-      });
+      let newsResponse;
+      
+      if (targetDate === todayStr) {
+        newsResponse = await newsapi.v2.topHeadlines({ country: 'in', language: 'en', pageSize: 15 });
+      } else {
+        newsResponse = await newsapi.v2.everything({
+          q: 'India AND (government OR economy OR defense OR national)',
+          from: targetDate,
+          to: targetDate,
+          language: 'en',
+          sortBy: 'relevancy',
+          pageSize: 15
+        });
+      }
 
       if (!newsResponse.articles || newsResponse.articles.length === 0) {
         console.warn(`No news found for ${targetDate}. Skipping.`);
@@ -57,8 +60,9 @@ async function runBackfillAndGenerate() {
         .map(a => `Title: ${a.title}\nDescription: ${a.description || "N/A"}`)
         .join('\n\n');
 
+      // Updated to 3.6-flash
       const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
+        model: "gemini-3.6-flash",
         generationConfig: { responseMimeType: "application/json" }
       });
     
@@ -105,7 +109,7 @@ async function runBackfillAndGenerate() {
       batch.set(db.collection('daily_mocks').doc(targetDate), { 
         questions: quizData.mocks, 
         date: targetDate,
-        createdAt: FieldValue.serverTimestamp()
+        createdAt: admin.firestore.FieldValue.serverTimestamp()
       });
       batch.set(db.collection('daily_articles').doc(targetDate), { 
         articles: quizData.articles, 
@@ -124,7 +128,7 @@ async function runBackfillAndGenerate() {
       await delay(15000); 
 
     } catch (error) {
-      console.error(`❌ Error processing ${targetDate}:`, error);
+      console.error(`❌ Error processing ${targetDate}:`, error.message);
     }
   }
   console.log("Backfill and daily generation complete.");
