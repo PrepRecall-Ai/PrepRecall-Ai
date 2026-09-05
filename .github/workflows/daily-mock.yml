@@ -21,7 +21,8 @@ jobs:
         run: npm install
 
       - name: Run Daily Generation Script
-        env:
-          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: node scripts/generate-daily.js
+      env:
+        FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+      run: node scripts/generate-daily.js
