@@ -2599,14 +2599,15 @@ function getDailyFallbackBoosters() {
     /* ==========================================================================
        G. VAULT & FILTERS
        ========================================================================== */
-    const monthsList = ["Aug 2026", "Jul 2026", "Jun 2026", "May 2026", "Apr 2026"];
+    const monthsList = ["Sep 2026", "Aug 2026", "Jul 2026", "Jun 2026", "May 2026", "Apr 2026"];
     const categoriesList = [
       "All", "National Affairs", "Defence", "Economy", "Government Schemes", 
       "Science & Technology", "International Affairs", "Environment", 
       "Sports", "Awards", "Appointments", "Reports & Indexes"
     ];
 
-    let activeMonthFilter = "Aug 2026";
+    // This dynamically sets the vault to whatever the newest month is (Sep 2026)
+    let activeMonthFilter = monthsList[0]; 
     let activeCategoryFilter = "All";
     let currentSearchTerm = "";
 
@@ -2799,10 +2800,80 @@ function getDailyFallbackBoosters() {
       updateReaderButtons();
       if (!document.getElementById('tab-progress').classList.contains('hidden')) renderProgressScreen();
     }
-/* ==========================================================================
-       I. MOCK ENGINE
+    /* ==========================================================================
+       I. MOCK ENGINE 
        ========================================================================== */
-function renderMockQuestionItem() {
+    let selectedMockMonth = "Aug 2026";
+    let activeMockSession = null;
+    let mockQuestionsPool = [];
+    let mockQIndex = 0;
+    let mockScore = 0;
+    let mockMistakes = [];
+    let selectedMockOption = null;
+    let mockStartTime = 0;
+    let mockTimerInterval = null;
+
+    function renderMocksDirectory() {
+      const container = document.getElementById('mockMonthTabsContainer');
+      container.innerHTML = '';
+      monthsList.forEach(m => {
+        const btn = document.createElement('button');
+        btn.className = `carousel-pill ${m === selectedMockMonth ? 'active' : ''}`;
+        btn.innerText = m;
+        btn.onclick = () => { selectedMockMonth = m; renderMocksDirectory(); };
+        container.appendChild(btn);
+      });
+
+      const listContainer = document.getElementById('monthMocksListContainer');
+      listContainer.innerHTML = '';
+      const monthQuestions = questionBank.filter(q => q.month === selectedMockMonth);
+      const totalBatches = Math.max(...monthQuestions.map(q => q.batch), 1);
+
+      for (let b = 1; b <= totalBatches; b++) {
+        const bQuestions = monthQuestions.filter(q => q.batch === b);
+        if (bQuestions.length === 0) continue;
+
+        const card = document.createElement('div');
+        card.className = 'mock-item-card';
+        card.innerHTML = `
+          <div>
+            <div style="font-weight:700; font-size:0.88rem;">${selectedMockMonth} - Mock Batch ${b}</div>
+            <div style="font-size:0.72rem; color:var(--text-muted);">${bQuestions.length} Questions • Full Explanations • Timer</div>
+          </div>
+          <button class="btn-action primary" style="flex:0; padding:6px 12px;" onclick="startMockBatch(${b}, '${selectedMockMonth} - Batch ${b}')">Start &rarr;</button>
+        `;
+        listContainer.appendChild(card);
+      }
+    }
+
+    function startMockBatch(batchNum, batchTitle) {
+      mockQuestionsPool = questionBank.filter(q => q.month === selectedMockMonth && q.batch === batchNum);
+      if (mockQuestionsPool.length === 0) { alert("No questions found for this batch."); return; }
+
+      activeMockSession = { title: batchTitle, batch: batchNum };
+      mockQIndex = 0; mockScore = 0; mockMistakes = []; selectedMockOption = null;
+      mockStartTime = Date.now();
+
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.add('hidden'));
+      document.getElementById('mockExamActiveScreen').classList.remove('hidden');
+      document.getElementById('activeMockTitleBadge').innerText = batchTitle;
+
+      startMockTimer();
+      renderMockQuestionItem();
+    }
+
+    function startMockTimer() {
+      clearInterval(mockTimerInterval);
+      const timerEl = document.getElementById('mockTimerDisplay');
+      mockTimerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - mockStartTime) / 1000);
+        const mins = String(Math.floor(elapsed / 60)).padStart(2, '0');
+        const secs = String(elapsed % 60).padStart(2, '0');
+        timerEl.innerText = `⏱ ${mins}:${secs}`;
+      }, 1000);
+    }
+
+    function renderMockQuestionItem() {
       selectedMockOption = null;
       document.getElementById('instantExplanationBox').classList.add('hidden');
       const q = mockQuestionsPool[mockQIndex];
@@ -2830,24 +2901,20 @@ function renderMockQuestionItem() {
     }
 
     function selectMockAnswer(btnEl, idx) {
-      // Prevent changing selection if answer is already submitted
       if (document.getElementById('btnNextMockQuestion').innerText !== "Submit Answer") return;
 
       selectedMockOption = idx;
       
-      // Clear previous selections visually
       document.querySelectorAll('#mockOptionsList .option-btn').forEach(b => {
          b.classList.remove('selected');
          b.style.borderColor = "var(--border)";
          b.style.background = "var(--bg-main)";
       });
       
-      // Highlight new selection
       btnEl.classList.add('selected');
       btnEl.style.borderColor = "var(--accent)";
       btnEl.style.background = "rgba(59, 130, 246, 0.1)";
 
-      // Enable the Submit Button
       const actionBtn = document.getElementById('btnNextMockQuestion');
       actionBtn.disabled = false;
       actionBtn.style.opacity = "1";
@@ -2859,7 +2926,6 @@ function renderMockQuestionItem() {
       const q = mockQuestionsPool[mockQIndex];
       const allBtns = document.querySelectorAll('#mockOptionsList .option-btn');
       
-      // Answer Translator
       let correctIdx = 0;
       let rawAns = q.answer !== undefined ? q.answer : q.correctAnswer;
       if (typeof rawAns === 'number') {
@@ -2876,7 +2942,6 @@ function renderMockQuestionItem() {
           }
       }
 
-      // Evaluate and color code
       if (selectedMockOption === correctIdx) {
         allBtns[selectedMockOption].classList.add('correct');
         mockScore++;
@@ -2886,7 +2951,6 @@ function renderMockQuestionItem() {
         
         mockMistakes.push({ topic: q.category, question: q.question, articleId: q.articleId });
         
-        // Missing article generator fallback
         if (q.articleId) {
             let art = getArticleById(q.articleId);
             if (!art) {
@@ -2920,11 +2984,9 @@ function renderMockQuestionItem() {
         }
       }
 
-      // Show Explanation
       document.getElementById('mockExplanationText').innerText = q.explanation || "No explanation provided.";
       document.getElementById('instantExplanationBox').classList.remove('hidden');
 
-      // Change Action Button to "Next Question"
       const actionBtn = document.getElementById('btnNextMockQuestion');
       actionBtn.innerText = "Next Question →";
       actionBtn.onclick = handleNextMockQuestion;
@@ -2949,7 +3011,6 @@ function renderMockQuestionItem() {
       const total = mockQuestionsPool.length;
       document.getElementById('resultMockTitle').innerText = `${activeMockSession.title} Result`;
       
-      // New Redesigned Score UI injection
       document.getElementById('mockFinalScore').innerHTML = `${mockScore} <span>/ ${total}</span>`;
       const acc = Math.round((mockScore / total) * 100);
       document.getElementById('mockFinalAccuracy').innerHTML = `
@@ -2965,7 +3026,6 @@ function renderMockQuestionItem() {
         if (!wasMistake) categoryStats[q.category].correct++;
       });
 
-      // New Redesigned Category Breakdown UI
       const catBreakdownContainer = document.getElementById('mockCategoryBreakdownList');
       catBreakdownContainer.innerHTML = '';
       Object.keys(categoryStats).forEach(cName => {
@@ -3111,163 +3171,172 @@ function renderMockQuestionItem() {
        K. INITIALIZATION & AUTOMATION ENGINE
        ========================================================================== */
     async function runDailyAutomationEngine() {
-    if (!window.db) return;
+      if (!window.db) return;
 
-    // 1. PULL CACHE
-    let autoMocksCache = (activeUser && activeUser.autoMocksCache) ? activeUser.autoMocksCache : JSON.parse(localStorage.getItem('prepRecall_autoMocks') || '[]');
-    let autoNewsCache = (activeUser && activeUser.autoNewsCache) ? activeUser.autoNewsCache : JSON.parse(localStorage.getItem('prepRecall_autoNews') || '[]');
+      // 1. PULL CACHE
+      let autoMocksCache = (activeUser && activeUser.autoMocksCache) ? activeUser.autoMocksCache : JSON.parse(localStorage.getItem('prepRecall_autoMocks') || '[]');
+      let autoNewsCache = (activeUser && activeUser.autoNewsCache) ? activeUser.autoNewsCache : JSON.parse(localStorage.getItem('prepRecall_autoNews') || '[]');
 
-    const sixMonthsAgo = new Date();
-    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-    const initialMockCount = autoMocksCache.length;
-    const initialNewsCount = autoNewsCache.length;
+      // --- FIX: Sanitize "Sept" to "Sep" to merge duplicate tabs ---
+      autoMocksCache.forEach(q => { if (q.month && q.month.startsWith("Sept ")) q.month = q.month.replace("Sept ", "Sep "); });
+      autoNewsCache.forEach(art => { if (art.month && art.month.startsWith("Sept ")) art.month = art.month.replace("Sept ", "Sep "); });
 
-    autoMocksCache = autoMocksCache.filter(q => new Date(q.injectedDate) >= sixMonthsAgo);
-    autoNewsCache = autoNewsCache.filter(art => new Date(art.date) >= sixMonthsAgo);
-    let needsSave = (autoMocksCache.length !== initialMockCount || autoNewsCache.length !== initialNewsCount);
+      const sixMonthsAgo = new Date();
+      sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+      const initialMockCount = autoMocksCache.length;
+      const initialNewsCount = autoNewsCache.length;
 
-    autoMocksCache.forEach(q => {
-        if (!monthsList.includes(q.month)) monthsList.unshift(q.month);
-        if (!questionBank.some(existing => existing.id === q.id)) questionBank.push(q);
-    });
+      autoMocksCache = autoMocksCache.filter(q => new Date(q.injectedDate) >= sixMonthsAgo);
+      autoNewsCache = autoNewsCache.filter(art => new Date(art.date) >= sixMonthsAgo);
+      let needsSave = (autoMocksCache.length !== initialMockCount || autoNewsCache.length !== initialNewsCount);
 
-    autoNewsCache.forEach(art => {
-        if (!monthsList.includes(art.month)) monthsList.unshift(art.month);
-        if (!currentAffairs[art.month]) currentAffairs[art.month] = [];
-        if (!currentAffairs[art.month].some(a => a.id === art.id)) currentAffairs[art.month].push(art);
-    });
+      autoMocksCache.forEach(q => {
+          if (!monthsList.includes(q.month)) monthsList.unshift(q.month);
+          if (!questionBank.some(existing => existing.id === q.id)) questionBank.push(q);
+      });
 
-    // 2. AUTOMATIC MONTH GENERATOR
-    const today = new Date();
-    const currentMonthStr = today.toLocaleString('default', { month: 'short' }) + ' ' + today.getFullYear();
-    if (!monthsList.includes(currentMonthStr)) {
-        monthsList.unshift(currentMonthStr);
-        if (!currentAffairs[currentMonthStr]) currentAffairs[currentMonthStr] = [];
+      autoNewsCache.forEach(art => {
+          if (!monthsList.includes(art.month)) monthsList.unshift(art.month);
+          if (!currentAffairs[art.month]) currentAffairs[art.month] = [];
+          if (!currentAffairs[art.month].some(a => a.id === art.id)) currentAffairs[art.month].push(art);
+      });
+
+      // --- FIX: Hardcoded strictly 3-letter months to prevent browser locale bugs ---
+      const shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      // Clean up monthsList array from duplicates immediately
+      const septIndex = monthsList.indexOf("Sept 2026");
+      if (septIndex > -1) monthsList.splice(septIndex, 1);
+
+      // 2. AUTOMATIC MONTH GENERATOR
+      const today = new Date();
+      const currentMonthStr = shortMonths[today.getMonth()] + ' ' + today.getFullYear();
+      if (!monthsList.includes(currentMonthStr)) {
+          monthsList.unshift(currentMonthStr);
+          if (!currentAffairs[currentMonthStr]) currentAffairs[currentMonthStr] = [];
+      }
+
+      // 3. FETCH LOOP (Last 5 days)
+      for (let i = 0; i <= 5; i++) {
+          let d = new Date();
+          d.setDate(d.getDate() - i);
+          let dateId = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, '0') + "-" + String(d.getDate()).padStart(2, '0');
+          let monthStr = shortMonths[d.getMonth()] + ' ' + d.getFullYear();
+
+          // A. FETCH MOCKS
+          try {
+              if (!autoMocksCache.some(q => q.injectedDate === dateId)) {
+                  const mockSnap = await window.db.collection("daily_mocks").doc(dateId).get();
+                  if (mockSnap.exists) {
+                      let data = mockSnap.data();
+                      let dailyQs = Array.isArray(data) ? data : (data.questions || Object.values(data).find(val => Array.isArray(val)) || []);
+                      
+                      if (dailyQs.length > 0) {
+                          if (!monthsList.includes(monthStr)) monthsList.unshift(monthStr);
+
+                          dailyQs.forEach((q, idx) => {
+                              const monthQuestions = questionBank.filter(mq => mq.month === monthStr);
+                              let targetBatch = 1;
+                              if (monthQuestions.length > 0) {
+                                  const maxBatch = Math.max(...monthQuestions.map(mq => mq.batch));
+                                  const currentBatchSize = monthQuestions.filter(mq => mq.batch === maxBatch).length;
+                                  targetBatch = currentBatchSize < 10 ? maxBatch : maxBatch + 1;
+                              }
+
+                              let finalAnswer = 0;
+                              let rawAns = q.answer !== undefined ? q.answer : q.correctAnswer;
+                              
+                              if (typeof rawAns === 'number') {
+                                  finalAnswer = rawAns;
+                              } else if (typeof rawAns === 'string') {
+                                  let cleanAns = rawAns.trim().toUpperCase();
+                                  if (cleanAns === "A" || cleanAns.startsWith("A)")) finalAnswer = 0;
+                                  else if (cleanAns === "B" || cleanAns.startsWith("B)")) finalAnswer = 1;
+                                  else if (cleanAns === "C" || cleanAns.startsWith("C)")) finalAnswer = 2;
+                                  else if (cleanAns === "D" || cleanAns.startsWith("D)")) finalAnswer = 3;
+                                  else if (q.options) {
+                                      let matchIdx = q.options.findIndex(opt => opt.toLowerCase().includes(rawAns.toLowerCase()));
+                                      if (matchIdx !== -1) finalAnswer = matchIdx;
+                                  }
+                              }
+
+                              const newQ = { 
+                                  ...q, 
+                                  id: `Q-AUTO-${dateId}-${idx}`, 
+                                  month: monthStr, 
+                                  batch: targetBatch, 
+                                  injectedDate: dateId, 
+                                  category: q.category || "General",
+                                  answer: finalAnswer, 
+                                  articleId: q.articleId || `CA-AUTO-${dateId}-${idx}`
+                              };
+                              questionBank.unshift(newQ);
+                              autoMocksCache.unshift(newQ);
+                          });
+                          needsSave = true;
+                      }
+                  }
+              }
+          } catch (e) { console.error("Error fetching daily mocks:", e); }
+
+          // B. FETCH NEWS
+          try {
+              if (!autoNewsCache.some(a => a.date === dateId)) {
+                  const newsSnap = await window.db.collection("daily_articles").doc(dateId).get();
+                  if (newsSnap.exists) {
+                      let data = newsSnap.data();
+                      let articles = data.articles || [];
+                      
+                      if (articles.length > 0) {
+                          if (!monthsList.includes(monthStr)) { 
+                              monthsList.unshift(monthStr); 
+                              currentAffairs[monthStr] = []; 
+                          }
+
+                          articles.forEach((article, idx) => {
+                              const headline = article.Headline || article.title || "Untitled";
+                              const summary = article.Summary || article.summary || "";
+                              const newArt = {
+                                  id: `CA-AUTO-${dateId}-${idx}`, 
+                                  date: dateId, 
+                                  month: monthStr, 
+                                  category: article.Category || "National Affairs",
+                                  title: headline, 
+                                  summary: summary, 
+                                  whatHappened: summary, 
+                                  importantPoints: [headline, summary], 
+                                  examFacts: ["Sourced from Daily AI Feed"], 
+                                  quickRemember: headline, 
+                                  audioText: `${headline}. ${summary}`,
+                                  source: "Daily AI Brief", 
+                                  importantFor: ["SSC CGL", "SSC CHSL", "CDS", "UPSC"]
+                              };
+                              currentAffairs[monthStr].unshift(newArt);
+                              autoNewsCache.unshift(newArt);
+                          });
+                          needsSave = true;
+                      }
+                  }
+              }
+          } catch (e) { console.error("Error fetching daily news:", e); }
+      }
+
+      // 4. SAVE & RENDER
+      if (needsSave) {
+          if (activeUser) {
+              activeUser.autoMocksCache = autoMocksCache;
+              activeUser.autoNewsCache = autoNewsCache;
+              saveActiveUser(); 
+          } else {
+              localStorage.setItem('prepRecall_autoMocks', JSON.stringify(autoMocksCache));
+              localStorage.setItem('prepRecall_autoNews', JSON.stringify(autoNewsCache));
+          }
+      }
+      
+      if (typeof renderVaultScreen === 'function') renderVaultScreen();
+      if (typeof renderMocksDirectory === 'function') renderMocksDirectory();
+      if (typeof renderHomeScreen === 'function') renderHomeScreen();
     }
-
-    // 3. FETCH LOOP (Last 5 days)
-    for (let i = 0; i <= 5; i++) {
-        let d = new Date();
-        d.setDate(d.getDate() - i);
-        let dateId = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, '0') + "-" + String(d.getDate()).padStart(2, '0');
-        let monthStr = d.toLocaleString('default', { month: 'short' }) + ' ' + d.getFullYear();
-
-        // A. FETCH MOCKS
-        try {
-            if (!autoMocksCache.some(q => q.injectedDate === dateId)) {
-                const mockSnap = await window.db.collection("daily_mocks").doc(dateId).get();
-                if (mockSnap.exists) {
-                    let data = mockSnap.data();
-                    let dailyQs = Array.isArray(data) ? data : (data.questions || Object.values(data).find(val => Array.isArray(val)) || []);
-                    
-                    if (dailyQs.length > 0) {
-                        if (!monthsList.includes(monthStr)) monthsList.unshift(monthStr);
-
-                        dailyQs.forEach((q, idx) => {
-                            // DYNAMIC BATCHING (Max 10 per batch, independent of month)
-                            const monthQuestions = questionBank.filter(mq => mq.month === monthStr);
-                            let targetBatch = 1;
-                            if (monthQuestions.length > 0) {
-                                const maxBatch = Math.max(...monthQuestions.map(mq => mq.batch));
-                                const currentBatchSize = monthQuestions.filter(mq => mq.batch === maxBatch).length;
-                                targetBatch = currentBatchSize < 10 ? maxBatch : maxBatch + 1;
-                            }
-
-                            // UNIVERSAL ANSWER TRANSLATOR
-                            let finalAnswer = 0;
-                            let rawAns = q.answer !== undefined ? q.answer : q.correctAnswer;
-                            
-                            if (typeof rawAns === 'number') {
-                                finalAnswer = rawAns;
-                            } else if (typeof rawAns === 'string') {
-                                let cleanAns = rawAns.trim().toUpperCase();
-                                if (cleanAns === "A" || cleanAns.startsWith("A)")) finalAnswer = 0;
-                                else if (cleanAns === "B" || cleanAns.startsWith("B)")) finalAnswer = 1;
-                                else if (cleanAns === "C" || cleanAns.startsWith("C)")) finalAnswer = 2;
-                                else if (cleanAns === "D" || cleanAns.startsWith("D)")) finalAnswer = 3;
-                                else if (q.options) {
-                                    let matchIdx = q.options.findIndex(opt => opt.toLowerCase().includes(rawAns.toLowerCase()));
-                                    if (matchIdx !== -1) finalAnswer = matchIdx;
-                                }
-                            }
-
-                            const newQ = { 
-                                ...q, 
-                                id: `Q-AUTO-${dateId}-${idx}`, 
-                                month: monthStr, 
-                                batch: targetBatch, 
-                                injectedDate: dateId, 
-                                category: q.category || "General",
-                                answer: finalAnswer, 
-                                articleId: q.articleId || `CA-AUTO-${dateId}-${idx}`
-                            };
-                            questionBank.unshift(newQ);
-                            autoMocksCache.unshift(newQ);
-                        });
-                        needsSave = true;
-                    }
-                }
-            }
-        } catch (e) { console.error("Error fetching daily mocks:", e); }
-
-        // B. FETCH NEWS
-        try {
-            if (!autoNewsCache.some(a => a.date === dateId)) {
-                const newsSnap = await window.db.collection("daily_articles").doc(dateId).get();
-                if (newsSnap.exists) {
-                    let data = newsSnap.data();
-                    let articles = data.articles || [];
-                    
-                    if (articles.length > 0) {
-                        if (!monthsList.includes(monthStr)) { 
-                            monthsList.unshift(monthStr); 
-                            currentAffairs[monthStr] = []; 
-                        }
-
-                        articles.forEach((article, idx) => {
-                            const headline = article.Headline || article.title || "Untitled";
-                            const summary = article.Summary || article.summary || "";
-                            const newArt = {
-                                id: `CA-AUTO-${dateId}-${idx}`, 
-                                date: dateId, 
-                                month: monthStr, 
-                                category: article.Category || "National Affairs",
-                                title: headline, 
-                                summary: summary, 
-                                whatHappened: summary, 
-                                importantPoints: [headline, summary], 
-                                examFacts: ["Sourced from Daily AI Feed"], 
-                                quickRemember: headline, 
-                                audioText: `${headline}. ${summary}`,
-                                source: "Daily AI Brief", 
-                                importantFor: ["SSC CGL", "SSC CHSL", "CDS", "UPSC"]
-                            };
-                            currentAffairs[monthStr].unshift(newArt);
-                            autoNewsCache.unshift(newArt);
-                        });
-                        needsSave = true;
-                    }
-                }
-            }
-        } catch (e) { console.error("Error fetching daily news:", e); }
-    }
-
-    // 4. SAVE & RENDER
-    if (needsSave) {
-        if (activeUser) {
-            activeUser.autoMocksCache = autoMocksCache;
-            activeUser.autoNewsCache = autoNewsCache;
-            saveActiveUser(); 
-        } else {
-            localStorage.setItem('prepRecall_autoMocks', JSON.stringify(autoMocksCache));
-            localStorage.setItem('prepRecall_autoNews', JSON.stringify(autoNewsCache));
-        }
-    }
-    
-    if (typeof renderVaultScreen === 'function') renderVaultScreen();
-    if (typeof renderMocksDirectory === 'function') renderMocksDirectory();
-    if (typeof renderHomeScreen === 'function') renderHomeScreen();
-}
 /* ==========================================================================
    AI PERFORMANCE DIAGNOSTIC LOGIC
    ========================================================================== */
