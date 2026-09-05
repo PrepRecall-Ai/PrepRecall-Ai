@@ -38,11 +38,19 @@ async function runBackfillAndGenerate() {
     try {
       let newsResponse;
       
+      // Attempt 1: Try top headlines for today
       if (targetDate === todayStr) {
-        newsResponse = await newsapi.v2.topHeadlines({ country: 'in', language: 'en', pageSize: 15 });
-      } else {
+        try {
+          newsResponse = await newsapi.v2.topHeadlines({ country: 'in', language: 'en', pageSize: 15 });
+        } catch (e) {
+          newsResponse = { articles: [] };
+        }
+      }
+
+      // Fallback or historical: Use everything query
+      if (!newsResponse || !newsResponse.articles || newsResponse.articles.length === 0) {
         newsResponse = await newsapi.v2.everything({
-          q: 'India AND (government OR economy OR defense OR national)',
+          q: targetDate === todayStr ? 'India' : 'India AND (government OR economy OR defense OR national)',
           from: targetDate,
           to: targetDate,
           language: 'en',
@@ -103,7 +111,6 @@ async function runBackfillAndGenerate() {
         }
       `;
 
-      // Retry loop specifically for 533/503 traffic blocks
       let result, rawText;
       const maxRetries = 4;
       for (let attempt = 1; attempt <= maxRetries; attempt++) {
