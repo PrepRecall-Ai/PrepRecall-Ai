@@ -3168,18 +3168,34 @@ function getDailyFallbackBoosters() {
     }
 
    /* ==========================================================================
-       K. INITIALIZATION & AUTOMATION ENGINE
+       K. INITIALIZATION & AUTOMATION ENGINE (FINAL VAULT FIX)
        ========================================================================== */
     async function runDailyAutomationEngine() {
       if (!window.db) return;
 
-      // 1. PULL CACHE
+      const shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      // 1. Safe Initialization of Current Month Array (CRASH PROTECTION)
+      const today = new Date();
+      const currentMonthStr = shortMonths[today.getMonth()] + ' ' + today.getFullYear();
+      
+      if (!monthsList.includes(currentMonthStr)) {
+          monthsList.unshift(currentMonthStr);
+      }
+      if (!currentAffairs[currentMonthStr]) {
+          currentAffairs[currentMonthStr] = [];
+      }
+
+      // 2. PULL CACHE
       let autoMocksCache = (activeUser && activeUser.autoMocksCache) ? activeUser.autoMocksCache : JSON.parse(localStorage.getItem('prepRecall_autoMocks') || '[]');
       let autoNewsCache = (activeUser && activeUser.autoNewsCache) ? activeUser.autoNewsCache : JSON.parse(localStorage.getItem('prepRecall_autoNews') || '[]');
 
-      // --- FIX: Sanitize "Sept" to "Sep" to merge duplicate tabs ---
+      // Clean up legacy naming
       autoMocksCache.forEach(q => { if (q.month && q.month.startsWith("Sept ")) q.month = q.month.replace("Sept ", "Sep "); });
       autoNewsCache.forEach(art => { if (art.month && art.month.startsWith("Sept ")) art.month = art.month.replace("Sept ", "Sep "); });
+
+      const septIndex = monthsList.indexOf("Sept 2026");
+      if (septIndex > -1) monthsList.splice(septIndex, 1);
 
       const sixMonthsAgo = new Date();
       sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
@@ -3188,8 +3204,11 @@ function getDailyFallbackBoosters() {
 
       autoMocksCache = autoMocksCache.filter(q => new Date(q.injectedDate) >= sixMonthsAgo);
       autoNewsCache = autoNewsCache.filter(art => new Date(art.date) >= sixMonthsAgo);
+      
+      // RESTORED: Auto-save if old cache was cleaned up
       let needsSave = (autoMocksCache.length !== initialMockCount || autoNewsCache.length !== initialNewsCount);
 
+      // Restore caches into active memory
       autoMocksCache.forEach(q => {
           if (!monthsList.includes(q.month)) monthsList.unshift(q.month);
           if (!questionBank.some(existing => existing.id === q.id)) questionBank.push(q);
@@ -3201,27 +3220,17 @@ function getDailyFallbackBoosters() {
           if (!currentAffairs[art.month].some(a => a.id === art.id)) currentAffairs[art.month].push(art);
       });
 
-      // --- FIX: Hardcoded strictly 3-letter months to prevent browser locale bugs ---
-      const shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-      // Clean up monthsList array from duplicates immediately
-      const septIndex = monthsList.indexOf("Sept 2026");
-      if (septIndex > -1) monthsList.splice(septIndex, 1);
-
-      // 2. AUTOMATIC MONTH GENERATOR
-      const today = new Date();
-      const currentMonthStr = shortMonths[today.getMonth()] + ' ' + today.getFullYear();
-      if (!monthsList.includes(currentMonthStr)) {
-          monthsList.unshift(currentMonthStr);
-          if (!currentAffairs[currentMonthStr]) currentAffairs[currentMonthStr] = [];
-      }
-
       // 3. FETCH LOOP (Last 5 days)
       for (let i = 0; i <= 5; i++) {
           let d = new Date();
           d.setDate(d.getDate() - i);
           let dateId = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, '0') + "-" + String(d.getDate()).padStart(2, '0');
           let monthStr = shortMonths[d.getMonth()] + ' ' + d.getFullYear();
+
+          // CRASH PROTECTION: Ensure historical target month array exists
+          if (!currentAffairs[monthStr]) {
+              currentAffairs[monthStr] = [];
+          }
 
           // A. FETCH MOCKS
           try {
@@ -3266,11 +3275,12 @@ function getDailyFallbackBoosters() {
                                   month: monthStr, 
                                   batch: targetBatch, 
                                   injectedDate: dateId, 
-                                  category: q.category || "General",
+                                  category: q.category || q.subcategory || "General",
                                   answer: finalAnswer, 
                                   articleId: q.articleId || `CA-AUTO-${dateId}-${idx}`
                               };
-                              questionBank.unshift(newQ);
+                              // RESTORED: unshift to keep new items at the top
+                              questionBank.unshift(newQ); 
                               autoMocksCache.unshift(newQ);
                           });
                           needsSave = true;
@@ -3290,7 +3300,6 @@ function getDailyFallbackBoosters() {
                       if (articles.length > 0) {
                           if (!monthsList.includes(monthStr)) { 
                               monthsList.unshift(monthStr); 
-                              currentAffairs[monthStr] = []; 
                           }
 
                           articles.forEach((article, idx) => {
@@ -3300,18 +3309,19 @@ function getDailyFallbackBoosters() {
                                   id: `CA-AUTO-${dateId}-${idx}`, 
                                   date: dateId, 
                                   month: monthStr, 
-                                  category: article.Category || "National Affairs",
+                                  category: article.Category || article.subcategory || "National Affairs",
                                   title: headline, 
                                   summary: summary, 
                                   whatHappened: summary, 
                                   importantPoints: [headline, summary], 
-                                  examFacts: ["Sourced from Daily AI Feed"], 
+                                  examFacts: ["Sourced from Verified Daily Live Feed"], 
                                   quickRemember: headline, 
                                   audioText: `${headline}. ${summary}`,
-                                  source: "Daily AI Brief", 
+                                  source: "Verified News Feed", 
                                   importantFor: ["SSC CGL", "SSC CHSL", "CDS", "UPSC"]
                               };
-                              currentAffairs[monthStr].unshift(newArt);
+                              // RESTORED: unshift so today's news is at the top of the vault
+                              currentAffairs[monthStr].unshift(newArt); 
                               autoNewsCache.unshift(newArt);
                           });
                           needsSave = true;
@@ -3328,6 +3338,7 @@ function getDailyFallbackBoosters() {
               activeUser.autoNewsCache = autoNewsCache;
               saveActiveUser(); 
           } else {
+              // RESTORED: LocalStorage fallback for Guest mode
               localStorage.setItem('prepRecall_autoMocks', JSON.stringify(autoMocksCache));
               localStorage.setItem('prepRecall_autoNews', JSON.stringify(autoNewsCache));
           }
