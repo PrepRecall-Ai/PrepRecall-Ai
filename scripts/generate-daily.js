@@ -37,21 +37,30 @@ async function runBackfillAndGenerate() {
     try {
       let newsResponse;
       
-      // 1. Target high-authority official domains and keywords for competitive exams
+      // 1. Primary Targeted Query: High-yield institutional and national policy domains
       try {
         newsResponse = await newsapi.v2.everything({
-          q: 'India AND (PIB OR Ministry OR RBI OR Supreme Court OR ISRO OR DRDO OR Parliament OR Scheme OR Policy)',
+          q: 'India AND (PIB OR "Ministry" OR RBI OR "Supreme Court" OR ISRO OR DRDO OR Parliament OR "Cabinet" OR Scheme OR "NITI Aayog" OR Defence OR "Joint Exercise")',
           language: 'en',
           sortBy: 'publishedAt',
-          pageSize: 25
+          pageSize: 35
         });
       } catch (e) {
         newsResponse = { articles: [] };
       }
 
-      // Fallback to strict national category if filtered query returns sparse results
+      // 2. Focused Secondary Fallback: Replaces generic clickbait with national affairs keywords
       if (!newsResponse || !newsResponse.articles || newsResponse.articles.length === 0) {
-        newsResponse = await newsapi.v2.topHeadlines({ country: 'in', category: 'general', language: 'en', pageSize: 25 });
+        try {
+          newsResponse = await newsapi.v2.everything({
+            q: 'India AND (Summit OR MoU OR "Bilateral" OR "Ranking" OR "Index" OR "National Award")',
+            language: 'en',
+            sortBy: 'publishedAt',
+            pageSize: 25
+          });
+        } catch (e) {
+          newsResponse = { articles: [] };
+        }
       }
 
       if (!newsResponse.articles || newsResponse.articles.length === 0) {
@@ -59,7 +68,7 @@ async function runBackfillAndGenerate() {
         continue;
       }
 
-      // Filter out fluff, advertisements, and removed entries
+      // Filter out removed, truncated, and sponsored entries
       const realArticles = newsResponse.articles
         .filter(a => a.title && a.title !== '[Removed]' && !a.title.includes('[Sponsored]'))
         .map(a => `Source: ${a.source?.name || 'Official'}\nTitle: ${a.title}\nDescription: ${a.description || "N/A"}`)
@@ -71,7 +80,7 @@ async function runBackfillAndGenerate() {
       });
     
       const prompt = `
-        You are a senior question setter and examiner for top Indian competitive exams (UPSC, SSC CGL, CDS). 
+        You are a senior question setter and examiner for top Indian competitive exams (UPSC CSE, SSC CGL, CDS, NDA). 
         Date Context: ${targetDate}
         
         Here is the strictly factual, live news feed:
@@ -79,13 +88,30 @@ async function runBackfillAndGenerate() {
         ${realArticles}
         """
 
-        Task 1: Select the top 10 most exam-relevant current affairs events from the text above. Use capital JSON keys ("Category", "Headline", "Summary").
-        Task 2: Generate exactly 10 multiple-choice mock test questions based STRICTLY AND ONLY on the provided news text. Every 'correctAnswer' must match an item in 'options' word-for-word.
-        Task 3: Generate a 3-sentence 'Daily Weakness Report' and strategic study tip for aspirants, highlighting complex policy areas or factual pitfalls they need to watch out for.
+        ### MANDATORY INCLUSION CRITERIA (Select ONLY items fitting these 7 categories):
+        1. Appointments: High-level constitutional, statutory, judicial (Supreme Court / Chief Justices), defence chiefs, or international bodies (UN, World Bank, IMF).
+        2. Schemes & Policies: Central government schemes, launching Ministry, financial outlay, beneficiary target, and milestones.
+        3. Defence & Space Science: Joint military exercises (name, participating nations, location), missile/defence tests (DRDO/Armed forces), naval commissions, ISRO missions.
+        4. Awards & Honors: National awards (Padma, Sahitya Akademi, Khel Ratna) and major international honours (Nobel, Booker, Magsaysay).
+        5. Reports & Indexes: Index name, publishing organization, India's rank, and top-ranking nation.
+        6. Summits & Bilateral Accords: Bilateral/multilateral summits (G20, BRICS, SCO, Quad, ASEAN), host city, and government-to-government MoUs.
+        7. Major Sports & Milestones: National games, historical firsts for Indian athletes, Grand Slams, World Cups, and international championships.
+
+        ### STRICT EXCLUSION CRITERIA (DISCARD IMMEDIATELY):
+        - Regional High Court procedural rulings, family/maintenance cases, routine bail orders, or local magistrate FIR procedural matters.
+        - Municipal-level foreign city pacts, local foreign MoUs (e.g., agreements exclusive to foreign cities or local foreign municipalities).
+        - Routine corporate/PSU internal supply logistics (e.g., daily coal transport routes, quarterly earnings).
+        - Political party debates, campaign speeches, and party rivalries.
+        - Local crime, accidents, traffic diversions, entertainment, and celebrity news.
+
+        ### TASKS:
+        Task 1: Select exactly 10 high-yield current affairs events that strictly pass the Inclusion Criteria. Use capital JSON keys ("Category", "Headline", "Summary").
+        Task 2: Generate exactly 10 multiple-choice mock test questions based STRICTLY AND ONLY on the provided news text. Every 'correctAnswer' must match one of the entries in 'options' word-for-word.
+        Task 3: Generate a 3-sentence 'Daily Weakness Report' and strategic study tip highlighting factual traps or confusing ministerial attributions.
         
         CRITICAL ACCURACY GUARDRAILS:
-        1. ZERO HALLUCINATION: Do not invent statistics, committee names, constitutional articles, or ministerial targets unless explicitly mentioned in the source text above.
-        2. EXAM RELEVANCE: Prioritize national schemes, appointments, defense tech, indexes, and economic reports.
+        1. ZERO HALLUCINATION: Do not invent statistics, outlay figures, dates, or ministerial targets not explicitly present in the source text.
+        2. EXAM RELEVANCE: Questions must test high-yield facts an examiner would select, not trivial journalistic filler.
 
         Return strictly in this JSON format:
         {
@@ -127,6 +153,11 @@ async function runBackfillAndGenerate() {
 
       const quizData = JSON.parse(rawText);
 
+      if (!quizData.mocks || quizData.mocks.length === 0) {
+        console.warn(`No qualifying exam mocks passed filters for ${targetDate}. Skipping storage.`);
+        continue;
+      }
+
       const batch = db.batch();
       batch.set(db.collection('daily_mocks').doc(targetDate), { 
         questions: quizData.mocks, 
@@ -134,7 +165,7 @@ async function runBackfillAndGenerate() {
         createdAt: FieldValue.serverTimestamp()
       });
       batch.set(db.collection('daily_articles').doc(targetDate), { 
-        articles: quizData.articles, 
+        articles: quizData.articles || [], 
         audioScript: quizData.audioScript || "Daily current affairs update.",
         date: targetDate 
       });
@@ -146,7 +177,7 @@ async function runBackfillAndGenerate() {
       }
 
       await batch.commit();
-      console.log(`✅ Successfully stored 10 verified factual articles and insights for ${targetDate}`);
+      console.log(`✅ Successfully stored verified articles and mocks for ${targetDate}`);
       
       await delay(10000); 
 
