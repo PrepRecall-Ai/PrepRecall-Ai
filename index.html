@@ -874,6 +874,33 @@
       height: 4px;
       animation: none;
     }
+/* Flat state when audio is stopped */
+    .audio-visualizer:not(.playing) .visualizer-bar {
+      height: 4px;
+      animation: none;
+    }
+
+    /* --- AUDIO PLAYER CONTROLS --- */
+    .audio-ctrl-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .audio-ctrl-btn:active {
+      transform: scale(0.9);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
 
   </style>
 </head>
@@ -917,10 +944,10 @@
     </button>
 </div>
 
-  <div class="audio-player-banner">
-        <div>
+ <div class="audio-player-banner">
+        <div style="flex: 1; padding-right: 10px;">
           <div style="display: flex; align-items: center;">
-            <div style="font-size: 0.85rem; font-weight: 700;">🎧 Current Affairs Audio Brief</div>
+            <div id="audioBannerTitle" style="font-size: 0.85rem; font-weight: 700;">🎧 Current Affairs Audio Brief</div>
             <!-- AUDIO VISUALIZER -->
             <div id="newsAudioVisualizer" class="audio-visualizer">
               <div class="visualizer-bar"></div>
@@ -929,10 +956,16 @@
               <div class="visualizer-bar"></div>
             </div>
           </div>
-          <div style="font-size: 0.72rem; color: var(--text-muted);" id="todayAudioStatus">Listen to latest news capsule</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;" id="todayAudioStatus">Listen to latest news capsule</div>
+        </div>
+        
+        <!-- NEW SPOTIFY STYLE CONTROLS -->
+        <div id="audioControlsSection" style="display: none; gap: 8px; align-items: center; margin-right: 8px;">
+            <button class="audio-ctrl-btn" onclick="playPrevAudio()">⏮</button>
+            <button class="audio-ctrl-btn" onclick="playNextAudioTrack()">⏭</button>
         </div>
         <button class="audio-play-btn" id="todayAudioBtn" onclick="toggleTodayAudioPlaylist()">▶</button>
-      </div>    
+      </div>
 
       <div class="srs-mission-banner" id="srsMissionSection">
         <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -2428,15 +2461,17 @@ function getDailyFallbackBoosters() {
         .map(sanitizeId)
         .filter(id => id && getArticleById(id)))];
     }
-
-    /* ==========================================================================
-       D. AUDIO TEXT-TO-SPEECH
+/* ==========================================================================
+       D. AUDIO TEXT-TO-SPEECH & SPOTIFY-STYLE PLAYLIST
        ========================================================================== */
     let isSpeaking = false;
+    let isPaused = false;
     let isTodayPlaylistPlaying = false;
+    let isManualSkip = false;
     let todayPlaylistIndex = 0;
     let todayPlaylistArticles = [];
-function speakText(text, callback) {
+
+    function speakText(text, callback) {
       if (!('speechSynthesis' in window)) {
         alert("Speech synthesis is not supported on this browser.");
         if (callback) callback();
@@ -2475,32 +2510,48 @@ function speakText(text, callback) {
       utterance.pitch = 0.95;
       
       utterance.onstart = () => {
+          isSpeaking = true;
+          isPaused = false;
           const viz = document.getElementById('newsAudioVisualizer');
           if (viz) viz.classList.add('playing');
       };
       utterance.onend = () => { 
           isSpeaking = false; 
+          isPaused = false;
           const viz = document.getElementById('newsAudioVisualizer');
           if (viz) viz.classList.remove('playing');
           if (callback) callback(); 
       };
       utterance.onerror = () => { 
           isSpeaking = false; 
+          isPaused = false;
           const viz = document.getElementById('newsAudioVisualizer');
           if (viz) viz.classList.remove('playing');
           if (callback) callback(); 
       };
 
-      isSpeaking = true;
       window.speechSynthesis.speak(utterance);
     }
 
     function stopAllSpeech() {
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       isSpeaking = false;
+      isPaused = false;
       isTodayPlaylistPlaying = false;
-      document.getElementById('todayAudioBtn').innerText = "▶";
-      document.getElementById('todayAudioStatus').innerText = "Listen to latest news capsule";
+      isManualSkip = false;
+      
+      const mainBtn = document.getElementById('todayAudioBtn');
+      if (mainBtn) mainBtn.innerText = "▶";
+      
+      const controls = document.getElementById('audioControlsSection');
+      if (controls) controls.style.display = "none";
+      
+      const status = document.getElementById('todayAudioStatus');
+      if (status) status.innerText = "Listen to latest news capsule";
+      
+      const title = document.getElementById('audioBannerTitle');
+      if (title) title.innerText = "🎧 Current Affairs Audio Brief";
+      
       const readerBtn = document.getElementById('readerAudioBtn');
       if (readerBtn) readerBtn.innerText = "🎧 Listen to Summary";
       
@@ -2508,12 +2559,94 @@ function speakText(text, callback) {
       if (viz) viz.classList.remove('playing');
     }
 
+    // --- THE SPOTIFY-STYLE CONTROLS ---
+    function toggleTodayAudioPlaylist() {
+      if (isTodayPlaylistPlaying) {
+          // Pause/Resume Logic
+          if (isPaused) {
+              window.speechSynthesis.resume();
+              isPaused = false;
+              document.getElementById('todayAudioBtn').innerText = "⏸";
+              const viz = document.getElementById('newsAudioVisualizer');
+              if (viz) viz.classList.add('playing');
+          } else {
+              window.speechSynthesis.pause();
+              isPaused = true;
+              document.getElementById('todayAudioBtn').innerText = "▶";
+              const viz = document.getElementById('newsAudioVisualizer');
+              if (viz) viz.classList.remove('playing');
+          }
+          return;
+      }
+      
+      // Dynamic Month Fix (E.g., "Sep 2026")
+      const shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const today = new Date();
+      const currentMonthStr = shortMonths[today.getMonth()] + ' ' + today.getFullYear();
+      
+      // Dynamically Update UI Name
+      document.getElementById('audioBannerTitle').innerText = `🎧 ${currentMonthStr} Audio Brief`;
+
+      // Fetch dynamic current month
+      const currentArticles = currentAffairs[currentMonthStr] || [];
+      todayPlaylistArticles = currentArticles.filter(a => isArticleRelevantForExam(a, activeUser ? activeUser.targetExam : "ssc"));
+
+      if (todayPlaylistArticles.length === 0) {
+        alert(`No audio capsules available for ${currentMonthStr} yet. Check back soon!`);
+        return;
+      }
+      
+      isTodayPlaylistPlaying = true;
+      todayPlaylistIndex = 0;
+      isManualSkip = false;
+      
+      // Reveal the controls and swap to pause icon
+      document.getElementById('todayAudioBtn').innerText = "⏸";
+      document.getElementById('audioControlsSection').style.display = "flex";
+      
+      playNextTodayAudio();
+    }
+
+    function playNextTodayAudio() {
+      if (!isTodayPlaylistPlaying || todayPlaylistIndex >= todayPlaylistArticles.length || todayPlaylistIndex < 0) {
+        stopAllSpeech();
+        document.getElementById('todayAudioStatus').innerText = "Playlist Completed!";
+        return;
+      }
+      const current = todayPlaylistArticles[todayPlaylistIndex];
+      document.getElementById('todayAudioStatus').innerText = `Playing (${todayPlaylistIndex + 1}/${todayPlaylistArticles.length}): ${current.title.substring(0, 24)}...`;
+      
+      speakText(current.audioText, () => {
+        if (!isManualSkip) {
+            todayPlaylistIndex++;
+            playNextTodayAudio();
+        }
+      });
+    }
+
+    function playPrevAudio() {
+        if (!isTodayPlaylistPlaying || todayPlaylistIndex === 0) return;
+        isManualSkip = true; // Prevent the auto-next logic from firing
+        todayPlaylistIndex--;
+        window.speechSynthesis.cancel();
+        setTimeout(() => { isManualSkip = false; playNextTodayAudio(); }, 150);
+    }
+
+    function playNextAudioTrack() {
+        if (!isTodayPlaylistPlaying || todayPlaylistIndex >= todayPlaylistArticles.length - 1) return;
+        isManualSkip = true; // Prevent the auto-next logic from firing
+        todayPlaylistIndex++;
+        window.speechSynthesis.cancel();
+        setTimeout(() => { isManualSkip = false; playNextTodayAudio(); }, 150);
+    }
+
     function toggleArticleSpeech() {
       const btn = document.getElementById('readerAudioBtn');
-      if (isSpeaking) {
+      if (isSpeaking && !isTodayPlaylistPlaying) {
         stopAllSpeech();
       } else {
         if (!activeArticleReading) return;
+        stopAllSpeech(); // Stop playlist if running
         btn.innerText = "⏹ Stop Narration";
         speakText(activeArticleReading.audioText, () => {
           btn.innerText = "🎧 Listen to Summary";
@@ -2521,37 +2654,14 @@ function speakText(text, callback) {
       }
     }
 
-    function toggleTodayAudioPlaylist() {
-      if (isTodayPlaylistPlaying) {
-        stopAllSpeech();
-        return;
-      }
-      const augArticles = currentAffairs["Aug 2026"] || [];
-      todayPlaylistArticles = augArticles.filter(a => isArticleRelevantForExam(a, activeUser ? activeUser.targetExam : "ssc"));
-
-      if (todayPlaylistArticles.length === 0) {
-        alert("No audio capsules available for target exam in latest feed.");
-        return;
-      }
-      isTodayPlaylistPlaying = true;
-      todayPlaylistIndex = 0;
-      document.getElementById('todayAudioBtn').innerText = "⏹";
-      playNextTodayAudio();
-    }
-
-    function playNextTodayAudio() {
-      if (!isTodayPlaylistPlaying || todayPlaylistIndex >= todayPlaylistArticles.length) {
-        stopAllSpeech();
-        document.getElementById('todayAudioStatus').innerText = "Completed audio playlist!";
-        return;
-      }
-      const current = todayPlaylistArticles[todayPlaylistIndex];
-      document.getElementById('todayAudioStatus').innerText = `Playing (${todayPlaylistIndex + 1}/${todayPlaylistArticles.length}): ${current.title.substring(0, 24)}...`;
-      speakText(current.audioText, () => {
-        todayPlaylistIndex++;
-        playNextTodayAudio();
-      });
-    }
+    window.playAudioBrief = function() {
+        if (!window.currentNewsText) {
+            alert("News content is still loading or unavailable.");
+            return;
+        }
+        stopAllSpeech(); // Stop playlist if running
+        speakText(window.currentNewsText);
+    };
 
     function isArticleRelevantForExam(article, examCode) {
       if (!article.importantFor) return true;
@@ -2560,8 +2670,7 @@ function speakText(text, callback) {
       if (examCode === "upsc") return article.importantFor.includes("UPSC");
       return true;
     }
-
-    /* ==========================================================================
+     /* ==========================================================================
        E. NAVIGATION & APP ROUTING
        ========================================================================== */
     function navigateToTab(tabName) {
