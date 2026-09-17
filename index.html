@@ -11,11 +11,13 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0f172a" />
 
-  <meta property="og:type" content="website" />
+ <meta property="og:type" content="website" />
   <meta property="og:title" content="PrepRecall - Smart Current Affairs & Automated Revision Engine" />
   <meta property="og:description" content="Master exam current affairs with automated spaced repetition revision missions and diagnostic mock tests." />
   <meta property="og:site_name" content="PrepRecall" />
-
+  <!-- IMPORTANT: Update these two links with your actual GitHub Pages URL -->
+   <meta property="og:url" content="https://preprecall-ai.github.io/PrepRecall-Ai/" />
+  <meta property="og:image" content="https://preprecall-ai.github.io/PrepRecall-Ai/assets/preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="PrepRecall - Smart Current Affairs & Automated Revision Engine" />
   <meta name="twitter:description" content="Retain 100% of your current affairs with automated daily revision queues and mock tests for SSC, CDS, and UPSC." />
@@ -902,6 +904,61 @@
       border-color: var(--accent);
     }
 
+/* --- SHIMMER SKELETON LOADERS --- */
+    @keyframes shimmer {
+      0% { background-position: -200px 0; }
+      100% { background-position: calc(200px + 100%) 0; }
+    }
+
+    .skeleton-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .skeleton-line {
+      border-radius: 4px;
+      /* Uses your exact dark theme variables to blend perfectly */
+      background: linear-gradient(90deg, var(--bg-card) 25%, var(--border) 50%, var(--bg-card) 75%);
+      background-size: 200px 100%;
+      animation: shimmer 1.5s infinite linear;
+    }
+
+    .skeleton-title {
+      height: 16px;
+      width: 60%;
+      margin-bottom: 4px;
+    }
+
+    .skeleton-text { height: 12px; }
+    .skeleton-text.full { width: 100%; }
+    .skeleton-text.short { width: 85%; }
+
+/* --- AI TYPING CURSOR & GLOW --- */
+    .typing-cursor {
+      display: inline-block;
+      width: 6px;
+      height: 12px;
+      background-color: var(--accent);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 0.8s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    .report-generating-glow {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+      border-color: var(--accent) !important;
+      transition: all 0.3s ease;
+    }
+
   </style>
 </head>
 <body>
@@ -936,7 +993,24 @@
     </div>
 
     <div id="home-news-feed" style="color: #cbd5e1; font-size: 14px; margin-bottom: 20px;">
-        <p>Loading today's current affairs...</p>
+        <!-- Skeleton Card 1 -->
+        <div class="skeleton-wrapper">
+            <div class="skeleton-line skeleton-title"></div>
+            <div class="skeleton-line skeleton-text full"></div>
+            <div class="skeleton-line skeleton-text short"></div>
+        </div>
+        <!-- Skeleton Card 2 -->
+        <div class="skeleton-wrapper">
+            <div class="skeleton-line skeleton-title" style="width: 45%;"></div>
+            <div class="skeleton-line skeleton-text full"></div>
+            <div class="skeleton-line skeleton-text short" style="width: 92%;"></div>
+        </div>
+        <!-- Skeleton Card 3 -->
+        <div class="skeleton-wrapper" style="border-bottom: none;">
+            <div class="skeleton-line skeleton-title" style="width: 75%;"></div>
+            <div class="skeleton-line skeleton-text full"></div>
+            <div class="skeleton-line skeleton-text short" style="width: 60%;"></div>
+        </div>
     </div>
 
     <button onclick="window.location.href='mock-test.html'" style="width: 100%; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center;">
@@ -2433,25 +2507,26 @@ function getDailyFallbackBoosters() {
         }
         return boosters;
     }
-
-    function getDueSRSItems() {
+function getDueSRSItems() {
         if (!activeUser) return [];
         const today = getTodayDateString();
+        const mockMistakes = activeUser.mockMistakeQueue || [];
         
-        // 1. Get genuine due SRS items
+        // 1. Get genuine due SRS items (EXCLUDE active mock mistakes to prevent double counting)
         let dueItems = (activeUser.revisionQueue || []).filter(item => {
             item.articleId = sanitizeId(item.articleId);
-            return item.articleId && getArticleById(item.articleId) && item.nextReviewDate <= today;
+            const isDue = item.articleId && getArticleById(item.articleId) && item.nextReviewDate <= today;
+            return isDue && !mockMistakes.includes(item.articleId);
         });
 
         // 2. FALLBACK: If nothing is due and there are no mock mistakes, load daily general knowledge boosters!
-        const mockMistakes = activeUser.mockMistakeQueue || [];
         if (dueItems.length === 0 && mockMistakes.length === 0) {
             return getDailyFallbackBoosters();
         }
 
         return dueItems;
     }
+   
     function normalizeUserRevisionData() {
       if (!activeUser) return;
       activeUser.revisionQueue = (activeUser.revisionQueue || [])
@@ -3456,8 +3531,8 @@ function getDailyFallbackBoosters() {
           if (!currentAffairs[art.month].some(a => a.id === art.id)) currentAffairs[art.month].push(art);
       });
 
-      // 3. FETCH LOOP (Last 5 days)
-      for (let i = 0; i <= 5; i++) {
+      // 3. FETCH LOOP (Last 31 days)
+      for (let i = 0; i <= 31; i++) {
           let d = new Date();
           d.setDate(d.getDate() - i);
           let dateId = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, '0') + "-" + String(d.getDate()).padStart(2, '0');
@@ -3658,7 +3733,7 @@ async function loadDailyWeaknessReport() {
     }
 }
 
-            // MAIN APP ENTRY POINT
+// MAIN APP ENTRY POINT
     window.addEventListener('DOMContentLoaded', () => {
         // Safe startup sequence
         if (typeof validateMockDataset === 'function') {
@@ -3674,12 +3749,52 @@ async function loadDailyWeaknessReport() {
         
         // Load the diagnostic UI
         renderDiagnosticUI();
+
+        // 🔴 UPGRADED: AI Typing Reveal Animation
         document.getElementById('revealDailyReportBtn').addEventListener('click', function() {
-       document.getElementById('daily-report-content').style.display = 'block';
-       this.style.display = 'none';
+            const btn = this;
+            const contentBox = document.getElementById('daily-report-content');
+            const textBox = document.getElementById('daily-report-text');
+            const card = btn.closest('.daily-report-card');
+            
+            // 1. Get the pre-loaded HTML content and clear the box
+            const rawHTML = textBox.innerHTML;
+            textBox.innerHTML = '';
+            
+            // 2. Trigger UI Transitions
+            btn.style.display = 'none';
+            contentBox.style.display = 'block';
+            if (card) card.classList.add('report-generating-glow');
+            
+            // 3. The Typewriter Engine (Handles HTML tags seamlessly)
+            let i = 0;
+            let isTag = false;
+            let currentText = '';
+            
+            function type() {
+                if (i < rawHTML.length) {
+                    const char = rawHTML.charAt(i);
+                    currentText += char;
+                    textBox.innerHTML = currentText + '<span class="typing-cursor"></span>';
+                    
+                    if (char === '<') isTag = true;
+                    if (char === '>') isTag = false;
+                    
+                    i++;
+                    // Skip delay if it's an HTML tag, otherwise type at 15ms per character
+                    setTimeout(type, isTag ? 0 : 15);
+                } else {
+                    // Cleanup when typing finishes
+                    textBox.innerHTML = currentText; 
+                    if (card) card.classList.remove('report-generating-glow');
+                }
+            }
+            
+            type();
+        });
     });
-    });
-    </script>  
+     
+     </script>  
 </body>
 </html>
    
