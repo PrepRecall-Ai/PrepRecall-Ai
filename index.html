@@ -980,79 +980,53 @@
     </header>
 
     <main id="tab-home" class="screen-view">
-      <div class="hero-banner">
+     <div class="hero-banner">
         <span class="hero-tagline">Learn • Listen • Revise • Remember</span>
         <h1 class="hero-title" id="homeGreeting">Today's Current Affairs</h1>
       </div>
       
-     <div class="card daily-news-card" style="background: #1e293b; padding: 20px; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1);">
-    <!-- 1. The Clickable Header -->
-    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleDailyNews()">
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <h3 style="color: #fff; margin: 0;">📰 Today's Curated Brief</h3>
-            <!-- The Arrow Indicator -->
-            <span id="daily-news-arrow" style="color: var(--accent); transition: transform 0.3s; font-size: 1rem;">▼</span>
-        </div>
-        <!-- Note: event.stopPropagation() stops the accordion from opening/closing when they just want to click Listen -->
-        <button id="listen-news-btn" onclick="event.stopPropagation(); playAudioBrief()" style="background: #0ea5e9; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 600;">
-            🔊 Listen
-        </button>
-    </div>
-
-    <!-- 2. The Hidden Content (Opens when clicked) -->
-    <div id="daily-news-content" style="display: none; margin-top: 15px;">
-        <div id="home-news-feed" style="color: #cbd5e1; font-size: 14px; margin-bottom: 20px;">
-            <!-- Skeleton Card 1 -->
-            <div class="skeleton-wrapper">
-                <div class="skeleton-line skeleton-title"></div>
-                <div class="skeleton-line skeleton-text full"></div>
-                <div class="skeleton-line skeleton-text short"></div>
+      <div class="card daily-news-card" style="background: #1e293b; padding: 20px; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.1);">
+        <!-- 1. The Clickable Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleDailyNews()">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <h3 style="color: #fff; margin: 0;">📰 Today's Curated Brief</h3>
+                <!-- The Arrow Indicator -->
+                <span id="daily-news-arrow" style="color: var(--accent); transition: transform 0.3s; font-size: 1rem;">▼</span>
             </div>
-            <!-- Skeleton Card 2 -->
-            <div class="skeleton-wrapper">
-                <div class="skeleton-line skeleton-title" style="width: 45%;"></div>
-                <div class="skeleton-line skeleton-text full"></div>
-                <div class="skeleton-line skeleton-text short" style="width: 92%;"></div>
+            <!-- Note: event.stopPropagation() stops the accordion from opening/closing when they just want to click Listen -->
+            <button id="listen-news-btn" onclick="event.stopPropagation(); playAudioBrief()" style="background: #0ea5e9; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 600;">
+                🔊 Listen
+            </button>
+        </div>
+
+        <!-- 2. The Hidden Content (Opens when clicked) -->
+        <div id="daily-news-content" style="display: none; margin-top: 15px;">
+            <div id="home-news-feed" style="color: #cbd5e1; font-size: 14px; margin-bottom: 20px;">
+                <!-- Skeleton Card 1 -->
+                <div class="skeleton-wrapper">
+                    <div class="skeleton-line skeleton-title"></div>
+                    <div class="skeleton-line skeleton-text full"></div>
+                    <div class="skeleton-line skeleton-text short"></div>
+                </div>
+                <!-- Skeleton Card 2 -->
+                <div class="skeleton-wrapper">
+                    <div class="skeleton-line skeleton-title" style="width: 45%;"></div>
+                    <div class="skeleton-line skeleton-text full"></div>
+                    <div class="skeleton-line skeleton-text short" style="width: 92%;"></div>
+                </div>
+                <!-- Skeleton Card 3 -->
+                <div class="skeleton-wrapper" style="border-bottom: none;">
+                    <div class="skeleton-line skeleton-title" style="width: 75%;"></div>
+                    <div class="skeleton-line skeleton-text full"></div>
+                    <div class="skeleton-line skeleton-text short" style="width: 60%;"></div>
+                </div>
             </div>
-            <!-- Skeleton Card 3 -->
-            <div class="skeleton-wrapper" style="border-bottom: none;">
-                <div class="skeleton-line skeleton-title" style="width: 75%;"></div>
-                <div class="skeleton-line skeleton-text full"></div>
-                <div class="skeleton-line skeleton-text short" style="width: 60%;"></div>
-            </div>
-        </div>
 
-        <button onclick="startDailyMock()" style="width: 100%; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center;">
-            ✍️ Give Today's Mock Test
-        </button>
-    </div>
-</div>
-
-    <div id="home-news-feed" style="color: #cbd5e1; font-size: 14px; margin-bottom: 20px;">
-        <!-- Skeleton Card 1 -->
-        <div class="skeleton-wrapper">
-            <div class="skeleton-line skeleton-title"></div>
-            <div class="skeleton-line skeleton-text full"></div>
-            <div class="skeleton-line skeleton-text short"></div>
+            <button onclick="startDailyMock()" style="width: 100%; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center;">
+                ✍️ Give Today's Mock Test
+            </button>
         </div>
-        <!-- Skeleton Card 2 -->
-        <div class="skeleton-wrapper">
-            <div class="skeleton-line skeleton-title" style="width: 45%;"></div>
-            <div class="skeleton-line skeleton-text full"></div>
-            <div class="skeleton-line skeleton-text short" style="width: 92%;"></div>
-        </div>
-        <!-- Skeleton Card 3 -->
-        <div class="skeleton-wrapper" style="border-bottom: none;">
-            <div class="skeleton-line skeleton-title" style="width: 75%;"></div>
-            <div class="skeleton-line skeleton-text full"></div>
-            <div class="skeleton-line skeleton-text short" style="width: 60%;"></div>
-        </div>
-    </div>
-
-    <button onclick="startDailyMock()" style="width: 100%; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center;">
-        ✍️ Give Today's Mock Test
-    </button>
-</div>
+      </div>
 
  <div class="audio-player-banner">
         <div style="flex: 1; padding-right: 10px;">
