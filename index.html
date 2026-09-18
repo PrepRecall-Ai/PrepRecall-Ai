@@ -1013,7 +1013,7 @@
         </div>
     </div>
 
-    <button onclick="window.location.href='mock-test.html'" style="width: 100%; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center;">
+    <button onclick="startDailyMock()" style="width: 100%; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center;">
         ✍️ Give Today's Mock Test
     </button>
 </div>
@@ -3147,6 +3147,32 @@ function getDueSRSItems() {
         listContainer.appendChild(card);
       }
     }
+
+window.startDailyMock = function() {
+        const todayDate = new Date();
+        const dateId = todayDate.getFullYear() + "-" + String(todayDate.getMonth() + 1).padStart(2, '0') + "-" + String(todayDate.getDate()).padStart(2, '0');
+
+        // Find today's specific automated questions
+        mockQuestionsPool = questionBank.filter(q => q.injectedDate === dateId);
+
+        if (mockQuestionsPool.length === 0) {
+            alert("Today's mock test is still generating or you are offline. Please try again in a few minutes!");
+            return;
+        }
+
+        activeMockSession = { title: "Daily Mock - " + dateId, batch: "Daily" };
+        mockQIndex = 0; mockScore = 0; mockMistakes = []; selectedMockOption = null;
+        mockStartTime = Date.now();
+
+        document.querySelectorAll('.screen-view').forEach(s => s.classList.add('hidden'));
+        document.getElementById('mockExamActiveScreen').classList.remove('hidden');
+        document.getElementById('activeMockTitleBadge').innerText = "Today's Mock";
+
+        startMockTimer();
+        renderMockQuestionItem();
+    };
+
+
 
     function startMockBatch(batchNum, batchTitle) {
       mockQuestionsPool = questionBank.filter(q => q.month === selectedMockMonth && q.batch === batchNum);
