@@ -2314,19 +2314,13 @@ function initUserSession() {
       }
     }
 
-    async function handleAuthLogin(e) {
+async function handleAuthLogin(e) {
       e.preventDefault();
       const email = document.getElementById('loginEmail').value.trim().toLowerCase();
       const pass = document.getElementById('loginPassword').value;
       try {
-        const userCredential = await firebase.auth().signInWithEmailAndPassword(email, pass);
-        
-        // 🔒 NEW: Block unverified fake proxy emails
-        if (!userCredential.user.emailVerified) {
-            await firebase.auth().signOut();
-            alert("Login Blocked: You must verify your email address first. Please check your inbox or spam folder for the verification link.");
-            return;
-        }
+        // Just log them straight in. No email verification checks anymore.
+        await firebase.auth().signInWithEmailAndPassword(email, pass);
       } catch (error) {
         alert("Sign In Failed: " + error.message);
       }
@@ -2362,12 +2356,9 @@ function initUserSession() {
         };
         await firebase.firestore().collection('users').doc(user.uid).set(initialUserData);
 
-        // 🔒 NEW: Send verification email immediately, then kick them out until verified
-        await user.sendEmailVerification();
-        await firebase.auth().signOut();
+        // Removed the forced sign-out and the alert. 
+        // Firebase automatically logs them in here, so your app will instantly jump to the Home tab!
         
-        alert("Account created successfully! A verification link has been sent to your email. You MUST click that link before you can log in.");
-        switchAuthTab('login');
       } catch (error) {
         alert("Registration Failed: " + error.message);
       }
