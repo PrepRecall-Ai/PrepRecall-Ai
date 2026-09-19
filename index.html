@@ -2319,13 +2319,20 @@ function initUserSession() {
       const email = document.getElementById('loginEmail').value.trim().toLowerCase();
       const pass = document.getElementById('loginPassword').value;
       try {
-        await firebase.auth().signInWithEmailAndPassword(email, pass);
+        const userCredential = await firebase.auth().signInWithEmailAndPassword(email, pass);
+        
+        // 🔒 NEW: Block unverified fake proxy emails
+        if (!userCredential.user.emailVerified) {
+            await firebase.auth().signOut();
+            alert("Login Blocked: You must verify your email address first. Please check your inbox or spam folder for the verification link.");
+            return;
+        }
       } catch (error) {
         alert("Sign In Failed: " + error.message);
       }
     }
 
-async function handleAuthRegister(e) {
+    async function handleAuthRegister(e) {
       e.preventDefault();
       const name = document.getElementById('regName').value.trim();
       const email = document.getElementById('regEmail').value.trim().toLowerCase();
@@ -2354,6 +2361,13 @@ async function handleAuthRegister(e) {
           lastStudiedDate: null
         };
         await firebase.firestore().collection('users').doc(user.uid).set(initialUserData);
+
+        // 🔒 NEW: Send verification email immediately, then kick them out until verified
+        await user.sendEmailVerification();
+        await firebase.auth().signOut();
+        
+        alert("Account created successfully! A verification link has been sent to your email. You MUST click that link before you can log in.");
+        switchAuthTab('login');
       } catch (error) {
         alert("Registration Failed: " + error.message);
       }
@@ -2362,9 +2376,13 @@ async function handleAuthRegister(e) {
     async function handleAuthForgot(e) {
       e.preventDefault();
       const email = document.getElementById('forgotEmail').value.trim().toLowerCase();
+      if (!email) {
+          alert("Please enter your email address first.");
+          return;
+      }
       try {
         await firebase.auth().sendPasswordResetEmail(email);
-        alert("Password reset email sent — check your inbox");
+        alert("Password reset email sent — check your inbox or spam folder.");
         switchAuthTab('login');
       } catch (error) {
         alert("Password Reset Failed: " + error.message);
