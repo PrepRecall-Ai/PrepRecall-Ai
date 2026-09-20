@@ -1028,6 +1028,17 @@
         </div>
       </div>
 
+      <!-- 🔥 6-MONTH MEGA MOCK CTA (HOME TAB) 🔥 -->
+      <div style="margin-bottom: 16px;">
+        <button class="btn-action" onclick="startMegaMock()" style="width: 100%; background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%); color: white; border: 2px solid rgba(168, 85, 247, 0.5); padding: 14px 16px; border-radius: var(--radius); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 12px;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span style="font-size: 1.25rem;">⚡</span>
+            <span style="font-size: 1.05rem; font-weight: 800; letter-spacing: -0.3px; border: none;">Start 6-Month Mega Mock</span>
+          </div>
+          <span style="font-size: 0.72rem; font-weight: 600; color: #e2e8f0; margin-top: 5px; background: rgba(0,0,0,0.25); padding: 3px 10px; border-radius: 20px;">25 Random Questions • SSC Tier-1 Pattern</span>
+        </button>
+      </div>
+
  <div class="audio-player-banner">
         <div style="flex: 1; padding-right: 10px;">
           <div style="display: flex; align-items: center;">
@@ -3191,7 +3202,35 @@ window.startDailyMock = function() {
         renderMockQuestionItem();
     };
 
-
+    window.startMegaMock = function() {
+      // 1. Combine all available questions from your 6-month hardcoded database
+      let allQuestions = [...questionBank];
+      
+      // 2. Shuffle the entire array randomly (Fisher-Yates Shuffle)
+      for (let i = allQuestions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [allQuestions[i], allQuestions[j]] = [allQuestions[j], allQuestions[i]];
+      }
+      
+      // 3. Extract exactly 25 questions to match the SSC CGL General Awareness Tier-1 pattern
+      mockQuestionsPool = allQuestions.slice(0, 25);
+      
+      if (mockQuestionsPool.length === 0) {
+        alert("No questions available to build a Mega Mock.");
+        return;
+      }
+      
+      activeMockSession = { title: "6-Month CA Mega Mock", batch: "Mega" };
+      mockQIndex = 0; mockScore = 0; mockMistakes = []; selectedMockOption = null;
+      mockStartTime = Date.now();
+      
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.add('hidden'));
+      document.getElementById('mockExamActiveScreen').classList.remove('hidden');
+      document.getElementById('activeMockTitleBadge').innerText = "MEGA MOCK";
+      
+      startMockTimer();
+      renderMockQuestionItem();
+    };
 
     function startMockBatch(batchNum, batchTitle) {
       mockQuestionsPool = questionBank.filter(q => q.month === selectedMockMonth && q.batch === batchNum);
