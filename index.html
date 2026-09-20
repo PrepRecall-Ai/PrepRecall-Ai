@@ -2484,59 +2484,97 @@ async function handleAuthLogin(e) {
     }
 
     function handleSRSReview(articleId, remembered) {
-      if (!activeUser || !activeUser.revisionQueue) return;
+      if (!activeUser) return;
+      if (!activeUser.revisionQueue) activeUser.revisionQueue = [];
       const today = getTodayDateString();
       const cleanId = sanitizeId(articleId);
       const itemIdx = activeUser.revisionQueue.findIndex(item => sanitizeId(item.articleId) === cleanId);
-      if (itemIdx === -1) return;
 
-      const item = activeUser.revisionQueue[itemIdx];
-      if (remembered) {
-        item.stage = Math.min(item.stage + 1, SRS_INTERVAL_DAYS.length - 1);
-        item.nextReviewDate = addDaysToDate(today, SRS_INTERVAL_DAYS[item.stage]);
+      if (itemIdx === -1) {
+        // Fix: If it's a Ghost/Fallback Booster, register it into the queue right now
+        const nextInterval = remembered ? SRS_INTERVAL_DAYS[1] : 1;
+        activeUser.revisionQueue.push({
+          articleId: cleanId,
+          stage: remembered ? 1 : 0,
+          nextReviewDate: addDaysToDate(today, nextInterval),
+          lastReviewed: today
+        });
       } else {
-        item.stage = 0;
-        item.nextReviewDate = addDaysToDate(today, 1);
+        const item = activeUser.revisionQueue[itemIdx];
+        if (remembered) {
+          item.stage = Math.min(item.stage + 1, SRS_INTERVAL_DAYS.length - 1);
+          item.nextReviewDate = addDaysToDate(today, SRS_INTERVAL_DAYS[item.stage]);
+        } else {
+          item.stage = 0;
+          item.nextReviewDate = addDaysToDate(today, 1);
+        }
+        item.lastReviewed = today;
       }
-      item.lastReviewed = today;
+      
       updateStudyStreak();
       saveActiveUser();
       renderHomeScreen();
     }
 
-function getDailyFallbackBoosters() {
-        if (!activeUser) return [];
-        
-        let allArticles = [];
-        Object.keys(currentAffairs).forEach(monthKey => {
-            if (currentAffairs[monthKey]) {
-                allArticles.push(...currentAffairs[monthKey]);
-            }
-        });
+    function getDailyFallbackBoosters() {
+      if (!activeUser) return [];
+      
+      // 1. Gather all verified articles from your repository
+      let allArticles = [];
+      Object.keys(currentAffairs).forEach(monthKey => {
+        if (currentAffairs[monthKey]) {
+          allArticles.push(...currentAffairs[monthKey]);
+        }
+      });
 
-        if (allArticles.length === 0) return [];
+      if (allArticles.length === 0) return [];
 
-        const todayStr = getTodayDateString();
-        let seed = 0;
-        for (let i = 0; i < todayStr.length; i++) {
-            seed += todayStr.charCodeAt(i);
+      const todayStr = getTodayDateString();
+
+      // 2. Track which articles the user has already revised today
+      const reviewedTodaySet = new Set(
+        (activeUser.revisionQueue || [])
+          .filter(r => r.lastReviewed === todayStr)
+          .map(r => sanitizeId(r.articleId))
+      );
+
+      if (!activeUser.activeBoosterBatch) activeUser.activeBoosterBatch = [];
+
+      // 3. Check which articles in the current batch are STILL unreviewed
+      let currentUnreviewed = activeUser.activeBoosterBatch.filter(
+        id => !reviewedTodaySet.has(sanitizeId(id)) && getArticleById(id)
+      );
+
+      // 4. If all 3 are finished (or first run), pull 3 NEW topics immediately!
+      if (currentUnreviewed.length === 0) {
+        let unreviewedPool = allArticles.filter(a => !reviewedTodaySet.has(sanitizeId(a.id)));
+
+        // If the student manages to revise every single article today, recycle the pool
+        if (unreviewedPool.length === 0) {
+          unreviewedPool = [...allArticles];
         }
 
-        const boosters = [];
-        for (let i = 0; i < 3; i++) {
-            const index = (seed + i * 7) % allArticles.length;
-            const art = allArticles[index];
-            if (art && !boosters.some(b => b.articleId === art.id)) {
-                boosters.push({
-                    articleId: art.id,
-                    stage: 0,
-                    isBooster: true,
-                    nextReviewDate: todayStr
-                });
-            }
-        }
-        return boosters;
+        // Shuffle the pool and grab the next 3 fresh topics
+        const shuffled = [...unreviewedPool].sort(() => 0.5 - Math.random());
+        const nextThree = shuffled.slice(0, 3);
+
+        activeUser.activeBoosterBatch = nextThree.map(a => a.id);
+        currentUnreviewed = [...activeUser.activeBoosterBatch];
+        saveActiveUser();
+      }
+
+      // 5. Return the active unreviewed batch
+      return currentUnreviewed.map(artId => {
+        const art = getArticleById(artId);
+        return {
+          articleId: art ? art.id : artId,
+          stage: 0,
+          isBooster: true,
+          nextReviewDate: todayStr
+        };
+      }).filter(b => b.articleId && getArticleById(b.articleId));
     }
+
 function getDueSRSItems() {
         if (!activeUser) return [];
         const today = getTodayDateString();
