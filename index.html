@@ -3188,7 +3188,7 @@ function getDueSRSItems() {
     let mockStartTime = 0;
     let mockTimerInterval = null;
 
-    function renderMocksDirectory() {
+   function renderMocksDirectory() {
       const container = document.getElementById('mockMonthTabsContainer');
       container.innerHTML = '';
       monthsList.forEach(m => {
@@ -3202,25 +3202,28 @@ function getDueSRSItems() {
       const listContainer = document.getElementById('monthMocksListContainer');
       listContainer.innerHTML = '';
       const monthQuestions = questionBank.filter(q => q.month === selectedMockMonth);
-      const totalBatches = Math.max(...monthQuestions.map(q => q.batch), 1);
+      
+      // FIX: Extract unique batches and sort them, mapping them exactly to 1, 2, 3...
+      const uniqueBatches = [...new Set(monthQuestions.map(q => q.batch))].sort((a, b) => a - b);
 
-      for (let b = 1; b <= totalBatches; b++) {
-        const bQuestions = monthQuestions.filter(q => q.batch === b);
-        if (bQuestions.length === 0) continue;
+      uniqueBatches.forEach((actualBatchNum, index) => {
+        const bQuestions = monthQuestions.filter(q => q.batch === actualBatchNum);
+        if (bQuestions.length === 0) return;
+
+        const displayBatchNum = index + 1; // Forces display to ALWAYS start at 1
 
         const card = document.createElement('div');
         card.className = 'mock-item-card';
         card.innerHTML = `
           <div>
-            <div style="font-weight:700; font-size:0.88rem;">${selectedMockMonth} - Mock Batch ${b}</div>
+            <div style="font-weight:700; font-size:0.88rem;">${selectedMockMonth} - Mock Batch ${displayBatchNum}</div>
             <div style="font-size:0.72rem; color:var(--text-muted);">${bQuestions.length} Questions • Full Explanations • Timer</div>
           </div>
-          <button class="btn-action primary" style="flex:0; padding:6px 12px;" onclick="startMockBatch(${b}, '${selectedMockMonth} - Batch ${b}')">Start &rarr;</button>
+          <button class="btn-action primary" style="flex:0; padding:6px 12px;" onclick="startMockBatch(${actualBatchNum}, '${selectedMockMonth} - Mock Batch ${displayBatchNum}')">Start &rarr;</button>
         `;
         listContainer.appendChild(card);
-      }
-    }
-
+      });
+    } 
 window.startDailyMock = function() {
         const todayDate = new Date();
         const dateId = todayDate.getFullYear() + "-" + String(todayDate.getMonth() + 1).padStart(2, '0') + "-" + String(todayDate.getDate()).padStart(2, '0');
@@ -3525,6 +3528,20 @@ window.startDailyMock = function() {
         });
       }
     }
+window.shareMockScore = function() {
+      const total = mockQuestionsPool.length;
+      const shareText = `🔥 I just scored ${mockScore}/${total} in the SSC CGL ${activeMockSession.title} on PrepRecall!\n\nCan you beat my score? Take the free mock test here: https://preprecall-ai.github.io/PrepRecall-Ai/`;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: 'PrepRecall Mock Score',
+          text: shareText
+        }).catch(err => console.log('Share aborted', err));
+      } else {
+        window.open(`https://t.me/share/url?url=${encodeURIComponent('https://preprecall-ai.github.io/PrepRecall-Ai/')}&text=${encodeURIComponent(shareText)}`, '_blank');
+      }
+    };
+
     /* ==========================================================================
        J. PROGRESS SCREEN
        ========================================================================== */
