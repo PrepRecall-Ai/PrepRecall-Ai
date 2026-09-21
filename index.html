@@ -1172,16 +1172,21 @@
         <div class="score-big" id="mockFinalScore">0 / 10</div>
         <div style="font-size: 0.82rem; font-weight: 700;" id="mockFinalAccuracy">Accuracy: 0% • Time Taken: 00:00</div>
       </div>
-      <div class="section-label">Category Performance Breakdown</div>
+
+      <!-- 🔥 NEW VIRAL SHARE BUTTON 🔥 -->
+      <button class="btn-action" onclick="shareMockScore()" style="width: 100%; margin-top: 16px; background: #0088cc; color: #fff; border: none; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 136, 204, 0.3);">
+        <span style="font-size: 1.1rem; margin-right: 6px;">✈️</span> Share Score to Telegram / WhatsApp
+      </button>
+
+      <div class="section-label" style="margin-top: 16px;">Category Performance Breakdown</div>
       <div id="mockCategoryBreakdownList" style="margin-top: 6px;"></div>
       <div class="section-label" style="color: var(--danger); margin-top: 10px;">⚠️ Weak Topics Identified</div>
       <div id="mockWeakTopicsList" style="margin-top: 6px;"></div>
-      <div style="display: flex; gap: 8px; margin-top: 12px;">
+      
       <div style="display: flex; gap: 8px; margin-top: 16px;">
         <button class="btn-action" onclick="navigateToTab('mocks')">Back to Mocks</button>
-        <!-- Fixed Routing: Now correctly directs to the Home Dashboard -->
         <button class="btn-action primary" onclick="navigateToTab('home')">Return to Home</button>
-     </div>
+      </div>
     </section>
 
 <section id="tab-progress" class="screen-view hidden">
