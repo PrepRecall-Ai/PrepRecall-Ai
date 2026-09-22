@@ -3924,23 +3924,36 @@ async function loadDailyWeaknessReport() {
         // Load the diagnostic UI
         renderDiagnosticUI();
 
-        // 🔴 UPGRADED: AI Typing Reveal Animation
+        // 🔴 UPGRADED: AI Typing Reveal Animation (WITH FREEMIUM GATE)
         document.getElementById('revealDailyReportBtn').addEventListener('click', function() {
+            // 1. FREEMIUM GATE: Check if user is a guest
+            const currentUser = firebase.auth().currentUser;
+            const isGuest = !currentUser || currentUser.isAnonymous;
+
+            if (isGuest) {
+                // Open Auth Modal cleanly and switch to Register tab
+                document.getElementById('authModal').classList.remove('hidden');
+                switchAuthTab('register');
+                
+                alert("🤖 AI Analytics are locked for guests!\n\nCreate a free account in 5 seconds to unlock your personalized AI Weakness Report and track your progress.");
+                return; // Stop the code here so the report does not reveal
+            }
+
             const btn = this;
             const contentBox = document.getElementById('daily-report-content');
             const textBox = document.getElementById('daily-report-text');
             const card = btn.closest('.daily-report-card');
             
-            // 1. Get the pre-loaded HTML content and clear the box
+            // 2. Get the pre-loaded HTML content and clear the box
             const rawHTML = textBox.innerHTML;
             textBox.innerHTML = '';
             
-            // 2. Trigger UI Transitions
+            // 3. Trigger UI Transitions
             btn.style.display = 'none';
             contentBox.style.display = 'block';
             if (card) card.classList.add('report-generating-glow');
             
-            // 3. The Typewriter Engine (Handles HTML tags seamlessly)
+            // 4. The Typewriter Engine (Handles HTML tags seamlessly)
             let i = 0;
             let isTag = false;
             let currentText = '';
