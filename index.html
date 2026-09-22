@@ -960,7 +960,7 @@
     }
 
   </style>
-  <script type="text/javascript">
+  <script type="text/javascript"> 
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -1362,7 +1362,7 @@
           <div><strong>Streak:</strong> <span id="profStreak">🔥 0 Days</span></div>
         </div>
         <button class="btn-action primary" style="margin-bottom:8px;" onclick="closeProfileModal(); navigateToTab('progress');">View Full Stats</button>
-        <button class="btn-action" style="color:var(--danger); border-color:rgba(239,68,68,0.3);" onclick="closeProfileModal(); handleLogout();">Sign Out</button>
+        <button class="btn-action" style="color:var(--danger); border-color:rgba(239,68,68,0.3);" onclick="document.getElementById('profileModal').classList.add('hidden'); document.getElementById('authModal').classList.remove('hidden'); switchAuthTab('register');">Sign Out</button>
       </div>
     </div>
 
