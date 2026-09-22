@@ -3278,8 +3278,20 @@ window.startDailyMock = function() {
       startMockTimer();
       renderMockQuestionItem();
     };
+function startMockBatch(batchNum, batchTitle) {
+      // FREEMIUM GATE: Check if user is a guest or not logged in
+      const currentUser = firebase.auth().currentUser;
+      const isGuest = !currentUser || currentUser.isAnonymous;
 
-    function startMockBatch(batchNum, batchTitle) {
+      if (batchNum > 1 && isGuest) {
+        // Open Auth Modal cleanly and switch to Register tab
+        document.getElementById('authModal').classList.remove('hidden');
+        switchAuthTab('register');
+        
+        alert("✨ You've unlocked Batch 1 for free!\n\nCreate a free account or sign in in 5 seconds to unlock Batches 2–5, track your daily study streak, and save your mock history permanently.");
+        return;
+      }
+
       mockQuestionsPool = questionBank.filter(q => q.month === selectedMockMonth && q.batch === batchNum);
       if (mockQuestionsPool.length === 0) { alert("No questions found for this batch."); return; }
 
@@ -3294,7 +3306,7 @@ window.startDailyMock = function() {
       startMockTimer();
       renderMockQuestionItem();
     }
-
+    
     function startMockTimer() {
       clearInterval(mockTimerInterval);
       const timerEl = document.getElementById('mockTimerDisplay');
