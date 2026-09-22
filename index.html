@@ -1309,9 +1309,12 @@
       </div>
     </div>
 
-    <div id="authModal" class="modal-backdrop hidden">
-      <div class="auth-modal">
-        <div class="auth-tabs">
+<div id="authModal" class="modal-backdrop hidden">
+      <div class="auth-modal" style="position: relative;">
+        <!-- NEW: Close button so they can escape if they don't want to sign up yet -->
+        <button class="close-btn" style="position: absolute; top: 16px; right: 16px; font-size: 1.2rem;" onclick="document.getElementById('authModal').classList.add('hidden')">✕</button>
+        
+        <div class="auth-tabs" style="margin-top: 10px;">
           <button class="auth-tab-btn active" id="tabBtnLogin" onclick="switchAuthTab('login')">Sign In</button>
           <button class="auth-tab-btn" id="tabBtnRegister" onclick="switchAuthTab('register')">Sign Up</button>
           <button class="auth-tab-btn" id="tabBtnForgot" onclick="switchAuthTab('forgot')">Reset</button>
@@ -1337,13 +1340,10 @@
           <input type="email" id="forgotEmail" placeholder="Enter registered email" required />
           <button type="submit" class="btn-action primary">Reset Password</button>
         </form>
-        <div style="text-align:center; margin-top:12px;">
-          <button class="btn-action" style="border:none; font-size:0.75rem;" onclick="continueAsGuest()">Skip for now (Guest Mode)</button>
-        </div>
       </div>
     </div>
 
-    <div id="profileModal" class="modal-backdrop hidden">
+        <div id="profileModal" class="modal-backdrop hidden">
       <div class="auth-modal">
         <div class="sheet-header">
           <h3 style="font-size:1rem;">Aspirant Profile</h3>
@@ -2251,41 +2251,55 @@ function initUserSession() {
             }
 
             const userDocRef = firebase.firestore().collection('users').doc(user.uid);
-            let docSnap;
-            let retries = 3;
-            while (retries > 0) {
-              docSnap = await userDocRef.get();
-              if (docSnap.exists) break;
-              await new Promise(resolve => setTimeout(resolve, 500));
-              retries--;
-            }
+            let docSnap = await userDocRef.get();
 
-            if (docSnap && docSnap.exists) {
+            // 🛠️ FIX 1: SELF-HEALING FIRESTORE
+            // If the user exists in Auth but not in Firestore, create their data!
+            if (!docSnap.exists) {
+              const defaultUserData = {
+                name: user.isAnonymous ? "Guest Aspirant" : (user.displayName || "Aspirant"),
+                email: user.email || `guest_${user.uid.substring(0, 6)}@preprecall.local`,
+                targetExam: "ssc",
+                readArticles: [],
+                bookmarks: [],
+                lastOpenedId: null,
+                mockHistory: [],
+                revisionQueue: [],
+                mockMistakeQueue: [],
+                autoMocksCache: [],
+                autoNewsCache: [],
+                currentStreak: 0,
+                highestStreak: 0,
+                lastStudiedDate: null
+              };
+              await userDocRef.set(defaultUserData);
+              activeUser = defaultUserData;
+              console.log("✓ Provisioned missing Firestore document for Auth UID:", user.uid);
+            } else {
               const remoteData = docSnap.data();
               activeUser = { ...(activeUser || {}), ...remoteData };
+            }
               
-              if (!activeUser.readArticles) activeUser.readArticles = [];
-              if (!activeUser.bookmarks) activeUser.bookmarks = [];
-              if (!activeUser.mockHistory) activeUser.mockHistory = [];
-              if (!activeUser.revisionQueue) activeUser.revisionQueue = [];
-              if (!activeUser.mockMistakeQueue) activeUser.mockMistakeQueue = [];
-              if (activeUser.currentStreak === undefined) activeUser.currentStreak = 0;
-              if (activeUser.highestStreak === undefined) activeUser.highestStreak = 0;
-              normalizeUserRevisionData();
+            if (!activeUser.readArticles) activeUser.readArticles = [];
+            if (!activeUser.bookmarks) activeUser.bookmarks = [];
+            if (!activeUser.mockHistory) activeUser.mockHistory = [];
+            if (!activeUser.revisionQueue) activeUser.revisionQueue = [];
+            if (!activeUser.mockMistakeQueue) activeUser.mockMistakeQueue = [];
+            if (activeUser.currentStreak === undefined) activeUser.currentStreak = 0;
+            if (activeUser.highestStreak === undefined) activeUser.highestStreak = 0;
+            normalizeUserRevisionData();
               
-              verifyStreakFreshness();
+            verifyStreakFreshness();
 
-              activeEmail = user.email || activeUser.email; 
-              localStorage.setItem(STORAGE_ACTIVE_EMAIL, activeEmail);
-              localStorage.setItem(cacheKey, JSON.stringify(activeUser));
+            activeEmail = user.email || activeUser.email; 
+            localStorage.setItem(STORAGE_ACTIVE_EMAIL, activeEmail);
+            localStorage.setItem(cacheKey, JSON.stringify(activeUser));
               
-              document.getElementById('authModal').classList.add('hidden');
-              syncUserDataToUI();
-              navigateToTab('home');
-              runDailyAutomationEngine();
-            } else {
-              await firebase.auth().signOut();
-            } 
+            document.getElementById('authModal').classList.add('hidden');
+            syncUserDataToUI();
+            navigateToTab('home');
+            runDailyAutomationEngine();
+
           } catch (error) {
             console.error("Error loading user data:", error);
           }
@@ -2293,7 +2307,10 @@ function initUserSession() {
           activeUser = null;
           activeEmail = null;
           localStorage.removeItem(STORAGE_ACTIVE_EMAIL);
-          document.getElementById('authModal').classList.remove('hidden');
+          
+          // 🚀 FIX 2: ZERO-FRICTION GUEST LOGIN
+          // Silently logs in new visitors so they don't hit a wall!
+          firebase.auth().signInAnonymously().catch(err => console.error("Guest auto-login failed:", err));
         }
       });
     }
@@ -2402,10 +2419,10 @@ async function handleAuthLogin(e) {
         try { await firebase.auth().signOut(); } catch (error) {}
         stopAllSpeech();
         localStorage.removeItem(STORAGE_ACTIVE_EMAIL);
-        activeEmail = null;
-        activeUser = null;
-        document.getElementById('authModal').classList.remove('hidden');
-        switchAuthTab('login');
+        
+        // ZERO FRICTION FIX: Refresh the page so Firebase automatically 
+        // assigns them a new, fresh Guest account instantly!
+        window.location.reload(); 
       }
     }
 
