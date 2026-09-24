@@ -37,7 +37,7 @@ async function runBackfillAndGenerate() {
     try {
       let newsResponse;
       
-      // 1. Primary Targeted Query: High-yield institutional and national policy domains
+      // 1. Primary Targeted Query
       try {
         newsResponse = await newsapi.v2.everything({
           q: 'India AND (PIB OR "Ministry" OR RBI OR "Supreme Court" OR ISRO OR DRDO OR Parliament OR "Cabinet" OR Scheme OR "NITI Aayog" OR Defence OR "Joint Exercise")',
@@ -49,7 +49,7 @@ async function runBackfillAndGenerate() {
         newsResponse = { articles: [] };
       }
 
-      // 2. Focused Secondary Fallback: Replaces generic clickbait with national affairs keywords
+      // 2. Focused Secondary Fallback
       if (!newsResponse || !newsResponse.articles || newsResponse.articles.length === 0) {
         try {
           newsResponse = await newsapi.v2.everything({
@@ -68,17 +68,11 @@ async function runBackfillAndGenerate() {
         continue;
       }
 
-      // Filter out removed, truncated, and sponsored entries
       const realArticles = newsResponse.articles
         .filter(a => a.title && a.title !== '[Removed]' && !a.title.includes('[Sponsored]'))
         .map(a => `Source: ${a.source?.name || 'Official'}\nTitle: ${a.title}\nDescription: ${a.description || "N/A"}`)
         .join('\n\n');
 
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-3.6-flash",
-        generationConfig: { responseMimeType: "application/json" }
-      });
-    
       const prompt = `
         You are a senior question setter and examiner for top Indian competitive exams (UPSC CSE, SSC CGL, CDS, NDA). 
         Date Context: ${targetDate}
@@ -99,8 +93,8 @@ async function runBackfillAndGenerate() {
 
         ### STRICT EXCLUSION CRITERIA (DISCARD IMMEDIATELY):
         - Regional High Court procedural rulings, family/maintenance cases, routine bail orders, or local magistrate FIR procedural matters.
-        - Municipal-level foreign city pacts, local foreign MoUs (e.g., agreements exclusive to foreign cities or local foreign municipalities).
-        - Routine corporate/PSU internal supply logistics (e.g., daily coal transport routes, quarterly earnings).
+        - Municipal-level foreign city pacts, local foreign MoUs.
+        - Routine corporate/PSU internal supply logistics.
         - Political party debates, campaign speeches, and party rivalries.
         - Local crime, accidents, traffic diversions, entertainment, and celebrity news.
 
@@ -132,23 +126,46 @@ async function runBackfillAndGenerate() {
         }
       `;
 
+      // 🔴 FIX: DYNAMIC MODEL FALLBACK & LONGER RATE-LIMIT DELAYS 🔴
+      const modelFallbackList = ["gemini-3.6-flash", "gemini-2.5-flash", "gemini-1.5-flash"];
       let result, rawText;
-      const maxRetries = 4;
-      for (let attempt = 1; attempt <= maxRetries; attempt++) {
-        try {
-          console.log(`🤖 Generating verified content for ${targetDate} (Attempt ${attempt}/${maxRetries})...`);
-          result = await model.generateContent(prompt);
-          rawText = result.response.text();
-          break;
-        } catch (apiError) {
-          if (apiError.message?.includes('503') && attempt < maxRetries) {
-            const waitTime = attempt * 10000;
-            console.warn(`⚠️ [API 503] Server busy. Retrying in ${waitTime/1000}s...`);
-            await delay(waitTime);
-          } else {
-            throw apiError;
+      let success = false;
+
+      for (const modelName of modelFallbackList) {
+        if (success) break;
+
+        const model = genAI.getGenerativeModel({ 
+          model: modelName,
+          generationConfig: { responseMimeType: "application/json" }
+        });
+
+        const maxRetries = 3;
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+          try {
+            console.log(`🤖 [${modelName}] Generating content for ${targetDate} (Attempt ${attempt}/${maxRetries})...`);
+            result = await model.generateContent(prompt);
+            rawText = result.response.text();
+            success = true;
+            break; // Success! Break out of the retry loop.
+          } catch (apiError) {
+            const errMsg = apiError.message || "";
+            // Catch BOTH 503 (Server Busy) AND 429 (Rate Limit/Quota)
+            if ((errMsg.includes('503') || errMsg.includes('429')) && attempt < maxRetries) {
+              console.warn(`⚠️ [${modelName}] API bottleneck (429/503). Cooling down for 35 seconds...`);
+              await delay(35000); // 429 limits demand ~30s. We wait 35s to be absolutely safe.
+            } else if (attempt === maxRetries) {
+              console.warn(`❌ [${modelName}] Exhausted retries. Switching to fallback model...`);
+              break; // Break retry loop to try the next model in the fallback list
+            } else {
+              console.warn(`⚠️ [${modelName}] Unhandled error: ${errMsg}`);
+              break; // Break retry loop to try the next model
+            }
           }
         }
+      }
+
+      if (!success) {
+        throw new Error("All fallback models failed due to persistent API limits.");
       }
 
       const quizData = JSON.parse(rawText);
@@ -183,6 +200,8 @@ async function runBackfillAndGenerate() {
 
     } catch (error) {
       console.error(`❌ Error processing ${targetDate}:`, error.message);
+      // 🔴 FIX: FORCE GITHUB ACTIONS TO TURN RED IF IT FAILS 🔴
+      process.exitCode = 1; 
     }
   }
   console.log("Precision backfill and generation complete.");
