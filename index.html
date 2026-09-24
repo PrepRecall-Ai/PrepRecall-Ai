@@ -26,7 +26,8 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-
+  <!-- ADD THIS LINE RIGHT HERE -->
+  <script src="recallData.js"></script>
   <style>
     :root {
       --bg-main: #0f172a;
@@ -1046,6 +1047,17 @@
         </button>
       </div>
 
+      <!-- 🔥 QUICK RECALL SESSION BANNER 🔥 -->
+      <div style="margin-bottom: 16px;">
+        <button class="btn-action" onclick="openRecallSetup()" style="width: 100%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: 2px solid rgba(16, 185, 129, 0.5); padding: 14px 16px; border-radius: 12px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span style="font-size: 1.25rem;">⏱️</span>
+            <span style="font-size: 1.05rem; font-weight: 800; letter-spacing: -0.3px; border: none;">Start Quick Recall</span>
+          </div>
+          <span style="font-size: 0.72rem; font-weight: 600; color: #e2e8f0; margin-top: 5px; background: rgba(0,0,0,0.25); padding: 3px 10px; border-radius: 20px;">Habit Builder • Unlimited Questions</span>
+        </button>
+      </div>
+
  <div class="audio-player-banner">
         <div style="flex: 1; padding-right: 10px;">
           <div style="display: flex; align-items: center;">
@@ -1150,6 +1162,64 @@
       </div>
       <div class="pill-carousel" id="mockMonthTabsContainer"></div>
       <div class="mock-list-grid" id="monthMocksListContainer"></div>
+    </section>
+
+    <!-- RECALL SETUP SCREEN -->
+    <section id="recallSetupScreen" class="screen-view hidden">
+      <div class="hero-banner" style="text-align: center; margin-top: 20px;">
+        <h2 class="hero-title" style="font-size: 1.8rem; color: var(--success);">Recall Session</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">How much time do you have?</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
+        <button class="btn-action" onclick="startRecallSession(5)" style="padding: 16px; font-size: 1rem; border-color: var(--success);">5 MIN (Quick Sprint)</button>
+        <button class="btn-action" onclick="startRecallSession(10)" style="padding: 16px; font-size: 1rem; border-color: var(--success);">10 MIN (Standard Focus)</button>
+        <button class="btn-action" onclick="startRecallSession(15)" style="padding: 16px; font-size: 1rem; border-color: var(--success);">15 MIN (Deep Dive)</button>
+      </div>
+      <button class="btn-action" style="margin-top: 20px; color: var(--text-muted); border: none;" onclick="navigateToTab('home')">← Back to Home</button>
+    </section>
+
+    <!-- ACTIVE RECALL SCREEN -->
+    <section id="recallActiveScreen" class="screen-view hidden">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span class="badge-cat" style="background: rgba(16, 185, 129, 0.15); color: var(--success);">Active Recall</span>
+        <div style="font-size: 0.85rem; color: var(--success); font-weight: 800;" id="recallTimerDisplay">⏱ 00:00</div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+        <span style="font-size: 0.75rem; color: var(--text-muted);" id="recallAttemptCounter">Attempted: 0</span>
+        <span class="badge-cat" id="recallCategoryBadge" style="background: rgba(255,255,255,0.05); color: var(--text-muted);">Category</span>
+      </div>
+      
+      <div class="quiz-card" style="margin-top: 8px;" id="recallQuizCard">
+        <div class="quiz-question" id="recallQuestionText">Question...</div>
+        <div class="options-list" id="recallOptionsList"></div>
+      </div>
+
+      <div id="recallExplanationBox" class="hidden remember-box" style="margin-top: 10px; border-left: 3px solid var(--warning);">
+        <div style="color: var(--danger); font-weight: 800; margin-bottom: 4px;">❌ Incorrect</div>
+        <div style="font-weight: 600; color: #fff; margin-bottom: 6px;">Correct Answer: <span id="recallCorrectAnsText"></span></div>
+        <strong>💡 Quick Revision:</strong> <span id="recallExplanationText"></span>
+      </div>
+
+      <button class="btn-action primary" id="btnNextRecall" style="padding: 12px; margin-top: 10px;" onclick="submitRecallAnswer()">
+        Submit Answer
+      </button>
+      <button class="btn-action" style="padding: 12px; margin-top: 8px; border-color: rgba(239,68,68,0.3); color: var(--danger);" onclick="endRecallSession()">
+        End Session Early
+      </button>
+    </section>
+
+    <!-- RECALL RESULTS SCREEN -->
+    <section id="recallResultScreen" class="screen-view hidden">
+      <div class="score-summary-card" style="border-color: var(--success);">
+        <div style="font-size: 0.8rem; color: var(--text-muted);">RECALL COMPLETE</div>
+        <div class="score-big" id="recallFinalScore" style="color: var(--success);">0</div>
+        <div style="font-size: 0.82rem; font-weight: 700;" id="recallFinalStats">Attempted: 0 • Accuracy: 0%</div>
+      </div>
+
+      <div class="section-label" style="margin-top: 16px; color: var(--danger);" id="recallMistakesHeader">⚠️ Your Mistakes (Auto-Saved to SRS)</div>
+      <div id="recallMistakesList" style="margin-top: 6px; display: flex; flex-direction: column; gap: 8px;"></div>
+      
+      <button class="btn-action primary" style="margin-top: 16px; padding: 14px;" onclick="navigateToTab('home')">Return to Home</button>
     </section>
 
     <section id="mockExamActiveScreen" class="screen-view hidden">
@@ -2100,21 +2170,30 @@ function startStaticMock(monthString, batchNumber) {
       return String(rawId).replace(/[\s\r\n]+/g, '').trim().toUpperCase();
     }
 
-    function getArticleById(id) {
+function getArticleById(id) {
       if (!id) return null;
       const cleanId = sanitizeId(id);
       
-      // 👉 NEW: Check the user's saved Ghost Articles FIRST before giving up!
+      // 👉 1. Check the user's saved Ghost Articles FIRST before giving up!
       if (typeof activeUser !== 'undefined' && activeUser && activeUser.autoNewsCache) {
           const cachedArt = activeUser.autoNewsCache.find(a => sanitizeId(a.id) === cleanId);
           if (cachedArt) return cachedArt;
       }
 
+      // 👉 2. NEW: Check Hidden Recall Articles (7-Day Experiment)
+      if (typeof hiddenRecallArticles !== 'undefined') {
+          const hiddenArt = hiddenRecallArticles.find(a => sanitizeId(a.id) === cleanId);
+          if (hiddenArt) return hiddenArt;
+      }
+
+      // 👉 3. Exact match in standard Current Affairs Vault
       for (const m of Object.keys(currentAffairs)) {
         for (const a of currentAffairs[m]) {
           if (sanitizeId(a.id) === cleanId) return a;
         }
       }
+      
+      // 👉 4. Fallback slug match in standard Current Affairs
       for (const m of Object.keys(currentAffairs)) {
         for (const a of currentAffairs[m]) {
           const aSlug = sanitizeId(a.id).replace(/[^A-Z0-9]/g, '');
@@ -2126,6 +2205,7 @@ function startStaticMock(monthString, batchNumber) {
       }
       return null;
     }
+
 
     const findArticleById = getArticleById;
 
