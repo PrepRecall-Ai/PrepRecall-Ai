@@ -127,7 +127,7 @@ async function runBackfillAndGenerate() {
       `;
 
       // 🔴 FIX: DYNAMIC MODEL FALLBACK & LONGER RATE-LIMIT DELAYS 🔴
-      const modelFallbackList = ["gemini-3.6-flash", "gemini-2.5-flash", "gemini-1.5-flash"];
+     const modelFallbackList = ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite"];
       let result, rawText;
       let success = false;
 
