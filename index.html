@@ -2170,30 +2170,26 @@ function startStaticMock(monthString, batchNumber) {
       return String(rawId).replace(/[\s\r\n]+/g, '').trim().toUpperCase();
     }
 
-function getArticleById(id) {
+// 🛠️ REPLACE YOUR EXISTING getArticleById FUNCTION WITH THIS ENTIRE BLOCK:
+    function getArticleById(id) {
       if (!id) return null;
       const cleanId = sanitizeId(id);
       
-      // 👉 1. Check the user's saved Ghost Articles FIRST before giving up!
       if (typeof activeUser !== 'undefined' && activeUser && activeUser.autoNewsCache) {
           const cachedArt = activeUser.autoNewsCache.find(a => sanitizeId(a.id) === cleanId);
           if (cachedArt) return cachedArt;
       }
 
-      // 👉 2. NEW: Check Hidden Recall Articles (7-Day Experiment)
       if (typeof hiddenRecallArticles !== 'undefined') {
           const hiddenArt = hiddenRecallArticles.find(a => sanitizeId(a.id) === cleanId);
           if (hiddenArt) return hiddenArt;
       }
 
-      // 👉 3. Exact match in standard Current Affairs Vault
       for (const m of Object.keys(currentAffairs)) {
         for (const a of currentAffairs[m]) {
           if (sanitizeId(a.id) === cleanId) return a;
         }
       }
-      
-      // 👉 4. Fallback slug match in standard Current Affairs
       for (const m of Object.keys(currentAffairs)) {
         for (const a of currentAffairs[m]) {
           const aSlug = sanitizeId(a.id).replace(/[^A-Z0-9]/g, '');
@@ -2205,6 +2201,208 @@ function getArticleById(id) {
       }
       return null;
     }
+
+    /* ==========================================================================
+       L. RECALL SESSION ENGINE (7-DAY EXPERIMENT)
+       ========================================================================== */
+    let recallTimerInterval = null;
+    let recallTimeRemaining = 0;
+    let recallActivePool = [];
+    let recallCurrentIndex = 0;
+    let recallAttempted = 0;
+    let recallCorrect = 0;
+    let recallMistakesLog = [];
+    let selectedRecallOption = null;
+
+    window.openRecallSetup = function() {
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.add('hidden'));
+      document.getElementById('recallSetupScreen').classList.remove('hidden');
+    };
+
+    window.startRecallSession = function(minutes) {
+      if (typeof recallQuestionPool === 'undefined' || recallQuestionPool.length === 0) {
+        alert("Recall question bank is empty or loading. Make sure recallData.js is committed to GitHub!");
+        return;
+      }
+      recallActivePool = [...recallQuestionPool].sort(() => 0.5 - Math.random());
+      
+      recallTimeRemaining = minutes * 60;
+      recallCurrentIndex = 0;
+      recallAttempted = 0;
+      recallCorrect = 0;
+      recallMistakesLog = [];
+      selectedRecallOption = null;
+
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.add('hidden'));
+      document.getElementById('recallActiveScreen').classList.remove('hidden');
+
+      resumeRecallTimer();
+      renderRecallQuestion();
+    };
+
+    function resumeRecallTimer() {
+      clearInterval(recallTimerInterval);
+      const timerEl = document.getElementById('recallTimerDisplay');
+      
+      recallTimerInterval = setInterval(() => {
+        if (recallTimeRemaining <= 0) {
+          clearInterval(recallTimerInterval);
+          endRecallSession();
+          return;
+        }
+        recallTimeRemaining--;
+        const mins = String(Math.floor(recallTimeRemaining / 60)).padStart(2, '0');
+        const secs = String(recallTimeRemaining % 60).padStart(2, '0');
+        if (timerEl) timerEl.innerText = `⏱ ${mins}:${secs}`;
+      }, 1000);
+    }
+
+    function renderRecallQuestion() {
+      selectedRecallOption = null;
+      document.getElementById('recallExplanationBox').classList.add('hidden');
+      
+      const q = recallActivePool[recallCurrentIndex];
+      const quizCard = document.getElementById('recallQuizCard');
+      
+      if (quizCard) {
+          quizCard.classList.remove('slide-active');
+          void quizCard.offsetWidth;
+          quizCard.classList.add('slide-active');
+      }
+
+      document.getElementById('recallAttemptCounter').innerText = `Attempted: ${recallAttempted}`;
+      document.getElementById('recallCategoryBadge').innerText = q.category || "Recall";
+      document.getElementById('recallQuestionText').innerText = q.question;
+
+      const actionBtn = document.getElementById('btnNextRecall');
+      actionBtn.innerText = "Submit Answer";
+      actionBtn.disabled = true;
+      actionBtn.style.opacity = "0.5";
+      actionBtn.onclick = submitRecallAnswer;
+
+      const optsBox = document.getElementById('recallOptionsList');
+      optsBox.innerHTML = '';
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = `${String.fromCharCode(65 + idx)}. ${opt}`;
+        btn.onclick = () => selectRecallAnswer(btn, idx);
+        optsBox.appendChild(btn);
+      });
+    }
+
+    window.selectRecallAnswer = function(btnEl, idx) {
+      if (document.getElementById('btnNextRecall').innerText !== "Submit Answer") return;
+      selectedRecallOption = idx;
+      
+      document.querySelectorAll('#recallOptionsList .option-btn').forEach(b => {
+         b.classList.remove('selected');
+         b.style.borderColor = "var(--border)";
+         b.style.background = "var(--bg-main)";
+      });
+      
+      btnEl.classList.add('selected');
+      btnEl.style.borderColor = "var(--success)";
+      btnEl.style.background = "rgba(16, 185, 129, 0.1)";
+
+      const actionBtn = document.getElementById('btnNextRecall');
+      actionBtn.disabled = false;
+      actionBtn.style.opacity = "1";
+    };
+
+    window.submitRecallAnswer = function() {
+      if (selectedRecallOption === null) return;
+      
+      clearInterval(recallTimerInterval); 
+      
+      const q = recallActivePool[recallCurrentIndex];
+      const allBtns = document.querySelectorAll('#recallOptionsList .option-btn');
+      const correctIdx = q.answer;
+      
+      recallAttempted++;
+
+      if (selectedRecallOption === correctIdx) {
+        allBtns[selectedRecallOption].classList.add('correct', 'correct-pop');
+        recallCorrect++;
+        setTimeout(() => { nextRecallQuestion(); }, 600);
+      } else {
+        allBtns[selectedRecallOption].classList.add('wrong', 'wrong-shake');
+        if (allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct', 'correct-pop');
+        
+        recallMistakesLog.push(q);
+
+        if (q.articleId && typeof addMockMistakeRevision === 'function') {
+            addMockMistakeRevision(q.articleId);
+        }
+
+        document.getElementById('recallCorrectAnsText').innerText = q.options[correctIdx];
+        document.getElementById('recallExplanationText').innerText = q.explanation;
+        document.getElementById('recallExplanationBox').classList.remove('hidden');
+
+        const actionBtn = document.getElementById('btnNextRecall');
+        actionBtn.innerText = "Next Question →";
+        actionBtn.onclick = nextRecallQuestion;
+      }
+    };
+
+    function nextRecallQuestion() {
+      recallCurrentIndex++;
+      if (recallCurrentIndex >= recallActivePool.length) {
+        endRecallSession();
+      } else {
+        resumeRecallTimer(); 
+        renderRecallQuestion();
+      }
+    }
+
+    window.endRecallSession = function() {
+      clearInterval(recallTimerInterval);
+      
+      document.getElementById('recallActiveScreen').classList.add('hidden');
+      document.getElementById('recallResultScreen').classList.remove('hidden');
+
+      const acc = recallAttempted > 0 ? Math.round((recallCorrect / recallAttempted) * 100) : 0;
+      
+      document.getElementById('recallFinalScore').innerHTML = `${recallCorrect} <span style="font-size: 1.5rem; color: var(--text-muted);">/ ${recallAttempted}</span>`;
+      document.getElementById('recallFinalStats').innerText = `Attempted: ${recallAttempted} • Accuracy: ${acc}%`;
+
+      const mistakesBox = document.getElementById('recallMistakesList');
+      mistakesBox.innerHTML = '';
+
+      if (recallMistakesLog.length === 0) {
+        document.getElementById('recallMistakesHeader').style.color = "var(--success)";
+        document.getElementById('recallMistakesHeader').innerText = "🎉 Flawless! Zero Mistakes.";
+      } else {
+        document.getElementById('recallMistakesHeader').style.color = "var(--danger)";
+        document.getElementById('recallMistakesHeader').innerText = `⚠️ ${recallMistakesLog.length} Mistakes (Auto-Saved to SRS)`;
+        
+        recallMistakesLog.forEach(m => {
+          const correctText = m.options[m.answer];
+          const el = document.createElement('div');
+          el.className = 'gap-topic-card';
+          el.style.flexDirection = 'column';
+          el.style.alignItems = 'flex-start';
+          el.innerHTML = `
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text-main); margin-bottom:4px;">${m.question}</div>
+            <div style="font-size:0.75rem; color:var(--success); font-weight:700; margin-bottom:4px;">✓ ${correctText}</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.4; border-top: 1px solid var(--border); padding-top: 4px; margin-top: 4px;">${m.explanation}</div>
+          `;
+          mistakesBox.appendChild(el);
+        });
+      }
+
+      if (typeof activeUser !== 'undefined' && activeUser) {
+        if (!activeUser.recallHistory) activeUser.recallHistory = [];
+        activeUser.recallHistory.push({
+          date: getTodayDateString(),
+          attempted: recallAttempted,
+          correct: recallCorrect,
+          accuracy: acc,
+          mistakes: recallMistakesLog.map(m => m.id)
+        });
+        if(typeof saveActiveUser === 'function') saveActiveUser();
+      }
+    };
 
 
     const findArticleById = getArticleById;
