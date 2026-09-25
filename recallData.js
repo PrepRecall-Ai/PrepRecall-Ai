@@ -1568,447 +1568,706 @@ recallQuestionPool.push(...augRecallQuestionsBatch3);
    END OF AUGUST BATCH 3
    ========================================================================== */
 
-
 /* ==========================================================================
-   JULY 2026 - BATCH 4 (ITEMS 061 TO 080)
+   AUGUST 2026 - BATCH 4 (ITEMS 061 TO 080)
    ========================================================================== */
 
-const julRecallArticlesBatch4 = [
+const augRecallArticlesBatch4 = [
   {
-    id: "REC-JUL-061", date: "2026-07-29", month: "Jul 2026", category: "Science & Technology",
-    title: "India's First Indigenous MRI Scanner Developed",
-    summary: "CSIR and IIT Delhi successfully unveiled India's first fully indigenous 1.5 Tesla MRI scanner.",
-    whatHappened: "In a major milestone for domestic medical manufacturing, CSIR and IIT Delhi researchers successfully unveiled India's first fully indigenous 1.5 Tesla Magnetic Resonance Imaging (MRI) scanner, slashing hardware import costs by over 60%.",
+    id: "REC-AUG-061",
+    date: "2026-08-16",
+    month: "Aug 2026",
+    category: "Art & Culture",
+    title: "Shabdalok Language Museum Opens in Kolkata",
+    summary: "India's first interactive multimodal language museum, 'Shabdalok', was inaugurated at Belvedere House, Kolkata.",
+    whatHappened: "India's first interactive multimodal language museum, 'Shabdalok', was inaugurated at historic Belvedere House on the National Library campus in Kolkata. The museum preserves linguistic diversity, audio recordings, and scripts across scheduled and endangered Indian tongues.",
     importantPoints: [
-      "India's first indigenous 1.5 Tesla MRI scanner.",
-      "Developed jointly by CSIR and IIT Delhi.",
-      "Significantly reduces medical equipment import costs."
+      "India's first interactive multimodal language museum.",
+      "Located at Belvedere House within the National Library campus, Kolkata.",
+      "Preserves ancient scripts, tribal dialects, and endangered language phonetics."
     ],
-    examFacts: ["Device: 1.5T Indigenous MRI Scanner", "Developers: CSIR and IIT Delhi"],
-    quickRemember: "CSIR and IIT Delhi developed India's first indigenous 1.5 Tesla MRI scanner.",
-    audioText: "CSIR and IIT Delhi unveiled India's first fully indigenous 1.5 Tesla MRI scanner, cutting medical equipment costs.",
-    source: "CSIR", importantFor: ["SSC CGL", "UPSC"]
+    examFacts: ["Museum: Shabdalok", "Location: Belvedere House, National Library, Kolkata"],
+    quickRemember: "Shabdalok, India's first multimodal language museum, opened at Belvedere House, Kolkata.",
+    audioText: "India's first interactive language museum named Shabdalok was inaugurated at Belvedere House in Kolkata.",
+    source: "Ministry of Culture",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-062", date: "2026-07-28", month: "Jul 2026", category: "Environment",
-    title: "India Ratifies Global Biodiversity Framework Targets",
-    summary: "The Union Cabinet formally ratified national alignment with the Kunming-Montreal Global Biodiversity Framework.",
-    whatHappened: "The Union Cabinet formally approved national policy alignment with the Kunming-Montreal Global Biodiversity Framework (KMGBF), committing India to protect 30% of degraded lands and inland waters by 2030.",
+    id: "REC-AUG-062",
+    date: "2026-08-17",
+    month: "Aug 2026",
+    category: "Economy & Infrastructure",
+    title: "NHAI Launches Automated Local Toll Passes on RajmargYatra",
+    summary: "NHAI introduced digital monthly toll passes on the RajmargYatra app for local residents living within 20 km of plazas.",
+    whatHappened: "The National Highways Authority of India (NHAI) enabled automated local commuter passes via the RajmargYatra mobile app. The digital pass provides discounted transit through FASTag for private vehicle owners residing within a 20-kilometer radius of national toll plazas.",
     importantPoints: [
-      "National alignment with Kunming-Montreal Global Biodiversity Framework.",
-      "Commits to protecting 30% of land and water ecosystems by 2030.",
-      "Approved by the Union Cabinet."
+      "Available on NHAI's official RajmargYatra mobile application.",
+      "Applicable to non-commercial vehicle owners residing within 20 km of a toll plaza.",
+      "Validates identity and address via digital geotagged integration."
     ],
-    examFacts: ["Framework: Kunming-Montreal Global Biodiversity Framework", "Target: 30% protection by 2030"],
-    quickRemember: "India aligned its national policy with the Kunming-Montreal Global Biodiversity Framework.",
-    audioText: "The Union Cabinet approved national alignment with the Kunming-Montreal Global Biodiversity Framework to protect ecosystems by 2030.",
-    source: "MoEFCC", importantFor: ["UPSC", "SSC CGL"]
+    examFacts: ["Application: RajmargYatra", "Radius: Within 20 km of toll plaza", "Agency: NHAI"],
+    quickRemember: "NHAI rolled out automated local toll commuter passes for residents within 20 km via RajmargYatra.",
+    audioText: "NHAI rolled out digital monthly toll passes on the RajmargYatra app for residents within twenty kilometers of toll plazas.",
+    source: "NHAI",
+    importantFor: ["SSC CGL", "SSC CHSL"]
   },
   {
-    id: "REC-JUL-063", date: "2026-07-27", month: "Jul 2026", category: "Economy & Trade",
-    title: "India Launches B2B Logistics Portal 'LogiEx'",
-    summary: "The Ministry of Commerce launched 'LogiEx', an AI-driven logistics exchange platform for micro-exporters.",
-    whatHappened: "The Ministry of Commerce and Industry launched 'LogiEx', an artificial intelligence-powered digital exchange platform designed to match micro-exporters with verified freight forwarders, cutting cross-border supply chain bottlenecks.",
+    id: "REC-AUG-063",
+    date: "2026-08-19",
+    month: "Aug 2026",
+    category: "Science & Technology",
+    title: "NTPC Contracts India's First 100 MWh Flow Battery at Khavda",
+    summary: "NTPC Renewable Energy awarded India's first utility-scale 100 MWh Vanadium Redox Flow Battery project in Gujarat.",
+    whatHappened: "NTPC Renewable Energy awarded a contract to deploy India's first utility-scale 100 MWh Vanadium Redox Flow Battery (VRFB) storage system at Khavda Solar Park in Gujarat to provide long-duration grid stabilization.",
     importantPoints: [
-      "Platform name: LogiEx.",
-      "Launched by the Ministry of Commerce and Industry.",
-      "Aims to optimize cross-border shipping for micro-exporters using AI."
+      "First utility-scale Vanadium Redox Flow Battery (VRFB) project in India.",
+      "Storage capacity: 100 MWh.",
+      "Located at Khavda Solar and Renewable Energy Park in Gujarat."
     ],
-    examFacts: ["Platform: LogiEx", "Sector: B2B Export Logistics"],
-    quickRemember: "The Ministry of Commerce launched the 'LogiEx' digital platform to optimize export logistics.",
-    audioText: "The Commerce Ministry launched LogiEx, an AI-driven exchange platform to assist micro-exporters with freight forwarding.",
-    source: "Ministry of Commerce", importantFor: ["SSC CGL", "Bank PO"]
+    examFacts: ["Technology: Vanadium Redox Flow Battery (VRFB)", "Capacity: 100 MWh", "Location: Khavda, Gujarat"],
+    quickRemember: "India's first utility-scale 100 MWh Vanadium Redox Flow Battery is being installed at Khavda, Gujarat.",
+    audioText: "NTPC contracted India's first utility-scale 100 megawatt-hour Vanadium Redox Flow Battery project at Khavda in Gujarat.",
+    source: "Ministry of Power",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-064", date: "2026-07-26", month: "Jul 2026", category: "Defence",
-    title: "Indian Navy Inducts First Deep Submergence Rescue Vehicle Complex",
-    summary: "The Indian Navy commissioned a state-of-the-art DSRV mother ship complex at Visakhapatnam.",
-    whatHappened: "The Indian Navy formally commissioned a specialized Deep Submergence Rescue Vehicle (DSRV) mother ship complex at the Eastern Naval Command in Visakhapatnam, significantly boosting submarine rescue and deep-sea diving capabilities.",
+    id: "REC-AUG-064",
+    date: "2026-08-20",
+    month: "Aug 2026",
+    category: "Defence & Security",
+    title: "50% Quota for Ex-Agniveers in CAPF Constable Recruitment",
+    summary: "MHA announced a 50% reservation quota and age concessions for Ex-Agniveers in CAPFs and Assam Rifles.",
+    whatHappened: "The Ministry of Home Affairs announced a 50% horizontal reservation quota alongside relaxation in upper age limits and physical efficiency tests for Ex-Agniveers in Constable (General Duty) recruitment across Central Armed Police Forces (CAPFs) and Assam Rifles.",
     importantPoints: [
-      "Specialized DSRV mother ship complex commissioned.",
-      "Located at Eastern Naval Command, Visakhapatnam.",
-      "Enhances submarine rescue and deep-sea operations."
+      "50% reservation quota for Ex-Agniveers in Constable (GD) posts.",
+      "Applies across BSF, CRPF, CISF, ITBP, SSB, and Assam Rifles.",
+      "Includes upper age concessions and exemption from physical efficiency tests."
     ],
-    examFacts: ["System: DSRV Complex", "Command: Eastern Naval Command (Visakhapatnam)"],
-    quickRemember: "The Indian Navy commissioned a new DSRV submarine rescue complex in Visakhapatnam.",
-    audioText: "The Indian Navy commissioned a specialized Deep Submergence Rescue Vehicle complex at Visakhapatnam.",
-    source: "Indian Navy", importantFor: ["CDS", "SSC CGL"]
+    examFacts: ["Quota: 50% Reservation", "Recruitment: Constable (GD) in CAPFs & Assam Rifles", "Nodal Ministry: MHA"],
+    quickRemember: "MHA announced a 50% reservation quota for Ex-Agniveers in Constable (GD) recruitment in CAPFs.",
+    audioText: "The Ministry of Home Affairs notified a fifty percent reservation quota for Ex-Agniveers in Central Armed Police Forces recruitment.",
+    source: "Ministry of Home Affairs",
+    importantFor: ["CDS", "SSC CGL", "SSC CPO"]
   },
   {
-    id: "REC-JUL-065", date: "2026-07-25", month: "Jul 2026", category: "Science & Technology",
-    title: "AIIMS Hyderabad Deploys Robotic Surgical Suite",
-    summary: "AIIMS Hyderabad inaugurated an advanced indigenous robotic surgery suite for complex oncology operations.",
-    whatHappened: "AIIMS Hyderabad inaugurated a next-generation indigenous robotic surgical suite to perform complex oncological and cardiovascular procedures with sub-millimetre precision, lowering post-operative recovery timelines.",
+    id: "REC-AUG-065",
+    date: "2026-08-21",
+    month: "Aug 2026",
+    category: "Science & Technology",
+    title: "ONGC Drills 1,000-Metre Wells for Puga Geothermal Power",
+    summary: "ONGC Energy Centre completed drilling two 1,000-metre geothermal wells in Ladakh's Puga Valley.",
+    whatHappened: "ONGC Energy Centre completed the exploratory drilling of two 1,000-metre-deep geothermal production wells in Ladakh's Puga Valley, anchoring India's maiden 1 MW pilot geothermal power station situated at an altitude over 14,000 feet.",
     importantPoints: [
-      "Robotic surgical suite inaugurated at AIIMS Hyderabad.",
-      "Focuses on complex oncology and precision surgery.",
-      "Utilizes advanced indigenous robotic arms."
+      "Drilled two 1,000-metre geothermal production wells.",
+      "Located in Puga Valley, Changthang region, Ladakh.",
+      "Powers India's first commercial geothermal clean power project (1 MW)."
     ],
-    examFacts: ["Hospital: AIIMS Hyderabad", "Facility: Robotic Surgical Suite"],
-    quickRemember: "AIIMS Hyderabad inaugurated an advanced robotic surgical suite for precision operations.",
-    audioText: "AIIMS Hyderabad inaugurated an advanced robotic surgical suite designed for precision oncology operations.",
-    source: "AIIMS Hyderabad", importantFor: ["SSC CGL", "State PCS"]
+    examFacts: ["Location: Puga Valley, Ladakh", "Executing Body: ONGC Energy Centre", "Well Depth: 1,000 metres"],
+    quickRemember: "ONGC completed 1,000m geothermal drilling in Puga Valley, Ladakh, for a 1 MW clean energy project.",
+    audioText: "ONGC completed deep drilling of two one-thousand-metre geothermal wells in Puga Valley, Ladakh.",
+    source: "ONGC",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-066", date: "2026-07-24", month: "Jul 2026", category: "Government Schemes",
-    title: "PM-VAYO Scheme Extended for Senior Citizens",
-    summary: "The Ministry of Social Justice extended the PM-VAYO scheme to provide assistive living devices to elders.",
-    whatHappened: "The Ministry of Social Justice and Empowerment expanded the 'Rashtriya Vayoshri Yojana' (PM-VAYO), scaling up the distribution of high-quality physical aids and assisted-living devices to senior citizens belonging to BPL households nationwide.",
+    id: "REC-AUG-066",
+    date: "2026-08-22",
+    month: "Aug 2026",
+    category: "Environment",
+    title: "UN Secretary-General Issues Global Methane Action Call",
+    summary: "UN Chief António Guterres issued an urgent directive in London to curb methane leaks across landfills and gas lines.",
+    whatHappened: "UN Secretary-General António Guterres issued a global climate directive in London urging governments to rapidly arrest fugitive methane emissions across fossil fuel pipelines, abandoned coal pits, and municipal solid waste landfills to stave off near-term 1.5°C threshold breaches.",
     importantPoints: [
-      "Expansion of the PM-VAYO scheme for senior citizens.",
-      "Provides assisted-living devices to BPL elders.",
-      "Managed by the Ministry of Social Justice."
+      "Issued by UN Secretary-General António Guterres in London.",
+      "Targets fugitive methane leaks in municipal landfills, gas pipelines, and mines.",
+      "Methane holds over 80 times the atmospheric warming potential of CO2 over a 20-year horizon."
     ],
-    examFacts: ["Scheme: PM-VAYO (Rashtriya Vayoshri Yojana)", "Beneficiaries: Senior citizens (BPL)"],
-    quickRemember: "The PM-VAYO scheme was expanded to provide assisted-living devices to senior citizens.",
-    audioText: "The Social Justice Ministry expanded the PM-VAYO scheme to distribute assistive devices to senior citizens.",
-    source: "Ministry of Social Justice", importantFor: ["SSC CGL", "UPSC"]
+    examFacts: ["Global Leader: António Guterres", "Focus: Fugitive Methane Emissions", "Forum: London Climate Briefing"],
+    quickRemember: "UN Chief António Guterres delivered a global call to action targeting methane emissions from pipelines and landfills.",
+    audioText: "UN Secretary-General António Guterres issued an urgent global appeal in London to eliminate fugitive methane emissions.",
+    source: "United Nations",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-067", date: "2026-07-23", month: "Jul 2026", category: "International Affairs",
-    title: "India-Vietnam Joint Maritime Security Exercise",
-    summary: "The Indian Navy and Vietnam People's Navy conducted bilateral maritime security exercises in the South China Sea.",
-    whatHappened: "Naval units from India and Vietnam executed coordinated passage exercises and maritime security drills in the South China Sea, emphasizing freedom of navigation, interoperability, and regional stability under international law.",
+    id: "REC-AUG-067",
+    date: "2026-08-23",
+    month: "Aug 2026",
+    category: "International Affairs",
+    title: "Operation Amistad: India Dispatches Relief to Venezuela",
+    summary: "India launched 'Operation Amistad' providing emergency earthquake disaster assistance to Venezuela.",
+    whatHappened: "India launched 'Operation Amistad', airlifting search-and-rescue teams, critical trauma medication, field surgical units, and clean water supplies to Venezuela after consecutive earthquakes measuring 7.2 and 7.5 magnitude struck its northern states.",
     importantPoints: [
-      "Bilateral maritime security exercise between India and Vietnam.",
-      "Conducted in the South China Sea.",
-      "Focuses on freedom of navigation and interoperability."
+      "Operation Name: Operation Amistad.",
+      "Dispatched humanitarian assistance and disaster relief (HADR) to Venezuela.",
+      "Triggered by twin earthquakes measuring 7.2 and 7.5 on the Richter scale."
     ],
-    examFacts: ["Participants: Indian Navy and Vietnam People's Navy", "Location: South China Sea"],
-    quickRemember: "India and Vietnam conducted a joint maritime security exercise in the South China Sea.",
-    audioText: "The Indian Navy and Vietnam People's Navy conducted bilateral maritime security exercises in the South China Sea.",
-    source: "Ministry of Defence", importantFor: ["CDS", "SSC CGL", "UPSC"]
+    examFacts: ["Operation: Operation Amistad", "Beneficiary Nation: Venezuela", "Disaster: Earthquake (7.2 & 7.5)"],
+    quickRemember: "Operation Amistad is India's earthquake humanitarian relief mission to Venezuela.",
+    audioText: "India launched Operation Amistad to deliver emergency disaster relief supplies to earthquake-affected Venezuela.",
+    source: "Ministry of External Affairs",
+    importantFor: ["CDS", "SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-068", date: "2026-07-22", month: "Jul 2026", category: "Economy",
-    title: "SEBI Mandates ESG Rating Provider Accreditation",
-    summary: "SEBI enforced strict regulatory compliance standards for all Environmental, Social, and Governance (ESG) rating agencies.",
-    whatHappened: "SEBI enforced full implementation of its regulatory framework requiring all Environmental, Social, and Governance (ESG) Rating Providers (ERPs) operating in Indian markets to secure formal accreditation and adhere to transparent scoring standards.",
+    id: "REC-AUG-068",
+    date: "2026-08-24",
+    month: "Aug 2026",
+    category: "Art & Culture",
+    title: "'Manas and Mahabharata' Centre Inaugurated in Bishkek",
+    summary: "India and Kyrgyzstan jointly inaugurated the 'Manas and Mahabharata' Cultural Centre in Bishkek.",
+    whatHappened: "During bilateral diplomatic engagements, India and Kyrgyzstan jointly established the 'Manas and Mahabharata' Cultural and Research Centre in Bishkek to explore historical civilizational links, comparative epic literature, and Silk Road shared folk traditions.",
     importantPoints: [
-      "SEBI enforced accreditation rules for ESG Rating Providers (ERPs).",
-      "Ensures transparent scoring and mitigates greenwashing.",
-      "Regulates financial market compliance."
+      "Established jointly by India and Kyrgyzstan.",
+      "Located in Bishkek, Kyrgyzstan.",
+      "Connects the Kyrgyz national Epic of Manas with the Indian epic Mahabharata."
     ],
-    examFacts: ["Regulator: SEBI", "Subject: ESG Rating Providers (ERPs)"],
-    quickRemember: "SEBI enforced strict accreditation standards for ESG Rating Providers in Indian markets.",
-    audioText: "SEBI enforced strict regulatory standards requiring all Environmental, Social, and Governance rating agencies to secure accreditation.",
-    source: "SEBI", importantFor: ["Bank PO", "SSC CGL"]
+    examFacts: ["Centre: Manas and Mahabharata", "Location: Bishkek, Kyrgyzstan", "Partner: Kyrgyzstan"],
+    quickRemember: "The 'Manas and Mahabharata' epic cultural study centre was opened in Bishkek, Kyrgyzstan.",
+    audioText: "India and Kyrgyzstan inaugurated the Manas and Mahabharata cultural research centre in Bishkek.",
+    source: "MEA",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-069", date: "2026-07-21", month: "Jul 2026", category: "Science & Technology",
-    title: "IIT Roorkee Develops Earthquake Early Warning System",
-    summary: "IIT Roorkee deployed an upgraded seismic sensor grid for real-time earthquake early warnings in Uttarakhand.",
-    whatHappened: "Researchers at IIT Roorkee upgraded and deployed a dense seismic sensor network across the Garhwal Himalayan region. The system provides automated early warnings to state disaster authorities seconds before destructive shear waves arrive.",
+    id: "REC-AUG-069",
+    date: "2026-08-24",
+    month: "Aug 2026",
+    category: "International Affairs",
+    title: "14 Nations Issue Hague South China Sea Declaration",
+    summary: "Fourteen nations reaffirmed the binding validity of the 2016 South China Sea Arbitral Tribunal award.",
+    whatHappened: "Fourteen nations, including the United States, Japan, the United Kingdom, and the Philippines, issued the Hague South China Sea Declaration, reaffirming that the 2016 Permanent Court of Arbitration award is legally binding and sovereign maritime rights under UNCLOS must be respected.",
     importantPoints: [
-      "Seismic sensor grid upgraded in the Garhwal Himalayas.",
-      "Developed by IIT Roorkee.",
-      "Provides real-time earthquake early warnings to mitigate disaster risks."
+      "Reaffirmed the 2016 Permanent Court of Arbitration ruling.",
+      "Signatories included 14 nations (US, UK, Japan, Philippines, etc.).",
+      "Rejected unilateral maritime claims inconsistent with UNCLOS."
     ],
-    examFacts: ["Institution: IIT Roorkee", "System: Earthquake Early Warning Grid", "Region: Uttarakhand"],
-    quickRemember: "IIT Roorkee deployed an upgraded seismic sensor grid for earthquake early warnings in Uttarakhand.",
-    audioText: "Researchers at IIT Roorkee deployed an upgraded seismic sensor grid for real-time earthquake early warnings.",
-    source: "IIT Roorkee", importantFor: ["SSC CGL", "State PCS"]
+    examFacts: ["Declaration: Hague South China Sea Declaration", "Key Treaty: UNCLOS", "Core Ruling: 2016 PCA Award"],
+    quickRemember: "Fourteen nations signed the Hague Declaration reaffirming the 2016 Arbitral Tribunal award on the South China Sea.",
+    audioText: "Fourteen nations issued the Hague Declaration affirming that the 2016 arbitral ruling on the South China Sea remains legally binding.",
+    source: "International Maritime Secretariat",
+    importantFor: ["UPSC", "CDS"]
   },
   {
-    id: "REC-JUL-070", date: "2026-07-20", month: "Jul 2026", category: "Sports",
-    title: "Divya Deshmukh Wins World Junior Chess Championship",
-    summary: "Indian chess prodigy Divya Deshmukh won the FIDE World Junior Girls Chess Championship.",
-    whatHappened: "Indian chess sensation Divya Deshmukh clinched the title at the FIDE World Junior Girls Chess Championship with a dominant performance, demonstrating exceptional tactical prowess throughout the international tournament.",
+    id: "REC-AUG-070",
+    date: "2026-08-25",
+    month: "Aug 2026",
+    category: "International Affairs",
+    title: "European Nations Form Missile Defence Coalition Around Freyja",
+    summary: "Nine European nations and Ukraine created an integrated anti-ballistic missile coalition using the Ukrainian Freyja system.",
+    whatHappened: "Nine European nations along with Ukraine announced the formation of the Integrated Anti-Ballistic Missile Coalition, standardizing air defence architectures around the battle-tested Ukrainian-developed 'Freyja' hypersonic interceptor and radar system.",
     importantPoints: [
-      "Divya Deshmukh won the FIDE World Junior Girls Chess Championship.",
-      "Discipline: Chess.",
-      "Brought global acclaim to Indian youth chess talent."
+      "Includes 9 European countries and Ukraine.",
+      "Built around the Ukrainian 'Freyja' air and ballistic missile defence architecture.",
+      "Provides rapid layered interception across eastern European airspace."
     ],
-    examFacts: ["Athlete: Divya Deshmukh", "Sport: Chess", "Title: World Junior Girls Champion"],
-    quickRemember: "Chess prodigy Divya Deshmukh won the FIDE World Junior Girls Chess Championship.",
-    audioText: "Indian chess prodigy Divya Deshmukh won the FIDE World Junior Girls Chess Championship.",
-    source: "FIDE", importantFor: ["SSC CGL", "SSC CHSL"]
+    examFacts: ["Defence System: Freyja System", "Focus: Integrated Anti-Ballistic Missile Coalition", "Core Partner: Ukraine"],
+    quickRemember: "Nine European nations and Ukraine formed a joint anti-ballistic missile defence coalition based on the Freyja system.",
+    audioText: "Nine European nations joined Ukraine to establish an integrated anti-ballistic missile defence coalition centered on the Freyja system.",
+    source: "European Defence Agency",
+    importantFor: ["CDS", "UPSC"]
   },
   {
-    id: "REC-JUL-071", date: "2026-07-19", month: "Jul 2026", category: "Science & Technology",
-    title: "ISRO Releases First Data from Aditya-L1 VELC Instrument",
-    summary: "ISRO published high-resolution solar corona data captured by the Visible Emission Line Coronagraph.",
-    whatHappened: "ISRO officially released the first tranche of high-resolution scientific data collected by the Visible Emission Line Coronagraph (VELC) payload onboard Aditya-L1, India's first dedicated solar observation spacecraft stationed at Lagrangian Point 1.",
+    id: "REC-AUG-071",
+    date: "2026-08-25",
+    month: "Aug 2026",
+    category: "Appointments",
+    title: "Kanishka Narayan Appointed UK's First Cabinet Minister for AI",
+    summary: "Indian-origin MP Kanishka Narayan was appointed as the United Kingdom's first full Cabinet Minister for Artificial Intelligence.",
+    whatHappened: "In an administrative restructuring under Prime Minister Andy Burnham, Indian-origin Member of Parliament Kanishka Narayan was appointed to the Cabinet as the UK's first Secretary of State for Artificial Intelligence and Autonomous Technologies.",
     importantPoints: [
-      "Released scientific data from the VELC payload on Aditya-L1.",
-      "Captures high-resolution solar corona dynamics.",
-      "Spacecraft stationed at Sun-Earth Lagrangian Point 1 (L1)."
+      "First full Cabinet Minister for Artificial Intelligence in the United Kingdom.",
+      "Indian-origin MP appointed under Andy Burnham's government.",
+      "Tasked with regulating Frontier AI safety while spurring computational infrastructure."
     ],
-    examFacts: ["Spacecraft: Aditya-L1", "Instrument: VELC (Visible Emission Line Coronagraph)", "Agency: ISRO"],
-    quickRemember: "ISRO published high-resolution solar data from the Aditya-L1 VELC instrument.",
-    audioText: "ISRO published the first high-resolution solar corona data captured by the VELC instrument onboard Aditya-L1.",
-    source: "ISRO", importantFor: ["SSC CGL", "UPSC", "CDS"]
+    examFacts: ["Appointee: Kanishka Narayan", "Position: Cabinet Minister for Artificial Intelligence", "Country: United Kingdom"],
+    quickRemember: "Kanishka Narayan became the UK's first full Cabinet Minister for Artificial Intelligence.",
+    audioText: "Indian-origin MP Kanishka Narayan was appointed as the United Kingdom's first full Cabinet Minister for Artificial Intelligence.",
+    source: "UK Government",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-072", date: "2026-07-17", month: "Jul 2026", category: "Economy & Infrastructure",
-    title: "India Sets Up National Deep Tech Startup Hub in Pune",
-    summary: "The Ministry of Science and Technology inaugurated the National Deep Tech Startup Hub (NDTSH) in Pune.",
-    whatHappened: "The Ministry of Science and Technology inaugurated the National Deep Tech Startup Hub (NDTSH) in Pune, Maharashtra. The facility provides specialized incubation, wet labs, and high-performance computing clusters for early-stage engineering startups.",
+    id: "REC-AUG-072",
+    date: "2026-08-25",
+    month: "Aug 2026",
+    category: "Economy & Trade",
+    title: "Chinese Customs Records Zero Gallium Exports to Japan",
+    summary: "China halted shipments of strategic rare earth elements gallium, dysprosium, and terbium to Japan.",
+    whatHappened: "Official Chinese customs data revealed zero exports of critical semiconductor minerals—gallium, dysprosium, and terbium—to Japan for August 2026, marking a severe supply disruption amid mounting regional high-technology trade tensions.",
     importantPoints: [
-      "National Deep Tech Startup Hub (NDTSH) inaugurated in Pune.",
-      "Provides wet labs and high-performance computing for deep-tech startups.",
-      "Backed by the Ministry of Science and Technology."
+      "Exports halted for critical materials: gallium, dysprosium, and terbium.",
+      "Exporting nation: China; Receiving nation: Japan.",
+      "Poses supply chain headwinds for automotive permanent magnets and chip fabrication."
     ],
-    examFacts: ["Facility: National Deep Tech Startup Hub (NDTSH)", "Location: Pune, Maharashtra"],
-    quickRemember: "The National Deep Tech Startup Hub (NDTSH) was inaugurated in Pune.",
-    audioText: "The Ministry of Science and Technology inaugurated the National Deep Tech Startup Hub in Pune to support engineering startups.",
-    source: "Ministry of Science & Technology", importantFor: ["SSC CGL", "UPSC"]
+    examFacts: ["Minerals: Gallium, Dysprosium, Terbium", "Impacted Importer: Japan", "Exporter: China"],
+    quickRemember: "China froze exports of critical minerals gallium, dysprosium, and terbium to Japan.",
+    audioText: "China registered zero exports of critical rare earth elements gallium, dysprosium, and terbium to Japan in August 2026.",
+    source: "Global Trade Data",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-073", date: "2026-07-16", month: "Jul 2026", category: "International Affairs",
-    title: "India and Japan Sign Critical Minerals Partnership",
-    summary: "India and Japan executed a bilateral framework agreement to secure rare earth and critical mineral supply chains.",
-    whatHappened: "India and Japan signed a comprehensive Critical Minerals Partnership agreement in Tokyo. The pact facilitates joint exploration, processing, and recycling of rare earth elements and battery minerals to reduce single-nation supply dependencies.",
+    id: "REC-AUG-073",
+    date: "2026-08-26",
+    month: "Aug 2026",
+    category: "International Affairs",
+    title: "Khalil al-Hayya Chosen Head of Hamas Political Bureau",
+    summary: "Khalil al-Hayya was selected to head the Hamas Political Bureau following the demise of Yahya Sinwar.",
+    whatHappened: "The Shura Council of Hamas confirmed Khalil al-Hayya as the new head of the Hamas Political Bureau, succeeding Yahya Sinwar and assuming command over strategic political negotiations and diplomatic relations.",
     importantPoints: [
-      "Critical Minerals Partnership signed between India and Japan.",
-      "Focuses on joint exploration, processing, and recycling of rare earths.",
-      "Aims to secure supply chains for clean energy and electronics."
+      "Selected as Chief of the Hamas Political Bureau.",
+      "Succeeded Yahya Sinwar.",
+      "Announced following the internal leadership council ballot."
     ],
-    examFacts: ["Partnership: India-Japan Critical Minerals Pact", "Focus: Rare Earths & Battery Minerals"],
-    quickRemember: "India and Japan signed a Critical Minerals Partnership to secure rare earth supply chains.",
-    audioText: "India and Japan signed a bilateral critical minerals partnership agreement to secure rare earth supply chains.",
-    source: "MEA", importantFor: ["UPSC", "SSC CGL"]
+    examFacts: ["Leader: Khalil al-Hayya", "Position: Head of Hamas Political Bureau", "Predecessor: Yahya Sinwar"],
+    quickRemember: "Khalil al-Hayya was chosen to head the Hamas Political Bureau, succeeding Yahya Sinwar.",
+    audioText: "Khalil al-Hayya was appointed as the new head of the Hamas Political Bureau, succeeding Yahya Sinwar.",
+    source: "Foreign Affairs Bulletin",
+    importantFor: ["SSC CGL", "CDS"]
   },
   {
-    id: "REC-JUL-074", date: "2026-07-15", month: "Jul 2026", category: "Government Schemes",
-    title: "National Tele-Mental Health Programme Expands Reach",
-    summary: "The Ministry of Health reported that 'Tele-MANAS' crossed 2 million counseling calls since launch.",
-    whatHappened: "The Ministry of Health and Family Welfare announced that 'Tele-MANAS', the national tele-mental health helpline, successfully crossed 2 million mental health counseling calls, expanding its 24/7 multilingual support network across all states.",
+    id: "REC-AUG-074",
+    date: "2026-08-26",
+    month: "Aug 2026",
+    category: "State Affairs",
+    title: "Odisha Launches GO-EAST Industrial Policy",
+    summary: "Odisha introduced the GO-EAST industrial accelerator to drive capital into 15 non-coastal, underdeveloped districts.",
+    whatHappened: "The Government of Odisha launched the 'GO-EAST' (Growth Opportunities for Eastern and Agro-based Special Territories) industrial framework, providing 35% capital investment subsidies to establish manufacturing clusters across 15 non-coastal and tribal districts.",
     importantPoints: [
-      "Tele-MANAS national mental health helpline crossed 2 million calls.",
-      "Provides 24/7 multilingual counseling support.",
-      "Managed by the Ministry of Health."
+      "Targeted at 15 non-coastal, industrially backward districts of Odisha.",
+      "Offers special capital investment subsidies and plug-and-play industrial estates.",
+      "Focuses on agro-processing, food cold chains, and mineral manufacturing."
     ],
-    examFacts: ["Platform: Tele-MANAS", "Milestone: >2 Million Calls", "Ministry: Health & Family Welfare"],
-    quickRemember: "The Tele-MANAS mental health helpline crossed 2 million counseling calls.",
-    audioText: "The Health Ministry announced that the Tele-MANAS mental health helpline crossed two million counseling calls.",
-    source: "MoHFW", importantFor: ["SSC CGL", "State PCS"]
+    examFacts: ["Policy: GO-EAST", "State: Odisha", "Focus Districts: 15 non-coastal districts"],
+    quickRemember: "Odisha launched the GO-EAST policy to accelerate industrialization across 15 non-coastal districts.",
+    audioText: "Odisha launched the GO-EAST industrial scheme to promote manufacturing across fifteen non-coastal districts.",
+    source: "Odisha Industries Dept",
+    importantFor: ["SSC CGL", "State PCS"]
   },
   {
-    id: "REC-JUL-075", date: "2026-07-14", month: "Jul 2026", category: "National Affairs",
-    title: "Supreme Court Directs Fast-Tracking of Cyber Crime Tribunals",
-    summary: "The Supreme Court issued guidelines to establish dedicated fast-track tribunals for financial cyber fraud cases.",
-    whatHappened: "In a landmark directive, the Supreme Court of India instructed all state high courts and governments to expedite the establishment of specialized fast-track tribunals dedicated exclusively to adjudicating online financial cyber fraud and identity theft cases.",
+    id: "REC-AUG-075",
+    date: "2026-08-27",
+    month: "Aug 2026",
+    category: "National Affairs",
+    title: "Rajasthan and Haryana Sign Interstate Yamuna Pipeline Accord",
+    summary: "Rajasthan and Haryana concluded an interstate agreement to construct an underground pipeline carrying Yamuna waters to Shekhawati.",
+    whatHappened: "In the presence of Union Home Minister Amit Shah, the Chief Ministers of Rajasthan and Haryana executed the Yamuna Pipeline Accord to construct a 580 Million Cubic Metre (MCM) subterranean pipeline conveying allocated Yamuna floodwaters from Tajewala Headworks to Rajasthan's arid Shekhawati districts.",
     importantPoints: [
-      "Supreme Court directed fast-tracking of cyber crime tribunals.",
-      "Focuses exclusively on online financial fraud and identity theft.",
-      "Aims to reduce judicial backlog in cyber crime cases."
+      "Interstate water agreement between Rajasthan and Haryana.",
+      "Constructs a 580 MCM closed underground pipeline.",
+      "Transfers Yamuna water to Sikar, Jhunjhunu, and Churu (Shekhawati)."
     ],
-    examFacts: ["Directive Body: Supreme Court of India", "Focus: Cyber Crime Financial Tribunals"],
-    quickRemember: "The Supreme Court directed states to establish fast-track tribunals for cyber crime financial cases.",
-    audioText: "The Supreme Court issued guidelines directing states to establish dedicated fast-track tribunals for cyber crime fraud cases.",
-    source: "Supreme Court of India", importantFor: ["UPSC", "SSC CGL"]
+    examFacts: ["States Involved: Rajasthan and Haryana", "Capacity: 580 MCM", "Beneficiary Region: Shekhawati"],
+    quickRemember: "Rajasthan and Haryana signed an agreement to pipe 580 MCM of Yamuna water to the Shekhawati region.",
+    audioText: "Rajasthan and Haryana signed an interstate accord to pipe 580 million cubic metres of Yamuna water to Shekhawati.",
+    source: "Ministry of Jal Shakti",
+    importantFor: ["SSC CGL", "State PCS", "UPSC"]
   },
   {
-    id: "REC-JUL-076", date: "2026-07-13", month: "Jul 2026", category: "Economy & Infrastructure",
-    title: "Kochi-Lakshadweep Subsea Optical Fiber Cable Operational",
-    summary: "Prime Minister Modi dedicated the high-speed Kochi-Lakshadweep Islands Subsea Fiber Connection (KLISFC) to the nation.",
-    whatHappened: "The high-speed Kochi-Lakshadweep Islands Subsea Fiber Connection (KLISFC) project became fully operational, delivering 100 Gbps bandwidth capacity to Kavaratti and outlying islands to upgrade digital connectivity.",
+    id: "REC-AUG-076",
+    date: "2026-08-27",
+    month: "Aug 2026",
+    category: "Environment & Urban Affairs",
+    title: "Delhi Notifies Electric Vehicle Policy 2026",
+    summary: "Delhi notified its revised EV Policy through 2030, waiving road tax on electric cars and targeting 30,000 public chargers.",
+    whatHappened: "The Delhi Government notified its Comprehensive Electric Vehicle Policy 2026, remaining operative through 2030. The policy provides complete road tax and registration fee waivers on private electric vehicles and sets a target to install 30,000 fast public charging outlets.",
     importantPoints: [
-      "Kochi-Lakshadweep Islands Subsea Fiber Connection (KLISFC) fully operational.",
-      "Provides high-speed 100 Gbps bandwidth capacity to remote island populations.",
-      "Boosts digital governance, tourism, and telemedicine."
+      "Operative tenure: 2026 through 2030.",
+      "100% waiver on road tax and registration charges for electric cars and two-wheelers.",
+      "Mandates setting up 30,000 public and semi-public charging guns."
     ],
-    examFacts: ["Project: KLISFC (Kochi-Lakshadweep Subsea Fiber)", "Bandwidth: 100 Gbps"],
-    quickRemember: "The Kochi-Lakshadweep subsea fiber optic cable project became fully operational.",
-    audioText: "The high-speed Kochi-Lakshadweep subsea fiber optic connection became fully operational, bringing high bandwidth to the islands.",
-    source: "Ministry of Communications", importantFor: ["SSC CGL", "UPSC"]
+    examFacts: ["Policy: Delhi EV Policy 2026", "Valid Until: 2030", "Target: 30,000 Public Chargers"],
+    quickRemember: "Delhi notified EV Policy 2026 offering full road tax waivers and targeting 30,000 chargers by 2030.",
+    audioText: "Delhi released its Electric Vehicle Policy extending full road tax waivers and targeting thirty thousand chargers by 2030.",
+    source: "Delhi Transport Dept",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-077", date: "2026-07-12", month: "Jul 2026", category: "Environment",
-    title: "India Launches National Mangrove and Coral Restoration Mission",
-    summary: "The government launched a dedicated national mission to restore degraded mangrove forests and coral reefs.",
-    whatHappened: "The Ministry of Environment, Forest and Climate Change launched the 'National Mangrove and Coral Reef Restoration Mission', committing ₹500 crore to rejuvenate coastal bio-shields along the eastern and western seaboards.",
+    id: "REC-AUG-077",
+    date: "2026-08-28",
+    month: "Aug 2026",
+    category: "Health & Welfare",
+    title: "West Bengal Clears ₹313.3 Cr for Tea Garden Rest Sheds and Clinics",
+    summary: "West Bengal sanctioned ₹313.3 crore under PMCSPY to establish 321 clinics and creches in northern tea estates.",
+    whatHappened: "The West Bengal State Cabinet approved an allocation of ₹313.3 crore under the PM Cha Sramik Prokolpo Yojana (PMCSPY) to erect 321 permanent worker rest shelters, primary healthcare clinics, and day-care creches across tea estates in Darjeeling, Jalpaiguri, and Alipurduar.",
     importantPoints: [
-      "National Mangrove and Coral Reef Restoration Mission launched.",
-      "Committed corpus of ₹500 crore.",
-      "Aims to rejuvenate coastal bio-shields against climate change storms."
+      "Total allocation: ₹313.3 crore.",
+      "Builds 321 integrated rest sheds, primary dispensaries, and creches.",
+      "Covers tea estates in Darjeeling, Jalpaiguri, and Alipurduar districts."
     ],
-    examFacts: ["Mission: Mangrove and Coral Reef Restoration", "Outlay: ₹500 Crore", "Ministry: MoEFCC"],
-    quickRemember: "India launched a ₹500 crore national mission to restore mangrove forests and coral reefs.",
-    audioText: "The Environment Ministry launched a national mission with a five hundred crore rupee outlay to restore mangroves and coral reefs.",
-    source: "MoEFCC", importantFor: ["SSC CGL", "UPSC"]
+    examFacts: ["Allocation: ₹313.3 Crore", "Facilities: 321 Rest Sheds/Clinics", "State: West Bengal (Tea Districts)"],
+    quickRemember: "West Bengal cleared ₹313.3 crore for 321 rest sheds and health clinics in northern tea estates.",
+    audioText: "West Bengal allocated over 313 crore rupees to construct 321 health clinics and rest sheds across tea estates.",
+    source: "WB State Gazette",
+    importantFor: ["SSC CGL", "State PCS"]
   },
   {
-    id: "REC-JUL-078", date: "2026-07-10", month: "Jul 2026", category: "Science & Technology",
-    title: "IIT Hyderabad Creates Biodegradable Surgical Threads",
-    summary: "Researchers at IIT Hyderabad developed advanced biodegradable surgical sutures derived from marine polysaccharides.",
-    whatHappened: "Engineers at IIT Hyderabad successfully synthesized high-strength biodegradable surgical threads extracted from marine crustacean polysaccharides. These sutures dissolve naturally within weeks, eliminating the need for removal stitches.",
+    id: "REC-AUG-078",
+    date: "2026-08-28",
+    month: "Aug 2026",
+    category: "National Affairs",
+    title: "Four States Sign Final Narmada Financial Resolution",
+    summary: "Madhya Pradesh, Gujarat, Maharashtra, and Rajasthan signed a financial agreement settling long-standing Narmada project liabilities.",
+    whatHappened: "The Chief Ministers of Madhya Pradesh, Gujarat, Maharashtra, and Rajasthan reached a unanimous financial settlement closing three decades of disputed cost-sharing liabilities associated with the Sardar Sarovar Dam and canal networks under the Narmada Water Disputes Tribunal.",
     importantPoints: [
-      "Biodegradable surgical threads developed by IIT Hyderabad.",
-      "Derived from marine polysaccharides.",
-      "Dissolves naturally without requiring post-surgery stitch removal."
+      "Settlement between four riparian states: MP, Gujarat, Maharashtra, and Rajasthan.",
+      "Clears pending cost-sharing accounts and rehabilitation compensation balances.",
+      "Enables expansion of secondary command canal networks."
     ],
-    examFacts: ["Innovation: Biodegradable Surgical Sutures", "Institute: IIT Hyderabad"],
-    quickRemember: "IIT Hyderabad developed biodegradable surgical threads derived from marine polysaccharides.",
-    audioText: "Researchers at IIT Hyderabad developed biodegradable surgical sutures extracted from marine polysaccharides.",
-    source: "IIT Hyderabad", importantFor: ["SSC CGL", "State PCS"]
+    examFacts: ["States: MP, Gujarat, Maharashtra, Rajasthan", "Tribunal: Narmada Water Disputes Tribunal", "Project: Sardar Sarovar"],
+    quickRemember: "Four riparian states resolved long-standing cost-sharing liabilities under the Narmada Tribunal.",
+    audioText: "Madhya Pradesh, Gujarat, Maharashtra, and Rajasthan signed a financial resolution resolving Narmada water liabilities.",
+    source: "Narmada Control Authority",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-079", date: "2026-07-09", month: "Jul 2026", category: "International Affairs",
-    title: "India Extends Line of Credit to Sri Lanka for Dairy Development",
-    summary: "India disbursed a dedicated Line of Credit to Sri Lanka to modernize its cooperative dairy sector.",
-    whatHappened: "Under bilateral economic assistance pacts, India disbursed a targeted Line of Credit (LoC) to Sri Lanka to assist its national dairy cooperative sector in establishing modern processing plants, cold chains, and veterinary infrastructure.",
+    id: "REC-AUG-079",
+    date: "2026-08-29",
+    month: "Aug 2026",
+    category: "Agriculture & Economy",
+    title: "Assam Begins Commercial Production of Japanese-Style Matcha",
+    summary: "Assam commenced commercial cultivation and processing of Japanese shaded Matcha tea at Chota Tingrai Tea Estate.",
+    whatHappened: "Assam launched India's first commercial-scale production of authentic shaded Japanese Matcha green tea at the Chota Tingrai Tea Estate in Tinsukia district, utilizing Japanese black netting shade-growth protocols and micro-granite stone milling.",
     importantPoints: [
-      "India extended a Line of Credit to Sri Lanka for dairy development.",
-      "Focuses on modernizing processing plants and cold chains.",
-      "Strengthens bilateral agricultural cooperation."
+      "First commercial Japanese-grade Matcha production in Assam.",
+      "Produced at Chota Tingrai Tea Estate, Tinsukia district.",
+      "Adopts traditional shaded cultivation and stone-grinding technology."
     ],
-    examFacts: ["Assistance Type: Line of Credit (LoC)", "Partner Nation: Sri Lanka", "Sector: Cooperative Dairy"],
-    quickRemember: "India provided a Line of Credit to Sri Lanka to modernize its cooperative dairy sector.",
-    audioText: "India disbursed a Line of Credit to Sri Lanka to help modernize its cooperative dairy sector and cold chains.",
-    source: "MEA", importantFor: ["SSC CGL", "UPSC"]
+    examFacts: ["Product: Japanese-style Matcha Tea", "Estate: Chota Tingrai Tea Estate", "District: Tinsukia, Assam"],
+    quickRemember: "Assam began commercial Japanese-style Matcha production at Chota Tingrai Tea Estate in Tinsukia.",
+    audioText: "Assam commenced commercial cultivation of authentic Japanese Matcha tea at Chota Tingrai estate in Tinsukia.",
+    source: "Tea Board of India",
+    importantFor: ["SSC CGL", "UPSC"]
   },
   {
-    id: "REC-JUL-080", date: "2026-07-07", month: "Jul 2026", category: "Economy & Infrastructure",
-    title: "NITI Aayog Releases State Energy Efficiency Index 2025-26",
-    summary: "NITI Aayog published the State Energy Efficiency Index, highlighting Karnataka and Kerala as top performers.",
-    whatHappened: "NITI Aayog, in partnership with the Bureau of Energy Efficiency (BEE), released the State Energy Efficiency Index (SEEI). Karnataka, Kerala, and Andhra Pradesh emerged as the leading frontrunner states in implementing industrial and municipal energy conservation measures.",
+    id: "REC-AUG-080",
+    date: "2026-08-29",
+    month: "Aug 2026",
+    category: "Environment & Urban Affairs",
+    title: "Delhi Clears ₹8,300 Cr World Bank 'Clean Air' Program",
+    summary: "Delhi approved an ₹8,300 crore World Bank-assisted program, 'Clean Air, Healthy Delhi', running through 2033.",
+    whatHappened: "The Delhi Government approved the ₹8,300 crore World Bank co-financed program titled 'Clean Air, Healthy Delhi', spanning seven years through 2033. The mission focuses on road dust suppression, electrification of municipal freight fleets, and real-time airshed monitoring.",
     importantPoints: [
-      "State Energy Efficiency Index published by NITI Aayog and BEE.",
-      "Top-performing frontrunner states: Karnataka, Kerala, and Andhra Pradesh.",
-      "Evaluates energy-saving policies across industrial and municipal sectors."
+      "Total investment: ₹8,300 crore with World Bank co-financing.",
+      "Implementation horizon spans through 2033.",
+      "Focuses on urban airshed management, mechanised street cleaning, and freight electrification."
     ],
-    examFacts: ["Publisher: NITI Aayog & BEE", "Top States: Karnataka, Kerala, Andhra Pradesh"],
-    quickRemember: "NITI Aayog's Energy Efficiency Index ranked Karnataka and Kerala as top frontrunner states.",
-    audioText: "NITI Aayog released the State Energy Efficiency Index, highlighting Karnataka and Kerala as top frontrunners.",
-    source: "NITI Aayog", importantFor: ["SSC CGL", "UPSC"]
+    examFacts: ["Project: Clean Air, Healthy Delhi", "Financier: World Bank", "Outlay: ₹8,300 Crore", "Timeline: Through 2033"],
+    quickRemember: "Delhi approved the ₹8,300 crore World Bank-backed 'Clean Air, Healthy Delhi' project through 2033.",
+    audioText: "Delhi approved an 8,300 crore rupee World Bank-assisted project called Clean Air Healthy Delhi to run through 2033.",
+    source: "Delhi Environment Dept",
+    importantFor: ["SSC CGL", "UPSC"]
   }
 ];
 
-const julRecallQuestionsBatch4 = [
+const augRecallQuestionsBatch4 = [
   {
-    id: "REC-Q-JUL-061", articleId: "REC-JUL-061", category: "Science & Technology", topic: "Medical Manufacturing",
-    question: "CSIR and IIT Delhi successfully unveiled India's first fully indigenous magnetic resonance imaging scanner of what strength?",
-    options: ["1.0 Tesla", "1.5 Tesla", "3.0 Tesla", "7.0 Tesla"],
-    answer: 1, explanation: "CSIR and IIT Delhi unveiled India's first fully indigenous 1.5 Tesla MRI scanner, cutting equipment import costs."
+    id: "REC-Q-AUG-061",
+    articleId: "REC-AUG-061",
+    category: "Art & Culture",
+    topic: "Museums & Heritage",
+    question: "India's first interactive, multimodal language museum, 'Shabdalok', was inaugurated at which historical site?",
+    options: [
+      "National Museum, Janpath, New Delhi",
+      "Belvedere House, National Library, Kolkata",
+      "Victoria Memorial Hall, Kolkata",
+      "Salar Jung Museum, Hyderabad"
+    ],
+    answer: 1,
+    explanation: "Shabdalok, India's first multimodal language museum dedicated to preserving Indian linguistic diversity and dialects, opened at Belvedere House within the National Library campus in Kolkata."
   },
   {
-    id: "REC-Q-JUL-062", articleId: "REC-JUL-062", category: "Environment", topic: "Biodiversity Frameworks",
-    question: "The Union Cabinet approved national policy alignment with the Kunming-Montreal Global Biodiversity Framework, committing India to protect what percentage of degraded lands and waters by 2030?",
-    options: ["10%", "20%", "30%", "50%"],
-    answer: 2, explanation: "India committed under the framework to protect 30% of degraded lands and inland waters by 2030."
+    id: "REC-Q-AUG-062",
+    articleId: "REC-AUG-062",
+    category: "Economy & Infrastructure",
+    topic: "Highway Toll Rules",
+    question: "NHAI introduced automated monthly local commuter passes on the RajmargYatra app for private vehicle owners residing within what distance from a toll plaza?",
+    options: [
+      "Within 10 km",
+      "Within 15 km",
+      "Within 20 km",
+      "Within 30 km"
+    ],
+    answer: 2,
+    explanation: "Under the automated scheme on the RajmargYatra app, residents living within a 20 km radius of national highway toll plazas can generate digitized commuter passes linked to FASTag."
   },
   {
-    id: "REC-Q-JUL-063", articleId: "REC-JUL-063", category: "Economy & Trade", topic: "Export Platforms",
-    question: "What is the name of the AI-driven B2B logistics exchange platform launched by the Ministry of Commerce to assist micro-exporters?",
-    options: ["ExportSetu", "LogiEx", "TradeConnect AI", "ShipBharat"],
-    answer: 1, explanation: "The Ministry of Commerce launched 'LogiEx' to match micro-exporters with verified freight forwarders using artificial intelligence."
+    id: "REC-Q-AUG-063",
+    articleId: "REC-AUG-063",
+    category: "Science & Technology",
+    topic: "Renewable Energy Storage",
+    question: "NTPC Renewable Energy contracted India's first utility-scale 100 MWh Vanadium Redox Flow Battery storage project at which solar park?",
+    options: [
+      "Bhadla Solar Park, Rajasthan",
+      "Pavagada Solar Park, Karnataka",
+      "Khavda Solar Park, Gujarat",
+      "Rewa Solar Park, Madhya Pradesh"
+    ],
+    answer: 2,
+    explanation: "India's first 100 MWh utility-scale Vanadium Redox Flow Battery (VRFB) project was awarded by NTPC for installation at the massive Khavda Renewable Energy Park in Gujarat."
   },
   {
-    id: "REC-Q-JUL-064", articleId: "REC-JUL-064", category: "Defence", topic: "Naval Rescue",
-    question: "The Indian Navy commissioned a specialized Deep Submergence Rescue Vehicle (DSRV) mother ship complex at which naval base?",
-    options: ["Mumbai", "Kochi", "Visakhapatnam", "Karatara"],
-    answer: 2, explanation: "The specialized DSRV mother ship complex was commissioned at the Eastern Naval Command in Visakhapatnam."
+    id: "REC-Q-AUG-064",
+    articleId: "REC-AUG-064",
+    category: "Defence & Security",
+    topic: "Military Recruitment & Welfare",
+    question: "What percentage reservation quota was notified by the Ministry of Home Affairs for Ex-Agniveers in Constable (GD) recruitment across CAPFs and Assam Rifles?",
+    options: [
+      "10% Quota",
+      "25% Quota",
+      "33% Quota",
+      "50% Quota"
+    ],
+    answer: 3,
+    explanation: "The MHA notified a 50% reservation quota along with age and physical efficiency test concessions for Ex-Agniveers joining Central Armed Police Forces as Constables (General Duty)."
   },
   {
-    id: "REC-Q-JUL-065", articleId: "REC-JUL-065", category: "Science & Technology", topic: "Medical Robotics",
-    question: "Which premier medical institution inaugurated a next-generation indigenous robotic surgical suite for complex oncology procedures?",
-    options: ["AIIMS New Delhi", "AIIMS Hyderabad", "PGI Chandigarh", "JIPMER Puducherry"],
-    answer: 1, explanation: "AIIMS Hyderabad inaugurated an advanced indigenous robotic surgery suite for precise oncology operations."
+    id: "REC-Q-AUG-065",
+    articleId: "REC-AUG-065",
+    category: "Science & Technology",
+    topic: "Geothermal Energy",
+    question: "ONGC Energy Centre completed drilling two 1,000-metre production wells to anchor a 1 MW pilot geothermal power project in which valley?",
+    options: [
+      "Spiti Valley, Himachal Pradesh",
+      "Puga Valley, Ladakh",
+      "Nubra Valley, Ladakh",
+      "Suru Valley, Jammu & Kashmir"
+    ],
+    answer: 1,
+    explanation: "The geothermal production wells were drilled in Puga Valley in Ladakh, setting the groundwork for India's first operational 1 MW geothermal energy facility."
   },
   {
-    id: "REC-Q-JUL-066", articleId: "REC-JUL-066", category: "Government Schemes", topic: "Senior Citizen Welfare",
-    question: "The Ministry of Social Justice expanded the Rashtriya Vayoshri Yojana (PM-VAYO) to distribute assisted-living devices to senior citizens belonging to which category?",
-    options: ["EWS households", "BPL households", "Tribal designated areas", "Rural agrarian districts"],
-    answer: 1, explanation: "The expanded PM-VAYO scheme distributes physical aids and assisted-living devices to senior citizens belonging to BPL households nationwide."
+    id: "REC-Q-AUG-066",
+    articleId: "REC-AUG-066",
+    category: "Environment",
+    topic: "Climate Directives",
+    question: "In August 2026, UN Secretary-General António Guterres issued a global action call in London urging immediate emission reductions of which greenhouse gas?",
+    options: [
+      "Nitrous Oxide",
+      "Sulfur Hexafluoride",
+      "Methane",
+      "Carbon Monoxide"
+    ],
+    answer: 2,
+    explanation: "UN Chief António Guterres called on global leaders to urgently eliminate fugitive methane leaks from pipelines, landfills, and extraction facilities due to methane's potent short-term warming effect."
   },
   {
-    id: "REC-Q-JUL-067", articleId: "REC-JUL-067", category: "Defence", topic: "Naval Cooperation",
-    question: "The Indian Navy and the Vietnam People's Navy conducted bilateral maritime security exercises in which major body of water?",
-    options: ["Bay of Bengal", "South China Sea", "Andaman Sea", "Gulf of Thailand"],
-    answer: 1, explanation: "Naval units from India and Vietnam executed coordinated passage exercises in the South China Sea."
+    id: "REC-Q-AUG-067",
+    articleId: "REC-AUG-067",
+    category: "International Affairs",
+    topic: "Humanitarian Operations",
+    question: "Under which operation did India dispatch emergency disaster relief supplies and search-and-rescue teams to earthquake-hit Venezuela in August 2026?",
+    options: [
+      "Operation Dost",
+      "Operation Karuna",
+      "Operation Amistad",
+      "Operation Maitri"
+    ],
+    answer: 2,
+    explanation: "India launched 'Operation Amistad' to airlift search-and-rescue personnel and medical provisions to Venezuela following dual 7.2 and 7.5 magnitude earthquakes."
   },
   {
-    id: "REC-Q-JUL-068", articleId: "REC-JUL-068", category: "Economy", topic: "Financial Market Standards",
-    question: "SEBI enforced strict regulatory accreditation rules for all Environmental, Social, and Governance (ESG) rating agencies known as:",
-    options: ["ESG Rating Providers (ERPs)", "Sustainable Credit Rating Agencies", "Green Audit Frameworks", "Climate Compliance Evaluators"],
-    answer: 0, explanation: "SEBI mandated that all Environmental, Social, and Governance (ESG) Rating Providers (ERPs) secure formal market accreditation."
+    id: "REC-Q-AUG-068",
+    articleId: "REC-AUG-068",
+    category: "Art & Culture",
+    topic: "Bilateral Cultural Relations",
+    question: "India and Kyrgyzstan jointly established the 'Manas and Mahabharata' cultural research centre in which city?",
+    options: [
+      "Osh",
+      "Bishkek",
+      "Tashkent",
+      "Almaty"
+    ],
+    answer: 1,
+    explanation: "The 'Manas and Mahabharata' comparative epic and civilizational study centre was inaugurated in Bishkek, the capital city of Kyrgyzstan."
   },
   {
-    id: "REC-Q-JUL-069", articleId: "REC-JUL-069", category: "Science & Technology", topic: "Disaster Warning Systems",
-    question: "Researchers at which premier institute upgraded and deployed a dense seismic sensor grid for real-time earthquake early warnings in Uttarakhand?",
-    options: ["IIT Bombay", "IIT Roorkee", "IISc Bengaluru", "IIT Madras"],
-    answer: 1, explanation: "IIT Roorkee deployed an upgraded seismic sensor network across the Garhwal Himalayan region for automated early warnings."
+    id: "REC-Q-AUG-069",
+    articleId: "REC-AUG-069",
+    category: "International Affairs",
+    topic: "Maritime Law",
+    question: "Fourteen nations issued the Hague Declaration in August 2026 to reaffirm the binding legal authority of the 2016 arbitral tribunal ruling concerning which maritime body?",
+    options: [
+      "Black Sea",
+      "Strait of Malacca",
+      "South China Sea",
+      "Gulf of Aden"
+    ],
+    answer: 2,
+    explanation: "The Hague Declaration saw 14 nations reaffirm that the 2016 Permanent Court of Arbitration ruling on China's claims in the South China Sea remains binding under UNCLOS."
   },
   {
-    id: "REC-Q-JUL-070", articleId: "REC-JUL-070", category: "Sports", topic: "Chess Championships",
-    question: "Which Indian chess prodigy clinched the title at the FIDE World Junior Girls Chess Championship?",
-    options: ["Koneru Humpy", "Harika Dronavalli", "Divya Deshmukh", "Vantika Agrawal"],
-    answer: 2, explanation: "Divya Deshmukh won the FIDE World Junior Girls Chess Championship with a dominant performance."
+    id: "REC-Q-AUG-070",
+    articleId: "REC-AUG-070",
+    category: "International Affairs",
+    topic: "Defence Coalitions",
+    question: "An Integrated Anti-Ballistic Missile Coalition established by nine European nations and Ukraine is centered around which air defence system?",
+    options: [
+      "Patriot PAC-3",
+      "Freyja System",
+      "SAMP/T Mamba",
+      "David's Sling"
+    ],
+    answer: 1,
+    explanation: "The coalition standardizes missile interception architectures around the Ukrainian-engineered 'Freyja' hypersonic anti-ballistic missile and tracking system."
   },
   {
-    id: "REC-Q-JUL-071", articleId: "REC-JUL-071", category: "Science & Technology", topic: "Solar Missions",
-    question: "ISRO released the first tranche of high-resolution scientific data collected by the VELC payload onboard which solar observation spacecraft?",
-    options: ["Chandrayaan-3", "Aditya-L1", "Xosat", "ASTROSAT"],
-    answer: 1, explanation: "ISRO published solar corona data from the Visible Emission Line Coronagraph (VELC) onboard Aditya-L1."
+    id: "REC-Q-AUG-071",
+    articleId: "REC-AUG-071",
+    category: "Appointments",
+    topic: "Global Leaders & Cabinets",
+    question: "Who was appointed as the United Kingdom's first full Cabinet Minister for Artificial Intelligence in August 2026?",
+    options: [
+      "Rishi Sunak",
+      "Alok Sharma",
+      "Kanishka Narayan",
+      "Suella Braverman"
+    ],
+    answer: 2,
+    explanation: "Indian-origin Member of Parliament Kanishka Narayan was appointed as the UK's first Cabinet Secretary of State for Artificial Intelligence."
   },
   {
-    id: "REC-Q-JUL-072", articleId: "REC-JUL-072", category: "Economy & Infrastructure", topic: "Startup Ecosystems",
-    question: "The Ministry of Science and Technology inaugurated the National Deep Tech Startup Hub (NDTSH) in which city?",
-    options: ["Bengaluru", "Hyderabad", "Pune", "Ahmedabad"],
-    answer: 2, explanation: "The National Deep Tech Startup Hub (NDTSH) was inaugurated in Pune, Maharashtra, providing wet labs and computing clusters."
+    id: "REC-Q-AUG-072",
+    articleId: "REC-AUG-072",
+    category: "Economy & Trade",
+    topic: "Export Controls",
+    question: "In August 2026, Chinese customs recorded zero exports of which group of strategic semiconductor elements to Japan?",
+    options: [
+      "Lithium, Cobalt, and Nickel",
+      "Gallium, Dysprosium, and Terbium",
+      "Silicon, Germanium, and Arsenic",
+      "Titanium, Tantalum, and Niobium"
+    ],
+    answer: 1,
+    explanation: "China froze outbound shipments of three critical minerals essential for microchips and electric vehicle magnets—gallium, dysprosium, and terbium—to Japan."
   },
   {
-    id: "REC-Q-JUL-073", articleId: "REC-JUL-073", category: "International Affairs", topic: "Critical Minerals",
-    question: "India and Japan signed a bilateral framework agreement in Tokyo to secure supply chains for:",
-    options: ["Semiconductor silicon wafers", "Critical minerals and rare earth elements", "Green hydrogen transport containers", "Advanced nuclear fuel pellets"],
-    answer: 1, explanation: "India and Japan signed a Critical Minerals Partnership agreement in Tokyo to facilitate joint exploration and processing of rare earths."
+    id: "REC-Q-AUG-073",
+    articleId: "REC-AUG-073",
+    category: "International Affairs",
+    topic: "Middle East Politics",
+    question: "Who was chosen as the head of the Hamas Political Bureau following the demise of Yahya Sinwar?",
+    options: [
+      "Khaled Meshaal",
+      "Ismail Haniyeh",
+      "Khalil al-Hayya",
+      "Mousa Abu Marzook"
+    ],
+    answer: 2,
+    explanation: "Khalil al-Hayya was chosen by the Hamas Shura Council as the new chief of the political bureau to succeed Yahya Sinwar."
   },
   {
-    id: "REC-Q-JUL-074", articleId: "REC-JUL-074", category: "Government Schemes", topic: "Mental Health Helplines",
-    question: "What is the name of the national tele-mental health helpline that crossed 2 million counseling calls managed by the Ministry of Health?",
-    options: ["MANAS-Care", "Tele-MANAS", "Sanjeevani Helpline", "Mind-Heal India"],
-    answer: 1, explanation: "Tele-MANAS is the national tele-mental health helpline that crossed 2 million counseling calls across multilingual networks."
+    id: "REC-Q-AUG-074",
+    articleId: "REC-AUG-074",
+    category: "State Affairs",
+    topic: "Industrial Policies",
+    question: "The GO-EAST industrial policy was launched by which state government to promote manufacturing clusters across 15 non-coastal districts?",
+    options: [
+      "West Bengal",
+      "Odisha",
+      "Jharkhand",
+      "Chhattisgarh"
+    ],
+    answer: 1,
+    explanation: "Odisha launched the GO-EAST framework to provide dedicated subsidies and plug-and-play facilities across 15 non-coastal, underdeveloped districts."
   },
   {
-    id: "REC-Q-JUL-075", articleId: "REC-JUL-075", category: "National Affairs", topic: "Cyber Crime Justice",
-    question: "The Supreme Court directed all state high courts and governments to establish specialized fast-track tribunals dedicated exclusively to:",
-    options: ["Environmental compliance violations", "Online financial cyber fraud and identity theft", "Digital copyright piracy disputes", "Cryptocurrency tax evasion trials"],
-    answer: 1, explanation: "The Supreme Court issued directives to establish fast-track tribunals dedicated exclusively to online financial cyber fraud cases."
+    id: "REC-Q-AUG-075",
+    articleId: "REC-AUG-075",
+    category: "National Affairs",
+    topic: "Interstate River Accords",
+    question: "An interstate agreement was signed in August 2026 between Rajasthan and Haryana to pipe 580 MCM of Yamuna floodwater to which arid region?",
+    options: [
+      "Marwar Region",
+      "Shekhawati Region",
+      "Mewar Region",
+      "Hadoti Region"
+    ],
+    answer: 1,
+    explanation: "The agreement enables Haryana and Rajasthan to transfer 580 MCM of allocated Yamuna floodwater via an underground pipeline to the Shekhawati districts (Churu, Jhunjhunu, Sikar)."
   },
   {
-    id: "REC-Q-JUL-076", articleId: "REC-JUL-076", category: "Economy & Infrastructure", topic: "Subsea Cables",
-    question: "The high-speed Kochi-Lakshadweep Islands Subsea Fiber Connection (KLISFC) project delivers what level of bandwidth capacity to the islands?",
-    options: ["10 Gbps", "40 Gbps", "100 Gbps", "1 Tbps"],
-    answer: 2, explanation: "The KLISFC project delivers high-speed 100 Gbps bandwidth capacity to Kavaratti and outlying Lakshadweep islands."
+    id: "REC-Q-AUG-076",
+    articleId: "REC-AUG-076",
+    category: "Environment & Urban Affairs",
+    topic: "Clean Mobility",
+    question: "The updated Delhi Electric Vehicle Policy, notified in August 2026 to run through 2030, sets a target to establish how many public charging outlets?",
+    options: [
+      "10,000 Outlets",
+      "20,000 Outlets",
+      "30,000 Outlets",
+      "50,000 Outlets"
+    ],
+    answer: 2,
+    explanation: "The Delhi EV Policy 2026 sets a target to install 30,000 public EV charging points across the National Capital Territory by 2030 alongside complete road tax waivers."
   },
   {
-    id: "REC-Q-JUL-077", articleId: "REC-JUL-077", category: "Environment", topic: "Coastal Restoration",
-    question: "The Ministry of Environment launched the 'National Mangrove and Coral Reef Restoration Mission' with a dedicated corpus of how much?",
-    options: ["₹100 Crore", "₹250 Crore", "₹500 Crore", "₹1,000 Crore"],
-    answer: 2, explanation: "The mission committed a corpus of ₹500 crore to rejuvenate coastal bio-shields and coral reefs along Indian seaboards."
+    id: "REC-Q-AUG-077",
+    articleId: "REC-AUG-077",
+    category: "Health & Welfare",
+    topic: "Plantation Worker Welfare",
+    question: "West Bengal approved ₹313.3 crore under PMCSPY to construct 321 clinics, rest sheds, and creches for workers in which industry?",
+    options: [
+      "Jute Mills",
+      "Tea Estates",
+      "Silk Weaving Hubs",
+      "Leather Tanneries"
+    ],
+    answer: 1,
+    explanation: "The funds under PM Cha Sramik Prokolpo Yojana (PMCSPY) are dedicated to setting up 321 healthcare rest shelters and creches for tea garden laborers across northern Bengal."
   },
   {
-    id: "REC-Q-JUL-078", articleId: "REC-JUL-078", category: "Science & Technology", topic: "Biomaterials",
-    question: "Researchers at which Indian Institute of Technology successfully synthesized high-strength biodegradable surgical threads from marine crustacean polysaccharides?",
-    options: ["IIT Bombay", "IIT Madras", "IIT Hyderabad", "IIT Kharagpur"],
-    answer: 2, explanation: "Engineers at IIT Hyderabad developed advanced biodegradable surgical sutures derived from marine polysaccharides."
+    id: "REC-Q-AUG-078",
+    articleId: "REC-AUG-078",
+    category: "National Affairs",
+    topic: "River Valley Projects",
+    question: "Which four riparian states signed an interstate financial resolution settling long-standing liabilities under the Narmada Water Disputes Tribunal?",
+    options: [
+      "MP, Gujarat, Maharashtra, and Rajasthan",
+      "MP, Gujarat, Rajasthan, and Goa",
+      "Maharashtra, Karnataka, Gujarat, and MP",
+      "Gujarat, Rajasthan, Haryana, and MP"
+    ],
+    answer: 0,
+    explanation: "Madhya Pradesh, Gujarat, Maharashtra, and Rajasthan executed the final cost-sharing and rehabilitation settlement resolving claims on the Sardar Sarovar Dam on the Narmada river."
   },
   {
-    id: "REC-Q-JUL-079", articleId: "REC-JUL-079", category: "International Affairs", topic: "Developmental Aid",
-    question: "India extended a dedicated Line of Credit to Sri Lanka to modernize and support which specific sector?",
-    options: ["Cooperative dairy sector", "Railway signaling infrastructure", "Port container automation", "Textile export manufacturing"],
-    answer: 0, explanation: "India disbursed a Line of Credit to Sri Lanka to assist its cooperative dairy sector in building processing plants and cold chains."
+    id: "REC-Q-AUG-079",
+    articleId: "REC-AUG-079",
+    category: "Agriculture & Economy",
+    topic: "Specialty Agriculture",
+    question: "India's first commercial-scale production of authentic Japanese-style Matcha green tea commenced at which tea estate in Assam?",
+    options: [
+      "Monabarie Tea Estate, Biswanath",
+      "Chota Tingrai Tea Estate, Tinsukia",
+      "Halmari Tea Estate, Dibrugarh",
+      "Corramore Tea Estate, Darrang"
+    ],
+    answer: 1,
+    explanation: "Commercial shaded Matcha tea production began at the Chota Tingrai Tea Estate in Tinsukia district, Assam, adopting Japanese cultivation and milling equipment."
   },
   {
-    id: "REC-Q-JUL-080", articleId: "REC-JUL-080", category: "Economy & Infrastructure", topic: "Energy Efficiency",
-    question: "In the State Energy Efficiency Index released by NITI Aayog and BEE, which states emerged as the top-performing frontrunners?",
-    options: ["Gujarat, Maharashtra, and Punjab", "Karnataka, Kerala, and Andhra Pradesh", "Tamil Nadu, Telangana, and Haryana", "Himachal Pradesh, Sikkim, and Goa"],
-    answer: 1, explanation: "Karnataka, Kerala, and Andhra Pradesh emerged as the leading frontrunner states in implementing energy conservation measures."
+    id: "REC-Q-AUG-080",
+    articleId: "REC-AUG-080",
+    category: "Environment & Urban Affairs",
+    topic: "Air Quality Missions",
+    question: "What is the total outlay approved for the World Bank-supported 'Clean Air, Healthy Delhi' program spanning through 2033?",
+    options: [
+      "₹3,500 Crore",
+      "₹5,200 Crore",
+      "₹8,300 Crore",
+      "₹12,000 Crore"
+    ],
+    answer: 2,
+    explanation: "The 'Clean Air, Healthy Delhi' program is an ₹8,300 crore World Bank co-financed initiative running over seven years through 2033 to suppress dust and modernize airshed monitoring."
   }
 ];
 
-// 👉 PUSH DATA INTO GLOBAL ARRAYS
+// 👉 PUSH BATCH 4 DATA INTO GLOBAL ARRAYS
 if (typeof hiddenRecallArticles !== 'undefined') {
-  hiddenRecallArticles.push(...julRecallArticlesBatch4);
+  hiddenRecallArticles.push(...augRecallArticlesBatch4);
 }
 if (typeof recallQuestionPool !== 'undefined') {
-  recallQuestionPool.push(...julRecallQuestionsBatch4);
+  recallQuestionPool.push(...augRecallQuestionsBatch4);
 }
 
 /* ==========================================================================
-   END OF JULY BATCH 4
+   END OF AUGUST BATCH 4
    ========================================================================== */
 
 
