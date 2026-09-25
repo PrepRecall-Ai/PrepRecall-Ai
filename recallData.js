@@ -11638,7 +11638,6 @@ const aprRecallQuestionsBatch2 = [
 
 // 👉 PUSH DATA INTO GLOBAL ARRAYS
 if (typeof hiddenRecallArticles !== 'undefined') {
-...
   hiddenRecallArticles.push(...aprRecallArticlesBatch2);
 }
 if (typeof recallQuestionPool !== 'undefined') {
