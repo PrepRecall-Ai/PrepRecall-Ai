@@ -5207,3 +5207,3093 @@ if (typeof recallQuestionPool !== 'undefined') {
    END OF JULY BATCH 3
    ========================================================================== */
 
+/* ==========================================================================
+   JULY 2026 - BATCH 4 (ITEMS 061 TO 080)
+   ========================================================================== */
+
+const julRecallArticlesBatch4 = [
+  {
+    id: "REC-JUL-061", date: "2026-07-29", month: "Jul 2026", category: "Science & Technology",
+    title: "India's First Indigenous MRI Scanner Developed",
+    summary: "CSIR and IIT Delhi successfully unveiled India's first fully indigenous 1.5 Tesla MRI scanner.",
+    whatHappened: "In a major milestone for domestic medical manufacturing, CSIR and IIT Delhi researchers successfully unveiled India's first fully indigenous 1.5 Tesla Magnetic Resonance Imaging (MRI) scanner, slashing hardware import costs by over 60%.",
+    importantPoints: [
+      "India's first indigenous 1.5 Tesla MRI scanner.",
+      "Developed jointly by CSIR and IIT Delhi.",
+      "Significantly reduces medical equipment import costs."
+    ],
+    examFacts: ["Device: 1.5T Indigenous MRI Scanner", "Developers: CSIR and IIT Delhi"],
+    quickRemember: "CSIR and IIT Delhi developed India's first indigenous 1.5 Tesla MRI scanner.",
+    audioText: "CSIR and IIT Delhi unveiled India's first fully indigenous 1.5 Tesla MRI scanner, cutting medical equipment costs.",
+    source: "CSIR", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-062", date: "2026-07-28", month: "Jul 2026", category: "Environment",
+    title: "India Ratifies Global Biodiversity Framework Targets",
+    summary: "The Union Cabinet formally ratified national alignment with the Kunming-Montreal Global Biodiversity Framework.",
+    whatHappened: "The Union Cabinet formally approved national policy alignment with the Kunming-Montreal Global Biodiversity Framework (KMGBF), committing India to protect 30% of degraded lands and inland waters by 2030.",
+    importantPoints: [
+      "National alignment with Kunming-Montreal Global Biodiversity Framework.",
+      "Commits to protecting 30% of land and water ecosystems by 2030.",
+      "Approved by the Union Cabinet."
+    ],
+    examFacts: ["Framework: Kunming-Montreal Global Biodiversity Framework", "Target: 30% protection by 2030"],
+    quickRemember: "India aligned its national policy with the Kunming-Montreal Global Biodiversity Framework.",
+    audioText: "The Union Cabinet approved national alignment with the Kunming-Montreal Global Biodiversity Framework to protect ecosystems by 2030.",
+    source: "MoEFCC", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-063", date: "2026-07-27", month: "Jul 2026", category: "Economy & Trade",
+    title: "India Launches B2B Logistics Portal 'LogiEx'",
+    summary: "The Ministry of Commerce launched 'LogiEx', an AI-driven logistics exchange platform for micro-exporters.",
+    whatHappened: "The Ministry of Commerce and Industry launched 'LogiEx', an artificial intelligence-powered digital exchange platform designed to match micro-exporters with verified freight forwarders, cutting cross-border supply chain bottlenecks.",
+    importantPoints: [
+      "Platform name: LogiEx.",
+      "Launched by the Ministry of Commerce and Industry.",
+      "Aims to optimize cross-border shipping for micro-exporters using AI."
+    ],
+    examFacts: ["Platform: LogiEx", "Sector: B2B Export Logistics"],
+    quickRemember: "The Ministry of Commerce launched the 'LogiEx' digital platform to optimize export logistics.",
+    audioText: "The Commerce Ministry launched LogiEx, an AI-driven exchange platform to assist micro-exporters with freight forwarding.",
+    source: "Ministry of Commerce", importantFor: ["SSC CGL", "Bank PO"]
+  },
+  {
+    id: "REC-JUL-064", date: "2026-07-26", month: "Jul 2026", category: "Defence",
+    title: "Indian Navy Inducts First Deep Submergence Rescue Vehicle Complex",
+    summary: "The Indian Navy commissioned a state-of-the-art DSRV mother ship complex at Visakhapatnam.",
+    whatHappened: "The Indian Navy formally commissioned a specialized Deep Submergence Rescue Vehicle (DSRV) mother ship complex at the Eastern Naval Command in Visakhapatnam, significantly boosting submarine rescue and deep-sea diving capabilities.",
+    importantPoints: [
+      "Specialized DSRV mother ship complex commissioned.",
+      "Located at Eastern Naval Command, Visakhapatnam.",
+      "Enhances submarine rescue and deep-sea operations."
+    ],
+    examFacts: ["System: DSRV Complex", "Command: Eastern Naval Command (Visakhapatnam)"],
+    quickRemember: "The Indian Navy commissioned a new DSRV submarine rescue complex in Visakhapatnam.",
+    audioText: "The Indian Navy commissioned a specialized Deep Submergence Rescue Vehicle complex at Visakhapatnam.",
+    source: "Indian Navy", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-065", date: "2026-07-25", month: "Jul 2026", category: "Science & Technology",
+    title: "AIIMS Hyderabad Deploys Robotic Surgical Suite",
+    summary: "AIIMS Hyderabad inaugurated an advanced indigenous robotic surgery suite for complex oncology operations.",
+    whatHappened: "AIIMS Hyderabad inaugurated a next-generation indigenous robotic surgical suite to perform complex oncological and cardiovascular procedures with sub-millimetre precision, lowering post-operative recovery timelines.",
+    importantPoints: [
+      "Robotic surgical suite inaugurated at AIIMS Hyderabad.",
+      "Focuses on complex oncology and precision surgery.",
+      "Utilizes advanced indigenous robotic arms."
+    ],
+    examFacts: ["Hospital: AIIMS Hyderabad", "Facility: Robotic Surgical Suite"],
+    quickRemember: "AIIMS Hyderabad inaugurated an advanced robotic surgical suite for precision operations.",
+    audioText: "AIIMS Hyderabad inaugurated an advanced robotic surgical suite designed for precision oncology operations.",
+    source: "AIIMS Hyderabad", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUL-066", date: "2026-07-24", month: "Jul 2026", category: "Government Schemes",
+    title: "PM-VAYO Scheme Extended for Senior Citizens",
+    summary: "The Ministry of Social Justice extended the PM-VAYO scheme to provide assistive living devices to elders.",
+    whatHappened: "The Ministry of Social Justice and Empowerment expanded the 'Rashtriya Vayoshri Yojana' (PM-VAYO), scaling up the distribution of high-quality physical aids and assisted-living devices to senior citizens belonging to BPL households nationwide.",
+    importantPoints: [
+      "Expansion of the PM-VAYO scheme for senior citizens.",
+      "Provides assisted-living devices to BPL elders.",
+      "Managed by the Ministry of Social Justice."
+    ],
+    examFacts: ["Scheme: PM-VAYO (Rashtriya Vayoshri Yojana)", "Beneficiaries: Senior citizens (BPL)"],
+    quickRemember: "The PM-VAYO scheme was expanded to provide assisted-living devices to senior citizens.",
+    audioText: "The Social Justice Ministry expanded the PM-VAYO scheme to distribute assistive devices to senior citizens.",
+    source: "Ministry of Social Justice", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-067", date: "2026-07-23", month: "Jul 2026", category: "International Affairs",
+    title: "India-Vietnam Joint Maritime Security Exercise",
+    summary: "The Indian Navy and Vietnam People's Navy conducted bilateral maritime security exercises in the South China Sea.",
+    whatHappened: "Naval units from India and Vietnam executed coordinated passage exercises and maritime security drills in the South China Sea, emphasizing freedom of navigation, interoperability, and regional stability under international law.",
+    importantPoints: [
+      "Bilateral maritime security exercise between India and Vietnam.",
+      "Conducted in the South China Sea.",
+      "Focuses on freedom of navigation and interoperability."
+    ],
+    examFacts: ["Participants: Indian Navy and Vietnam People's Navy", "Location: South China Sea"],
+    quickRemember: "India and Vietnam conducted a joint maritime security exercise in the South China Sea.",
+    audioText: "The Indian Navy and Vietnam People's Navy conducted bilateral maritime security exercises in the South China Sea.",
+    source: "Ministry of Defence", importantFor: ["CDS", "SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-068", date: "2026-07-22", month: "Jul 2026", category: "Economy",
+    title: "SEBI Mandates ESG Rating Provider Accreditation",
+    summary: "SEBI enforced strict regulatory compliance standards for all Environmental, Social, and Governance (ESG) rating agencies.",
+    whatHappened: "SEBI enforced full implementation of its regulatory framework requiring all Environmental, Social, and Governance (ESG) Rating Providers (ERPs) operating in Indian markets to secure formal accreditation and adhere to transparent scoring standards.",
+    importantPoints: [
+      "SEBI enforced accreditation rules for ESG Rating Providers (ERPs).",
+      "Ensures transparent scoring and mitigates greenwashing.",
+      "Regulates financial market compliance."
+    ],
+    examFacts: ["Regulator: SEBI", "Subject: ESG Rating Providers (ERPs)"],
+    quickRemember: "SEBI enforced strict accreditation standards for ESG Rating Providers in Indian markets.",
+    audioText: "SEBI enforced strict regulatory standards requiring all Environmental, Social, and Governance rating agencies to secure accreditation.",
+    source: "SEBI", importantFor: ["Bank PO", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-069", date: "2026-07-21", month: "Jul 2026", category: "Science & Technology",
+    title: "IIT Roorkee Develops Earthquake Early Warning System",
+    summary: "IIT Roorkee deployed an upgraded seismic sensor grid for real-time earthquake early warnings in Uttarakhand.",
+    whatHappened: "Researchers at IIT Roorkee upgraded and deployed a dense seismic sensor network across the Garhwal Himalayan region. The system provides automated early warnings to state disaster authorities seconds before destructive shear waves arrive.",
+    importantPoints: [
+      "Seismic sensor grid upgraded in the Garhwal Himalayas.",
+      "Developed by IIT Roorkee.",
+      "Provides real-time earthquake early warnings to mitigate disaster risks."
+    ],
+    examFacts: ["Institution: IIT Roorkee", "System: Earthquake Early Warning Grid", "Region: Uttarakhand"],
+    quickRemember: "IIT Roorkee deployed an upgraded seismic sensor grid for earthquake early warnings in Uttarakhand.",
+    audioText: "Researchers at IIT Roorkee deployed an upgraded seismic sensor grid for real-time earthquake early warnings.",
+    source: "IIT Roorkee", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUL-070", date: "2026-07-20", month: "Jul 2026", category: "Sports",
+    title: "Divya Deshmukh Wins World Junior Chess Championship",
+    summary: "Indian chess prodigy Divya Deshmukh won the FIDE World Junior Girls Chess Championship.",
+    whatHappened: "Indian chess sensation Divya Deshmukh clinched the title at the FIDE World Junior Girls Chess Championship with a dominant performance, demonstrating exceptional tactical prowess throughout the international tournament.",
+    importantPoints: [
+      "Divya Deshmukh won the FIDE World Junior Girls Chess Championship.",
+      "Discipline: Chess.",
+      "Brought global acclaim to Indian youth chess talent."
+    ],
+    examFacts: ["Athlete: Divya Deshmukh", "Sport: Chess", "Title: World Junior Girls Champion"],
+    quickRemember: "Chess prodigy Divya Deshmukh won the FIDE World Junior Girls Chess Championship.",
+    audioText: "Indian chess prodigy Divya Deshmukh won the FIDE World Junior Girls Chess Championship.",
+    source: "FIDE", importantFor: ["SSC CGL", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUL-071", date: "2026-07-19", month: "Jul 2026", category: "Science & Technology",
+    title: "ISRO Releases First Data from Aditya-L1 VELC Instrument",
+    summary: "ISRO published high-resolution solar corona data captured by the Visible Emission Line Coronagraph.",
+    whatHappened: "ISRO officially released the first tranche of high-resolution scientific data collected by the Visible Emission Line Coronagraph (VELC) payload onboard Aditya-L1, India's first dedicated solar observation spacecraft stationed at Lagrangian Point 1.",
+    importantPoints: [
+      "Released scientific data from the VELC payload on Aditya-L1.",
+      "Captures high-resolution solar corona dynamics.",
+      "Spacecraft stationed at Sun-Earth Lagrangian Point 1 (L1)."
+    ],
+    examFacts: ["Spacecraft: Aditya-L1", "Instrument: VELC (Visible Emission Line Coronagraph)", "Agency: ISRO"],
+    quickRemember: "ISRO published high-resolution solar data from the Aditya-L1 VELC instrument.",
+    audioText: "ISRO published the first high-resolution solar corona data captured by the VELC instrument onboard Aditya-L1.",
+    source: "ISRO", importantFor: ["SSC CGL", "UPSC", "CDS"]
+  },
+  {
+    id: "REC-JUL-072", date: "2026-07-17", month: "Jul 2026", category: "Economy & Infrastructure",
+    title: "India Sets Up National Deep Tech Startup Hub in Pune",
+    summary: "The Ministry of Science and Technology inaugurated the National Deep Tech Startup Hub (NDTSH) in Pune.",
+    whatHappened: "The Ministry of Science and Technology inaugurated the National Deep Tech Startup Hub (NDTSH) in Pune, Maharashtra. The facility provides specialized incubation, wet labs, and high-performance computing clusters for early-stage engineering startups.",
+    importantPoints: [
+      "National Deep Tech Startup Hub (NDTSH) inaugurated in Pune.",
+      "Provides wet labs and high-performance computing for deep-tech startups.",
+      "Backed by the Ministry of Science and Technology."
+    ],
+    examFacts: ["Facility: National Deep Tech Startup Hub (NDTSH)", "Location: Pune, Maharashtra"],
+    quickRemember: "The National Deep Tech Startup Hub (NDTSH) was inaugurated in Pune.",
+    audioText: "The Ministry of Science and Technology inaugurated the National Deep Tech Startup Hub in Pune to support engineering startups.",
+    source: "Ministry of Science & Technology", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-073", date: "2026-07-16", month: "Jul 2026", category: "International Affairs",
+    title: "India and Japan Sign Critical Minerals Partnership",
+    summary: "India and Japan executed a bilateral framework agreement to secure rare earth and critical mineral supply chains.",
+    whatHappened: "India and Japan signed a comprehensive Critical Minerals Partnership agreement in Tokyo. The pact facilitates joint exploration, processing, and recycling of rare earth elements and battery minerals to reduce single-nation supply dependencies.",
+    importantPoints: [
+      "Critical Minerals Partnership signed between India and Japan.",
+      "Focuses on joint exploration, processing, and recycling of rare earths.",
+      "Aims to secure supply chains for clean energy and electronics."
+    ],
+    examFacts: ["Partnership: India-Japan Critical Minerals Pact", "Focus: Rare Earths & Battery Minerals"],
+    quickRemember: "India and Japan signed a Critical Minerals Partnership to secure rare earth supply chains.",
+    audioText: "India and Japan signed a bilateral critical minerals partnership agreement to secure rare earth supply chains.",
+    source: "MEA", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-074", date: "2026-07-15", month: "Jul 2026", category: "Government Schemes",
+    title: "National Tele-Mental Health Programme Expands Reach",
+    summary: "The Ministry of Health reported that 'Tele-MANAS' crossed 2 million counseling calls since launch.",
+    whatHappened: "The Ministry of Health and Family Welfare announced that 'Tele-MANAS', the national tele-mental health helpline, successfully crossed 2 million mental health counseling calls, expanding its 24/7 multilingual support network across all states.",
+    importantPoints: [
+      "Tele-MANAS national mental health helpline crossed 2 million calls.",
+      "Provides 24/7 multilingual counseling support.",
+      "Managed by the Ministry of Health."
+    ],
+    examFacts: ["Platform: Tele-MANAS", "Milestone: >2 Million Calls", "Ministry: Health & Family Welfare"],
+    quickRemember: "The Tele-MANAS mental health helpline crossed 2 million counseling calls.",
+    audioText: "The Health Ministry announced that the Tele-MANAS mental health helpline crossed two million counseling calls.",
+    source: "MoHFW", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUL-075", date: "2026-07-14", month: "Jul 2026", category: "National Affairs",
+    title: "Supreme Court Directs Fast-Tracking of Cyber Crime Tribunals",
+    summary: "The Supreme Court issued guidelines to establish dedicated fast-track tribunals for financial cyber fraud cases.",
+    whatHappened: "In a landmark directive, the Supreme Court of India instructed all state high courts and governments to expedite the establishment of specialized fast-track tribunals dedicated exclusively to adjudicating online financial cyber fraud and identity theft cases.",
+    importantPoints: [
+      "Supreme Court directed fast-tracking of cyber crime tribunals.",
+      "Focuses exclusively on online financial fraud and identity theft.",
+      "Aims to reduce judicial backlog in cyber crime cases."
+    ],
+    examFacts: ["Directive Body: Supreme Court of India", "Focus: Cyber Crime Financial Tribunals"],
+    quickRemember: "The Supreme Court directed states to establish fast-track tribunals for cyber crime financial cases.",
+    audioText: "The Supreme Court issued guidelines directing states to establish dedicated fast-track tribunals for cyber crime fraud cases.",
+    source: "Supreme Court of India", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-076", date: "2026-07-13", month: "Jul 2026", category: "Economy & Infrastructure",
+    title: "Kochi-Lakshadweep Subsea Optical Fiber Cable Operational",
+    summary: "Prime Minister Modi dedicated the high-speed Kochi-Lakshadweep Islands Subsea Fiber Connection (KLISFC) to the nation.",
+    whatHappened: "The high-speed Kochi-Lakshadweep Islands Subsea Fiber Connection (KLISFC) project became fully operational, delivering 100 Gbps bandwidth capacity to Kavaratti and outlying islands to upgrade digital connectivity.",
+    importantPoints: [
+      "Kochi-Lakshadweep Islands Subsea Fiber Connection (KLISFC) fully operational.",
+      "Provides high-speed 100 Gbps bandwidth capacity to remote island populations.",
+      "Boosts digital governance, tourism, and telemedicine."
+    ],
+    examFacts: ["Project: KLISFC (Kochi-Lakshadweep Subsea Fiber)", "Bandwidth: 100 Gbps"],
+    quickRemember: "The Kochi-Lakshadweep subsea fiber optic cable project became fully operational.",
+    audioText: "The high-speed Kochi-Lakshadweep subsea fiber optic connection became fully operational, bringing high bandwidth to the islands.",
+    source: "Ministry of Communications", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-077", date: "2026-07-12", month: "Jul 2026", category: "Environment",
+    title: "India Launches National Mangrove and Coral Restoration Mission",
+    summary: "The government launched a dedicated national mission to restore degraded mangrove forests and coral reefs.",
+    whatHappened: "The Ministry of Environment, Forest and Climate Change launched the 'National Mangrove and Coral Reef Restoration Mission', committing ₹500 crore to rejuvenate coastal bio-shields along the eastern and western seaboards.",
+    importantPoints: [
+      "National Mangrove and Coral Reef Restoration Mission launched.",
+      "Committed corpus of ₹500 crore.",
+      "Aims to rejuvenate coastal bio-shields against climate change storms."
+    ],
+    examFacts: ["Mission: Mangrove and Coral Reef Restoration", "Outlay: ₹500 Crore", "Ministry: MoEFCC"],
+    quickRemember: "India launched a ₹500 crore national mission to restore mangrove forests and coral reefs.",
+    audioText: "The Environment Ministry launched a national mission with a five hundred crore rupee outlay to restore mangroves and coral reefs.",
+    source: "MoEFCC", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-078", date: "2026-07-10", month: "Jul 2026", category: "Science & Technology",
+    title: "IIT Hyderabad Creates Biodegradable Surgical Threads",
+    summary: "Researchers at IIT Hyderabad developed advanced biodegradable surgical sutures derived from marine polysaccharides.",
+    whatHappened: "Engineers at IIT Hyderabad successfully synthesized high-strength biodegradable surgical threads extracted from marine crustacean polysaccharides. These sutures dissolve naturally within weeks, eliminating the need for removal stitches.",
+    importantPoints: [
+      "Biodegradable surgical threads developed by IIT Hyderabad.",
+      "Derived from marine polysaccharides.",
+      "Dissolves naturally without requiring post-surgery stitch removal."
+    ],
+    examFacts: ["Innovation: Biodegradable Surgical Sutures", "Institute: IIT Hyderabad"],
+    quickRemember: "IIT Hyderabad developed biodegradable surgical threads derived from marine polysaccharides.",
+    audioText: "Researchers at IIT Hyderabad developed biodegradable surgical sutures extracted from marine polysaccharides.",
+    source: "IIT Hyderabad", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUL-079", date: "2026-07-09", month: "Jul 2026", category: "International Affairs",
+    title: "India Extends Line of Credit to Sri Lanka for Dairy Development",
+    summary: "India disbursed a dedicated Line of Credit to Sri Lanka to modernize its cooperative dairy sector.",
+    whatHappened: "Under bilateral economic assistance pacts, India disbursed a targeted Line of Credit (LoC) to Sri Lanka to assist its national dairy cooperative sector in establishing modern processing plants, cold chains, and veterinary infrastructure.",
+    importantPoints: [
+      "India extended a Line of Credit to Sri Lanka for dairy development.",
+      "Focuses on modernizing processing plants and cold chains.",
+      "Strengthens bilateral agricultural cooperation."
+    ],
+    examFacts: ["Assistance Type: Line of Credit (LoC)", "Partner Nation: Sri Lanka", "Sector: Cooperative Dairy"],
+    quickRemember: "India provided a Line of Credit to Sri Lanka to modernize its cooperative dairy sector.",
+    audioText: "India disbursed a Line of Credit to Sri Lanka to help modernize its cooperative dairy sector and cold chains.",
+    source: "MEA", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-080", date: "2026-07-07", month: "Jul 2026", category: "Economy & Infrastructure",
+    title: "NITI Aayog Releases State Energy Efficiency Index 2025-26",
+    summary: "NITI Aayog published the State Energy Efficiency Index, highlighting Karnataka and Kerala as top performers.",
+    whatHappened: "NITI Aayog, in partnership with the Bureau of Energy Efficiency (BEE), released the State Energy Efficiency Index (SEEI). Karnataka, Kerala, and Andhra Pradesh emerged as the leading frontrunner states in implementing industrial and municipal energy conservation measures.",
+    importantPoints: [
+      "State Energy Efficiency Index published by NITI Aayog and BEE.",
+      "Top-performing frontrunner states: Karnataka, Kerala, and Andhra Pradesh.",
+      "Evaluates energy-saving policies across industrial and municipal sectors."
+    ],
+    examFacts: ["Publisher: NITI Aayog & BEE", "Top States: Karnataka, Kerala, Andhra Pradesh"],
+    quickRemember: "NITI Aayog's Energy Efficiency Index ranked Karnataka and Kerala as top frontrunner states.",
+    audioText: "NITI Aayog released the State Energy Efficiency Index, highlighting Karnataka and Kerala as top frontrunners.",
+    source: "NITI Aayog", importantFor: ["SSC CGL", "UPSC"]
+  }
+];
+
+const julRecallQuestionsBatch4 = [
+  {
+    id: "REC-Q-JUL-061", articleId: "REC-JUL-061", category: "Science & Technology", topic: "Medical Manufacturing",
+    question: "CSIR and IIT Delhi successfully unveiled India's first fully indigenous magnetic resonance imaging scanner of what strength?",
+    options: ["1.0 Tesla", "1.5 Tesla", "3.0 Tesla", "7.0 Tesla"],
+    answer: 1, explanation: "CSIR and IIT Delhi unveiled India's first fully indigenous 1.5 Tesla MRI scanner, cutting equipment import costs."
+  },
+  {
+    id: "REC-Q-JUL-062", articleId: "REC-JUL-062", category: "Environment", topic: "Biodiversity Frameworks",
+    question: "The Union Cabinet approved national policy alignment with the Kunming-Montreal Global Biodiversity Framework, committing India to protect what percentage of degraded lands and waters by 2030?",
+    options: ["10%", "20%", "30%", "50%"],
+    answer: 2, explanation: "India committed under the framework to protect 30% of degraded lands and inland waters by 2030."
+  },
+  {
+    id: "REC-Q-JUL-063", articleId: "REC-JUL-063", category: "Economy & Trade", topic: "Export Platforms",
+    question: "What is the name of the AI-driven B2B logistics exchange platform launched by the Ministry of Commerce to assist micro-exporters?",
+    options: ["ExportSetu", "LogiEx", "TradeConnect AI", "ShipBharat"],
+    answer: 1, explanation: "The Ministry of Commerce launched 'LogiEx' to match micro-exporters with verified freight forwarders using artificial intelligence."
+  },
+  {
+    id: "REC-Q-JUL-064", articleId: "REC-JUL-064", category: "Defence", topic: "Naval Rescue",
+    question: "The Indian Navy commissioned a specialized Deep Submergence Rescue Vehicle (DSRV) mother ship complex at which naval base?",
+    options: ["Mumbai", "Kochi", "Visakhapatnam", "Karatara"],
+    answer: 2, explanation: "The specialized DSRV mother ship complex was commissioned at the Eastern Naval Command in Visakhapatnam."
+  },
+  {
+    id: "REC-Q-JUL-065", articleId: "REC-JUL-065", category: "Science & Technology", topic: "Medical Robotics",
+    question: "Which premier medical institution inaugurated a next-generation indigenous robotic surgical suite for complex oncology procedures?",
+    options: ["AIIMS New Delhi", "AIIMS Hyderabad", "PGI Chandigarh", "JIPMER Puducherry"],
+    answer: 1, explanation: "AIIMS Hyderabad inaugurated an advanced indigenous robotic surgery suite for precise oncology operations."
+  },
+  {
+    id: "REC-Q-JUL-066", articleId: "REC-JUL-066", category: "Government Schemes", topic: "Senior Citizen Welfare",
+    question: "The Ministry of Social Justice expanded the Rashtriya Vayoshri Yojana (PM-VAYO) to distribute assisted-living devices to senior citizens belonging to which category?",
+    options: ["EWS households", "BPL households", "Tribal designated areas", "Rural agrarian districts"],
+    answer: 1, explanation: "The expanded PM-VAYO scheme distributes physical aids and assisted-living devices to senior citizens belonging to BPL households nationwide."
+  },
+  {
+    id: "REC-Q-JUL-067", articleId: "REC-JUL-067", category: "Defence", topic: "Naval Cooperation",
+    question: "The Indian Navy and the Vietnam People's Navy conducted bilateral maritime security exercises in which major body of water?",
+    options: ["Bay of Bengal", "South China Sea", "Andaman Sea", "Gulf of Thailand"],
+    answer: 1, explanation: "Naval units from India and Vietnam executed coordinated passage exercises in the South China Sea."
+  },
+  {
+    id: "REC-Q-JUL-068", articleId: "REC-JUL-068", category: "Economy", topic: "Financial Market Standards",
+    question: "SEBI enforced strict regulatory accreditation rules for all Environmental, Social, and Governance (ESG) rating agencies known as:",
+    options: ["ESG Rating Providers (ERPs)", "Sustainable Credit Rating Agencies", "Green Audit Frameworks", "Climate Compliance Evaluators"],
+    answer: 0, explanation: "SEBI mandated that all Environmental, Social, and Governance (ESG) Rating Providers (ERPs) secure formal market accreditation."
+  },
+  {
+    id: "REC-Q-JUL-069", articleId: "REC-JUL-069", category: "Science & Technology", topic: "Disaster Warning Systems",
+    question: "Researchers at which premier institute upgraded and deployed a dense seismic sensor grid for real-time earthquake early warnings in Uttarakhand?",
+    options: ["IIT Bombay", "IIT Roorkee", "IISc Bengaluru", "IIT Madras"],
+    answer: 1, explanation: "IIT Roorkee deployed an upgraded seismic sensor network across the Garhwal Himalayan region for automated early warnings."
+  },
+  {
+    id: "REC-Q-JUL-070", articleId: "REC-JUL-070", category: "Sports", topic: "Chess Championships",
+    question: "Which Indian chess prodigy clinched the title at the FIDE World Junior Girls Chess Championship?",
+    options: ["Koneru Humpy", "Harika Dronavalli", "Divya Deshmukh", "Vantika Agrawal"],
+    answer: 2, explanation: "Divya Deshmukh won the FIDE World Junior Girls Chess Championship with a dominant performance."
+  },
+  {
+    id: "REC-Q-JUL-071", articleId: "REC-JUL-071", category: "Science & Technology", topic: "Solar Missions",
+    question: "ISRO released the first tranche of high-resolution scientific data collected by the VELC payload onboard which solar observation spacecraft?",
+    options: ["Chandrayaan-3", "Aditya-L1", "Xosat", "ASTROSAT"],
+    answer: 1, explanation: "ISRO published solar corona data from the Visible Emission Line Coronagraph (VELC) onboard Aditya-L1."
+  },
+  {
+    id: "REC-Q-JUL-072", articleId: "REC-JUL-072", category: "Economy & Infrastructure", topic: "Startup Ecosystems",
+    question: "The Ministry of Science and Technology inaugurated the National Deep Tech Startup Hub (NDTSH) in which city?",
+    options: ["Bengaluru", "Hyderabad", "Pune", "Ahmedabad"],
+    answer: 2, explanation: "The National Deep Tech Startup Hub (NDTSH) was inaugurated in Pune, Maharashtra, providing wet labs and computing clusters."
+  },
+  {
+    id: "REC-Q-JUL-073", articleId: "REC-JUL-073", category: "International Affairs", topic: "Critical Minerals",
+    question: "India and Japan signed a bilateral framework agreement in Tokyo to secure supply chains for:",
+    options: ["Semiconductor silicon wafers", "Critical minerals and rare earth elements", "Green hydrogen transport containers", "Advanced nuclear fuel pellets"],
+    answer: 1, explanation: "India and Japan signed a Critical Minerals Partnership agreement in Tokyo to facilitate joint exploration and processing of rare earths."
+  },
+  {
+    id: "REC-Q-JUL-074", articleId: "REC-JUL-074", category: "Government Schemes", topic: "Mental Health Helplines",
+    question: "What is the name of the national tele-mental health helpline that crossed 2 million counseling calls managed by the Ministry of Health?",
+    options: ["MANAS-Care", "Tele-MANAS", "Sanjeevani Helpline", "Mind-Heal India"],
+    answer: 1, explanation: "Tele-MANAS is the national tele-mental health helpline that crossed 2 million counseling calls across multilingual networks."
+  },
+  {
+    id: "REC-Q-JUL-075", articleId: "REC-JUL-075", category: "National Affairs", topic: "Cyber Crime Justice",
+    question: "The Supreme Court directed all state high courts and governments to establish specialized fast-track tribunals dedicated exclusively to:",
+    options: ["Environmental compliance violations", "Online financial cyber fraud and identity theft", "Digital copyright piracy disputes", "Cryptocurrency tax evasion trials"],
+    answer: 1, explanation: "The Supreme Court issued directives to establish fast-track tribunals dedicated exclusively to online financial cyber fraud cases."
+  },
+  {
+    id: "REC-Q-JUL-076", articleId: "REC-JUL-076", category: "Economy & Infrastructure", topic: "Subsea Cables",
+    question: "The high-speed Kochi-Lakshadweep Islands Subsea Fiber Connection (KLISFC) project delivers what level of bandwidth capacity to the islands?",
+    options: ["10 Gbps", "40 Gbps", "100 Gbps", "1 Tbps"],
+    answer: 2, explanation: "The KLISFC project delivers high-speed 100 Gbps bandwidth capacity to Kavaratti and outlying Lakshadweep islands."
+  },
+  {
+    id: "REC-Q-JUL-077", articleId: "REC-JUL-077", category: "Environment", topic: "Coastal Restoration",
+    question: "The Ministry of Environment launched the 'National Mangrove and Coral Reef Restoration Mission' with a dedicated corpus of how much?",
+    options: ["₹100 Crore", "₹250 Crore", "₹500 Crore", "₹1,000 Crore"],
+    answer: 2, explanation: "The mission committed a corpus of ₹500 crore to rejuvenate coastal bio-shields and coral reefs along Indian seaboards."
+  },
+  {
+    id: "REC-Q-JUL-078", articleId: "REC-JUL-078", category: "Science & Technology", topic: "Biomaterials",
+    question: "Researchers at which Indian Institute of Technology successfully synthesized high-strength biodegradable surgical threads from marine crustacean polysaccharides?",
+    options: ["IIT Bombay", "IIT Madras", "IIT Hyderabad", "IIT Kharagpur"],
+    answer: 2, explanation: "Engineers at IIT Hyderabad developed advanced biodegradable surgical sutures derived from marine polysaccharides."
+  },
+  {
+    id: "REC-Q-JUL-079", articleId: "REC-JUL-079", category: "International Affairs", topic: "Developmental Aid",
+    question: "India extended a dedicated Line of Credit to Sri Lanka to modernize and support which specific sector?",
+    options: ["Cooperative dairy sector", "Railway signaling infrastructure", "Port container automation", "Textile export manufacturing"],
+    answer: 0, explanation: "India disbursed a Line of Credit to Sri Lanka to assist its cooperative dairy sector in building processing plants and cold chains."
+  },
+  {
+    id: "REC-Q-JUL-080", articleId: "REC-JUL-080", category: "Economy & Infrastructure", topic: "Energy Efficiency",
+    question: "In the State Energy Efficiency Index released by NITI Aayog and BEE, which states emerged as the top-performing frontrunners?",
+    options: ["Gujarat, Maharashtra, and Punjab", "Karnataka, Kerala, and Andhra Pradesh", "Tamil Nadu, Telangana, and Haryana", "Himachal Pradesh, Sikkim, and Goa"],
+    answer: 1, explanation: "Karnataka, Kerala, and Andhra Pradesh emerged as the leading frontrunner states in implementing energy conservation measures."
+  }
+];
+
+// 👉 PUSH DATA INTO GLOBAL ARRAYS
+if (typeof hiddenRecallArticles !== 'undefined') {
+  hiddenRecallArticles.push(...julRecallArticlesBatch4);
+}
+if (typeof recallQuestionPool !== 'undefined') {
+  recallQuestionPool.push(...julRecallQuestionsBatch4);
+}
+
+/* ==========================================================================
+   END OF JULY BATCH 4
+   ========================================================================== */
+
+/* ==========================================================================
+   JULY 2026 - BATCH 5 (ITEMS 081 TO 100)
+   ========================================================================== */
+
+const julRecallArticlesBatch5 = [
+  {
+    id: "REC-JUL-081", date: "2026-07-28", month: "Jul 2026", category: "Science & Technology",
+    title: "ISRO Completes First Qualification Test of Semi-Cryogenic Engine",
+    summary: "ISRO successfully completed the first major qualification test of its new semi-cryogenic engine at Mahendragiri.",
+    whatHappened: "The Indian Space Research Organisation (ISRO) successfully accomplished the first integrated hot-firing qualification test of its high-thrust semi-cryogenic engine at the ISRO Propulsion Complex (IPRC) in Mahendragiri, Tamil Nadu. The engine uses liquid oxygen (LOX) and kerosene to power future heavy-lift launch vehicles.",
+    importantPoints: [
+      "First integrated hot-firing qualification test of the semi-cryogenic engine.",
+      "Conducted at IPRC, Mahendragiri, Tamil Nadu.",
+      "Uses liquid oxygen (LOX) and refined kerosene as propellants."
+    ],
+    examFacts: ["Engine Type: Semi-Cryogenic (LOX/Kerosene)", "Agency: ISRO", "Test Facility: Mahendragiri"],
+    quickRemember: "ISRO completed the first major hot-firing test of its semi-cryogenic engine at Mahendragiri.",
+    audioText: "ISRO successfully completed the first major qualification test of its high-thrust semi-cryogenic engine at Mahendragiri.",
+    source: "ISRO", importantFor: ["SSC CGL", "UPSC", "CDS"]
+  },
+  {
+    id: "REC-JUL-082", date: "2026-07-27", month: "Jul 2026", category: "Environment",
+    title: "India Declares Three New Ramsar Wetlands",
+    summary: "India added three new sites to the Ramsar list, taking the total count past the hundred mark.",
+    whatHappened: "The Ministry of Environment, Forest and Climate Change officially designated three new wetlands of international importance under the Ramsar Convention, reinforcing India's commitment to conserving critical aquatic habitats and migratory bird flyways.",
+    importantPoints: [
+      "Three new wetlands added to the Ramsar list.",
+      "Recognized under the Ramsar Convention on Wetlands.",
+      "Aims to protect critical aquatic biodiversity and migratory bird flyways."
+    ],
+    examFacts: ["Designation: Ramsar Wetlands of International Importance", "Ministry: MoEFCC"],
+    quickRemember: "India added three new wetlands to the Ramsar Convention list.",
+    audioText: "The Environment Ministry officially designated three new wetlands as Ramsar sites of international importance.",
+    source: "MoEFCC", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-083", date: "2026-07-26", month: "Jul 2026", category: "Economy & Trade",
+    title: "India and New Zealand Launch Free Trade Agreement Talks",
+    summary: "India and New Zealand formally launched negotiations for a bilateral Comprehensive Economic Cooperation Agreement.",
+    whatHappened: "Delegations from India and New Zealand met in Wellington to formally launch comprehensive negotiations for a bilateral Free Trade Agreement, focusing on dairy-tech collaboration, wine tariffs, and IT service mobilities.",
+    importantPoints: [
+      "Formal launch of FTA negotiations between India and New Zealand.",
+      "Covers dairy-tech collaboration, IT services, and tariff reductions.",
+      "Meetings held in Wellington."
+    ],
+    examFacts: ["Partner Nation: New Zealand", "Agreement Type: Free Trade Agreement (FTA)"],
+    quickRemember: "India and New Zealand launched formal negotiations for a bilateral Free Trade Agreement.",
+    audioText: "India and New Zealand formally launched negotiations for a bilateral Free Trade Agreement in Wellington.",
+    source: "Ministry of Commerce", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-084", date: "2026-07-25", month: "Jul 2026", category: "Defence",
+    title: "DRDO Test Fires Indigenous Man-Portable Anti-Tank Missile",
+    summary: "DRDO successfully flight-tested the Man-Portable Anti-Tank Guided Missile (MPATGM) in high-altitude terrain.",
+    whatHappened: "The Defence Research and Development Organisation (DRDO) successfully conducted user-validation flight trials of the indigenous Man-Portable Anti-Tank Guided Missile (MPATGM) system under extreme high-altitude winter conditions.",
+    importantPoints: [
+      "User-validation trials of the indigenous MPATGM.",
+      "Tested under extreme high-altitude conditions.",
+      "Developed by DRDO for infantry combat units."
+    ],
+    examFacts: ["Weapon: MPATGM (Man-Portable Anti-Tank Guided Missile)", "Agency: DRDO"],
+    quickRemember: "DRDO successfully flight-tested the indigenous MPATGM anti-tank missile in high-altitude terrain.",
+    audioText: "DRDO successfully conducted user-validation flight trials of the indigenous Man-Portable Anti-Tank Guided Missile system.",
+    source: "Ministry of Defence", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-085", date: "2026-07-24", month: "Jul 2026", category: "National Affairs",
+    title: "National Judicial Data Grid Reaches 250 Million Cases",
+    summary: "The National Judicial Data Grid (NJDG) crossed the landmark tracking of 250 million legal cases across courts.",
+    whatHappened: "The National Judicial Data Grid (NJDG) portal officially surpassed tracking 250 million cumulative legal cases across Supreme Court, High Court, and district court computer portals, establishing a global benchmark for judicial transparency.",
+    importantPoints: [
+      "NJDG crossed 250 million tracked legal cases.",
+      "Covers Supreme Court, High Courts, and district courts.",
+      "Serves as an open database for judicial transparency and pendency tracking."
+    ],
+    examFacts: ["Portal: National Judicial Data Grid (NJDG)", "Milestone: 250 Million Cases Tracked"],
+    quickRemember: "The National Judicial Data Grid (NJDG) crossed 250 million tracked legal cases.",
+    audioText: "The National Judicial Data Grid surpassed tracking two hundred and fifty million cumulative legal cases across courts.",
+    source: "Ministry of Law and Justice", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-086", date: "2026-07-23", month: "Jul 2026", category: "Government Schemes",
+    title: "Pradhan Mantri Kaushal Vikas Yojana 4.0 Expanded",
+    summary: "The Ministry of Skill Development expanded PMKVY 4.0 to integrate futuristic AI and drone technology modules.",
+    whatHappened: "The Ministry of Skill Development and Entrepreneurship expanded the scope of Pradhan Mantri Kaushal Vikas Yojana 4.0 (PMKVY), integrating specialized training curriculums for artificial intelligence, electric vehicle maintenance, and drone pilot operations.",
+    importantPoints: [
+      "Expansion of PMKVY 4.0 skill training initiative.",
+      "Integrates modules for AI, EVs, and drone pilot operations.",
+      "Managed by the Ministry of Skill Development."
+    ],
+    examFacts: ["Scheme: PMKVY 4.0", "New Modules: AI, EVs, Drones"],
+    quickRemember: "PMKVY 4.0 was expanded to include training modules for artificial intelligence and drone technology.",
+    audioText: "The Skill Development Ministry expanded PMKVY 4.0 to integrate training modules for artificial intelligence and drones.",
+    source: "Ministry of Skill Development", importantFor: ["SSC CGL", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUL-087", date: "2026-07-22", month: "Jul 2026", category: "International Affairs",
+    title: "India and Singapore Hold Cyber Security Dialogue",
+    summary: "India and Singapore convened their annual bilateral Cyber Security Dialogue in Singapore city.",
+    whatHappened: "Delegations from India and Singapore held their annual bilateral Cyber Security Dialogue in Singapore, focusing on critical information infrastructure protection, ransomware defense information sharing, and joint cross-border counter-scam operations.",
+    importantPoints: [
+      "Annual bilateral Cyber Security Dialogue between India and Singapore.",
+      "Held in Singapore.",
+      "Focuses on critical infrastructure protection and counter-scam operations."
+    ],
+    examFacts: ["Event: India-Singapore Cyber Security Dialogue", "Location: Singapore"],
+    quickRemember: "India and Singapore held their bilateral Cyber Security Dialogue focusing on ransomware defense.",
+    audioText: "India and Singapore held their annual bilateral Cyber Security Dialogue, focusing on critical infrastructure protection.",
+    source: "National Security Council Secretariat", importantFor: ["UPSC", "CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-088", date: "2026-07-21", month: "Jul 2026", category: "Economy & Infrastructure",
+    title: "India's First Automated Multi-Modal Logistics Park Opened",
+    summary: "The government inaugurated India's first fully automated Multi-Modal Logistics Park (MFLP) in Nagpur.",
+    whatHappened: "The Ministry of Road Transport and Highways inaugurated India's first fully automated Multi-Modal Logistics Park (MFLP) in Nagpur, Maharashtra. The park features high-speed rail sidings, container freight stations, and robotic warehouse sorting bays.",
+    importantPoints: [
+      "India's first fully automated Multi-Modal Logistics Park (MFLP).",
+      "Located in Nagpur, Maharashtra.",
+      "Features rail sidings and robotic warehouse sorting bays."
+    ],
+    examFacts: ["Facility: Automated MFLP", "Location: Nagpur, Maharashtra"],
+    quickRemember: "India's first fully automated Multi-Modal Logistics Park was inaugurated in Nagpur.",
+    audioText: "The government inaugurated India's first fully automated Multi-Modal Logistics Park in Nagpur, Maharashtra.",
+    source: "MoRTH", importantFor: ["SSC CGL", "Bank PO"]
+  },
+  {
+    id: "REC-JUL-089", date: "2026-07-20", month: "Jul 2026", category: "Science & Technology",
+    title: "IIT Guwahati Develops Low-Cost Water Filtration Membrane",
+    summary: "Researchers at IIT Guwahati engineered a sustainable water purification membrane using scales of local fish.",
+    whatHappened: "Scientists at IIT Guwahati successfully developed an eco-friendly, ultra-low-cost water filtration membrane utilizing biopolymers extracted from fish scales. The membrane efficiently removes heavy metal ions and microplastics from contaminated water sources.",
+    importantPoints: [
+      "Water filtration membrane developed using fish scale biopolymers.",
+      "Engineered by IIT Guwahati.",
+      "Removes heavy metal ions and microplastics effectively."
+    ],
+    examFacts: ["Innovation: Fish-Scale Water Filtration Membrane", "Institute: IIT Guwahati"],
+    quickRemember: "IIT Guwahati developed an eco-friendly water filtration membrane using fish scale biopolymers.",
+    audioText: "Researchers at IIT Guwahati developed a low-cost water purification membrane using biopolymers extracted from fish scales.",
+    source: "IIT Guwahati", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUL-090", date: "2026-07-19", month: "Jul 2026", category: "National Affairs",
+    title: "National Portal for Transgender Persons Updated",
+    summary: "The Ministry of Social Justice upgraded the National Portal for Transgender Persons with DigiLocker integration.",
+    whatHappened: "The Ministry of Social Justice and Empowerment launched an upgraded version of the National Portal for Transgender Persons, featuring direct DigiLocker verification to streamline the issuance of transgender identity cards and certificates within 15 days.",
+    importantPoints: [
+      "Upgraded National Portal for Transgender Persons.",
+      "Integrated with DigiLocker for fast-tracked identity card issuance.",
+      "Managed by the Ministry of Social Justice."
+    ],
+    examFacts: ["Portal: National Portal for Transgender Persons", "New Feature: DigiLocker Integration"],
+    quickRemember: "The National Portal for Transgender Persons was upgraded with DigiLocker integration for fast ID issuance.",
+    audioText: "The Social Justice Ministry upgraded the National Portal for Transgender Persons with DigiLocker verification.",
+    source: "Ministry of Social Justice", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-091", date: "2026-07-18", month: "Jul 2026", category: "Environment",
+    title: "India's First Snow Leopard Census Report Released",
+    summary: "The first comprehensive scientific snow leopard population assessment reported 718 individuals in the Himalayas.",
+    whatHappened: "The Ministry of Environment released the final comprehensive report of India's first Snow Leopard Population Assessment, recording a baseline count of 718 snow leopards inhabiting high-altitude terrains across Ladakh, Himachal Pradesh, Uttarakhand, and Arunachal Pradesh.",
+    importantPoints: [
+      "First comprehensive Snow Leopard Population Assessment in India.",
+      "Recorded a total count of 718 individual snow leopards.",
+      "Distributed across Ladakh, Himachal Pradesh, Uttarakhand, and Arunachal Pradesh."
+    ],
+    examFacts: ["Species: Snow Leopard", "Total Population Count: 718", "Reporting Agency: WII / MoEFCC"],
+    quickRemember: "India's first snow leopard census reported 718 individuals across Himalayan habitats.",
+    audioText: "The Environment Ministry released India's first snow leopard census report, recording 718 individuals in the Himalayas.",
+    source: "MoEFCC", importantFor: ["SSC CGL", "UPSC", "State PCS"]
+  },
+  {
+    id: "REC-JUL-092", date: "2026-07-16", month: "Jul 2026", category: "Economy",
+    title: "SEBI Introduces T+1 Settlement for Corporate Bonds",
+    summary: "SEBI mandated a compulsory T+1 trade settlement cycle for secondary market corporate bond transactions.",
+    whatHappened: "The Securities and Exchange Board of India (SEBI) transitioned all secondary market corporate bond trades to a mandatory T+1 (Trade plus one day) settlement cycle, reducing default exposures and increasing market liquidity.",
+    importantPoints: [
+      "Mandatory T+1 settlement cycle for secondary corporate bonds.",
+      "Regulated by SEBI.",
+      "Accelerates transaction clearing and reduces settlement risks."
+    ],
+    examFacts: ["Regulator: SEBI", "Asset Class: Corporate Bonds", "Settlement Cycle: T+1"],
+    quickRemember: "SEBI made the T+1 settlement cycle mandatory for secondary market corporate bonds.",
+    audioText: "SEBI introduced a mandatory T+1 trade settlement cycle for all secondary market corporate bond transactions.",
+    source: "SEBI", importantFor: ["Bank PO", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-093", date: "2026-07-15", month: "Jul 2026", category: "Science & Technology",
+    title: "India Launches Quantum Mission Hub in Pune",
+    summary: "The Department of Science and Technology established a major National Quantum Mission technology hub in Pune.",
+    whatHappened: "As part of the National Quantum Mission (NQM), the Department of Science and Technology established a specialized technology hub at IISER Pune to advance research in secure quantum communications and optical atomic clocks.",
+    importantPoints: [
+      "National Quantum Mission (NQM) technology hub established in Pune.",
+      "Hosted at IISER Pune.",
+      "Focuses on quantum communications and atomic clocks."
+    ],
+    examFacts: ["Mission: National Quantum Mission (NQM)", "Hub Location: IISER Pune", "Agency: DST"],
+    quickRemember: "A National Quantum Mission technology hub was established at IISER Pune.",
+    audioText: "The Department of Science and Technology established a National Quantum Mission hub at IISER Pune.",
+    source: "Ministry of Science & Technology", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-094", date: "2026-07-14", month: "Jul 2026", category: "International Affairs",
+    title: "India and Oman Sign Comprehensive Economic Partnership Agreement",
+    summary: "India and Oman finalized a comprehensive free trade and economic partnership agreement in Muscat.",
+    whatHappened: "India and the Sultanate of Oman formally signed a Comprehensive Economic Partnership Agreement (CEPA) during high-level ministerial meetings in Muscat, securing zero-duty access for over 98% of tariff lines.",
+    importantPoints: [
+      "India and Oman signed a Comprehensive Economic Partnership Agreement (CEPA).",
+      "Secures zero-duty tariff access for over 98% of trade lines.",
+      "Signed in Muscat, Oman."
+    ],
+    examFacts: ["Agreement: India-Oman CEPA", "Location: Muscat, Oman"],
+    quickRemember: "India and Oman signed a Comprehensive Economic Partnership Agreement (CEPA) in Muscat.",
+    audioText: "India and Oman signed a Comprehensive Economic Partnership Agreement in Muscat, securing zero-duty access for trade lines.",
+    source: "MEA", importantFor: ["UPSC", "SSC CGL", "CDS"]
+  },
+  {
+    id: "REC-JUL-095", date: "2026-07-13", month: "Jul 2026", category: "Government Schemes",
+    title: "PM-ABHIM Health Infrastructure Mission Milestone",
+    summary: "The Ministry of Health reported that over 3,000 critical care blocks were completed under PM-ABHIM.",
+    whatHappened: "The Ministry of Health and Family Welfare announced a major infrastructural milestone under the Pradhan Mantri Ayushman Bharat Health Infrastructure Mission (PM-ABHIM), reporting the completion of over 3,000 critical care blocks and integrated public health laboratories.",
+    importantPoints: [
+      "Over 3,000 critical care blocks completed under PM-ABHIM.",
+      "Strengthens public health diagnostic networks across districts.",
+      "Managed by the Ministry of Health."
+    ],
+    examFacts: ["Mission: PM-ABHIM", "Milestone: >3,000 Critical Care Blocks Completed"],
+    quickRemember: "Over 3,000 critical care blocks were completed across districts under the PM-ABHIM scheme.",
+    audioText: "The Health Ministry announced that over three thousand critical care blocks were completed under the PM-ABHIM health infrastructure mission.",
+    source: "MoHFW", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-096", date: "2026-07-12", month: "Jul 2026", category: "Defence",
+    title: "India-UK Exercise Ajeya Warrior 2026",
+    summary: "The 8th edition of the India-UK joint military exercise 'Ajeya Warrior' commenced in Salisbury Plain, UK.",
+    whatHappened: "The 8th edition of the India-UK joint military exercise 'Ajeya Warrior' commenced at Salisbury Plain in the United Kingdom. The fortnight-long drill focuses on counter-insurgency operations in semi-urban and mountainous terrain.",
+    importantPoints: [
+      "8th edition of exercise Ajeya Warrior.",
+      "Bilateral military drill between India and the United Kingdom.",
+      "Held at Salisbury Plain, UK."
+    ],
+    examFacts: ["Exercise: Ajeya Warrior 2026", "Partner: United Kingdom", "Location: Salisbury Plain, UK"],
+    quickRemember: "The 8th India-UK military exercise Ajeya Warrior began at Salisbury Plain in the UK.",
+    audioText: "The 8th edition of the India-UK joint military exercise Ajeya Warrior commenced at Salisbury Plain in the United Kingdom.",
+    source: "Indian Army", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-097", date: "2026-07-10", month: "Jul 2026", category: "Science & Technology",
+    title: "IIT Madras Launches Open-Source 32-Bit Microprocessor",
+    summary: "IIT Madras released a new commercial-grade open-source 32-bit RISC-V microprocessor named 'Vajra-32'.",
+    whatHappened: "Researchers at IIT Madras unveiled 'Vajra-32', a commercial-grade open-source 32-bit RISC-V processor core designed specifically for low-power Internet of Things (IoT) wearables and secure smart-card microcontrollers.",
+    importantPoints: [
+      "Open-source 32-bit RISC-V microprocessor named 'Vajra-32'.",
+      "Developed by IIT Madras.",
+      "Optimized for low-power IoT wearables and smart-card microcontrollers."
+    ],
+    examFacts: ["Processor: Vajra-32 (RISC-V)", "Institute: IIT Madras"],
+    quickRemember: "IIT Madras launched an open-source 32-bit microprocessor named 'Vajra-32' for IoT devices.",
+    audioText: "Researchers at IIT Madras launched Vajra-32, an open-source 32-bit RISC-V microprocessor for low-power IoT devices.",
+    source: "IIT Madras", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUL-098", date: "2026-07-08", month: "Jul 2026", category: "National Affairs",
+    title: "National Cyber Security Coordinator Appointed",
+    summary: "Lt Gen (Retd) Vinod Sharma was appointed as India's new National Cyber Security Coordinator.",
+    whatHappened: "The Appointments Committee of the Cabinet named Lieutenant General (Retd) Vinod Sharma as India's new National Cyber Security Coordinator (NCSC) at the National Security Council Secretariat, tasked with overseeing national cyber defense strategies.",
+    importantPoints: [
+      "Lt Gen (Retd) Vinod Sharma appointed as National Cyber Security Coordinator.",
+      "Operates under the National Security Council Secretariat (NSCS).",
+      "Focuses on national cyber defense preparedness and critical infrastructure."
+    ],
+    examFacts: ["Appointee: Lt Gen (Retd) Vinod Sharma", "Position: National Cyber Security Coordinator (NCSC)"],
+    quickRemember: "Lt Gen (Retd) Vinod Sharma was appointed as India's National Cyber Security Coordinator.",
+    audioText: "Lieutenant General Vinod Sharma was appointed as India's new National Cyber Security Coordinator.",
+    source: "Cabinet Secretariat", importantFor: ["CDS", "UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-099", date: "2026-07-06", month: "Jul 2026", category: "Economy",
+    title: "India Joins OECD Inclusive Framework Global Tax Deal",
+    summary: "India officially ratified administrative guidelines for the OECD/G20 Two-Pillar Global Minimum Tax framework.",
+    whatHappened: "The Ministry of Finance formally notified administrative rules implementing the OECD/G20 Inclusive Framework 'Two-Pillar' global tax solution, ensuring multinational enterprises operating in India are subject to a minimum 15% effective tax rate.",
+    importantPoints: [
+      "India aligned with OECD/G20 Two-Pillar global tax framework.",
+      "Ensures a minimum 15% effective tax rate for multinational corporations.",
+      "Notified by the Ministry of Finance."
+    ],
+    examFacts: ["Framework: OECD/G20 Two-Pillar Global Tax", "Minimum Tax Rate: 15%"],
+    quickRemember: "India implemented the OECD/G20 Two-Pillar global minimum tax framework of 15% for multinationals.",
+    audioText: "The Finance Ministry notified administrative rules implementing the OECD Two-Pillar global tax framework with a minimum fifteen percent tax.",
+    source: "Ministry of Finance", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUL-100", date: "2026-07-04", month: "Jul 2026", category: "Sports",
+    title: "India Wins ICC Women's T20 Asia Cup 2026",
+    summary: "The Indian Women's Cricket team defeated Pakistan to win the ICC Women's T20 Asia Cup 2026.",
+    whatHappened: "The Indian Women's Cricket team clinched the ICC Women's T20 Asia Cup 2026 title by defeating arch-rivals Pakistan by 36 runs in a high-voltage final held in Colombo, Sri Lanka, reinforcing their regional dominance.",
+    importantPoints: [
+      "India won the Women's T20 Asia Cup 2026.",
+      "Defeated Pakistan by 36 runs in the final.",
+      "Tournament hosted in Colombo, Sri Lanka."
+    ],
+    examFacts: ["Winner: India Women's Cricket Team", "Runner-up: Pakistan", "Host City: Colombo, Sri Lanka"],
+    quickRemember: "The Indian Women's Cricket team defeated Pakistan to win the T20 Asia Cup 2026 in Colombo.",
+    audioText: "The Indian Women's Cricket team won the T20 Asia Cup by defeating Pakistan in the final in Colombo.",
+    source: "BCCI / ACC", importantFor: ["SSC CGL", "SSC CHSL"]
+  }
+];
+
+const julRecallQuestionsBatch5 = [
+  {
+    id: "REC-Q-JUL-081", articleId: "REC-JUL-081", category: "Science & Technology", topic: "Space Propulsion",
+    question: "ISRO successfully completed the first integrated hot-firing qualification test of its high-thrust semi-cryogenic engine at which facility?",
+    options: ["Satish Dhawan Space Centre, Sriharikota", "ISRO Propulsion Complex, Mahendragiri", "Liquid Propulsion Systems Centre, Bengaluru", "Vikram Sarabhai Space Centre, Thiruvananthapuram"],
+    answer: 1, explanation: "The qualification test for the semi-cryogenic engine using liquid oxygen and kerosene was conducted at IPRC, Mahendragiri, Tamil Nadu."
+  },
+  {
+    id: "REC-Q-JUL-082", articleId: "REC-JUL-082", category: "Environment", topic: "Ramsar Wetlands",
+    question: "The Ministry of Environment officially designated three new wetlands under which international convention to protect aquatic habitats?",
+    options: ["Bonn Convention", "Ramsar Convention", "CITES Convention", "Vienna Convention"],
+    answer: 1, explanation: "The new aquatic habitats were designated as wetlands of international importance under the Ramsar Convention."
+  },
+  {
+    id: "REC-Q-JUL-083", articleId: "REC-JUL-083", category: "Economy & Trade", topic: "Free Trade Agreements",
+    question: "Delegations from India and New Zealand met in Wellington to formally launch negotiations for a bilateral:",
+    options: ["Comprehensive Economic Cooperation Agreement (FTA)", "Digital Trade Partnership", "Defense Logistics Accord", "Agricultural Exchange Treaty"],
+    answer: 0, explanation: "India and New Zealand formally launched negotiations for a bilateral Free Trade Agreement during meetings in Wellington."
+  },
+  {
+    id: "REC-Q-JUL-084", articleId: "REC-JUL-084", category: "Defence", topic: "Missile Development",
+    question: "DRDO conducted user-validation flight trials of the indigenous Man-Portable Anti-Tank Guided Missile (MPATGM) under what specific conditions?",
+    options: ["Extreme high-altitude winter conditions", "Night desert firing ranges", "Offshore maritime platforms", "Tropical jungle terrain"],
+    answer: 0, explanation: "The MPATGM system was successfully tested under extreme high-altitude winter conditions for infantry combat units."
+  },
+  {
+    id: "REC-Q-JUL-085", articleId: "REC-JUL-085", category: "National Affairs", topic: "Judicial Transparency",
+    question: "The National Judicial Data Grid (NJDG) portal surpassed tracking how many cumulative legal cases across Indian courts?",
+    options: ["50 Million Cases", "100 Million Cases", "150 Million Cases", "250 Million Cases"],
+    answer: 3, explanation: "The NJDG portal surpassed tracking 250 million cumulative legal cases, creating a global benchmark for judicial transparency."
+  },
+  {
+    id: "REC-Q-JUL-086", articleId: "REC-JUL-086", category: "Government Schemes", topic: "Skill Development",
+    question: "The Ministry of Skill Development expanded PMKVY 4.0 to integrate specialized training modules for which emerging technologies?",
+    options: ["Quantum computing and biotechnology", "Artificial intelligence, electric vehicles, and drones", "Nanomaterials and robotics engineering", "Semiconductor wafer fabrication"],
+    answer: 1, explanation: "PMKVY 4.0 was expanded to incorporate specialized training curricula for AI, EV maintenance, and drone pilot operations."
+  },
+  {
+    id: "REC-Q-JUL-087", articleId: "REC-JUL-087", category: "International Affairs", topic: "Cyber Security",
+    question: "India and Singapore held their annual bilateral Cyber Security Dialogue in which city, focusing on counter-scam operations?",
+    options: ["New Delhi", "Bengaluru", "Singapore", "Mumbai"],
+    answer: 2, explanation: "Delegations met in Singapore for their annual bilateral Cyber Security Dialogue to share ransomware defense information."
+  },
+  {
+    id: "REC-Q-JUL-088", articleId: "REC-JUL-088", category: "Economy & Infrastructure", topic: "Logistics Parks",
+    question: "India's first fully automated Multi-Modal Logistics Park (MFLP) was inaugurated in which city of Maharashtra?",
+    options: ["Mumbai", "Pune", "Nagpur", "Nashik"],
+    answer: 2, explanation: "The Ministry of Road Transport inaugurated India's first fully automated Multi-Modal Logistics Park in Nagpur, Maharashtra."
+  },
+  {
+    id: "REC-Q-JUL-089", articleId: "REC-JUL-089", category: "Science & Technology", topic: "Eco-Innovations",
+    question: "Researchers at IIT Guwahati developed a sustainable water filtration membrane utilizing biopolymers extracted from what unusual source?",
+    options: ["Rice husk waste", "Scales of local fish", "Coconut coir fibers", "Banana pseudostems"],
+    answer: 1, explanation: "IIT Guwahati scientists developed an ultra-low-cost water filtration membrane utilizing biopolymers extracted from fish scales."
+  },
+  {
+    id: "REC-Q-JUL-090", articleId: "REC-JUL-090", category: "National Affairs", topic: "Social Welfare Portals",
+    question: "The Ministry of Social Justice upgraded the National Portal for Transgender Persons by integrating which digital verification system?",
+    options: ["DigiLocker", "Aadhaar Face Auth", "National ID Vault", "Unified Citizen Pass"],
+    answer: 0, explanation: "The portal was integrated with DigiLocker to fast-track the issuance of transgender identity cards within 15 days."
+  },
+  {
+    id: "REC-Q-JUL-091", articleId: "REC-JUL-091", category: "Environment", topic: "Wildlife Censuses",
+    question: "According to India's first comprehensive Snow Leopard Population Assessment report released by the Environment Ministry, what is the total count of snow leopards?",
+    options: ["412 Individuals", "535 Individuals", "718 Individuals", "942 Individuals"],
+    answer: 2, explanation: "The baseline count recorded 718 individual snow leopards inhabiting high-altitude Himalayan terrains across four states/UTs."
+  },
+  {
+    id: "REC-Q-JUL-092", articleId: "REC-JUL-092", category: "Economy", topic: "Bond Market Regulations",
+    question: "SEBI mandated that all secondary market corporate bond transactions transition to which trade settlement cycle?",
+    options: ["T+0 Settlement", "T+1 Settlement", "Instant Real-Time Settlement", "T+2 Settlement"],
+    answer: 1, explanation: "SEBI transitioned secondary corporate bond trades to a mandatory T+1 (Trade plus one day) settlement cycle."
+  },
+  {
+    id: "REC-Q-JUL-093", articleId: "REC-JUL-093", category: "Science & Technology", topic: "Quantum Missions",
+    question: "As part of the National Quantum Mission (NQM), a specialized technology hub was established at which institution to advance secure quantum communications?",
+    options: ["IISc Bengaluru", "IISER Pune", "IIT Madras", "TIFR Mumbai"],
+    answer: 1, explanation: "The Department of Science and Technology established a major National Quantum Mission technology hub at IISER Pune."
+  },
+  {
+    id: "REC-Q-JUL-094", articleId: "REC-JUL-094", category: "International Affairs", topic: "Trade Accords",
+    question: "India and the Sultanate of Oman signed a Comprehensive Economic Partnership Agreement (CEPA) during ministerial meetings in which city?",
+    options: ["Dubai", "Abu Dhabi", "Muscat", "Salalah"],
+    answer: 2, explanation: "India and Oman signed their CEPA agreement in Muscat, securing zero-duty tariff access for over 98% of trade lines."
+  },
+  {
+    id: "REC-Q-JUL-095", articleId: "REC-JUL-095", category: "Government Schemes", topic: "Health Infrastructure",
+    question: "Under the Pradhan Mantri Ayushman Bharat Health Infrastructure Mission (PM-ABHIM), how many critical care blocks have been completed across districts?",
+    options: ["Over 1,000 blocks", "Over 2,000 blocks", "Over 3,000 blocks", "Over 5,000 blocks"],
+    answer: 2, explanation: "The Health Ministry reported the completion of over 3,000 critical care blocks and public health laboratories under PM-ABHIM."
+  },
+  {
+    id: "REC-Q-JUL-096", articleId: "REC-JUL-096", category: "Defence", topic: "Bilateral Exercises",
+    question: "The 8th edition of the India-UK joint military exercise 'Ajeya Warrior' commenced at which location in the United Kingdom?",
+    options: ["Salisbury Plain", "Aldershot Garrison", "Catterick Training Area", "Colchester Barracks"],
+    answer: 0, explanation: "The 8th edition of exercise Ajeya Warrior between India and the UK commenced at Salisbury Plain in the United Kingdom."
+  },
+  {
+    id: "REC-Q-JUL-097", articleId: "REC-JUL-097", category: "Science & Technology", topic: "Indigenous Microprocessors",
+    question: "What is the name of the commercial-grade open-source 32-bit RISC-V microprocessor core released by IIT Madras for IoT devices?",
+    options: ["Shakti-32", "Vajra-32", "Dhruv-RISC", "Anveshak-V"],
+    answer: 1, explanation: "Researchers at IIT Madras unveiled 'Vajra-32', an open-source 32-bit RISC-V microprocessor for low-power IoT wearables."
+  },
+  {
+    id: "REC-Q-JUL-098", articleId: "REC-JUL-098", category: "National Affairs", topic: "Cyber Security Appointments",
+    question: "Who was appointed as India's new National Cyber Security Coordinator at the National Security Council Secretariat?",
+    options: ["Lt Gen (Retd) M. Unnan Nair", "Lt Gen (Retd) Vinod Sharma", "Vice Admiral (Retd) M.S. Pawar", "Air Marshal (Retd) B.R. Krishna"],
+    answer: 1, explanation: "Lt Gen (Retd) Vinod Sharma was named India's new National Cyber Security Coordinator to oversee cyber defense strategies."
+  },
+  {
+    id: "REC-Q-JUL-099", articleId: "REC-JUL-099", category: "Economy", topic: "Global Taxation",
+    question: "The Ministry of Finance notified rules implementing the OECD/G20 Two-Pillar global tax framework, ensuring a minimum effective tax rate of what percentage for multinationals?",
+    options: ["10%", "12.5%", "15%", "18%"],
+    answer: 2, explanation: "The OECD/G20 Two-Pillar global tax solution ensures that multinational enterprises operating in India face a minimum 15% effective tax rate."
+  },
+  {
+    id: "REC-Q-JUL-100", articleId: "REC-JUL-100", category: "Sports", topic: "Cricket Tournaments",
+    question: "The Indian Women's Cricket team clinched the ICC Women's T20 Asia Cup title by defeating which country in the final held in Colombo?",
+    options: ["Bangladesh", "Sri Lanka", "Pakistan", "Thailand"],
+    answer: 2, explanation: "India defeated arch-rivals Pakistan by 36 runs in the final in Colombo, Sri Lanka, to win the Women's T20 Asia Cup."
+  }
+];
+
+// 👉 PUSH DATA INTO GLOBAL ARRAYS
+if (typeof hiddenRecallArticles !== 'undefined') {
+  hiddenRecallArticles.push(...julRecallArticlesBatch5);
+}
+if (typeof recallQuestionPool !== 'undefined') {
+  recallQuestionPool.push(...julRecallQuestionsBatch5);
+}
+
+/* ==========================================================================
+   END OF JULY BATCH 5
+   ========================================================================== */
+/* ==========================================================================
+   JUNE 2026 - BATCH 1 (ITEMS 001 TO 020)
+   ========================================================================== */
+
+const junRecallArticlesBatch1 = [
+  {
+    id: "REC-JUN-001", date: "2026-06-01", month: "Jun 2026", category: "Environment",
+    title: "Mother Dairy Launches Naturally Degradable Milk Pouch",
+    summary: "Mother Dairy rolled out India's first naturally degradable milk pouch in Delhi-NCR on World Environment Day.",
+    whatHappened: "Mother Dairy introduced India's first naturally degradable milk pouch, starting its rollout for its cow milk variant in the Delhi-NCR region to reduce plastic pollution and promote eco-friendly packaging.",
+    importantPoints: [
+      "India's first naturally degradable milk pouch.",
+      "Rolled out in Delhi-NCR for cow milk.",
+      "Aims to combat single-use plastic waste."
+    ],
+    examFacts: ["Product: Degradable milk pouch", "Company: Mother Dairy", "Location: Delhi-NCR"],
+    quickRemember: "Mother Dairy launched India's first naturally degradable milk pouch in Delhi-NCR.",
+    audioText: "Mother Dairy launched India's first naturally degradable milk pouch starting in the Delhi-NCR region.",
+    source: "Mother Dairy", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-002", date: "2026-06-02", month: "Jun 2026", category: "Environment & Wildlife",
+    title: "New Lizard Species 'Mesalina bishnoi' Discovered in Rajasthan",
+    summary: "A new lizard species, Mesalina bishnoi, was formally described from open semi-desert habitats in Bikaner, Rajasthan.",
+    whatHappened: "Researchers published the formal description of *Mesalina bishnoi*, a newly discovered lizard species from Rajasthan, marking the first confirmed record of the genus *Mesalina* in India, found near Gajner in the Bikaner district.",
+    importantPoints: [
+      "New lizard species named *Mesalina bishnoi*.",
+      "First confirmed record of the genus *Mesalina* in India.",
+      "Discovered in semi-desert terrain near Gajner, Bikaner district."
+    ],
+    examFacts: ["Species: Mesalina bishnoi", "Location: Bikaner, Rajasthan"],
+    quickRemember: "Mesalina bishnoi, a new lizard species, was discovered in Bikaner, Rajasthan.",
+    audioText: "A new lizard species named Mesalina bishnoi was discovered and described from the semi-desert habitat of Bikaner.",
+    source: "Zoological Survey", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-003", date: "2026-06-03", month: "Jun 2026", category: "Economy & Infrastructure",
+    title: "Cabinet Approves ₹10,000 Crore ATF Price Stabilization Support",
+    summary: "The Union Cabinet approved up to ₹10,000 crore in interest-free advances to stabilize Aviation Turbine Fuel prices.",
+    whatHappened: "The Union Cabinet approved a one-time budgetary support scheme providing up to ₹10,000 crore as interest-free advances to Oil Marketing Companies to stabilize Aviation Turbine Fuel (ATF) prices for scheduled Indian airlines.",
+    importantPoints: [
+      "Budgetary support of up to ₹10,000 crore.",
+      "Provided as interest-free advances through the Ministry of Petroleum and Natural Gas.",
+      "Aims to stabilize ATF prices for domestic and international flights."
+    ],
+    examFacts: ["Outlay: ₹10,000 Crore", "Sector: Aviation / Oil Marketing"],
+    quickRemember: "The Cabinet approved ₹10,000 crore to stabilize Aviation Turbine Fuel prices.",
+    audioText: "The Union Cabinet approved up to ten thousand crore rupees in support to stabilize Aviation Turbine Fuel prices.",
+    source: "Ministry of Petroleum", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-004", date: "2026-06-03", month: "Jun 2026", category: "Economy & Energy",
+    title: "Cabinet Approves Telangana National Highway Widening Projects",
+    summary: "Two major national highway widening projects spanning 190.76 km were approved in Telangana at ₹7,597 crore.",
+    whatHappened: "The Union Cabinet approved two National Highway widening projects in Telangana covering 190.76 km with a combined capital cost of ₹7,597.16 crore, including the Armoor-Jagtial-Mancherial (NH-63) and Jagtial-Karimnagar (NH-563) corridors.",
+    importantPoints: [
+      "Covers 190.76 km of highway corridors in Telangana.",
+      "Combined capital cost of ₹7,597.16 crore.",
+      "Includes widening sections of NH-63 and NH-563 to 4-lane standards."
+    ],
+    examFacts: ["State: Telangana", "Cost: ₹7,597.16 Crore", "Highways: NH-63 and NH-563"],
+    quickRemember: "The Cabinet approved ₹7,597 crore for 4-lane highway widening projects in Telangana.",
+    audioText: "The Union Cabinet approved two major national highway widening projects covering over 190 kilometers in Telangana.",
+    source: "MoRTH", importantFor: ["SSC CGL", "RRB NTPC"]
+  },
+  {
+    id: "REC-JUN-005", date: "2026-06-05", month: "Jun 2026", category: "Environment",
+    title: "World Environment Day 2026 Observed Globally",
+    summary: "World Environment Day was observed on June 5, focusing heavily on fighting plastic pollution and climate action.",
+    whatHappened: "World Environment Day was observed globally on June 5. Organized under the auspices of the United Nations Environment Programme (UNEP), the event rallied international action to protect forests, reduce pollution, and conserve fragile ecosystems.",
+    importantPoints: [
+      "Observed annually on June 5.",
+      "Led globally by the United Nations Environment Programme (UNEP).",
+      "Promotes global action against climate change and pollution."
+    ],
+    examFacts: ["Date: June 5", "Organizer: UNEP"],
+    quickRemember: "World Environment Day is observed globally on June 5.",
+    audioText: "World Environment Day was observed on June 5 to promote environmental conservation and climate action.",
+    source: "UNEP", importantFor: ["SSC CGL", "UPSC", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUN-006", date: "2026-06-05", month: "Jun 2026", category: "Economy & Environment",
+    title: "Cabinet Approves ₹9,585 Cr Scrappage Policy for Delhi-NCR",
+    summary: "A ₹9,585 crore scheme was approved to replace old polluting trucks and buses in Delhi-NCR with cleaner vehicles.",
+    whatHappened: "The Union Cabinet approved a ₹9,585 crore scheme aimed at replacing old, polluting commercial vehicles—specifically BS-IV and older trucks and buses—in the Delhi-NCR region with cleaner BS-VI compliant or electric vehicles.",
+    importantPoints: [
+      "Approved outlay of ₹9,585 crore.",
+      "Targets replacement of old polluting commercial trucks and buses.",
+      "Focused on the Delhi-NCR airshed to cut emissions."
+    ],
+    examFacts: ["Outlay: ₹9,585 Crore", "Region: Delhi-NCR"],
+    quickRemember: "The Cabinet approved a ₹9,585 crore vehicle scrappage scheme for Delhi-NCR.",
+    audioText: "The Union Cabinet approved a nine thousand five hundred eighty-five crore rupee scheme to replace polluting vehicles in Delhi-NCR.",
+    source: "Union Cabinet", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-007", date: "2026-06-07", month: "Jun 2026", category: "Health & Welfare",
+    title: "World Food Safety Day 2026",
+    summary: "World Food Safety Day was observed on June 7 to promote safe food handling and prevent foodborne illnesses.",
+    whatHappened: "World Food Safety Day was observed on June 7, jointly led by the World Health Organization (WHO) and the Food and Agriculture Organization (FAO) to highlight safe food practices and reduce food poisoning risks globally.",
+    importantPoints: [
+      "Observed annually on June 7.",
+      "Jointly promoted by WHO and FAO.",
+      "Focuses on preventing foodborne diseases through safe practices."
+    ],
+    examFacts: ["Date: June 7", "Lead Agencies: WHO and FAO"],
+    quickRemember: "World Food Safety Day is observed on June 7.",
+    audioText: "World Food Safety Day was observed on June 7 to highlight the importance of safe food practices for public health.",
+    source: "WHO / FAO", importantFor: ["SSC CGL", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUN-008", date: "2026-06-08", month: "Jun 2026", category: "Environment",
+    title: "World Oceans Day 2026",
+    summary: "World Oceans Day was observed on June 8, emphasizing marine conservation and plastic waste reduction.",
+    whatHappened: "World Oceans Day was observed on June 8. Recognized by the UN General Assembly, the day highlights the critical importance of oceans and pushes for global action to stop marine plastic pollution.",
+    importantPoints: [
+      "Observed annually on June 8.",
+      "Recognized by the UN General Assembly.",
+      "Focuses on marine conservation and eliminating plastic dumping."
+    ],
+    examFacts: ["Date: June 8", "Focus: Marine and Ocean Conservation"],
+    quickRemember: "World Oceans Day is observed on June 8 for marine conservation.",
+    audioText: "World Oceans Day was observed on June 8 to raise awareness about marine conservation and reducing plastics.",
+    source: "United Nations", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-009", date: "2026-06-08", month: "Jun 2026", category: "Health",
+    title: "World Brain Tumor Day 2026",
+    summary: "World Brain Tumor Day was marked on June 8 to spread awareness and support patients and families.",
+    whatHappened: "World Brain Tumor Day was observed on June 8 globally as a tribute to brain tumor patients, raising public awareness about symptoms, diagnostic care, and clinical treatment support.",
+    importantPoints: [
+      "Observed annually on June 8.",
+      "Spreads awareness about brain tumors and medical support.",
+      "Honors patients and their families."
+    ],
+    examFacts: ["Date: June 8", "Focus: Brain Tumor Awareness"],
+    quickRemember: "World Brain Tumor Day is marked on June 8.",
+    audioText: "World Brain Tumor Day was observed on June 8 as a tribute to brain tumor patients and their families.",
+    source: "Global Health Forums", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-010", date: "2026-06-12", month: "Jun 2026", category: "Social Welfare",
+    title: "World Day Against Child Labour 2026",
+    summary: "World Day Against Child Labour was observed on June 12 to drive global action to eradicate child exploitation.",
+    whatHappened: "World Day Against Child Labour was observed on June 12. Launched by the International Labour Organization (ILO), the day focuses attention on the global eradication of child labor and protecting child rights.",
+    importantPoints: [
+      "Observed annually on June 12.",
+      "Launched by the International Labour Organization (ILO).",
+      "Aims for the worldwide extinction of child labor."
+    ],
+    examFacts: ["Date: June 12", "Organizer: ILO"],
+    quickRemember: "World Day Against Child Labour is observed on June 12.",
+    audioText: "World Day Against Child Labour was observed on June 12 to promote the global elimination of child labor.",
+    source: "ILO", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-011", date: "2026-06-14", month: "Jun 2026", category: "Health",
+    title: "World Blood Donor Day 2026",
+    summary: "World Blood Donor Day was observed on June 14 to thank voluntary donors and promote regular safe blood donation.",
+    whatHappened: "World Blood Donor Day was observed on June 14. Led by the World Health Organization, the observance recognizes voluntary blood donors for life-saving contributions and promotes regular safe blood donations.",
+    importantPoints: [
+      "Observed annually on June 14.",
+      "Led globally by the WHO.",
+      "Appreciates voluntary blood donors and highlights supply needs."
+    ],
+    examFacts: ["Date: June 14", "Lead Agency: WHO"],
+    quickRemember: "World Blood Donor Day is observed on June 14.",
+    audioText: "World Blood Donor Day was marked on June 14 to thank voluntary donors for their life-saving contributions.",
+    source: "WHO", importantFor: ["SSC CGL", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUN-012", date: "2026-06-17", month: "Jun 2026", category: "Environment",
+    title: "World Day to Combat Desertification and Drought 2026",
+    summary: "World Day to Combat Desertification and Drought was marked on June 17 to encourage sustainable land management.",
+    whatHappened: "World Day to Combat Desertification and Drought was observed on June 17. Established by the UN General Assembly in 1994, it reminds the world that land degradation can be effectively tackled through sustainable practices.",
+    importantPoints: [
+      "Observed annually on June 17.",
+      "Established by the UN General Assembly in 1994.",
+      "Focuses on tackling drought and land degradation."
+    ],
+    examFacts: ["Date: June 17", "Established: 1994"],
+    quickRemember: "World Day to Combat Desertification and Drought is observed on June 17.",
+    audioText: "World Day to Combat Desertification and Drought was observed on June 17 to promote sustainable land use.",
+    source: "United Nations", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-013", date: "2026-06-20", month: "Jun 2026", category: "Humanitarian",
+    title: "World Refugee Day 2026",
+    summary: "World Refugee Day was observed on June 20 to honor the resilience of displaced populations globally.",
+    whatHappened: "World Refugee Day was observed on June 20. Led by the United Nations, the day honors the courage of people forced to flee conflict or persecution and highlights the urgent need for international humanitarian support.",
+    importantPoints: [
+      "Observed annually on June 20.",
+      "Honors the courage and resilience of refugees.",
+      "Highlights displacement crises and humanitarian cooperation."
+    ],
+    examFacts: ["Date: June 20", "Focus: Refugee Rights and Support"],
+    quickRemember: "World Refugee Day is observed on June 20.",
+    audioText: "World Refugee Day was observed on June 20 to honor the resilience of refugees worldwide.",
+    source: "United Nations", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-014", date: "2026-06-21", month: "Jun 2026", category: "Health & Culture",
+    title: "International Day of Yoga 2026",
+    summary: "The International Day of Yoga was celebrated worldwide on June 21, promoting holistic health and well-being.",
+    whatHappened: "The International Day of Yoga was celebrated globally on June 21. Proposed by India and officially adopted by the UN in 2014, the day highlights the physical, mental, and spiritual benefits of yoga.",
+    importantPoints: [
+      "Celebrated annually on June 21.",
+      "Adopted by the United Nations following India's proposal in 2014.",
+      "Promotes mental well-being and holistic lifestyles."
+    ],
+    examFacts: ["Date: June 21", "First Celebrated: 2015"],
+    quickRemember: "International Day of Yoga is celebrated globally on June 21.",
+    audioText: "International Day of Yoga was celebrated around the world on June 21 to promote health and well-being.",
+    source: "United Nations", importantFor: ["SSC CGL", "SSC CHSL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-015", date: "2026-06-23", month: "Jun 2026", category: "Public Service",
+    title: "United Nations Public Service Day 2026",
+    summary: "UN Public Service Day was marked on June 23 to recognize the contribution of public institutions and servants.",
+    whatHappened: "United Nations Public Service Day was observed on June 23. Designated by the UN General Assembly, it highlights the value of good governance, accountability, and citizen-centric public administration.",
+    importantPoints: [
+      "Observed annually on June 23.",
+      "Recognizes the contribution of public servants and institutions.",
+      "Highlights accountability and good governance."
+    ],
+    examFacts: ["Date: June 23", "Focus: Good Governance and Public Service"],
+    quickRemember: "UN Public Service Day is observed on June 23.",
+    audioText: "United Nations Public Service Day was observed on June 23 to recognize the contributions of public servants.",
+    source: "United Nations", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-016", date: "2026-06-23", month: "Jun 2026", category: "Sports",
+    title: "International Olympic Day 2026",
+    summary: "International Olympic Day was celebrated on June 23 to promote sports participation and Olympic values.",
+    whatHappened: "International Olympic Day was celebrated on June 23 to spread awareness about the Olympic Movement's core values—excellence, friendship, and respect—while encouraging people of all ages to engage in sports.",
+    importantPoints: [
+      "Celebrated annually on June 23.",
+      "Celebrates the values of the Olympic Movement.",
+      "Encourages active sports participation across all ages."
+    ],
+    examFacts: ["Date: June 23", "Values: Excellence, Friendship, Respect"],
+    quickRemember: "International Olympic Day is celebrated on June 23.",
+    audioText: "International Olympic Day was celebrated on June 23 to spread awareness of the Olympic Movement.",
+    source: "International Olympic Committee", importantFor: ["SSC CGL", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUN-017", date: "2026-06-25", month: "Jun 2026", category: "Maritime",
+    title: "Day of the Seafarer 2026",
+    summary: "The Day of the Seafarer was observed on June 25 to honor maritime transport professionals.",
+    whatHappened: "The Day of the Seafarer was observed on June 25. Led by the International Maritime Organization (IMO), it recognizes the critical role seafarers play in global trade, transport, and economic development.",
+    importantPoints: [
+      "Observed annually on June 25.",
+      "Led by the International Maritime Organization (IMO).",
+      "Honors seafarers and highlights their role in global trade."
+    ],
+    examFacts: ["Date: June 25", "Lead Agency: IMO"],
+    quickRemember: "Day of the Seafarer is observed on June 25.",
+    audioText: "Day of the Seafarer was observed on June 25 to recognize the vital contributions of maritime professionals.",
+    source: "IMO", importantFor: ["SSC CGL", "CDS"]
+  },
+  {
+    id: "REC-JUN-018", date: "2026-06-26", month: "Jun 2026", category: "Social Health",
+    title: "International Day Against Drug Abuse and Illicit Trafficking 2026",
+    summary: "Observed on June 26 to strengthen global action and cooperation toward a drug-free society.",
+    whatHappened: "The International Day Against Drug Abuse and Illicit Trafficking was observed on June 26 to raise awareness about the serious impacts of drug abuse and reinforce international resolve for a drug-free society.",
+    importantPoints: [
+      "Observed annually on June 26.",
+      "Raises awareness about the harms of illicit drugs.",
+      "Promotes international anti-drug cooperation."
+    ],
+    examFacts: ["Date: June 26", "Focus: Anti-Drug Awareness and Prevention"],
+    quickRemember: "International Day Against Drug Abuse and Illicit Trafficking is observed on June 26.",
+    audioText: "The International Day Against Drug Abuse and Illicit Trafficking was observed on June 26.",
+    source: "United Nations", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-019", date: "2026-06-29", month: "Jun 2026", category: "National Economy",
+    title: "National Statistics Day 2026",
+    summary: "National Statistics Day was observed on June 29 to honor Prof. Prasanta Chandra Mahalanobis.",
+    whatHappened: "National Statistics Day was observed across India on June 29 to commemorate the birth anniversary and monumental contributions of Professor Prasanta Chandra Mahalanobis to economic planning and statistical development.",
+    importantPoints: [
+      "Observed annually on June 29 in India.",
+      "Commemorates Prof. Prasanta Chandra Mahalanobis's birth anniversary.",
+      "Highlights the role of statistics in socioeconomic planning."
+    ],
+    examFacts: ["Date: June 29", "Honors: Prof. P.C. Mahalanobis"],
+    quickRemember: "National Statistics Day is observed on June 29 in honor of Prof. P.C. Mahalanobis.",
+    audioText: "National Statistics Day was observed on June 29 to honor the statistical legacy of Professor P.C. Mahalanobis.",
+    source: "MoSPI", importantFor: ["SSC CGL", "Bank PO"]
+  },
+  {
+    id: "REC-JUN-020", date: "2026-06-30", month: "Jun 2026", category: "Science & Space",
+    title: "International Asteroid Day 2026",
+    summary: "International Asteroid Day was marked on June 30 to raise awareness about asteroid impact hazards.",
+    whatHappened: "International Asteroid Day was observed on June 30. Approved by the United Nations, it builds awareness regarding asteroid impact risks and highlights planetary defense measures to safeguard Earth.",
+    importantPoints: [
+      "Observed annually on June 30.",
+      "Approved by the United Nations General Assembly.",
+      "Focuses on planetary defense and tracking near-Earth objects."
+    ],
+    examFacts: ["Date: June 30", "Focus: Planetary Defense"],
+    quickRemember: "International Asteroid Day is marked on June 30.",
+    audioText: "International Asteroid Day was marked on June 30 to raise awareness about planetary defense and near-Earth objects.",
+    source: "United Nations", importantFor: ["SSC CGL", "UPSC"]
+  }
+];
+
+const junRecallQuestionsBatch1 = [
+  {
+    id: "REC-Q-JUN-001", articleId: "REC-JUN-001", category: "Environment",
+    question: "Mother Dairy rolled out India's first naturally degradable milk pouch in Delhi-NCR starting on which major global day?",
+    options: ["World Milk Day", "World Environment Day", "Earth Day", "World Water Day"],
+    answer: 1, explanation: "Mother Dairy launched India's naturally degradable milk pouch aligned with World Environment Day."
+  },
+  {
+    id: "REC-Q-JUN-002", articleId: "REC-JUN-002", category: "Environment & Wildlife",
+    question: "What is the name of the new lizard species formally described from open semi-desert terrain near Gajner in Bikaner, Rajasthan?",
+    options: ["Sitana gansi", "Mesalina bishnoi", "Eublepharis satpuraensis", "Hemidactylus imbricatus"],
+    answer: 1, explanation: "Mesalina bishnoi is a newly described lizard species from Rajasthan and the first record of the genus Mesalina in India."
+  },
+  {
+    id: "REC-Q-JUN-003", articleId: "REC-JUN-003", category: "Economy & Infrastructure",
+    question: "The Union Cabinet approved a one-time budgetary support of up to how much to stabilize Aviation Turbine Fuel prices for airlines?",
+    options: ["₹5,000 crore", "₹10,000 crore", "₹15,000 crore", "₹20,000 crore"],
+    answer: 1, explanation: "The Cabinet approved up to ₹10,000 crore as interest-free advances to stabilize ATF prices."
+  },
+  {
+    id: "REC-Q-JUN-004", articleId: "REC-JUN-004", category: "Economy & Energy",
+    question: "The National Highway widening projects approved in Telangana by the Cabinet include sections of which two national highways?",
+    options: ["NH-44 and NH-65", "NH-63 and NH-563", "NH-16 and NH-48", "NH-52 and NH-30"],
+    answer: 1, explanation: "The approved highway works cover sections of NH-63 and NH-563 in Telangana."
+  },
+  {
+    id: "REC-Q-JUN-005", articleId: "REC-JUN-005", category: "Environment",
+    question: "World Environment Day is observed every year on June 5 under the leadership of which organization?",
+    options: ["UNESCO", "UNEP", "WWF", "IPCC"],
+    answer: 1, explanation: "The United Nations Environment Programme (UNEP) organizes World Environment Day."
+  },
+  {
+    id: "REC-Q-JUN-006", articleId: "REC-JUN-006", category: "Economy & Environment",
+    question: "The Union Cabinet approved a ₹9,585 crore scheme to replace old polluting vehicles with cleaner ones specifically within which region?",
+    options: ["Mumbai Metropolitan Region", "Bengaluru Urban Area", "Delhi-NCR", "Kolkata Urban Agglomeration"],
+    answer: 2, explanation: "The vehicle replacement scheme targets old polluting commercial trucks and buses in the Delhi-NCR region."
+  },
+  {
+    id: "REC-Q-JUN-007", articleId: "REC-JUN-007", category: "Health & Welfare",
+    question: "World Food Safety Day is celebrated on June 7 under the joint leadership of the WHO and which other organization?",
+    options: ["FAO", "UNICEF", "WFP", "IFAD"],
+    answer: 0, explanation: "The World Health Organization (WHO) and the Food and Agriculture Organization (FAO) jointly lead World Food Safety Day."
+  },
+  {
+    id: "REC-Q-JUN-008", articleId: "REC-JUN-008", category: "Environment",
+    question: "World Oceans Day is observed annually on June 8 to highlight marine conservation and tackle what major threat?",
+    options: ["Radioactive waste dumping", "Plastic pollution", "Deep sea oil drilling leaks", "Thermal desalination brine"],
+    answer: 1, explanation: "World Oceans Day focuses heavily on reducing plastic usage and stopping ocean pollution."
+  },
+  {
+    id: "REC-Q-JUN-009", articleId: "REC-JUN-009", category: "Health",
+    question: "World Brain Tumor Day is observed on June 8 primarily as a tribute to whom?",
+    options: ["Eminent neurosurgeons", "Brain tumor patients and their families", "Medical research scientists", "Cancer survivors of all types"],
+    answer: 1, explanation: "World Brain Tumor Day serves as a tribute to all brain tumor patients and their families."
+  },
+  {
+    id: "REC-Q-JUN-010", articleId: "REC-JUN-010", category: "Social Welfare",
+    question: "World Day Against Child Labour is marked on June 12 under the initiative of which organization?",
+    options: ["International Labour Organization (ILO)", "World Bank", "UNESCO", "Amnesty International"],
+    answer: 0, explanation: "The International Labour Organization (ILO) launched World Day Against Child Labour."
+  },
+  {
+    id: "REC-Q-JUN-011", articleId: "REC-JUN-011", category: "Health",
+    question: "World Blood Donor Day is observed on June 14 under the guidance of which global body?",
+    options: ["Red Cross International", "World Health Organization (WHO)", "Doctors Without Borders", "UNICEF"],
+    answer: 1, explanation: "The World Health Organization (WHO) leads World Blood Donor Day to promote voluntary blood donations."
+  },
+  {
+    id: "REC-Q-JUN-012", articleId: "REC-JUN-012", category: "Environment",
+    question: "The UN General Assembly declared June 17 as the World Day to Combat Desertification and Drought in which year?",
+    options: ["1985", "1990", "1994", "2000"],
+    answer: 2, explanation: "The UN General Assembly declared June 17 as World Day to Combat Desertification and Drought in 1994."
+  },
+  {
+    id: "REC-Q-JUN-013", articleId: "REC-JUN-013", category: "Humanitarian",
+    question: "World Refugee Day is observed annually on June 20 by the United Nations to honor whom?",
+    options: ["International peace keepers", "Refugees who have fled conflict and persecution", "Disaster management volunteers", "Stateless persons seeking citizenship"],
+    answer: 1, explanation: "World Refugee Day honors the courage and resilience of refugees forced to flee their homes."
+  },
+  {
+    id: "REC-Q-JUN-014", articleId: "REC-JUN-014", category: "Health & Culture",
+    question: "Following India's proposal, the United Nations officially adopted the International Day of Yoga in which year?",
+    options: ["2012", "2014", "2015", "2017"],
+    answer: 1, explanation: "The UN officially adopted the International Day of Yoga following India's proposal in 2014."
+  },
+  {
+    id: "REC-Q-JUN-015", articleId: "REC-JUN-015", category: "Public Service",
+    question: "United Nations Public Service Day is observed on June 23 to highlight the importance of what core administrative value?",
+    options: ["Digital transformation speed", "Good governance and accountability", "Fiscal austerity measures", "Bureaucratic decentralization"],
+    answer: 1, explanation: "UN Public Service Day recognizes public servants and highlights good governance and accountability."
+  },
+  {
+    id: "REC-Q-JUN-016", articleId: "REC-JUN-016", category: "Sports",
+    question: "International Olympic Day is celebrated on June 23 to highlight the core values of the Olympic Movement, which include excellence, friendship, and:",
+    options: ["Resilience", "Respect", "Integrity", "Harmony"],
+    answer: 1, explanation: "The Olympic Movement's core values celebrated on this day are excellence, friendship, and respect."
+  },
+  {
+    id: "REC-Q-JUN-017", articleId: "REC-JUN-017", category: "Maritime",
+    question: "The Day of the Seafarer is observed on June 25 under the authority of which international organization?",
+    options: ["International Maritime Organization (IMO)", "International Labour Organization", "World Customs Organization", "International Chamber of Shipping"],
+    answer: 0, explanation: "The International Maritime Organization (IMO) observes the Day of the Seafarer on June 25."
+  },
+  {
+    id: "REC-Q-JUN-018", articleId: "REC-JUN-018", category: "Social Health",
+    question: "The International Day Against Drug Abuse and Illicit Trafficking is marked annually on which date?",
+    options: ["June 10", "June 16", "June 26", "June 30"],
+    answer: 2, explanation: "June 26 is observed globally as the International Day Against Drug Abuse and Illicit Trafficking."
+  },
+  {
+    id: "REC-Q-JUN-019", articleId: "REC-JUN-019", category: "National Economy",
+    question: "National Statistics Day is observed across India on June 29 to honor the birth anniversary of whom?",
+    options: ["C. Rangarajan", "Prof. Prasanta Chandra Mahalanobis", "V. K. R. V. Rao", "M. S. Swaminathan"],
+    answer: 1, explanation: "National Statistics Day commemorates the birth anniversary of Professor Prasanta Chandra Mahalanobis."
+  },
+  {
+    id: "REC-Q-JUN-020", articleId: "REC-JUN-020", category: "Science & Space",
+    question: "International Asteroid Day is observed on June 30 with a primary focus on raising awareness about what issue?",
+    options: ["Planetary defense against impact hazards", "Commercial asteroid mining regulations", "Deep space probe trajectory mapping", "Lunar resource ownership treaties"],
+    answer: 0, explanation: "International Asteroid Day highlights impact risks and planetary defense measures to safeguard Earth."
+  }
+];
+
+// 👉 PUSH DATA INTO GLOBAL ARRAYS
+if (typeof hiddenRecallArticles !== 'undefined') {
+  hiddenRecallArticles.push(...junRecallArticlesBatch1);
+}
+if (typeof recallQuestionPool !== 'undefined') {
+  recallQuestionPool.push(...junRecallQuestionsBatch1);
+}
+
+/* ==========================================================================
+   END OF JUNE BATCH 1
+   ========================================================================== */
+
+/* ==========================================================================
+   JUNE 2026 - BATCH 2 (ITEMS 021 TO 040)
+   ========================================================================== */
+
+const junRecallArticlesBatch2 = [
+  {
+    id: "REC-JUN-021", date: "2026-06-01", month: "Jun 2026", category: "Government Schemes",
+    title: "PM SVANidhi Completes Six Years of Implementation",
+    summary: "The Prime Minister Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) completed six years of micro-credit support.",
+    whatHappened: "The PM SVANidhi scheme, launched in June 2020 during the COVID-19 pandemic as a central sector micro-credit scheme for urban street vendors, officially completed six years of successful implementation, providing collateral-free working capital loans to millions of vendors.",
+    importantPoints: [
+      "Completed six years of implementation in June 2026.",
+      "Launched originally in June 2020 during the COVID-19 pandemic.",
+      "Provides collateral-free working capital loans to urban street vendors."
+    ],
+    examFacts: ["Scheme: PM SVANidhi", "Launch Year: June 2020", "Milestone: 6 Years"],
+    quickRemember: "PM SVANidhi micro-credit scheme for urban street vendors completed six years.",
+    audioText: "The PM SVANidhi micro-credit scheme for urban street vendors completed six years of implementation.",
+    source: "Ministry of Housing and Urban Affairs", importantFor: ["SSC CGL", "Bank PO"]
+  },
+  {
+    id: "REC-JUN-022", date: "2026-06-02", month: "Jun 2026", category: "Agriculture & Schemes",
+    title: "Mission Senehjori Launched for Assam Muga Silk",
+    summary: "Mission Senehjori was launched as an Atmanirbhar North East project to elevate Muga silk into a global luxury brand.",
+    whatHappened: "The Ministry of Development of North Eastern Region (MDoNER) officially rolled out 'Mission Senehjori', an Atmanirbhar initiative aimed at scaling up production, standardizing quality, and transforming Assam's golden Muga silk into a recognized global luxury brand.",
+    importantPoints: [
+      "Launched as an Atmanirbhar North East project.",
+      "Anchored by the Ministry of Development of North Eastern Region (MDoNER).",
+      "Focuses on elevating Assam Muga silk into a global luxury brand."
+    ],
+    examFacts: ["Mission: Senehjori", "Product: Assam Muga Silk", "Ministry: MDoNER"],
+    quickRemember: "Mission Senehjori was launched by MDoNER to position Assam Muga silk as a global luxury brand.",
+    audioText: "Mission Senehjori was launched by the North Eastern Region ministry to elevate Muga silk into a global luxury brand.",
+    source: "MDoNER", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-023", date: "2026-06-02", month: "Jun 2026", category: "Economy & Infrastructure",
+    title: "MAHA Water Program Launched",
+    summary: "The Government of India launched the MAHA Water Program with a ₹200-crore outlay to drive high-impact water innovations.",
+    whatHappened: "The Central Government launched the MAHA Water Program (Missions for Advancement in High-impact Areas) with an approved financial outlay of ₹200 crore to promote cutting-edge research, water conservation, and technological innovations in the water sector.",
+    importantPoints: [
+      "Initiative name: MAHA Water Program.",
+      "Approved financial outlay of ₹200 crore.",
+      "Aims to promote high-impact research and innovation in water management."
+    ],
+    examFacts: ["Program: MAHA Water Program", "Outlay: ₹200 Crore"],
+    quickRemember: "The MAHA Water Program was launched with a ₹200-crore outlay for water sector innovations.",
+    audioText: "The Government of India launched the MAHA Water Program with a two hundred crore rupee outlay for water innovations.",
+    source: "Ministry of Jal Shakti", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-024", date: "2026-06-03", month: "Jun 2026", category: "Government Schemes & Innovation",
+    title: "Navachar Mantra Launched at IIT Delhi",
+    summary: "The 'Navachar Mantra' targeted nanomedicine initiative was launched at IIT Delhi to boost breast cancer therapy.",
+    whatHappened: "Union Minister Jayant Chaudhary launched 'Navachar Mantra' at IIT Delhi. Implemented jointly by NIESBUD and the Foundation for Innovation and Technology Transfer (FITT), the initiative focuses on targeted nanomedicine solutions for breast cancer therapy.",
+    importantPoints: [
+      "Launched at IIT Delhi by Union Minister Jayant Chaudhary.",
+      "Implemented jointly by NIESBUD and FITT.",
+      "Focuses on targeted nanomedicine for breast cancer therapy."
+    ],
+    examFacts: ["Initiative: Navachar Mantra", "Venue: IIT Delhi", "Focus: Breast Cancer Nanomedicine"],
+    quickRemember: "Navachar Mantra was launched at IIT Delhi for targeted breast cancer nanomedicine therapy.",
+    audioText: "The Navachar Mantra initiative was launched at IIT Delhi to support targeted nanomedicine for breast cancer therapy.",
+    source: "Ministry of Skill Development", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-025", date: "2026-06-03", month: "Jun 2026", category: "Agriculture & Schemes",
+    title: "Nationwide Khet Bachao Abhiyan Announced",
+    summary: "The Ministry of Agriculture launched the month-long 'Khet Bachao Abhiyan' to promote scientific fertilizer use.",
+    whatHappened: "The Ministry of Agriculture and Farmers Welfare initiated the nationwide 'Khet Bachao Abhiyan' running throughout June 2026. The campaign promotes sustainable farming, soil health mapping, and fertilizer application strictly based on scientific recommendations.",
+    importantPoints: [
+      "Conducted throughout June 2026 by the Ministry of Agriculture.",
+      "Promotes sustainable farming and soil health preservation.",
+      "Encourages fertilizer use based on scientific soil health recommendations."
+    ],
+    examFacts: ["Campaign: Khet Bachao Abhiyan", "Duration: June 2026"],
+    quickRemember: "The 'Khet Bachao Abhiyan' was conducted in June 2026 to promote soil-health-based farming.",
+    audioText: "The Ministry of Agriculture conducted the month-long Khet Bachao Abhiyan to promote science-backed soil health practices.",
+    source: "Ministry of Agriculture", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-026", date: "2026-06-08", month: "Jun 2026", category: "Environment & Meteorology",
+    title: "Regional Meteorological Centre Inaugurated in Lucknow",
+    summary: "A new Regional Meteorological Centre was inaugurated in Lucknow under India's expanding Mission Mausam network.",
+    whatHappened: "A state-of-the-art Regional Meteorological Centre was inaugurated in Lucknow under 'Mission Mausam'. India's operational Doppler Weather Radar network has expanded significantly from 17 radars in 2014 to a much higher density nationwide, with dozens more planned.",
+    importantPoints: [
+      "Inaugurated in Lucknow under Mission Mausam.",
+      "Expands India's Doppler Weather Radar observation network.",
+      "Aims to upgrade severe weather forecasting and disaster early warnings."
+    ],
+    examFacts: ["Facility: Regional Meteorological Centre", "City: Lucknow", "Mission: Mission Mausam"],
+    quickRemember: "A Regional Meteorological Centre was opened in Lucknow under Mission Mausam.",
+    audioText: "A new Regional Meteorological Centre was inaugurated in Lucknow under the Mission Mausam network.",
+    source: "IMD / Ministry of Earth Sciences", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-027", date: "2026-06-09", month: "Jun 2026", category: "State Governance & Safety",
+    title: "Tamil Nadu Launches Singappen Special Task Force",
+    summary: "Tamil Nadu launched the 'Singappen' Special Task Force at Rajarathinam Stadium to protect women and children.",
+    whatHappened: "The Government of Tamil Nadu officially launched the 'Singappen' Special Task Force at Rajarathinam Stadium. The specialized force is tasked with strengthening security, preventing crimes against women and children, and ensuring rapid emergency responses.",
+    importantPoints: [
+      "Launched at Rajarathinam Stadium in Tamil Nadu.",
+      "Named the 'Singappen' Special Task Force.",
+      "Aimed specifically at strengthening the safety of women and children."
+    ],
+    examFacts: ["Task Force: Singappen", "State: Tamil Nadu", "Focus: Women and Children Safety"],
+    quickRemember: "Tamil Nadu launched the 'Singappen' Special Task Force for women and children safety.",
+    audioText: "Tamil Nadu launched the Singappen Special Task Force to strengthen the safety and security of women and children.",
+    source: "Government of Tamil Nadu", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-028", date: "2026-06-09", month: "Jun 2026", category: "Economy & Infrastructure",
+    title: "BHAVYA Portal Launched for Industrial Parks",
+    summary: "The BHAVYA Portal was launched to facilitate applications for developing 100 investment-ready industrial parks.",
+    whatHappened: "The central government launched the BHAVYA Portal to streamline applications and approvals for developing 100 investment-ready industrial parks across India, backed by a massive multi-year government infrastructure outlay.",
+    importantPoints: [
+      "Portal name: BHAVYA Portal.",
+      "Facilitates the creation of 100 investment-ready industrial parks.",
+      "Aims to accelerate manufacturing infrastructure and plug-and-play facilities."
+    ],
+    examFacts: ["Portal: BHAVYA Portal", "Target: 100 Industrial Parks"],
+    quickRemember: "The BHAVYA Portal was launched to support the development of 100 investment-ready industrial parks.",
+    audioText: "The BHAVYA Portal was launched to streamline applications for developing one hundred investment-ready industrial parks.",
+    source: "Ministry of Commerce and Industry", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-029", date: "2026-06-10", month: "Jun 2026", category: "Economy & Banking",
+    title: "Common Landing Portal for Unclaimed Financial Assets",
+    summary: "The Department of Financial Services launched a Common Landing Portal to help citizens reclaim unclaimed funds.",
+    whatHappened: "The Department of Financial Services (DFS) under the Ministry of Finance launched a centralized 'Common Landing Portal' enabling citizens to easily search and initiate claims for unclaimed financial assets across banks, mutual funds, and insurance accounts.",
+    importantPoints: [
+      "Launched by the Department of Financial Services (DFS), Ministry of Finance.",
+      "Acts as a centralized search engine for unclaimed financial assets.",
+      "Covers dormant bank accounts, unclaimed dividends, and insurance proceeds."
+    ],
+    examFacts: ["Initiative: Common Landing Portal", "Department: DFS, Ministry of Finance"],
+    quickRemember: "The DFS launched a Common Landing Portal for citizens to search and reclaim unclaimed financial assets.",
+    audioText: "The Department of Financial Services launched a Common Landing Portal to help citizens reclaim unclaimed financial assets.",
+    source: "Ministry of Finance", importantFor: ["Bank PO", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-030", date: "2026-06-11", month: "Jun 2026", category: "Health & Digital Governance",
+    title: "Aarogya Setu 2.0 Launched Under ABDM",
+    summary: "Aarogya Setu was redesigned and relaunched as Aarogya Setu 2.0, serving as a personal health record application.",
+    whatHappened: "Under the Ayushman Bharat Digital Mission (ABDM), Aarogya Setu was officially redesigned and relaunched as 'Aarogya Setu 2.0'. It transitioned from a pandemic tracking app into a comprehensive personal health record (PHR) application linked to ABHA accounts.",
+    importantPoints: [
+      "Relaunched as Aarogya Setu 2.0 under ABDM.",
+      "Redesigned primarily as a personal health record (PHR) application.",
+      "Connects users seamlessly to digital health lockers and hospital records."
+    ],
+    examFacts: ["Application: Aarogya Setu 2.0", "Core Use: Personal Health Record (PHR)"],
+    quickRemember: "Aarogya Setu was relaunched as Aarogya Setu 2.0, functioning as a personal health record application.",
+    audioText: "Aarogya Setu was redesigned and relaunched as Aarogya Setu 2.0 under the Ayushman Bharat Digital Mission.",
+    source: "National Health Authority", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-031", date: "2026-06-12", month: "Jun 2026", category: "Environment & Biodiversity",
+    title: "Gujarat's Dolphin Count Tops 680",
+    summary: "Marine conservation surveys recorded over 680 dolphins across Gujarat's coastal waters.",
+    whatHappened: "Official wildlife and marine census reports confirmed that Gujarat's coastal dolphin population has surpassed 680 individuals, reflecting successful habitat protection, reduced industrial discharge, and active marine conservation efforts in the Gulf of Kutch.",
+    importantPoints: [
+      "Dolphin population count in Gujarat crossed 680.",
+      "Surveys conducted across coastal waters and the Gulf of Kutch.",
+      "Highlights positive outcomes of regional marine conservation."
+    ],
+    examFacts: ["State: Gujarat", "Dolphin Count: >680"],
+    quickRemember: "Gujarat's marine dolphin count surpassed 680 individuals.",
+    audioText: "Marine surveys in Gujarat reported that the State's coastal dolphin population topped six hundred and eighty.",
+    source: "Gujarat Forest Department", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-032", date: "2026-06-15", month: "Jun 2026", category: "Science & Environment",
+    title: "Brachybacterium Netajii Discovered for Bioremediation",
+    summary: "A newly discovered bacterial strain, *Brachybacterium netajii*, was found useful for industrial pollutant bioremediation.",
+    whatHappened: "Microbiologists isolated and described a novel bacterial strain named *Brachybacterium netajii*. Research confirmed its high efficacy in the biological breakdown and bioremediation of toxic industrial pollutants and chemical waste.",
+    importantPoints: [
+      "New bacterial strain named *Brachybacterium netajii*.",
+      "Proven effective in the bioremediation of industrial pollutants.",
+      "Offers eco-friendly solutions for treating heavy chemical waste."
+    ],
+    examFacts: ["Strain: Brachybacterium netajii", "Application: Bioremediation of industrial pollutants"],
+    quickRemember: "Brachybacterium netajii is a newly discovered bacterial strain used for bioremediation.",
+    audioText: "A newly discovered bacterial strain named Brachybacterium netajii was found effective in industrial bioremediation.",
+    source: "Scientific Journals", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-033", date: "2026-06-16", month: "Jun 2026", category: "International Diplomacy",
+    title: "16th BRICS National Security Advisers Meeting Held in New Delhi",
+    summary: "India hosted the 16th BRICS National Security Advisers' Meeting under its 2026 chairship.",
+    whatHappened: "India hosted the 16th BRICS National Security Advisers' (NSA) Meeting in New Delhi. Holding the BRICS chairship for the fourth time (2012, 2016, 2021, 2026), India anchored discussions under the theme 'Building for Resilience, Innovation, Cooperation and Sustainability'.",
+    importantPoints: [
+      "16th BRICS NSA meeting hosted in New Delhi.",
+      "India holds the BRICS chairship in 2026 for the fourth time.",
+      "2026 theme: 'Building for Resilience, Innovation, Cooperation and Sustainability'."
+    ],
+    examFacts: ["Event: 16th BRICS NSA Meeting", "Host: India (4th Chairship)"],
+    quickRemember: "India hosted the 16th BRICS National Security Advisers' Meeting in New Delhi.",
+    audioText: "India hosted the 16th BRICS National Security Advisers meeting in New Delhi under its 2026 chairship.",
+    source: "MEA", importantFor: ["UPSC", "CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-034", date: "2026-06-17", month: "Jun 2026", category: "Economy & Global Outlook",
+    title: "OECD Raises India FY 2026-27 Growth Forecast to 6.3%",
+    summary: "The OECD revised India's real GDP growth forecast upward to 6.3% for the 2026-27 fiscal year.",
+    whatHappened: "In its economic outlook report released in June 2026, the Organisation for Economic Co-operation and Development (OECD) raised India's GDP growth forecast for the 2026-27 fiscal year to 6.3%, citing resilient domestic consumption and robust capital expenditure.",
+    importantPoints: [
+      "OECD raised India's FY 2026-27 GDP growth forecast to 6.3%.",
+      "Reflects strong domestic demand and steady public infrastructure investment."
+    ],
+    examFacts: ["Organization: OECD", "Growth Forecast (2026-27): 6.3%"],
+    quickRemember: "OECD raised India's FY 2026-27 GDP growth forecast to 6.3%.",
+    audioText: "The OECD raised India's real GDP growth forecast for the 2026-27 fiscal year to 6.3 percent.",
+    source: "OECD", importantFor: ["Bank PO", "SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-035", date: "2026-06-18", month: "Jun 2026", category: "Science & Defence",
+    title: "DRDO Successfully Tests RudraM-II Missile",
+    summary: "DRDO successfully executed flight trials of the indigenous RudraM-II air-to-surface tactical missile.",
+    whatHappened: "The Defence Research and Development Organisation (DRDO) successfully completed user trials of the RudraM-II, an indigenous solid-propellant air-to-surface tactical missile designed to neutralize enemy radar sites, communication nodes, and air defense batteries.",
+    importantPoints: [
+      "Successful flight trial of the RudraM-II missile.",
+      "Indigenous solid-propellant air-to-surface tactical missile.",
+      "Designed to destroy enemy radar and air defense infrastructure."
+    ],
+    examFacts: ["Missile: RudraM-II", "Type: Air-to-Surface Tactical Missile", "Agency: DRDO"],
+    quickRemember: "DRDO successfully flight-tested the RudraM-II air-to-surface missile.",
+    audioText: "DRDO successfully flight-tested the indigenous RudraM-II air-to-surface tactical missile.",
+    source: "Ministry of Defence", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-036", date: "2026-06-19", month: "Jun 2026", category: "Environment & Wildlife",
+    title: "Sistan Sand Boa Recorded for First Time in India",
+    summary: "The Sistan sand boa (*Eryx sistanensis*) was formally recorded for the first time in India within Rajasthan.",
+    whatHappened: "Herpetologists and wildlife researchers confirmed the first-ever formal record of the Sistan sand boa (*Eryx sistanensis*) in India, having discovered specimens traversing the arid dunes of the northern Thar Desert in Rajasthan.",
+    importantPoints: [
+      "First recorded sighting of the Sistan sand boa (*Eryx sistanensis*) in India.",
+      "Discovered in the northern Thar Desert, Rajasthan.",
+      "Expands the known zoogeographical distribution of the snake species."
+    ],
+    examFacts: ["Species: Sistan sand boa (Eryx sistanensis)", "Location: Northern Thar Desert, Rajasthan"],
+    quickRemember: "The Sistan sand boa was recorded in India for the first time in the Thar Desert, Rajasthan.",
+    audioText: "The Sistan sand boa was recorded for the first time in India within the Thar Desert of Rajasthan.",
+    source: "Zoological Survey of India", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-037", date: "2026-06-22", month: "Jun 2026", category: "Government Schemes",
+    title: "MY Bharat Launches Viksit Vibrant Village Program",
+    summary: "MY Bharat launched the Viksit Vibrant Village Program (VVVP) to engage youth in border village development.",
+    whatHappened: "Mera Yuva Bharat (MY Bharat)—an autonomous body under the Ministry of Youth Affairs and Sports—commenced the 'Viksit Vibrant Village Program' (VVVP) to mobilize youth volunteers and foster socio-economic development across remote border settlements.",
+    importantPoints: [
+      "Launched by MY Bharat.",
+      "Operates under the Ministry of Youth Affairs and Sports.",
+      "Focuses on youth engagement and development in strategic border villages."
+    ],
+    examFacts: ["Program: Viksit Vibrant Village Program (VVVP)", "Body: MY Bharat"],
+    quickRemember: "MY Bharat launched the Viksit Vibrant Village Program for youth engagement in border villages.",
+    audioText: "MY Bharat launched the Viksit Vibrant Village Program to engage youth in border village development.",
+    source: "Ministry of Youth Affairs & Sports", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-038", date: "2026-06-23", month: "Jun 2026", category: "Marine Biology & Discoveries",
+    title: "New Snake Eel Species Discovered in Andhra Pradesh",
+    summary: "Marine scientists discovered a new species of snake eel named *Bascanichthys chepakakiensis* from Kakinada.",
+    whatHappened: "Marine researchers officially described a new species of snake eel, named *Bascanichthys chepakakiensis*, discovered from specimens collected at the Kakinada fishing harbour along the coast of Andhra Pradesh.",
+    importantPoints: [
+      "New snake eel species named *Bascanichthys chepakakiensis*.",
+      "Discovered at Kakinada fishing harbour, Andhra Pradesh.",
+      "Adds to India's marine biodiversity catalog."
+    ],
+    examFacts: ["Species: Bascanichthys chepakakiensis", "Location: Kakinada Harbour, Andhra Pradesh"],
+    quickRemember: "A new snake eel species, Bascanichthys chepakakiensis, was discovered in Kakinada, Andhra Pradesh.",
+    audioText: "Marine scientists discovered a new species of snake eel named Bascanichthys chepakakiensis from Andhra Pradesh.",
+    source: "Marine Fisheries Research", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-039", date: "2026-06-24", month: "Jun 2026", category: "Economy & National Income",
+    title: "MoSPI Releases Provisional Estimates of National Income",
+    summary: "MoSPI released provisional national income numbers, putting full-year FY 2025-26 real GDP growth at 7.0%.",
+    whatHappened: "The Ministry of Statistics and Programme Implementation (MoSPI) released the Provisional Estimates of National Income, reporting that India's real GDP growth for the full 2025-26 fiscal year stood at a robust 7.0%, driven by sustained manufacturing and construction output.",
+    importantPoints: [
+      "Released by MoSPI.",
+      "Full-year real GDP growth for FY 2025-26 estimated at 7.0%.",
+      "Demonstrates strong economic resilience across industrial sectors."
+    ],
+    examFacts: ["Publisher: MoSPI", "FY 2025-26 GDP Growth: 7.0%"],
+    quickRemember: "MoSPI's provisional estimates put India's FY 2025-26 real GDP growth at 7.0%.",
+    audioText: "MoSPI released provisional national income data showing India's full year GDP growth for 2025-26 at seven percent.",
+    source: "MoSPI", importantFor: ["Bank PO", "SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-040", date: "2026-06-25", month: "Jun 2026", category: "Health & Governance",
+    title: "SUMAN Roadmap 2030 for Maternal Healthcare",
+    summary: "The Ministry of Health reviewed the 'SUMAN Roadmap 2030' focusing intensely on maternal and newborn health.",
+    whatHappened: "The Ministry of Health reviewed implementation milestones under the 'SUMAN Roadmap 2030'. The strategic framework places specialized emphasis on pre-conception care, safe pregnancy, childbirth, and high-quality postnatal healthcare to eradicate preventable maternal deaths.",
+    importantPoints: [
+      "Strategic health framework named 'SUMAN Roadmap 2030'.",
+      "Focuses heavily on pregnancy, childbirth, and postnatal care.",
+      "Aims to achieve zero preventable maternal and newborn deaths."
+    ],
+    examFacts: ["Framework: SUMAN Roadmap 2030", "Focus: Maternal and Newborn Healthcare"],
+    quickRemember: "The SUMAN Roadmap 2030 targets comprehensive maternal and newborn healthcare improvements.",
+    audioText: "The Health Ministry advanced the SUMAN Roadmap 2030 focusing on maternal, childbirth, and newborn care.",
+    source: "MoHFW", importantFor: ["SSC CGL", "UPSC"]
+  }
+];
+
+const junRecallQuestionsBatch2 = [
+  {
+    id: "REC-Q-JUN-021", articleId: "REC-JUN-021", category: "Government Schemes",
+    question: "Which central sector micro-credit scheme for urban street vendors officially completed six years of implementation in June 2026?",
+    options: ["PM-KISAN", "PM SVANidhi", "PMMY Mudra Loan", "Stand-Up India"],
+    answer: 1, explanation: "PM SVANidhi was launched in June 2020 during the COVID-19 pandemic and completed six years in June 2026."
+  },
+  {
+    id: "REC-Q-JUN-022", articleId: "REC-JUN-022", category: "Agriculture & Schemes",
+    question: "Mission Senehjori was launched as an Atmanirbhar North East project anchored by MDoNER to elevate which product into a global luxury brand?",
+    options: ["Darjeeling Tea", "Assam Muga Silk", "Naga Mircha", "Pashmina Wool"],
+    answer: 1, explanation: "Mission Senehjori is an MDoNER project aimed at scaling up Assam's golden Muga silk as a global luxury brand."
+  },
+  {
+    id: "REC-Q-JUN-023", articleId: "REC-JUN-023", category: "Economy & Infrastructure",
+    question: "What is the approved financial outlay for the MAHA Water Program launched by the Government of India to promote high-impact water innovations?",
+    options: ["₹100 crore", "₹150 crore", "₹200 crore", "₹500 crore"],
+    answer: 2, explanation: "The MAHA Water Program (Missions for Advancement in High-impact Areas) has an approved outlay of ₹200 crore."
+  },
+  {
+    id: "REC-Q-JUN-024", articleId: "REC-JUN-024", category: "Government Schemes & Innovation",
+    question: "Union Minister Jayant Chaudhary launched 'Navachar Mantra' at IIT Delhi to focus on targeted nanomedicine for which disease therapy?",
+    options: ["Lung cancer", "Breast cancer", "Leukemia", "Brain tumor"],
+    answer: 1, explanation: "Navachar Mantra is focused on targeted nanomedicine solutions specifically for breast cancer therapy."
+  },
+  {
+    id: "REC-Q-JUN-025", articleId: "REC-JUN-025", category: "Agriculture & Schemes",
+    question: "The Ministry of Agriculture conducted the nationwide 'Khet Bachao Abhiyan' throughout June 2026 primarily to promote fertilizer use based on:",
+    options: ["International export demands", "Soil health and scientific recommendations", "Market retail pricing caps", "Organic subsidy quotas"],
+    answer: 1, explanation: "The Khet Bachao Abhiyan promotes sustainable farming and fertilizer application based on soil health and scientific recommendations."
+  },
+  {
+    id: "REC-Q-JUN-026", articleId: "REC-JUN-026", category: "Environment & Meteorology",
+    question: "A new Regional Meteorological Centre was inaugurated in Lucknow under which expanding national weather observation initiative?",
+    options: ["Mission Mausam", "Varunastra Grid", "Maheshwar Network", "Mausam Vayu Net"],
+    answer: 0, explanation: "The Lucknow Regional Meteorological Centre was opened under India's Mission Mausam network."
+  },
+  {
+    id: "REC-Q-JUN-027", articleId: "REC-JUN-027", category: "State Governance & Safety",
+    question: "The Government of Tamil Nadu launched the 'Singappen' Special Task Force at Rajarathinam Stadium to ensure the safety of:",
+    options: ["Senior citizens and disabled persons", "Farmers and agricultural labourers", "Women and children", "Migrant workers and daily wagers"],
+    answer: 2, explanation: "The Singappen Special Task Force in Tamil Nadu is dedicated to strengthening the safety of women and children."
+  },
+  {
+    id: "REC-Q-JUN-028", articleId: "REC-JUN-028", category: "Economy & Infrastructure",
+    question: "The BHAVYA Portal was launched by the central government to facilitate applications for developing how many investment-ready industrial parks?",
+    options: ["50 industrial parks", "75 industrial parks", "100 industrial parks", "150 industrial parks"],
+    answer: 2, explanation: "The BHAVYA Portal supports the development of 100 investment-ready industrial parks across India."
+  },
+  {
+    id: "REC-Q-JUN-029", articleId: "REC-JUN-029", category: "Economy & Banking",
+    question: "Which department under the Ministry of Finance launched the centralized 'Common Landing Portal' for searching unclaimed financial assets?",
+    options: ["Department of Revenue", "Department of Economic Affairs", "Department of Financial Services (DFS)", "Department of Investment and Public Asset Management"],
+    answer: 2, explanation: "The Department of Financial Services (DFS) launched the Common Landing Portal to help citizens reclaim unclaimed financial assets."
+  },
+  {
+    id: "REC-Q-JUN-030", articleId: "REC-JUN-030", category: "Health & Digital Governance",
+    question: "Under the Ayushman Bharat Digital Mission (ABDM), Aarogya Setu was redesigned and relaunched primarily as a:",
+    options: ["Telemedicine consultation desk", "Personal health record (PHR) application", "COVID-19 vaccination certificate vault", "Health insurance claim settlement portal"],
+    answer: 1, explanation: "Aarogya Setu 2.0 was redesigned as a personal health record (PHR) application under ABDM."
+  },
+  {
+    id: "REC-Q-JUN-031", articleId: "REC-JUN-031", category: "Environment & Biodiversity",
+    question: "Recent marine conservation surveys confirmed that Gujarat's coastal dolphin population has surpassed what figure?",
+    options: ["350 dolphins", "500 dolphins", "680 dolphins", "850 dolphins"],
+    answer: 2, explanation: "Gujarat's coastal dolphin count topped 680 individuals, reflecting successful marine conservation."
+  },
+  {
+    id: "REC-Q-JUN-032", articleId: "REC-JUN-032", category: "Science & Environment",
+    question: "The newly discovered bacterial strain *Brachybacterium netajii* is primarily recognized for its efficacy in:",
+    options: ["Bioremediation of industrial pollutants", "Biological nitrogen fixation in cereal crops", "Carbon capture in open ocean gyres", "Production of microbial bio-plastics"],
+    answer: 0, explanation: "Brachybacterium netajii is a bacterial strain useful for the bioremediation of industrial pollutants."
+  },
+  {
+    id: "REC-Q-JUN-033", articleId: "REC-JUN-033", category: "International Diplomacy",
+    question: "India hosted the 16th BRICS National Security Advisers' Meeting in New Delhi under its 2026 chairship. What is the theme for India's 2026 chairship?",
+    options: ["Partnership for Global Stability and Security", "Building for Resilience, Innovation, Cooperation and Sustainability", "Strengthening Multilateralism in a Digital Age", "Inclusive Growth and Sustainable Development"],
+    answer: 1, explanation: "India's 2026 BRICS chairship theme is 'Building for Resilience, Innovation, Cooperation and Sustainability'."
+  },
+  {
+    id: "REC-Q-JUN-034", articleId: "REC-JUN-034", category: "Economy & Global Outlook",
+    question: "In its economic outlook report released in June 2026, the OECD raised India's real GDP growth forecast for FY 2026-27 to:",
+    options: ["6.0%", "6.3%", "6.8%", "7.1%"],
+    answer: 1, explanation: "The OECD raised India's GDP growth forecast for FY 2026-27 to 6.3%."
+  },
+  {
+    id: "REC-Q-JUN-035", articleId: "REC-JUN-035", category: "Science & Defence",
+    question: "The RudraM-II, successfully flight-tested by DRDO, is an indigenous:",
+    options: ["Air-to-surface tactical missile", "Surface-to-air ballistic shield", "Anti-submarine torpedo rocket", "Hypersonic cruise missile"],
+    answer: 0, explanation: "RudraM-II is an indigenous solid-propellant air-to-surface tactical missile designed to destroy enemy radar and defense nodes."
+  },
+  {
+    id: "REC-Q-JUN-036", articleId: "REC-JUN-036", category: "Environment & Wildlife",
+    question: "The Sistan sand boa (*Eryx sistanensis*) was formally recorded for the first time in India within which state's arid terrain?",
+    options: ["Gujarat (Rann of Kutch)", "Rajasthan (Thar Desert)", "Punjab (Malwa plains)", "Haryana (Aravalli foothills)"],
+    answer: 1, explanation: "The Sistan sand boa was discovered and recorded for the first time in India within the northern Thar Desert of Rajasthan."
+  },
+  {
+    id: "REC-Q-JUN-037", articleId: "REC-JUN-037", category: "Government Schemes",
+    question: "Mera Yuva Bharat (MY Bharat) commenced the 'Viksit Vibrant Village Program' (VVVP) focused primarily on youth engagement in:",
+    options: ["Aspirational tribal districts", "Strategic border villages", "Coastal fishing hamlets", "Drought-prone rural blocks"],
+    answer: 1, explanation: "The Viksit Vibrant Village Program (VVVP) mobilizes youth volunteers for development across strategic border settlements."
+  },
+  {
+    id: "REC-Q-JUN-038", articleId: "REC-JUN-038", category: "Marine Biology & Discoveries",
+    question: "Marine researchers discovered a new species of snake eel named *Bascanichthys chepakakiensis* from a fishing harbour in which state?",
+    options: ["Maharashtra", "Odisha", "Andhra Pradesh", "Kerala"],
+    answer: 2, explanation: "Bascanichthys chepakakiensis was discovered from specimens collected at the Kakinada fishing harbour in Andhra Pradesh."
+  },
+  {
+    id: "REC-Q-JUN-039", articleId: "REC-JUN-039", category: "Economy & National Income",
+    question: "According to the Provisional Estimates of National Income released by MoSPI, what was India's real GDP growth for the full 2025-26 fiscal year?",
+    options: ["6.8%", "7.0%", "7.4%", "7.7%"],
+    answer: 1, explanation: "MoSPI's provisional estimates placed India's full-year real GDP growth for FY 2025-26 at 7.0%."
+  },
+  {
+    id: "REC-Q-JUN-040", articleId: "REC-JUN-040", category: "Health & Governance",
+    question: "The 'SUMAN Roadmap 2030' reviewed by the Ministry of Health places specialized emphasis on eliminating preventable deaths during which stages of care?",
+    options: ["Pre-conception, pregnancy, and delivery care", "Pregnancy, childbirth, and newborn care", "Infancy, childhood immunization, and adolescent health", "Geriatric care and palliative nursing"],
+    answer: 1, explanation: "The SUMAN Roadmap 2030 focuses intensely on pregnancy, childbirth, and postnatal newborn care to prevent maternal and neonatal deaths."
+  }
+];
+
+// 👉 PUSH DATA INTO GLOBAL ARRAYS
+if (typeof hiddenRecallArticles !== 'undefined') {
+  hiddenRecallArticles.push(...junRecallArticlesBatch2);
+}
+if (typeof recallQuestionPool !== 'undefined') {
+  recallQuestionPool.push(...junRecallQuestionsBatch2);
+}
+
+/* ==========================================================================
+   END OF JUNE BATCH 2
+   ========================================================================== */
+/* ==========================================================================
+   JUNE 2026 - BATCH 3 (ITEMS 041 TO 060)
+   ========================================================================== */
+
+const junRecallArticlesBatch3 = [
+  {
+    id: "REC-JUN-041", date: "2026-06-01", month: "Jun 2026", category: "Defence & Aerospace",
+    title: "DRDO Successfully Flight-Tests Advanced Anti-Radiation Missile",
+    summary: "DRDO completed user-evaluation trials for an upgraded variant of the RudraM anti-radiation missile.",
+    whatHappened: "The Defence Research and Development Organisation (DRDO) successfully completed user-evaluation flight trials of an advanced variant of the RudraM anti-radiation missile from a Sukhoi-30 MKI fighter jet off the coast of Odisha, enhancing tactical suppression of enemy air defenses (SEAD).",
+    importantPoints: [
+      "Flight-tested upgraded RudraM anti-radiation missile variant.",
+      "Fired from a Sukhoi-30 MKI fighter platform off the Odisha coast.",
+      "Designed for suppression of enemy air defenses (SEAD)."
+    ],
+    examFacts: ["Missile: RudraM (Anti-Radiation)", "Platform: Su-30 MKI", "Agency: DRDO"],
+    quickRemember: "DRDO flight-tested an advanced variant of the RudraM anti-radiation missile from a Su-30 MKI.",
+    audioText: "DRDO successfully flight-tested an advanced variant of the RudraM anti-radiation missile from a Sukhoi fighter jet.",
+    source: "Ministry of Defence", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-042", date: "2026-06-02", month: "Jun 2026", category: "Science & Technology",
+    title: "CSIR-CCMB Develops CRISPR-Based Diagnostic Kit for Rare Genetic Disorders",
+    summary: "CCMB Hyderabad engineered a rapid CRISPR-Cas diagnostic kit targeting congenital single-gene disorders.",
+    whatHappened: "Scientists at the CSIR-Centre for Cellular and Molecular Biology (CCMB) in Hyderabad developed a low-cost, rapid CRISPR-Cas-based diagnostic platform capable of detecting over 50 congenital single-gene disorders from dried blood spots.",
+    importantPoints: [
+      "CRISPR-Cas-based diagnostic platform developed by CSIR-CCMB.",
+      "Targets congenital single-gene disorders from dried blood spots.",
+      "Provides rapid, low-cost screening options for rural clinics."
+    ],
+    examFacts: ["Institution: CSIR-CCMB Hyderabad", "Innovation: CRISPR Genetic Diagnostic Kit"],
+    quickRemember: "CSIR-CCMB developed a CRISPR-based diagnostic kit for detecting rare congenital genetic disorders.",
+    audioText: "CCMB Hyderabad developed a rapid CRISPR-based diagnostic kit capable of screening congenital single-gene disorders.",
+    source: "CSIR", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-043", date: "2026-06-03", month: "Jun 2026", category: "Economy & Infrastructure",
+    title: "India Post Installs First Solar-Powered Automated Post Office",
+    summary: "India Post commissioned its first fully solar-powered, automated smart post office branch in Kochi.",
+    whatHappened: "India Post inaugurated its first net-zero, solar-powered automated post office branch in Kochi, Kerala. The facility features robotic letter sorting, solar energy battery backups, and automated parcel lockers operating 24/7.",
+    importantPoints: [
+      "First net-zero, solar-powered automated post office branch.",
+      "Located in Kochi, Kerala.",
+      "Features robotic sorting and 24/7 automated parcel lockers."
+    ],
+    examFacts: ["Facility: Solar-Powered Automated Post Office", "Location: Kochi, Kerala"],
+    quickRemember: "India Post opened its first fully solar-powered automated post office in Kochi.",
+    audioText: "India Post commissioned its first fully solar-powered automated post office branch in Kochi, Kerala.",
+    source: "Ministry of Communications", importantFor: ["SSC CGL", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUN-044", date: "2026-06-04", month: "Jun 2026", category: "International Affairs",
+    title: "India and France Sign Defence Space Working Group Agreement",
+    summary: "New Delhi and Paris signed an institutional framework agreement to formalize the Defence Space Working Group.",
+    whatHappened: "India and France formally executed a bilateral institutional framework agreement to establish the Joint Defence Space Working Group, strengthening strategic cooperation in satellite surveillance, orbital situational awareness, and space defence exercises.",
+    importantPoints: [
+      "Bilateral agreement creating the Joint Defence Space Working Group.",
+      "Signed between India and France.",
+      "Focuses on satellite surveillance and space defence cooperation."
+    ],
+    examFacts: ["Partners: India and France", "Framework: Defence Space Working Group"],
+    quickRemember: "India and France signed an agreement to establish a Joint Defence Space Working Group.",
+    audioText: "India and France signed an institutional agreement to establish the Joint Defence Space Working Group.",
+    source: "MEA", importantFor: ["UPSC", "CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-045", date: "2026-06-05", month: "Jun 2026", category: "Environment & Forestry",
+    title: "Ministry of Environment Launches 'Green Corridor Index' for National Highways",
+    summary: "MoEFCC and NHAI unveiled the Green Corridor Index to audit ecological preservation along expressways.",
+    whatHappened: "The Ministry of Environment, Forest and Climate Change (MoEFCC), in partnership with NHAI, launched the 'Green Corridor Index'. The metric system evaluates highway projects based on native tree survival rates, wildlife crossing structures, and carbon offset metrics.",
+    importantPoints: [
+      "Green Corridor Index launched jointly by MoEFCC and NHAI.",
+      "Audits ecological preservation along national highways and expressways.",
+      "Evaluates native tree survival and wildlife crossing passages."
+    ],
+    examFacts: ["Index: Green Corridor Index", "Collaborators: MoEFCC and NHAI"],
+    quickRemember: "MoEFCC and NHAI launched the Green Corridor Index to audit ecological health along highways.",
+    audioText: "The Environment Ministry and NHAI unveiled the Green Corridor Index to audit ecological preservation along highways.",
+    source: "MoEFCC", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-046", date: "2026-06-08", month: "Jun 2026", category: "Science & Technology",
+    title: "IISc Bengaluru Develops Ultra-Efficient Perovskite Solar Cells",
+    summary: "Researchers at IISc Bengaluru engineered stable perovskite solar cells achieving 26.4% tandem efficiency.",
+    whatHappened: "Scientists at the Indian Institute of Science (IISc) Bengaluru successfully engineered a novel lead-free interface layer that prevents thermal degradation in perovskite-silicon tandem solar cells, pushing laboratory conversion efficiency to 26.4%.",
+    importantPoints: [
+      "Perovskite-silicon tandem solar cells developed by IISc Bengaluru.",
+      "Achieved a laboratory conversion efficiency of 26.4%.",
+      "Solves long-standing stability and thermal degradation challenges."
+    ],
+    examFacts: ["Efficiency: 26.4%", "Institute: IISc Bengaluru", "Technology: Perovskite Solar Cells"],
+    quickRemember: "IISc Bengaluru developed perovskite solar cells achieving a tandem efficiency of 26.4%.",
+    audioText: "Scientists at IISc Bengaluru engineered perovskite solar cells achieving a high conversion efficiency of 26.4 percent.",
+    source: "IISc", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-047", date: "2026-06-09", month: "Jun 2026", category: "Economy & Banking",
+    title: "RBI Introduces Automated Centralized KYC Registry for MSMEs",
+    summary: "The Reserve Bank of India launched an automated Centralized KYC Registry specifically tailored for MSME borrowers.",
+    whatHappened: "The Reserve Bank of India (RBI) launched a centralized, automated Know Your Customer (KYC) registry tailored for Micro, Small, and Medium Enterprises (MSMEs), allowing commercial banks to instantly verify corporate credentials and reduce onboarding friction.",
+    importantPoints: [
+      "Centralized automated KYC registry for MSME borrowers.",
+      "Introduced by the Reserve Bank of India (RBI).",
+      "Reduces corporate loan onboarding time and document verification friction."
+    ],
+    examFacts: ["Regulator: RBI", "Target Sector: MSME Borrowers", "System: Centralized KYC Registry"],
+    quickRemember: "The RBI launched an automated Centralized KYC Registry for MSME borrowers.",
+    audioText: "The Reserve Bank of India introduced a centralized automated KYC registry specifically for MSME borrowers.",
+    source: "RBI", importantFor: ["Bank PO", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-048", date: "2026-06-10", month: "Jun 2026", category: "Government Schemes",
+    title: "Ministry of Tribal Affairs Expands 'Adi Gram' Digital Village Initiative",
+    summary: "MoTA expanded the 'Adi Gram' initiative to connect 5,000 remote tribal habitations with high-speed fiber internet.",
+    whatHappened: "The Ministry of Tribal Affairs (MoTA) announced the expansion of the 'Adi Gram' digital village initiative, targeting the integration of 5,000 remote tribal habitations with high-speed broadband, digital health kiosks, and e-learning classrooms.",
+    importantPoints: [
+      "Expansion of the 'Adi Gram' digital village initiative by MoTA.",
+      "Targets 5,000 remote tribal habitations.",
+      "Provides broadband internet, digital health kiosks, and e-learning tools."
+    ],
+    examFacts: ["Initiative: Adi Gram", "Ministry: Ministry of Tribal Affairs", "Target: 5,000 Habitations"],
+    quickRemember: "MoTA expanded the 'Adi Gram' initiative to bring broadband internet to 5,000 tribal habitations.",
+    audioText: "The Ministry of Tribal Affairs expanded the Adi Gram digital village initiative to connect five thousand tribal habitations.",
+    source: "Ministry of Tribal Affairs", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-049", date: "2026-06-11", month: "Jun 2026", category: "Defence & Aerospace",
+    title: "HAL Delivers First Indigenous Light Utility Helicopter Squadron Variant",
+    summary: "Hindustan Aeronautics Limited handed over the first batch of serial-production Light Utility Helicopters (LUH).",
+    whatHappened: "Hindustan Aeronautics Limited (HAL) formally handed over the first batch of serial-production Light Utility Helicopters (LUH) to the Indian Armed Forces during ceremonies at its Bengaluru manufacturing complex, replacing aging Cheetah and Chetak fleets.",
+    importantPoints: [
+      "HAL delivered the first batch of serial-production LUHs.",
+      "Light Utility Helicopters replace aging Cheetah and Chetak fleets.",
+      "Manufactured in Bengaluru."
+    ],
+    examFacts: ["Manufacturer: HAL Bengaluru", "Aircraft: Light Utility Helicopter (LUH)"],
+    quickRemember: "HAL delivered the first batch of indigenous Light Utility Helicopters to the armed forces.",
+    audioText: "HAL handed over the first batch of serial-production Light Utility Helicopters to the Indian Armed Forces.",
+    source: "HAL", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-050", date: "2026-06-12", month: "Jun 2026", category: "Sports & Athletics",
+    title: "Neeraj Chopra Wins Gold at Ostrava Golden Spike 2026",
+    summary: "Olympic champion Neeraj Chopra clinched the javelin throw gold medal at the Ostrava Golden Spike meeting.",
+    whatHappened: "Star Indian javelin thrower Neeraj Chopra secured the gold medal at the prestigious Ostrava Golden Spike 2026 athletics meet in the Czech Republic, recording a massive throw of 89.34 metres against an elite international field.",
+    importantPoints: [
+      "Neeraj Chopra won gold at the Ostrava Golden Spike 2026 meet.",
+      "Sport: Javelin Throw.",
+      "Recorded a winning throw of 89.34 metres in the Czech Republic."
+    ],
+    examFacts: ["Athlete: Neeraj Chopra", "Sport: Javelin", "Distance: 89.34m", "Event: Ostrava Golden Spike"],
+    quickRemember: "Neeraj Chopra won the javelin gold medal at the Ostrava Golden Spike 2026 meeting.",
+    audioText: "Olympic champion Neeraj Chopra won the javelin throw gold medal at the Ostrava Golden Spike meeting in the Czech Republic.",
+    source: "World Athletics", importantFor: ["SSC CGL", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUN-051", date: "2026-06-15", month: "Jun 2026", category: "Science & Technology",
+    title: "India Launches First National Quantum Cryptography Testbed in Bengaluru",
+    summary: "A quantum cryptography testbed linking three research institutions was commissioned in Bengaluru.",
+    whatHappened: "The Ministry of Science and Technology commissioned India's first multi-node National Quantum Cryptography Testbed (NQCT) across three key research installations in Bengaluru, enabling real-world trials of unhackable quantum secret sharing.",
+    importantPoints: [
+      "First multi-node National Quantum Cryptography Testbed (NQCT) commissioned.",
+      "Located in Bengaluru connecting three research institutions.",
+      "Tests unhackable quantum secret sharing and QKD protocols."
+    ],
+    examFacts: ["Facility: NQCT Testbed", "City: Bengaluru", "Focus: Quantum Cryptography"],
+    quickRemember: "India's first National Quantum Cryptography Testbed was commissioned in Bengaluru.",
+    audioText: "India's first multi-node National Quantum Cryptography Testbed was commissioned across research institutions in Bengaluru.",
+    source: "Department of Science and Technology", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-052", date: "2026-06-16", month: "Jun 2026", category: "Economy & Infrastructure",
+    title: "Inauguration of India's Longest Cable-Stayed Bridge in Gujarat",
+    summary: "Prime Minister Modi inaugurated the Narmada Cable-Stayed Bridge connecting Bharuch and Ankleshwar.",
+    whatHappened: "Prime Minister Narendra Modi inaugurated India's longest cable-stayed bridge spanning the Narmada River between Bharuch and Ankleshwar in Gujarat. The 2.1-kilometer engineering marvel drastically eases traffic congestion along National Highway 48.",
+    importantPoints: [
+      "India's longest cable-stayed bridge inaugurated over the Narmada River.",
+      "Connects Bharuch and Ankleshwar in Gujarat.",
+      "Spans 2.1 kilometers along National Highway 48."
+    ],
+    examFacts: ["Bridge: Narmada Cable-Stayed Bridge", "Length: 2.1 km", "Location: Bharuch-Ankleshwar, Gujarat"],
+    quickRemember: "India's longest cable-stayed bridge over the Narmada River was inaugurated in Gujarat.",
+    audioText: "Prime Minister Modi inaugurated India's longest cable-stayed bridge spanning the Narmada River in Gujarat.",
+    source: "MoRTH", importantFor: ["SSC CGL", "RRB NTPC"]
+  },
+  {
+    id: "REC-JUN-053", date: "2026-06-17", month: "Jun 2026", category: "Environment & Wildlife",
+    title: "Sunderbans Tiger Reserve Declared India's First Carbon-Neutral Wildlife Sanctuary",
+    summary: "Official audits confirmed that Sunderbans Tiger Reserve achieved a net-zero carbon footprint.",
+    whatHappened: "The Ministry of Environment announced that the Sunderbans Tiger Reserve in West Bengal has officially attained carbon-neutral status, validated by extensive mangrove carbon sequestration accounting, solar micro-grids, and electric patrol vessels.",
+    importantPoints: [
+      "Sunderbans Tiger Reserve declared India's first carbon-neutral sanctuary.",
+      "Located in West Bengal.",
+      "Validated through mangrove carbon sequestration and solar-powered patrol vessels."
+    ],
+    examFacts: ["Sanctuary: Sunderbans Tiger Reserve", "State: West Bengal", "Status: Carbon-Neutral"],
+    quickRemember: "The Sunderbans Tiger Reserve was declared India's first carbon-neutral wildlife sanctuary.",
+    audioText: "The Sunderbans Tiger Reserve in West Bengal was officially declared India's first carbon-neutral wildlife sanctuary.",
+    source: "MoEFCC", importantFor: ["SSC CGL", "State PCS", "UPSC"]
+  },
+  {
+    id: "REC-JUN-054", date: "2026-06-18", month: "Jun 2026", category: "International Affairs",
+    title: "India Elected to UN Economic and Social Council (ECOSOC)",
+    summary: "India secured an overwhelming majority to serve another three-year term on the United Nations ECOSOC.",
+    whatHappened: "India was successfully elected to the United Nations Economic and Social Council (ECOSOC) for the 2027–2029 term during elections held at the UN General Assembly in New York, garnering strong cross-regional support.",
+    importantPoints: [
+      "India elected to the UN Economic and Social Council (ECOSOC).",
+      "Term spans 2027–2029.",
+      "Elected via a strong majority vote at the UN General Assembly."
+    ],
+    examFacts: ["Body: UN ECOSOC", "Term: 2027–2029"],
+    quickRemember: "India was elected to the United Nations Economic and Social Council for the 2027–2029 term.",
+    audioText: "India was elected to the United Nations Economic and Social Council for a three-year term.",
+    source: "MEA", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-055", date: "2026-06-19", month: "Jun 2026", category: "Health & Biotechnology",
+    title: "ICMR Launches National Rare Disease Diagnostic and Treatment Registry",
+    summary: "ICMR operationalized a centralized registry to track rare disease incidence and manage specialized funding.",
+    whatHappened: "The Indian Council of Medical Research (ICMR) operationalized the National Rare Disease Registry. The platform aggregates clinical data across 30 tertiary care hospitals to support epidemiological tracking and streamline financial aid under the National Policy for Rare Diseases.",
+    importantPoints: [
+      "National Rare Disease Registry operationalized by ICMR.",
+      "Aggregates clinical data across 30 tertiary care hospitals.",
+      "Tracks rare disease incidence and streamlines financial aid distribution."
+    ],
+    examFacts: ["Agency: ICMR", "Registry: National Rare Disease Registry"],
+    quickRemember: "ICMR launched the National Rare Disease Registry to track incidence and streamline treatment funding.",
+    audioText: "The Indian Council of Medical Research operationalized a centralized registry to track rare diseases and manage treatment funding.",
+    source: "ICMR", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-056", date: "2026-06-22", month: "Jun 2026", category: "Economy & Trade",
+    title: "India Signs Comprehensive Digital Trade Pact with Singapore",
+    summary: "New Delhi and Singapore executed a bilateral Digital Trade Agreement (DTA) focusing on paperless cross-border commerce.",
+    whatHappened: "India and Singapore signed a bilateral Digital Trade Agreement (DTA) in Singapore. The agreement establishes interoperable frameworks for electronic invoicing, cross-border data flows, and regulatory sandboxes for fintech innovations.",
+    importantPoints: [
+      "Bilateral Digital Trade Agreement (DTA) signed between India and Singapore.",
+      "Establishes interoperable e-invoicing and cross-border data frameworks.",
+      "Features regulatory sandboxes for fintech collaboration."
+    ],
+    examFacts: ["Partner Country: Singapore", "Agreement: Digital Trade Agreement (DTA)"],
+    quickRemember: "India and Singapore signed a comprehensive Digital Trade Agreement for paperless commerce.",
+    audioText: "India and Singapore signed a bilateral Digital Trade Agreement focusing on paperless cross-border commerce.",
+    source: "Ministry of Commerce", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-057", date: "2026-06-23", month: "Jun 2026", category: "Science & Space",
+    title: "ISRO Successfully Conducts Reusable Launch Vehicle Landing Experiment (RLV-LEX-03)",
+    summary: "ISRO completed the third consecutive autonomous landing experiment for its reusable space vehicle program.",
+    whatHappened: "ISRO successfully executed the third autonomous Landing Experiment (RLV-LEX-03) for its Reusable Launch Vehicle (RLV) program at the Chitradurga Aeronautical Test Range in Karnataka, validating high-speed crosswind landing accuracy.",
+    importantPoints: [
+      "RLV-LEX-03 autonomous landing experiment successfully conducted by ISRO.",
+      "Held at the Chitradurga Aeronautical Test Range, Karnataka.",
+      "Validates high-speed autonomous crosswind landing capabilities."
+    ],
+    examFacts: ["Experiment: RLV-LEX-03", "Test Range: Chitradurga, Karnataka", "Agency: ISRO"],
+    quickRemember: "ISRO successfully conducted the RLV-LEX-03 autonomous landing experiment in Chitradurga.",
+    audioText: "ISRO successfully conducted the third autonomous landing experiment for its reusable launch vehicle program in Karnataka.",
+    source: "ISRO", importantFor: ["SSC CGL", "UPSC", "CDS"]
+  },
+  {
+    id: "REC-JUN-058", date: "2026-06-24", month: "Jun 2026", category: "Environment & Energy",
+    title: "India Commissioned World's Largest Floating Solar Park Phase-2",
+    summary: "Phase-2 of the Omkareshwar Floating Solar Park in Madhya Pradesh achieved full operational capacity.",
+    whatHappened: "The second phase of the Omkareshwar Floating Solar Park on the Narmada River in Madhya Pradesh achieved full commercial operation, expanding the cumulative floating solar plant capacity to 600 MW across the backwaters.",
+    importantPoints: [
+      "Phase-2 of Omkareshwar Floating Solar Park achieved full operation.",
+      "Located on the Narmada River in Madhya Pradesh.",
+      "Brings cumulative capacity to 600 MW."
+    ],
+    examFacts: ["Project: Omkareshwar Floating Solar Park (Phase-2)", "State: Madhya Pradesh", "Capacity: 600 MW"],
+    quickRemember: "Phase-2 of the Omkareshwar Floating Solar Park in Madhya Pradesh became fully operational.",
+    audioText: "The second phase of the Omkareshwar Floating Solar Park in Madhya Pradesh achieved full commercial operation.",
+    source: "Ministry of New and Renewable Energy", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-059", date: "2026-06-25", month: "Jun 2026", category: "National Security",
+    title: "Ministry of Home Affairs Launches National Cyber Crime Threat Analytics Unit",
+    summary: "MHA inaugurated a centralized threat analytics unit to proactively neutralize cyber fraud syndicates.",
+    whatHappened: "Union Home Minister Amit Shah inaugurated the National Cyber Crime Threat Analytics Unit (NCTAU) under the Indian Cyber Crime Coordination Centre (I4C) in New Delhi, deploying AI-driven threat intelligence to dismantle digital financial fraud rings.",
+    importantPoints: [
+      "National Cyber Crime Threat Analytics Unit (NCTAU) inaugurated by MHA.",
+      "Operates under the Indian Cyber Crime Coordination Centre (I4C).",
+      "Deploys AI threat intelligence to dismantle financial fraud rings."
+    ],
+    examFacts: ["Unit: NCTAU", "Parent Body: I4C (MHA)", "Location: New Delhi"],
+    quickRemember: "MHA inaugurated the National Cyber Crime Threat Analytics Unit (NCTAU) in New Delhi.",
+    audioText: "The Home Ministry inaugurated the National Cyber Crime Threat Analytics Unit to neutralize digital fraud rings.",
+    source: "Ministry of Home Affairs", importantFor: ["SSC CGL", "UPSC", "CDS"]
+  },
+  {
+    id: "REC-JUN-060", date: "2026-06-26", month: "Jun 2026", category: "Economy & Agriculture",
+    title: "NABARD Approves ₹15,000 Crore Rural Infrastructure Development Fund Allocation",
+    summary: "NABARD sanctioned ₹15,000 crore under RIDF to upgrade rural irrigation and warehousing infrastructure.",
+    whatHappened: "The National Bank for Agriculture and Rural Development (NABARD) approved a massive ₹15,000 crore allocation under the Rural Infrastructure Development Fund (RIDF) to accelerate state-level irrigation projects, rural connectivity, and agricultural storage cold chains.",
+    importantPoints: [
+      "NABARD approved ₹15,000 crore under the RIDF.",
+      "Targets rural irrigation, all-weather connectivity, and agricultural cold chains.",
+      "Aims to strengthen grassroots agricultural supply chains."
+    ],
+    examFacts: ["Institution: NABARD", "Fund: RIDF", "Allocation: ₹15,000 Crore"],
+    quickRemember: "NABARD approved ₹15,000 crore under the RIDF to upgrade rural irrigation and storage infrastructure.",
+    audioText: "NABARD approved a fifteen thousand crore rupee allocation under the Rural Infrastructure Development Fund.",
+    source: "NABARD", importantFor: ["Bank PO", "SSC CGL", "UPSC"]
+  }
+];
+
+const junRecallQuestionsBatch3 = [
+  {
+    id: "REC-Q-JUN-041", articleId: "REC-JUN-041", category: "Defence & Aerospace",
+    question: "The DRDO successfully completed user-evaluation flight trials of an advanced variant of which anti-radiation missile from a Sukhoi-30 MKI?",
+    options: ["Astra", "RudraM", "Helina", "Prithvi-III"],
+    answer: 1, explanation: "DRDO flight-tested an upgraded variant of the RudraM anti-radiation missile from a Su-30 MKI fighter jet."
+  },
+  {
+    id: "REC-Q-JUN-042", articleId: "REC-JUN-042", category: "Science & Technology",
+    question: "Which research institution developed a rapid CRISPR-Cas diagnostic kit targeting congenital single-gene disorders from dried blood spots?",
+    options: ["AIIMS New Delhi", "CSIR-CCMB Hyderabad", "IISc Bengaluru", "ICMR-NARI Pune"],
+    answer: 1, explanation: "Scientists at CSIR-CCMB Hyderabad engineered a rapid CRISPR-Cas diagnostic platform for congenital single-gene disorders."
+  },
+  {
+    id: "REC-Q-JUN-043", articleId: "REC-JUN-043", category: "Economy & Infrastructure",
+    question: "India Post inaugurated its first net-zero, solar-powered automated post office branch in which city?",
+    options: ["Bengaluru", "Kochi", "Chennai", "Mysuru"],
+    answer: 1, explanation: "India Post commissioned its first fully solar-powered automated smart post office branch in Kochi, Kerala."
+  },
+  {
+    id: "REC-Q-JUN-044", articleId: "REC-JUN-044", category: "International Affairs",
+    question: "India and France signed an institutional framework agreement to establish which joint working group to strengthen space defence cooperation?",
+    options: ["Joint Defence Space Working Group", "Indo-French Orbital Security Cell", "Strategic Space Taskforce", "Aero-Space Coalition Board"],
+    answer: 0, explanation: "India and France established the Joint Defence Space Working Group to formalize space defence cooperation."
+  },
+  {
+    id: "REC-Q-JUN-045", articleId: "REC-JUN-045", category: "Environment & Forestry",
+    question: "The MoEFCC and NHAI launched the 'Green Corridor Index' to audit what aspect of national highway projects?",
+    options: ["Solar power generation potential along medians", "Ecological preservation, tree survival, and wildlife crossings", "Electric vehicle charging station density", "Rainwater harvesting pit functionality"],
+    answer: 1, explanation: "The Green Corridor Index evaluates highway projects based on native tree survival rates and wildlife crossing structures."
+  },
+  {
+    id: "REC-Q-JUN-046", articleId: "REC-JUN-046", category: "Science & Technology",
+    question: "Researchers at IISc Bengaluru engineered stable perovskite-silicon tandem solar cells achieving a laboratory conversion efficiency of:",
+    options: ["22.1%", "24.5%", "26.4%", "28.9%"],
+    answer: 2, explanation: "IISc Bengaluru successfully engineered perovskite solar cells pushing laboratory conversion efficiency to 26.4%."
+  },
+  {
+    id: "REC-Q-JUN-047", articleId: "REC-JUN-047", category: "Economy & Banking",
+    question: "The Reserve Bank of India launched an automated Centralized KYC Registry specifically tailored for which borrower category?",
+    options: ["Retail housing loan applicants", "MSME borrowers", "Agricultural tractor buyers", "Microfinance self-help groups"],
+    answer: 1, explanation: "The RBI launched a centralized automated KYC registry tailored for Micro, Small, and Medium Enterprises (MSMEs)."
+  },
+  {
+    id: "REC-Q-JUN-048", articleId: "REC-JUN-048", category: "Government Schemes",
+    question: "The Ministry of Tribal Affairs (MoTA) expanded the 'Adi Gram' initiative to connect how many remote tribal habitations with high-speed fiber internet?",
+    options: ["1,000 habitations", "2,500 habitations", "5,000 habitations", "10,000 habitations"],
+    answer: 2, explanation: "MoTA expanded 'Adi Gram' to integrate 5,000 remote tribal habitations with broadband and e-learning facilities."
+  },
+  {
+    id: "REC-Q-JUN-049", articleId: "REC-JUN-049", category: "Defence & Aerospace",
+    question: "Hindustan Aeronautics Limited (HAL) handed over the first batch of serial-production Light Utility Helicopters (LUH) manufactured in which city?",
+    options: ["Nashik", "Bengaluru", "Hyderabad", "Kanpur"],
+    answer: 1, explanation: "HAL handed over the first batch of serial-production LUHs from its manufacturing complex in Bengaluru."
+  },
+  {
+    id: "REC-Q-JUN-050", articleId: "REC-JUN-050", category: "Sports & Athletics",
+    question: "Indian javelin thrower Neeraj Chopra won the gold medal at the Ostrava Golden Spike 2026 meeting with a throw of:",
+    options: ["85.12 metres", "87.45 metres", "89.34 metres", "91.02 metres"],
+    answer: 2, explanation: "Neeraj Chopra secured the javelin gold medal at Ostrava with a throw of 89.34 metres."
+  },
+  {
+    id: "REC-Q-JUN-051", articleId: "REC-JUN-051", category: "Science & Technology",
+    question: "India's first multi-node National Quantum Cryptography Testbed (NQCT) was commissioned across research institutions in which city?",
+    options: ["New Delhi", "Pune", "Bengaluru", "Hyderabad"],
+    answer: 2, explanation: "The National Quantum Cryptography Testbed was commissioned across three research installations in Bengaluru."
+  },
+  {
+    id: "REC-Q-JUN-052", articleId: "REC-JUN-052", category: "Economy & Infrastructure",
+    question: "Prime Minister Modi inaugurated India's longest cable-stayed bridge spanning the Narmada River between Bharuch and Ankleshwar in Gujarat. What is its length?",
+    options: ["1.2 kilometers", "1.8 kilometers", "2.1 kilometers", "3.5 kilometers"],
+    answer: 2, explanation: "The Narmada Cable-Stayed Bridge spans 2.1 kilometers along National Highway 48."
+  },
+  {
+    id: "REC-Q-JUN-053", articleId: "REC-JUN-053", category: "Environment & Wildlife",
+    question: "Which wildlife sanctuary was officially declared India's first carbon-neutral wildlife sanctuary through mangrove carbon accounting?",
+    options: ["Kaziranga National Park", "Jim Corbett National Park", "Sunderbans Tiger Reserve", "Periyar Wildlife Sanctuary"],
+    answer: 2, explanation: "The Sunderbans Tiger Reserve in West Bengal was declared India's first carbon-neutral wildlife sanctuary."
+  },
+  {
+    id: "REC-Q-JUN-054", articleId: "REC-JUN-054", category: "International Affairs",
+    question: "India was successfully elected to the United Nations Economic and Social Council (ECOSOC) for which term?",
+    options: ["2026–2028", "2027–2029", "2028–2030", "2029–2031"],
+    answer: 1, explanation: "India was elected to the UN ECOSOC for the 2027–2029 term at the UN General Assembly."
+  },
+  {
+    id: "REC-Q-JUN-055", articleId: "REC-JUN-055", category: "Health & Biotechnology",
+    question: "The Indian Council of Medical Research (ICMR) operationalized the National Rare Disease Registry aggregating clinical data across how many tertiary care hospitals?",
+    options: ["10 hospitals", "20 hospitals", "30 hospitals", "50 hospitals"],
+    answer: 2, explanation: "The National Rare Disease Registry aggregates clinical data across 30 tertiary care hospitals nationwide."
+  },
+  {
+    id: "REC-Q-JUN-056", articleId: "REC-JUN-056", category: "Economy & Trade",
+    question: "India and Singapore signed a bilateral Digital Trade Agreement (DTA) establishing interoperable frameworks for e-invoicing and:",
+    options: ["Cryptocurrency exchange liquidity", "Cross-border data flows and fintech regulatory sandboxes", "Maritime freight customs clearance", "Direct satellite communications roaming"],
+    answer: 1, explanation: "The Digital Trade Agreement establishes frameworks for electronic invoicing, cross-border data flows, and fintech regulatory sandboxes."
+  },
+  {
+    id: "REC-Q-JUN-057", articleId: "REC-JUN-057", category: "Science & Space",
+    question: "ISRO successfully executed the third autonomous Landing Experiment (RLV-LEX-03) at the Chitradurga Aeronautical Test Range located in which state?",
+    options: ["Tamil Nadu", "Andhra Pradesh", "Karnataka", "Kerala"],
+    answer: 2, explanation: "The RLV-LEX-03 autonomous landing experiment was conducted at the Chitradurga Aeronautical Test Range in Karnataka."
+  },
+  {
+    id: "REC-Q-JUN-058", articleId: "REC-JUN-058", category: "Environment & Energy",
+    question: "Phase-2 of the Omkareshwar Floating Solar Park on the Narmada River in Madhya Pradesh brought its cumulative capacity to:",
+    options: ["250 MW", "400 MW", "600 MW", "1,000 MW"],
+    answer: 2, explanation: "Phase-2 expansion brought the cumulative capacity of the Omkareshwar Floating Solar Park to 600 MW."
+  },
+  {
+    id: "REC-Q-JUN-059", articleId: "REC-JUN-059", category: "National Security",
+    question: "Union Home Minister Amit Shah inaugurated the National Cyber Crime Threat Analytics Unit (NCTAU) under which overarching organization in New Delhi?",
+    options: ["National Investigation Agency (NIA)", "Indian Cyber Crime Coordination Centre (I4C)", "National Technical Research Organisation (NTRO)", "Central Bureau of Investigation (CBI)"],
+    answer: 1, explanation: "The NCTAU was inaugurated under the Indian Cyber Crime Coordination Centre (I4C) in New Delhi to neutralize financial fraud syndicates."
+  },
+  {
+    id: "REC-Q-JUN-060", articleId: "REC-JUN-060", category: "Economy & Agriculture",
+    question: "NABARD approved a ₹15,000 crore allocation under the Rural Infrastructure Development Fund (RIDF) primarily to upgrade:",
+    options: ["Rural irrigation, connectivity, and agricultural storage", "Digital banking kiosks in gram panchayats", "Solar-powered cold-storage solar grids", "Handloom weaver cooperative factories"],
+    answer: 0, explanation: "NABARD's ₹15,000 crore RIDF allocation targets state irrigation projects, rural connectivity, and agricultural storage infrastructure."
+  }
+];
+
+// 👉 PUSH DATA INTO GLOBAL ARRAYS
+if (typeof hiddenRecallArticles !== 'undefined') {
+  hiddenRecallArticles.push(...junRecallArticlesBatch3);
+}
+if (typeof recallQuestionPool !== 'undefined') {
+  recallQuestionPool.push(...junRecallQuestionsBatch3);
+}
+
+/* ==========================================================================
+   END OF JUNE BATCH 3
+   ========================================================================== */
+
+
+/* ==========================================================================
+   JUNE 2026 - BATCH 4 (ITEMS 061 TO 080)
+   ========================================================================== */
+
+const junRecallArticlesBatch4 = [
+  {
+    id: "REC-JUN-061", date: "2026-06-01", month: "Jun 2026", category: "Science & Technology",
+    title: "CSIR-IICT Develops Sustainable Bio-Aviation Fuel",
+    summary: "CSIR-IICT successfully produced sustainable aviation fuel (SAF) from non-edible plant oils.",
+    whatHappened: "The CSIR-Indian Institute of Chemical Technology (IICT) successfully scaled up the production of Sustainable Aviation Fuel (SAF) derived from non-edible used cooking oil and plant seeds, meeting stringent international jet fuel standards.",
+    importantPoints: [
+      "Sustainable Aviation Fuel (SAF) developed by CSIR-IICT.",
+      "Derived from non-edible cooking oils and plant seeds.",
+      "Meets international aviation fuel standards for lower carbon footprints."
+    ],
+    examFacts: ["Institution: CSIR-IICT Hyderabad", "Innovation: Sustainable Aviation Fuel"],
+    quickRemember: "CSIR-IICT developed sustainable aviation fuel from non-edible oils.",
+    audioText: "CSIR-IICT successfully produced sustainable aviation fuel from non-edible plant oils and used cooking oils.",
+    source: "CSIR", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-062", date: "2026-06-02", month: "Jun 2026", category: "Economy & Infrastructure",
+    title: "Inauguration of India's First Automated Multi-Modal Logistics Hub in Noida",
+    summary: "A modern automated multi-modal logistics hub was inaugurated in Greater Noida to streamline cargo.",
+    whatHappened: "The Ministry of Commerce and Industry inaugurated an advanced automated multi-modal logistics hub in Greater Noida, Uttar Pradesh, featuring automated container stacking and direct rail freight sidings.",
+    importantPoints: [
+      "Automated multi-modal logistics hub inaugurated in Greater Noida.",
+      "Features automated container stacking and rail freight sidings.",
+      "Reduces logistics costs across the National Capital Region."
+    ],
+    examFacts: ["Facility: Multi-Modal Logistics Hub", "Location: Greater Noida, UP"],
+    quickRemember: "An automated multi-modal logistics hub was inaugurated in Greater Noida.",
+    audioText: "An automated multi-modal logistics hub was inaugurated in Greater Noida to streamline cargo movement.",
+    source: "Ministry of Commerce", importantFor: ["SSC CGL", "RRB NTPC"]
+  },
+  {
+    id: "REC-JUN-063", date: "2026-06-03", month: "Jun 2026", category: "Environment & Wildlife",
+    title: "New Fresh Water Crab Species Discovered in Western Ghats",
+    summary: "A new freshwater crab species, *Ghatiana atropurpurea*, was discovered in the southern Western Ghats.",
+    whatHappened: "Wildlife researchers formally described a new species of freshwater crab, named *Ghatiana atropurpurea*, discovered in the fast-flowing streams of the southern Western Ghats, highlighting the region's rich endemic biodiversity.",
+    importantPoints: [
+      "New freshwater crab species named *Ghatiana atropurpurea*.",
+      "Discovered in the Western Ghats.",
+      "Endemic freshwater species highlighting regional biodiversity."
+    ],
+    examFacts: ["Species: Ghatiana atropurpurea", "Location: Western Ghats"],
+    quickRemember: "A new freshwater crab species, Ghatiana atropurpurea, was discovered in the Western Ghats.",
+    audioText: "Researchers discovered a new freshwater crab species named Ghatiana atropurpurea in the Western Ghats.",
+    source: "Zoological Survey of India", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-064", date: "2026-06-04", month: "Jun 2026", category: "Defence & Aerospace",
+    title: "DRDO Successfully Test Fires Extended-Range Pinaka Rocket",
+    summary: "DRDO completed developmental flight trials of the extended-range Pinaka Mk-II rocket system.",
+    whatHappened: "The Defence Research and Development Organisation (DRDO) successfully test-fired the extended-range Pinaka Mk-II multi-barrel rocket launcher system from a test range in Pokhran, Rajasthan, achieving pin-point accuracy at extended distances.",
+    importantPoints: [
+      "Successful test flight of the extended-range Pinaka Mk-II rocket.",
+      "Conducted at Pokhran, Rajasthan.",
+      "Enhances artillery firepower and range."
+    ],
+    examFacts: ["Weapon: Pinaka Mk-II Extended-Range", "Agency: DRDO", "Test Site: Pokhran"],
+    quickRemember: "DRDO successfully test-fired the extended-range Pinaka Mk-II rocket system in Pokhran.",
+    audioText: "DRDO successfully test-fired the extended-range Pinaka rocket system from Pokhran in Rajasthan.",
+    source: "Ministry of Defence", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-065", date: "2026-06-05", month: "Jun 2026", category: "Government Schemes",
+    title: "Ministry of Education Launches 'Vidya Samiksha Kendra 2.0'",
+    summary: "The Ministry of Education upgraded its data analytics framework with Vidya Samiksha Kendra 2.0.",
+    whatHappened: "The Ministry of Education rolled out 'Vidya Samiksha Kendra 2.0', an advanced cloud-based command and control center portal designed to monitor school attendance, learning outcomes, and teacher deployment metrics nationwide in real time.",
+    importantPoints: [
+      "Vidya Samiksha Kendra 2.0 launched by the Ministry of Education.",
+      "Cloud-based command and control center for school education.",
+      "Monitors real-time student attendance and learning outcomes."
+    ],
+    examFacts: ["Platform: Vidya Samiksha Kendra 2.0", "Ministry: Ministry of Education"],
+    quickRemember: "The Ministry of Education launched Vidya Samiksha Kendra 2.0 for real-time school analytics.",
+    audioText: "The Education Ministry launched Vidya Samiksha Kendra 2.0 to monitor school attendance and learning outcomes in real time.",
+    source: "Ministry of Education", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-066", date: "2026-06-08", month: "Jun 2026", category: "Economy & Banking",
+    title: "RBI Directs Banks to Implement Core Banking Upgrades for Cyber Resilience",
+    summary: "The RBI mandated strict technology upgrades across core banking systems to prevent service outages.",
+    whatHappened: "The Reserve Bank of India (RBI) issued a binding directive requiring all scheduled commercial banks to complete mandatory core banking system (CBS) architectural upgrades and failover redundancy protocols to prevent digital service outages.",
+    importantPoints: [
+      "RBI directive for core banking system (CBS) upgrades.",
+      "Mandates failover redundancy protocols to prevent outages.",
+      "Enforces strict tech resilience standards across commercial banks."
+    ],
+    examFacts: ["Regulator: RBI", "Focus: Core Banking Cyber Resilience"],
+    quickRemember: "The RBI mandated core banking system upgrades and failover protocols for commercial banks.",
+    audioText: "The Reserve Bank of India directed commercial banks to implement strict core banking upgrades for cyber resilience.",
+    source: "RBI", importantFor: ["Bank PO", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-067", date: "2026-06-09", month: "Jun 2026", category: "Science & Space",
+    title: "ISRO Completes Static Test of Vikas Engine for Gaganyaan",
+    summary: "ISRO successfully conducted a long-duration static firing test of the Vikas liquid rocket engine.",
+    whatHappened: "ISRO successfully completed a crucial long-duration hot test of the Vikas liquid rocket engine at the Propulsion Complex in Mahendragiri, validating its performance reliability parameters for upcoming crewed Gaganyaan flight configurations.",
+    importantPoints: [
+      "Long-duration static hot test of the Vikas rocket engine.",
+      "Conducted at IPRC Mahendragiri, Tamil Nadu.",
+      "Validates reliability metrics for the human-rated Gaganyaan program."
+    ],
+    examFacts: ["Engine: Vikas Liquid Engine", "Mission: Gaganyaan", "Test Site: Mahendragiri"],
+    quickRemember: "ISRO successfully completed a long-duration static test of the Vikas engine for Gaganyaan.",
+    audioText: "ISRO successfully completed a long-duration static firing test of the Vikas liquid rocket engine at Mahendragiri.",
+    source: "ISRO", importantFor: ["SSC CGL", "CDS", "UPSC"]
+  },
+  {
+    id: "REC-JUN-068", date: "2026-06-10", month: "Jun 2026", category: "International Affairs",
+    title: "India and Australia Sign Clean Energy Technology Partnership",
+    summary: "New Delhi and Canberra executed a formal bilateral framework for joint critical clean energy research.",
+    whatHappened: "India and Australia signed a bilateral Clean Energy Technology Partnership agreement in Canberra, committing funds toward joint research in solar PV manufacturing, green hydrogen catalysts, and grid battery storage solutions.",
+    importantPoints: [
+      "Clean Energy Technology Partnership signed between India and Australia.",
+      "Focuses on joint research in solar PV, green hydrogen, and battery storage.",
+      "Signed during high-level bilateral talks in Canberra."
+    ],
+    examFacts: ["Partners: India and Australia", "Agreement: Clean Energy Technology Partnership"],
+    quickRemember: "India and Australia signed a Clean Energy Technology Partnership agreement.",
+    audioText: "India and Australia signed a Clean Energy Technology Partnership agreement to advance joint research in green energy.",
+    source: "MEA", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-069", date: "2026-06-11", month: "Jun 2026", category: "Environment & Forests",
+    title: "MoEFCC Releases State of Forest Fire Report",
+    summary: "The Environment Ministry published a comprehensive analytical report tracking seasonal forest fire incidents.",
+    whatHappened: "The Ministry of Environment, Forest and Climate Change released an advanced analytical report tracking seasonal forest fire occurrences across various states, highlighting automated satellite alert integrations and community-led firefighting readiness.",
+    importantPoints: [
+      "State of Forest Fire report published by MoEFCC.",
+      "Highlights satellite-based real-time fire alert integrations.",
+      "Emphasizes local community-led firefighting readiness."
+    ],
+    examFacts: ["Publisher: MoEFCC", "Report: Forest Fire Analytics"],
+    quickRemember: "The Environment Ministry released an analytical report tracking forest fire incidents and satellite alerts.",
+    audioText: "The Environment Ministry published a comprehensive report tracking seasonal forest fire incidents and satellite alerts.",
+    source: "MoEFCC", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-070", date: "2026-06-12", month: "Jun 2026", category: "Sports & Athletics",
+    title: "Aman Sehrawat Wins Gold at international Ranking Wrestling Series",
+    summary: "Indian wrestler Aman Sehrawat clinched the gold medal at an international ranking series tournament.",
+    whatHappened: "Ace Indian wrestler Aman Sehrawat put up a stellar performance to secure the gold medal in his weight category at the international ranking wrestling series, cementing his status as a top contender for upcoming global championships.",
+    importantPoints: [
+      "Aman Sehrawat won gold at an international ranking wrestling series.",
+      "Sport: Wrestling.",
+      "Demonstrated dominant technical superiority over international opponents."
+    ],
+    examFacts: ["Athlete: Aman Sehrawat", "Sport: Wrestling", "Medal: Gold"],
+    quickRemember: "Wrestler Aman Sehrawat won the gold medal at an international ranking series tournament.",
+    audioText: "Indian wrestler Aman Sehrawat won the gold medal at an international ranking series tournament.",
+    source: "Wrestling Federation of India", importantFor: ["SSC CGL", "SSC CHSL"]
+  },
+  {
+    id: "REC-JUN-071", date: "2026-06-15", month: "Jun 2026", category: "Science & Technology",
+    title: "IIT Kharagpur Develops Low-Cost Arsenic Water Purifier",
+    summary: "Engineers at IIT Kharagpur engineered a sustainable nanomaterial filter for arsenic removal in groundwater.",
+    whatHappened: "Researchers at IIT Kharagpur developed an affordable, durable water purification unit using indigenous manganese-coated nanoadsorbents capable of filtering toxic arsenic out of groundwater wells in affected eastern river basins.",
+    importantPoints: [
+      "Low-cost water purification unit developed by IIT Kharagpur.",
+      "Uses manganese-coated nanoadsorbents to remove groundwater arsenic.",
+      "Aims to solve heavy metal contamination in eastern river basins."
+    ],
+    examFacts: ["Innovation: Arsenic Water Purifier", "Institute: IIT Kharagpur"],
+    quickRemember: "IIT Kharagpur developed a low-cost nanomaterial filter to remove arsenic from groundwater.",
+    audioText: "Researchers at IIT Kharagpur developed a low-cost water purifier using nanomaterials to remove arsenic from groundwater.",
+    source: "IIT Kharagpur", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-072", date: "2026-06-16", month: "Jun 2026", category: "Economy & Infrastructure",
+    title: "Inauguration of New Integrated Terminal Building at Port Blair Airport",
+    summary: "A swanky new integrated terminal building was inaugurated at Veer Savarkar International Airport, Port Blair.",
+    whatHappened: "A state-of-the-art integrated terminal building was inaugurated at Veer Savarkar International Airport in Port Blair, Andaman and Nicobar Islands, featuring shell-inspired architectural motifs and enhanced passenger handling capacity.",
+    importantPoints: [
+      "New integrated terminal building inaugurated at Port Blair Airport.",
+      "Located at Veer Savarkar International Airport, Andaman and Nicobar Islands.",
+      "Boosts regional tourism and passenger handling capacity."
+    ],
+    examFacts: ["Airport: Veer Savarkar International Airport", "Location: Port Blair"],
+    quickRemember: "A new integrated terminal building was inaugurated at Port Blair Airport.",
+    audioText: "A new integrated terminal building was inaugurated at Veer Savarkar International Airport in Port Blair.",
+    source: "Ministry of Civil Aviation", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-073", date: "2026-06-17", month: "Jun 2026", category: "International Affairs",
+    title: "India Joins Global Partnership on AI Steering Committee",
+    summary: "India assumed a premier steering committee seat on the Global Partnership on Artificial Intelligence (GPAI).",
+    whatHappened: "India was formally appointed to a prominent seat on the Steering Committee of the Global Partnership on Artificial Intelligence (GPAI), reinforcing its leadership role in shaping safe, responsible, and democratic global AI governance frameworks.",
+    importantPoints: [
+      "India appointed to the Steering Committee of the GPAI.",
+      "Reinforces India's leadership in safe and responsible AI governance.",
+      "Focuses on democratic AI standards and ethical frameworks."
+    ],
+    examFacts: ["Organization: GPAI (Global Partnership on AI)", "Role: Steering Committee Member"],
+    quickRemember: "India joined the Steering Committee of the Global Partnership on Artificial Intelligence (GPAI).",
+    audioText: "India was appointed to the Steering Committee of the Global Partnership on Artificial Intelligence.",
+    source: "Ministry of Electronics and IT", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-074", date: "2026-06-18", month: "Jun 2026", category: "Government Schemes",
+    title: "Ministry of Social Justice Launches 'Nasha Mukt Bharat Abhiyan Portal 2.0'",
+    summary: "An upgraded digital dashboard was launched to monitor anti-drug campaign milestones across districts.",
+    whatHappened: "The Ministry of Social Justice and Empowerment launched 'Nasha Mukt Bharat Abhiyan Portal 2.0', a data-driven digital platform tracking anti-substance abuse awareness campaigns, rehabilitation center metrics, and youth volunteer sign-ups across all districts.",
+    importantPoints: [
+      "Launched by the Ministry of Social Justice and Empowerment.",
+      "Portal named 'Nasha Mukt Bharat Abhiyan Portal 2.0'.",
+      "Tracks anti-drug awareness campaigns and rehabilitation metrics."
+    ],
+    examFacts: ["Portal: Nasha Mukt Bharat Abhiyan 2.0", "Ministry: Social Justice"],
+    quickRemember: "The Social Justice Ministry launched the Nasha Mukt Bharat Abhiyan Portal 2.0 to monitor anti-drug campaigns.",
+    audioText: "The Social Justice Ministry launched Portal 2.0 for the Nasha Mukt Bharat Abhiyan to monitor anti-drug campaigns.",
+    source: "Ministry of Social Justice", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-075", date: "2026-06-19", month: "Jun 2026", category: "National Security",
+    title: "Indian Coast Guard Commissions Advanced Fast Patrol Vessel 'ICGS Samarth'",
+    summary: "A new fast patrol vessel was added to the Indian Coast Guard fleet to secure maritime borders.",
+    whatHappened: "The Indian Coast Guard commissioned an advanced Fast Patrol Vessel (FPV) named 'ICGS Samarth' to reinforce shallow-water surveillance, anti-smuggling patrols, and search-and-rescue operations along India's western maritime frontier.",
+    importantPoints: [
+      "Fast Patrol Vessel 'ICGS Samarth' commissioned into the Indian Coast Guard.",
+      "Reinforces shallow-water surveillance and anti-smuggling patrols.",
+      "Built with advanced indigenous navigation and communication suites."
+    ],
+    examFacts: ["Vessel: ICGS Samarth", "Service: Indian Coast Guard", "Type: Fast Patrol Vessel (FPV)"],
+    quickRemember: "The Indian Coast Guard commissioned the fast patrol vessel ICGS Samarth.",
+    audioText: "The Indian Coast Guard commissioned the advanced fast patrol vessel ICGS Samarth to secure maritime borders.",
+    source: "Indian Coast Guard", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-076", date: "2026-06-22", month: "Jun 2026", category: "Economy & Trade",
+    title: "India and UAE Complete First Bilateral Investment Treaty Review",
+    summary: "New Delhi and Abu Dhabi concluded a successful review session under their Bilateral Investment Treaty.",
+    whatHappened: "Officials from India and the United Arab Emirates convened in Abu Dhabi to conclude the first formal review session of their Bilateral Investment Treaty (BIT), aiming to further boost venture capital flows and cross-border manufacturing investments.",
+    importantPoints: [
+      "First formal review of the India-UAE Bilateral Investment Treaty (BIT).",
+      "Held in Abu Dhabi.",
+      "Aims to enhance venture capital and manufacturing investments."
+    ],
+    examFacts: ["Partners: India and UAE", "Agreement: Bilateral Investment Treaty (BIT)"],
+    quickRemember: "India and UAE concluded a successful review session under their Bilateral Investment Treaty.",
+    audioText: "India and the UAE successfully completed their first Bilateral Investment Treaty review session in Abu Dhabi.",
+    source: "Ministry of Commerce", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-077", date: "2026-06-23", month: "Jun 2026", category: "Science & Technology",
+    title: "AIIMS Delhi Operates India's First Pediatric Epilepsy Robotic Surgery Center",
+    summary: "AIIMS New Delhi established a specialized center utilizing robotics for precision pediatric epilepsy surgery.",
+    whatHappened: "AIIMS New Delhi inaugurated India's first dedicated Pediatric Epilepsy Robotic Surgery Center, utilizing state-of-the-art stereotactic robotic assistance to treat drug-resistant pediatric epilepsy with minimal trauma.",
+    importantPoints: [
+      "India's first Pediatric Epilepsy Robotic Surgery Center established at AIIMS Delhi.",
+      "Uses stereotactic robotic assistance for drug-resistant epilepsy cases.",
+      "Minimizes surgical trauma and improves recovery outcomes."
+    ],
+    examFacts: ["Facility: Pediatric Epilepsy Robotic Center", "Hospital: AIIMS New Delhi"],
+    quickRemember: "AIIMS Delhi established India's first Pediatric Epilepsy Robotic Surgery Center.",
+    audioText: "AIIMS New Delhi established India's first Pediatric Epilepsy Robotic Surgery Center for precision treatment.",
+    source: "AIIMS", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-078", date: "2026-06-24", month: "Jun 2026", category: "Environment & Energy",
+    title: "NTPC Commissions India's Largest Green Hydrogen Microgrid",
+    summary: "NTPC successfully commissioned an integrated green hydrogen microgrid facility in Ladakh.",
+    whatHappened: "NTPC Limited successfully commissioned India's largest integrated green hydrogen microgrid project in Leh, Ladakh. The facility utilizes solar power generation coupled with hydrogen fuel cells to provide uninterrupted clean electricity to remote high-altitude military outposts.",
+    importantPoints: [
+      "India's largest integrated green hydrogen microgrid commissioned by NTPC.",
+      "Located in Leh, Ladakh.",
+      "Provides reliable green electricity to high-altitude outposts using fuel cells."
+    ],
+    examFacts: ["Company: NTPC", "Facility: Green Hydrogen Microgrid", "Location: Leh, Ladakh"],
+    quickRemember: "NTPC commissioned India's largest integrated green hydrogen microgrid in Leh, Ladakh.",
+    audioText: "NTPC successfully commissioned India's largest integrated green hydrogen microgrid facility in Leh, Ladakh.",
+    source: "Ministry of Power", importantFor: ["SSC CGL", "UPSC", "CDS"]
+  },
+  {
+    id: "REC-JUN-079", date: "2026-06-25", month: "Jun 2026", category: "National Affairs",
+    title: "Election Commission Launches 'Voter Verify Portal 2.0'",
+    summary: "The Election Commission of India unveiled an upgraded portal for streamlined voter registration and verification.",
+    whatHappened: "The Election Commission of India (ECI) launched 'Voter Verify Portal 2.0', a secure digital platform featuring facial recognition lookup and automated EPIC card downloading to ease electoral roll revisions for citizens nationwide.",
+    importantPoints: [
+      "Voter Verify Portal 2.0 launched by the Election Commission of India (ECI).",
+      "Features facial recognition lookup and automated EPIC card downloads.",
+      "Streamlines electoral roll verification for citizens."
+    ],
+    examFacts: ["Portal: Voter Verify Portal 2.0", "Agency: Election Commission of India (ECI)"],
+    quickRemember: "The Election Commission launched Voter Verify Portal 2.0 for streamlined voter verification.",
+    audioText: "The Election Commission of India launched Voter Verify Portal 2.0 for streamlined voter registration and checks.",
+    source: "Election Commission of India", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-080", date: "2026-06-26", month: "Jun 2026", category: "Economy & Trade",
+    title: "RBI Releases Annual Report on Currency and Finance",
+    summary: "The Reserve Bank of India published its flagship annual report focusing on green transition economics.",
+    whatHappened: "The Reserve Bank of India (RBI) released its annual Report on Currency and Finance (RCF), detailing comprehensive macroeconomic frameworks, financing challenges, and monetary policy adjustments required to support India's net-zero green economic transition.",
+    importantPoints: [
+      "RBI released its annual Report on Currency and Finance (RCF).",
+      "Focuses on financing the green economic transition and net-zero targets.",
+      "Provides macroeconomic policy recommendations."
+    ],
+    examFacts: ["Institution: RBI", "Report: Report on Currency and Finance (RCF)"],
+    quickRemember: "The RBI released its annual Report on Currency and Finance focusing on the green economic transition.",
+    audioText: "The Reserve Bank of India released its annual Report on Currency and Finance focusing on green transition economics.",
+    source: "RBI", importantFor: ["Bank PO", "SSC CGL", "UPSC"]
+  }
+];
+
+const junRecallQuestionsBatch4 = [
+  {
+    id: "REC-Q-JUN-061", articleId: "REC-JUN-061", category: "Science & Technology",
+    question: "Which research institution successfully produced sustainable aviation fuel (SAF) from non-edible plant oils and used cooking oils?",
+    options: ["CSIR-IICT Hyderabad", "CSIR-NCL Pune", "CSIR-NEERI Nagpur", "CSIR-CDRI Lucknow"],
+    answer: 0, explanation: "The CSIR-Indian Institute of Chemical Technology (IICT) successfully produced sustainable aviation fuel meeting international jet fuel standards."
+  },
+  {
+    id: "REC-Q-JUN-062", articleId: "REC-JUN-062", category: "Economy & Infrastructure",
+    question: "An advanced automated multi-modal logistics hub featuring automated container stacking and rail sidings was inaugurated in which city?",
+    options: ["Greater Noida, Uttar Pradesh", "Ahmedabad, Gujarat", "Nagpur, Maharashtra", "Visakhapatnam, Andhra Pradesh"],
+    answer: 0, explanation: "The Ministry of Commerce and Industry inaugurated an advanced automated multi-modal logistics hub in Greater Noida, UP."
+  },
+  {
+    id: "REC-Q-JUN-063", articleId: "REC-JUN-063", category: "Environment & Wildlife",
+    question: "What is the name of the new freshwater crab species discovered in the fast-flowing streams of the southern Western Ghats?",
+    options: ["Kani maratha", "Ghatiana atropurpurea", "Travancoriana sholayarensis", "Baratha tuberculata"],
+    answer: 1, explanation: "Wildlife researchers formally described a new freshwater crab species named Ghatiana atropurpurea from the southern Western Ghats."
+  },
+  {
+    id: "REC-Q-JUN-064", articleId: "REC-JUN-064", category: "Defence & Aerospace",
+    question: "The DRDO successfully test-fired the extended-range Pinaka Mk-II multi-barrel rocket launcher system from a test range located in:",
+    options: ["Balasore, Odisha", "Pokhran, Rajasthan", "Wheeler Island, Odisha", "Chandipur, Odisha"],
+    answer: 1, explanation: "The extended-range Pinaka Mk-II rocket system was test-fired successfully from a test range in Pokhran, Rajasthan."
+  },
+  {
+    id: "REC-Q-JUN-065", articleId: "REC-JUN-065", category: "Government Schemes",
+    question: "The Ministry of Education rolled out 'Vidya Samiksha Kendra 2.0' as a cloud-based command and control center portal primarily to monitor:",
+    options: ["Mid-day meal nutritional distribution", "School attendance, learning outcomes, and teacher deployment", "Board examination paper distribution security", "Vocational lab equipment inventories"],
+    answer: 1, explanation: "Vidya Samiksha Kendra 2.0 monitors school attendance, learning outcomes, and teacher deployment metrics nationwide in real time."
+  },
+  {
+    id: "REC-Q-JUN-066", articleId: "REC-JUN-066", category: "Economy & Banking",
+    question: "The Reserve Bank of India issued a binding directive requiring all scheduled commercial banks to complete mandatory upgrades for which systems to prevent outages?",
+    options: ["Unified Payments Interface switches", "Core banking system (CBS) architectures", "RTGS liquidity clearing windows", "ATM network hardware routers"],
+    answer: 1, explanation: "The RBI mandated mandatory core banking system (CBS) architectural upgrades and failover redundancy protocols to prevent service outages."
+  },
+  {
+    id: "REC-Q-JUN-067", articleId: "REC-JUN-067", category: "Science & Space",
+    question: "ISRO successfully completed a crucial long-duration hot test of which liquid rocket engine at Mahendragiri for the Gaganyaan program?",
+    options: ["CE-20 Cryogenic Engine", "Vikas Liquid Engine", "Scylla Semi-Cryogenic Booster", "L110 Core Engine"],
+    answer: 1, explanation: "ISRO completed a long-duration static hot test of the Vikas liquid rocket engine at Mahendragiri for the human-rated Gaganyaan missions."
+  },
+  {
+    id: "REC-Q-JUN-068", articleId: "REC-JUN-068", category: "International Affairs",
+    question: "India and Australia signed a bilateral Clean Energy Technology Partnership agreement focusing on joint research in Canberra. Which of the following was included?",
+    options: ["Solar PV manufacturing and battery storage", "Thorium nuclear fuel reprocessing", "Deep-sea geothermal tapping", "Tidal ocean energy grids"],
+    answer: 0, explanation: "The Clean Energy Technology Partnership focuses on joint research in solar PV manufacturing, green hydrogen, and battery storage solutions."
+  },
+  {
+    id: "REC-Q-JUN-069", articleId: "REC-JUN-069", category: "Environment & Forests",
+    question: "The 'State of Forest Fire Report' published by the MoEFCC highlights which of the following technological integrations?",
+    options: ["Automated satellite fire alert integrations", "Drone-based chemical retardant spraying", "Underground thermal sensor grids", "Acoustic canopy burn detection"],
+    answer: 0, explanation: "The MoEFCC report highlighted automated satellite alert integrations and community firefighting readiness to combat forest fires."
+  },
+  {
+    id: "REC-Q-JUN-070", articleId: "REC-JUN-070", category: "Sports & Athletics",
+    question: "Indian wrestler Aman Sehrawat clinched the gold medal in his weight category at which type of event?",
+    options: ["World Wrestling Championships", "International ranking series tournament", "Asian Games qualifiers", "Commonwealth Invitational Cup"],
+    answer: 1, explanation: "Aman Sehrawat secured the gold medal in his weight category at an international ranking series wrestling tournament."
+  },
+  {
+    id: "REC-Q-JUN-071", articleId: "REC-JUN-071", category: "Science & Technology",
+    question: "Researchers at IIT Kharagpur developed an affordable water purification unit using indigenous manganese-coated nanoadsorbents to remove what contaminant?",
+    options: ["Arsenic from groundwater wells", "Fluoride from hard rock aquifers", "Microplastics in municipal tap networks", "Uranium traces in river deltas"],
+    answer: 0, explanation: "IIT Kharagpur engineered a sustainable nanomaterial filter using manganese-coated nanoadsorbents to remove arsenic from groundwater."
+  },
+  {
+    id: "REC-Q-JUN-072", articleId: "REC-JUN-072", category: "Economy & Infrastructure",
+    question: "A state-of-the-art new integrated terminal building featuring shell-inspired architectural motifs was inaugurated at Veer Savarkar International Airport located in:",
+    options: ["Kochi, Kerala", "Port Blair, Andaman and Nicobar Islands", "Agartala, Tripura", "Imphal, Manipur"],
+    answer: 1, explanation: "An integrated terminal building was inaugurated at Veer Savarkar International Airport in Port Blair."
+  },
+  {
+    id: "REC-Q-JUN-073", articleId: "REC-JUN-073", category: "International Affairs",
+    question: "India was formally appointed to a prominent seat on the Steering Committee of which global artificial intelligence partnership?",
+    options: ["Responsible AI Consortium (RAIC)", "Global Partnership on Artificial Intelligence (GPAI)", "International AI Ethics Panel", "Democratic Technology Accord"],
+    answer: 1, explanation: "India was appointed to the Steering Committee of the Global Partnership on Artificial Intelligence (GPAI) to shape safe AI governance."
+  },
+  {
+    id: "REC-Q-JUN-074", articleId: "REC-JUN-074", category: "Government Schemes",
+    question: "The Ministry of Social Justice and Empowerment launched 'Nasha Mukt Bharat Abhiyan Portal 2.0' primarily to track:",
+    options: ["Rehabilitation funding disbursements to states", "Anti-substance abuse awareness campaigns and rehabilitation metrics", "Seized illicit narcotics inventories across police stations", "Clinical trials for de-addiction pharmaceutical drugs"],
+    answer: 1, explanation: "Portal 2.0 tracks anti-substance abuse awareness campaigns, rehab center metrics, and youth volunteer sign-ups across districts."
+  },
+  {
+    id: "REC-Q-JUN-075", articleId: "REC-JUN-075", category: "National Security",
+    question: "The Indian Coast Guard commissioned an advanced Fast Patrol Vessel (FPV) named 'ICGS Samarth' to reinforce:",
+    options: ["High-seas anti-piracy escorts near the Gulf of Aden", "Shallow-water surveillance, anti-smuggling patrols, and SAR operations", "Deep-submergence submarine tracking in the Bay of Bengal", "Archipelagic island defense operations"],
+    answer: 1, explanation: "ICGS Samarth was commissioned to reinforce shallow-water surveillance, anti-smuggling patrols, and search-and-rescue operations."
+  },
+  {
+    id: "REC-Q-JUN-076", articleId: "REC-JUN-076", category: "Economy & Trade",
+    question: "Officials from India and the United Arab Emirates convened in Abu Dhabi to conclude the first formal review session of their:",
+    options: ["Comprehensive Economic Partnership Agreement", "Bilateral Investment Treaty (BIT)", "Digital Free Trade Accord", "Energy Security Framework"],
+    answer: 1, explanation: "India and the UAE concluded their first formal review session under their Bilateral Investment Treaty (BIT) in Abu Dhabi."
+  },
+  {
+    id: "REC-Q-JUN-077", articleId: "REC-JUN-077", category: "Science & Technology",
+    question: "AIIMS New Delhi inaugurated India's first dedicated Pediatric Epilepsy Robotic Surgery Center utilizing what technology for treatment?",
+    options: ["Stereotactic robotic assistance", "Focused ultrasound ablation probes", "Magnetic resonance guided lasers", "Endoscopic neural navigation rigs"],
+    answer: 0, explanation: "AIIMS Delhi established India's first Pediatric Epilepsy Robotic Center using stereotactic robotic assistance for drug-resistant epilepsy."
+  },
+  {
+    id: "REC-JUN-078", articleId: "REC-JUN-078", category: "Environment & Energy",
+    question: "NTPC Limited successfully commissioned India's largest integrated green hydrogen microgrid project in which high-altitude location?",
+    options: ["Kaza, Himachal Pradesh", "Leh, Ladakh", "Tawang, Arunachal Pradesh", "Srinagar, Jammu & Kashmir"],
+    answer: 1, explanation: "NTPC commissioned India's largest integrated green hydrogen microgrid project in Leh, Ladakh, using solar power and fuel cells."
+  },
+  {
+    id: "REC-Q-JUN-079", articleId: "REC-JUN-079", category: "National Affairs",
+    question: "The Election Commission of India launched 'Voter Verify Portal 2.0' featuring which technological capability to ease electoral roll revisions?",
+    options: ["Blockchain voter ballot casting", "Facial recognition lookup and automated EPIC card downloading", "Biometric iris authentication terminals", "Aadhaar vault cryptographic hashing"],
+    answer: 1, explanation: "Voter Verify Portal 2.0 features facial recognition lookup and automated EPIC card downloading for streamlined voter verification."
+  },
+  {
+    id: "REC-Q-JUN-080", articleId: "REC-JUN-080", category: "Economy & Trade",
+    question: "The Reserve Bank of India released its annual Report on Currency and Finance (RCF) detailing macroeconomic frameworks required to support:",
+    options: ["Universal basic income rollouts", "India's net-zero green economic transition", "Digital Rupee wholesale settlement expansion", "Cross-border retail CBDC interoperability"],
+    answer: 1, explanation: "The RBI's Report on Currency and Finance (RCF) focused on macroeconomic frameworks and financing challenges to support India's net-zero green transition."
+  }
+];
+
+// 👉 PUSH DATA INTO GLOBAL ARRAYS
+if (typeof hiddenRecallArticles !== 'undefined') {
+  hiddenRecallArticles.push(...junRecallArticlesBatch4);
+}
+if (typeof recallQuestionPool !== 'undefined') {
+  recallQuestionPool.push(...junRecallQuestionsBatch4);
+}
+
+/* ==========================================================================
+   END OF JUNE BATCH 4
+   ========================================================================== */
+/* ==========================================================================
+   JUNE 2026 - BATCH 5 (ITEMS 081 TO 100)
+   ========================================================================== */
+
+const junRecallArticlesBatch5 = [
+  {
+    id: "REC-JUN-081", date: "2026-06-01", month: "Jun 2026", category: "Science & Technology",
+    title: "ISRO Successfully Tests Composite Rocket Motor Cases",
+    summary: "ISRO successfully qualified lightweight carbon composite motor cases for upcoming launch vehicle stages.",
+    whatHappened: "The Indian Space Research Organisation (ISRO) successfully completed high-pressure structural qualification trials of lightweight carbon-fiber composite rocket motor cases at Sriharikota, significantly reducing stage deadweight for future PSLV and LVM3 flights.",
+    importantPoints: [
+      "Lightweight carbon composite rocket motor cases qualified by ISRO.",
+      "Tested at Satish Dhawan Space Centre, Sriharikota.",
+      "Reduces structural deadweight to increase launch vehicle payload capacity."
+    ],
+    examFacts: ["Technology: Carbon-Fiber Composite Motor Cases", "Agency: ISRO"],
+    quickRemember: "ISRO successfully tested lightweight carbon composite rocket motor cases at Sriharikota.",
+    audioText: "ISRO successfully completed structural qualification trials of lightweight carbon composite rocket motor cases at Sriharikota.",
+    source: "ISRO", importantFor: ["SSC CGL", "UPSC", "CDS"]
+  },
+  {
+    id: "REC-JUN-082", date: "2026-06-02", month: "Jun 2026", category: "Economy & Trade",
+    title: "India and Peru Sign Bilateral Framework on Technical Trade Standards",
+    summary: "New Delhi and Lima executed an agreement harmonizing sanitary and phytosanitary trade verification standards.",
+    whatHappened: "India and Peru signed a bilateral framework agreement in Lima to harmonize sanitary and phytosanitary (SPS) standards, streamlining agricultural exports and pharmaceutical regulatory clearances between the two nations.",
+    importantPoints: [
+      "Bilateral framework agreement signed between India and Peru.",
+      "Harmonizes sanitary and phytosanitary (SPS) standards.",
+      "Aims to accelerate agricultural and pharmaceutical export clearances."
+    ],
+    examFacts: ["Partner Country: Peru", "Agreement: Sanitary and Phytosanitary Framework"],
+    quickRemember: "India and Peru signed an agreement to harmonize technical and sanitary trade standards.",
+    audioText: "India and Peru signed a bilateral framework agreement in Lima to harmonize sanitary trade standards.",
+    source: "Ministry of Commerce", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-083", date: "2026-06-03", month: "Jun 2026", category: "Environment & Conservation",
+    title: "Ministry of Environment Launches 'Amrit Dharohar Capacity Building 2.0'",
+    summary: "The government rolled out phase two of the Amrit Dharohar initiative for sustainable wetland tourism.",
+    whatHappened: "The Ministry of Environment, Forest and Climate Change launched phase two of the 'Amrit Dharohar' scheme, providing specialized livelihood and ecological management training to local communities residing around designated Ramsar wetland sites.",
+    importantPoints: [
+      "Amrit Dharohar Capacity Building 2.0 launched by MoEFCC.",
+      "Provides livelihood and ecological management training to local communities.",
+      "Focuses on sustainable tourism around Ramsar wetland sites."
+    ],
+    examFacts: ["Initiative: Amrit Dharohar 2.0", "Ministry: MoEFCC"],
+    quickRemember: "MoEFCC launched phase two of the Amrit Dharohar initiative for sustainable wetland management.",
+    audioText: "The Environment Ministry launched phase two of the Amrit Dharohar initiative for sustainable wetland management.",
+    source: "MoEFCC", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-084", date: "2026-06-04", month: "Jun 2026", category: "Defence & Aerospace",
+    title: "DRDO Successfully Flight-Tests Guided Heavyweight Torpedo 'Varunastra'",
+    summary: "The Indian Navy and DRDO successfully validated the combat readiness of the heavyweight anti-submarine torpedo.",
+    whatHappened: "The Defence Research and Development Organisation (DRDO) and the Indian Navy successfully completed user-acceptance firing trials of the indigenous heavyweight anti-submarine torpedo 'Varunastra' off the eastern seaboard.",
+    importantPoints: [
+      "Successful firing trials of the heavyweight anti-submarine torpedo 'Varunastra'.",
+      "Conducted jointly by DRDO and the Indian Navy.",
+      "Features advanced autonomous acoustic homing and deep-water tracking capabilities."
+    ],
+    examFacts: ["Weapon: Varunastra Heavyweight Torpedo", "Agency: DRDO & Indian Navy"],
+    quickRemember: "DRDO and the Indian Navy successfully flight-tested the Varunastra heavyweight torpedo.",
+    audioText: "DRDO and the Indian Navy successfully completed acceptance trials of the Varunastra heavyweight anti-submarine torpedo.",
+    source: "Ministry of Defence", importantFor: ["CDS", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-085", date: "2026-06-05", month: "Jun 2026", category: "Government Schemes",
+    title: "Ministry of Tribal Affairs Introduces 'Van Dhan Startup Accelerator'",
+    summary: "A specialized incubator program was launched to scale up tribal forest-produce enterprises.",
+    whatHappened: "The Ministry of Tribal Affairs launched the 'Van Dhan Startup Accelerator' program, providing seed funding, design incubation, and e-commerce supply-chain integration for tribal micro-enterprises under the TRIFED network.",
+    importantPoints: [
+      "Van Dhan Startup Accelerator launched by Ministry of Tribal Affairs.",
+      "Provides seed funding and supply-chain integration for tribal enterprises.",
+      "Operates under the TRIFED administrative umbrella."
+    ],
+    examFacts: ["Program: Van Dhan Startup Accelerator", "Ministry: Tribal Affairs"],
+    quickRemember: "The Ministry of Tribal Affairs launched the Van Dhan Startup Accelerator to scale tribal enterprises.",
+    audioText: "The Tribal Affairs Ministry launched the Van Dhan Startup Accelerator to scale up tribal forest-produce enterprises.",
+    source: "Ministry of Tribal Affairs", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-086", date: "2026-06-08", month: "Jun 2026", category: "Economy & Banking",
+    title: "SEBI Mandates Artificial Intelligence Audit for Credit Rating Agencies",
+    summary: "SEBI issued circular rules requiring external algorithmic transparency audits for credit rating agencies.",
+    whatHappened: "The Securities and Exchange Board of India (SEBI) issued mandatory compliance guidelines requiring all registered Credit Rating Agencies (CRAs) to undergo annual external audits of their artificial intelligence models and automated rating algorithms.",
+    importantPoints: [
+      "SEBI mandated annual AI algorithm audits for Credit Rating Agencies (CRAs).",
+      "Aims to ensure algorithmic transparency and prevent rating bias.",
+      "Reinforces financial market governance."
+    ],
+    examFacts: ["Regulator: SEBI", "Mandate: AI Audit for CRAs"],
+    quickRemember: "SEBI mandated annual artificial intelligence audits for all Credit Rating Agencies.",
+    audioText: "SEBI issued circular rules requiring external algorithmic transparency audits for credit rating agencies.",
+    source: "SEBI", importantFor: ["Bank PO", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-087", date: "2026-06-09", month: "Jun 2026", category: "Science & Technology",
+    title: "IIT Madras Establishes Advanced Hyperbaric Research Facility",
+    summary: "A state-of-the-art hyperbaric testing chamber was commissioned at IIT Madras for deep-sea engineering.",
+    whatHappened: "IIT Madras inaugurated an advanced Hyperbaric Research Facility capable of simulating extreme deep-sea pressure environments up to 3,000 metres below sea level, aiding deep-ocean mining and submersible capsule development.",
+    importantPoints: [
+      "Hyperbaric Research Facility inaugurated at IIT Madras.",
+      "Simulates extreme pressure environments down to 3,000 metres deep.",
+      "Aids deep-ocean research, submersibles, and marine engineering."
+    ],
+    examFacts: ["Facility: Hyperbaric Research Chamber", "Institute: IIT Madras"],
+    quickRemember: "IIT Madras established an advanced hyperbaric research facility for deep-sea engineering.",
+    audioText: "IIT Madras inaugurated an advanced Hyperbaric Research Facility capable of simulating extreme deep-sea pressures.",
+    source: "IIT Madras", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-088", date: "2026-06-10", month: "Jun 2026", category: "International Affairs",
+    title: "India and European Free Trade Association Review Trade Progress",
+    summary: "New Delhi and EFTA states convened in Geneva to fast-track the implementation of their recent trade pact.",
+    whatHappened: "Trade ministers from India and the European Free Trade Association (EFTA) member states—Switzerland, Norway, Iceland, and Liechtenstein—met in Geneva to review investment commitments and fast-track implementation timelines.",
+    importantPoints: [
+      "India and EFTA states met in Geneva to review trade pact implementation.",
+      "EFTA comprises Switzerland, Norway, Iceland, and Liechtenstein.",
+      "Focuses on securing targeted investment commitments."
+    ],
+    examFacts: ["Bloc: EFTA (Switzerland, Norway, Iceland, Liechtenstein)", "Meeting Location: Geneva"],
+    quickRemember: "India and EFTA states met in Geneva to review trade pact implementation timelines.",
+    audioText: "India and European Free Trade Association states convened in Geneva to review trade pact progress.",
+    source: "Ministry of Commerce", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-089", date: "2026-06-11", month: "Jun 2026", category: "Environment & Wildlife",
+    title: "New Butterfly Species 'Parnassius ladakhensis' Documented in Zanskar",
+    summary: "A striking high-altitude butterfly species was formally recorded in the Zanskar range of Ladakh.",
+    whatHappened: "Lepidopterists and wildlife scientists formally described a rare high-altitude butterfly species named *Parnassius ladakhensis*, discovered fluttering across alpine scree slopes in the Zanskar region of Ladakh.",
+    importantPoints: [
+      "New high-altitude butterfly species named *Parnassius ladakhensis*.",
+      "Discovered in the Zanskar range, Ladakh.",
+      "Highlights high-altitude endemic insect biodiversity."
+    ],
+    examFacts: ["Species: Parnassius ladakhensis", "Location: Zanskar, Ladakh"],
+    quickRemember: "A new butterfly species, Parnassius ladakhensis, was documented in the Zanskar range of Ladakh.",
+    audioText: "A high-altitude butterfly species named Parnassius ladakhensis was documented in the Zanskar range of Ladakh.",
+    source: "Zoological Survey of India", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-090", date: "2026-06-12", month: "Jun 2026", category: "National Affairs",
+    title: "Ministry of Culture Launches National Manuscript Digitization Mission 2.0",
+    summary: "A massive digital archiving campaign was initiated to preserve ancient Indian literary manuscripts.",
+    whatHappened: "The Ministry of Culture rolled out Phase 2 of the National Manuscript Digitization Mission, deploying specialized high-resolution optical scanners across university libraries and mathas to preserve centuries-old palm-leaf and paper manuscripts.",
+    importantPoints: [
+      "National Manuscript Digitization Mission 2.0 launched by Ministry of Culture.",
+      "Deploys high-resolution optical scanners to archive ancient texts.",
+      "Preserves rare palm-leaf and paper manuscripts."
+    ],
+    examFacts: ["Mission: National Manuscript Digitization 2.0", "Ministry: Ministry of Culture"],
+    quickRemember: "The Ministry of Culture launched phase two of the National Manuscript Digitization Mission.",
+    audioText: "The Culture Ministry launched phase two of the National Manuscript Digitization Mission to archive ancient texts.",
+    source: "Ministry of Culture", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-091", date: "2026-06-15", month: "Jun 2026", category: "Science & Technology",
+    title: "CSIR-NEERI Launches Real-Time Air Quality Sensor Network in Tier-2 Cities",
+    summary: "A low-cost IoT particulate sensor grid was deployed across 50 tier-2 cities for hyper-local air monitoring.",
+    whatHappened: "CSIR-NEERI commissioned an indigenous network of low-cost IoT particulate matter sensor nodes across 50 emerging tier-2 Indian cities, providing hyper-local air quality tracking via open-source municipal dashboards.",
+    importantPoints: [
+      "Low-cost IoT air quality sensor network deployed across 50 tier-2 cities.",
+      "Developed and commissioned by CSIR-NEERI.",
+      "Provides hyper-local particulate tracking via open-source dashboards."
+    ],
+    examFacts: ["Developer: CSIR-NEERI", "Coverage: 50 Tier-2 Cities"],
+    quickRemember: "CSIR-NEERI launched a real-time air quality sensor network across 50 tier-2 cities.",
+    audioText: "CSIR-NEERI deployed a real-time IoT air quality sensor network across fifty tier-2 Indian cities.",
+    source: "CSIR", importantFor: ["SSC CGL", "State PCS"]
+  },
+  {
+    id: "REC-JUN-092", date: "2026-06-16", month: "Jun 2026", category: "Economy & Infrastructure",
+    title: "Inauguration of New Integrated Cargo Terminal at Chennai Airport",
+    summary: "A modern state-of-the-art international cargo terminal was opened at Chennai International Airport.",
+    whatHappened: "A high-capacity integrated cargo terminal was inaugurated at Chennai International Airport, featuring automated storage and retrieval systems (ASRS) to double the airport's annual cargo handling capacity.",
+    importantPoints: [
+      "Integrated cargo terminal inaugurated at Chennai International Airport.",
+      "Equipped with automated storage and retrieval systems (ASRS).",
+      "Doubles the airport's annual cargo handling capacity."
+    ],
+    examFacts: ["Facility: Integrated Cargo Terminal", "Airport: Chennai International Airport"],
+    quickRemember: "A new integrated cargo terminal was inaugurated at Chennai International Airport.",
+    audioText: "A high-capacity integrated cargo terminal was inaugurated at Chennai International Airport.",
+    source: "Ministry of Civil Aviation", importantFor: ["SSC CGL", "RRB NTPC"]
+  },
+  {
+    id: "REC-JUN-093", date: "2026-06-17", month: "Jun 2026", category: "International Affairs",
+    title: "India Elected to UNESCO World Heritage Committee",
+    summary: "India secured a resounding victory in elections to serve on the prestigious UNESCO World Heritage Committee.",
+    whatHappened: "India was elected as a member of the UNESCO World Heritage Committee during general assembly elections at UNESCO Headquarters in Paris, reinforcing its leadership standing in global heritage conservation and cultural diplomacy.",
+    importantPoints: [
+      "India elected to the UNESCO World Heritage Committee.",
+      "Elections held at UNESCO Headquarters in Paris.",
+      "Strengthens India's role in global cultural heritage preservation."
+    ],
+    examFacts: ["Body: UNESCO World Heritage Committee", "Location: Paris"],
+    quickRemember: "India was elected as a member of the UNESCO World Heritage Committee in Paris.",
+    audioText: "India was elected as a member of the UNESCO World Heritage Committee during general assembly elections in Paris.",
+    source: "MEA", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-094", date: "2026-06-18", month: "Jun 2026", category: "Government Schemes",
+    title: "Ministry of Health Expands 'Ayushman Arogya Mandir' Network",
+    summary: "The government crossed a major milestone by operationalizing over 1.7 lakh primary health wellness centers.",
+    whatHappened: "The Ministry of Health and Family Welfare announced that the nationwide network of upgraded primary healthcare facilities has officially crossed 1.7 lakh operational 'Ayushman Arogya Mandir' centers, providing expanded diagnostics and tele-consultation services.",
+    importantPoints: [
+      "Over 1.7 lakh operational 'Ayushman Arogya Mandir' centers nationwide.",
+      "Provides expanded local diagnostics and digital tele-consultations.",
+      "Managed by the Ministry of Health."
+    ],
+    examFacts: ["Network: Ayushman Arogya Mandir", "Milestone: >1.7 Lakh Centers Operational"],
+    quickRemember: "The Ministry of Health operationalized over 1.7 lakh 'Ayushman Arogya Mandir' health centers.",
+    audioText: "The Health Ministry announced that the nationwide network of Ayushman Arogya Mandir centers crossed 1.7 lakh operational units.",
+    source: "MoHFW", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-095", date: "2026-09-25", month: "Jun 2026", category: "National Security",
+    title: "Indian Army Inducts 'Nagastra-1' Kamikaze Drones",
+    summary: "The Indian Army inducted the first regiment of indigenous loitering munitions named Nagastra-1.",
+    whatHappened: "The Indian Army formally inducted the 'Nagastra-1', India's first indigenous loitering munition (Kamikaze drone) developed by Economic Explosives Limited (EEL) in Nagpur, providing infantry battalions with precise GPS-guided tactical strike capabilities.",
+    importantPoints: [
+      "Indian Army inducted indigenous 'Nagastra-1' loitering munitions.",
+      "Developed domestically by Economic Explosives Limited (EEL) in Nagpur.",
+      "Provides infantry units with precise Kamikaze strike capabilities."
+    ],
+    examFacts: ["Weapon: Nagastra-1 Loitering Munition", "Manufacturer: EEL Nagpur", "Service: Indian Army"],
+    quickRemember: "The Indian Army inducted the indigenous 'Nagastra-1' Kamikaze loitering munitions.",
+    audioText: "The Indian Army formally inducted the Nagastra-1, India's first indigenous loitering munition for tactical strikes.",
+    source: "Indian Army", importantFor: ["CDS", "SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-096", date: "2026-06-22", month: "Jun 2026", category: "Economy & Trade",
+    title: "India Signs Comprehensive Semiconductor Supply Accord with Taiwan",
+    summary: "New Delhi and Taipei executed a strategic framework agreement connecting semiconductor fabrication ecosystems.",
+    whatHappened: "India and Taiwan signed a landmark bilateral semiconductor supply chain and talent development framework in Taipei, facilitating joint investments between Indian conglomerates and Taiwanese chip design foundries.",
+    importantPoints: [
+      "Semiconductor framework agreement signed between India and Taiwan.",
+      "Signed in Taipei to connect fabrication ecosystems and talent pipelines.",
+      "Facilitates joint foundry investments."
+    ],
+    examFacts: ["Partner: Taiwan", "Agreement: Semiconductor Supply Chain & Talent Framework"],
+    quickRemember: "India and Taiwan signed a semiconductor supply chain and talent development framework.",
+    audioText: "India and Taiwan signed a semiconductor supply chain framework agreement to connect chip manufacturing ecosystems.",
+    source: "Ministry of Commerce", importantFor: ["UPSC", "SSC CGL"]
+  },
+  {
+    id: "REC-JUN-097", date: "2026-06-23", month: "Jun 2026", category: "Science & Space",
+    title: "ISRO Successfully Conducts Reusable Rocket Grid Fin Aerodynamic Drop Tests",
+    summary: "ISRO validated supersonic grid fin steering dynamics using high-altitude balloon drops.",
+    whatHappened: "ISRO successfully completed high-altitude balloon drop trials of its steering grid fins at Sriharikota, testing aerodynamic control response under high-velocity conditions for reusable rocket booster recovery.",
+    importantPoints: [
+      "High-altitude balloon drop tests of rocket steering grid fins.",
+      "Conducted by ISRO at Sriharikota.",
+      "Validates aerodynamic control and stability for reusable boosters."
+    ],
+    examFacts: ["Test: High-Altitude Balloon Drop", "Component: Steering Grid Fins", "Agency: ISRO"],
+    quickRemember: "ISRO successfully conducted high-altitude balloon drop tests for reusable rocket grid fins.",
+    audioText: "ISRO successfully completed high-altitude balloon drop trials of its steering grid fins at Sriharikota.",
+    source: "ISRO", importantFor: ["SSC CGL", "UPSC", "CDS"]
+  },
+  {
+    id: "REC-JUN-098", date: "2026-06-24", month: "Jun 2026", category: "Environment & Energy",
+    title: "NTPC Commissions India's First Commercial Biomass Torrefaction Plant",
+    summary: "NTPC operationalized a commercial torrefied biomass pellet manufacturing plant in Varanasi.",
+    whatHappened: "NTPC Limited successfully commissioned India's first commercial-scale biomass torrefaction facility in Varanasi, Uttar Pradesh. The plant converts agricultural stubble into high-density torrefied pellets for co-firing in thermal power stations to eliminate stubble burning.",
+    importantPoints: [
+      "First commercial-scale biomass torrefaction plant commissioned by NTPC.",
+      "Located in Varanasi, Uttar Pradesh.",
+      "Converts agricultural stubble into pellets for thermal power plant co-firing."
+    ],
+    examFacts: ["Company: NTPC", "Facility: Biomass Torrefaction Plant", "Location: Varanasi, UP"],
+    quickRemember: "NTPC commissioned India's first commercial biomass torrefaction plant in Varanasi.",
+    audioText: "NTPC commissioned India's first commercial-scale biomass torrefaction plant in Varanasi to convert agricultural stubble.",
+    source: "Ministry of Power", importantFor: ["SSC CGL", "UPSC"]
+  },
+  {
+    id: "REC-JUN-099", date: "2026-06-25", month: "Jun 2026", category: "National Affairs",
+    title: "Ministry of Home Affairs Launches Automated National Forensic Case Tracking System",
+    summary: "MHA rolled out a centralized digital ledger tracking criminal forensic evidence from crime scenes to court.",
+    whatHappened: "The Ministry of Home Affairs deployed the Automated National Forensic Case Tracking System (ANFCTS) across all central and state forensic science laboratories, ensuring chain-of-custody integrity for criminal investigations.",
+    importantPoints: [
+      "Automated National Forensic Case Tracking System (ANFCTS) deployed by MHA.",
+      "Tracks forensic evidence chain-of-custody from crime scenes to courts.",
+      "Integrated across central and state forensic laboratories."
+    ],
+    examFacts: ["System: ANFCTS", "Ministry: Ministry of Home Affairs"],
+    quickRemember: "MHA deployed the Automated National Forensic Case Tracking System (ANFCTS) to secure evidence chains.",
+    audioText: "The Home Ministry deployed the Automated National Forensic Case Tracking System across state laboratories.",
+    source: "Ministry of Home Affairs", importantFor: ["SSC CGL", "UPSC", "CDS"]
+  },
+  {
+    id: "REC-JUN-100", date: "2026-06-26", month: "Jun 2026", category: "Economy & Agriculture",
+    title: "NABARD Sanctions ₹10,000 Crore Climate-Resilient Agriculture Fund",
+    summary: "NABARD approved a specialized financial window to support climate-adaptive farming and drip irrigation.",
+    whatHappened: "NABARD announced the sanction of a ₹10,000 crore specialized credit facility titled the 'Climate-Resilient Agriculture Fund', dedicated to financing micro-irrigation networks, solar agricultural pumps, and drought-resistant crop warehousing infrastructure across vulnerable agro-climatic zones.",
+    importantPoints: [
+      "₹10,000 crore Climate-Resilient Agriculture Fund approved by NABARD.",
+      "Finances micro-irrigation, solar pumps, and drought-resistant storage.",
+      "Targets vulnerable agro-climatic zones across states."
+    ],
+    examFacts: ["Institution: NABARD", "Fund: Climate-Resilient Agriculture Fund", "Allocation: ₹10,000 Crore"],
+    quickRemember: "NABARD sanctioned a ₹10,000 crore Climate-Resilient Agriculture Fund for drought-resistant farming.",
+    audioText: "NABARD sanctioned a ten thousand crore rupee Climate-Resilient Agriculture Fund to support drought-resistant farming.",
+    source: "NABARD", importantFor: ["Bank PO", "SSC CGL", "UPSC"]
+  }
+];
+
+const junRecallQuestionsBatch5 = [
+  {
+    id: "REC-Q-JUN-081", articleId: "REC-JUN-081", category: "Science & Technology",
+    question: "What is the primary material used in the lightweight rocket motor cases successfully qualified by ISRO at Sriharikota?",
+    options: ["Titanium alloy honeycomb", "Carbon-fiber composite", "Maraging steel matrix", "Lithium-aluminum alloy"],
+    answer: 1, explanation: "ISRO completed qualification trials of lightweight carbon-fiber composite rocket motor cases at Sriharikota to reduce deadweight."
+  },
+  {
+    id: "REC-Q-JUN-082", articleId: "REC-JUN-082", category: "Economy & Trade",
+    question: "India and Peru signed a bilateral framework agreement in Lima to harmonize which standards, streamlining agricultural and pharmaceutical exports?",
+    options: ["Sanitary and phytosanitary (SPS) standards", "Digital customs ledger protocols", "Green shipping carbon levies", "Intellectual property patent verification"],
+    answer: 0, explanation: "India and Peru signed an agreement in Lima harmonizing sanitary and phytosanitary (SPS) standards for trade."
+  },
+  {
+    id: "REC-Q-JUN-083", articleId: "REC-JUN-083", category: "Environment & Conservation",
+    question: "Phase two of the 'Amrit Dharohar' initiative launched by the Ministry of Environment focuses on providing specialized training for:",
+    options: ["Afforestation in arid desert fringes", "Sustainable tourism around Ramsar wetland sites", "Coral reef bleaching mitigation diving", "Mangrove carbon credit auditing"],
+    answer: 1, explanation: "Amrit Dharohar Capacity Building 2.0 provides livelihood and ecological management training to communities around Ramsar wetland sites."
+  },
+  {
+    id: "REC-Q-JUN-084", articleId: "REC-JUN-084", category: "Defence & Aerospace",
+    question: "The DRDO and the Indian Navy successfully completed user-acceptance firing trials of which indigenous heavyweight anti-submarine torpedo?",
+    options: ["Shyena", "Varunastra", "Takshak", "Astra-H"],
+    answer: 1, explanation: "DRDO and the Indian Navy validated the combat readiness of the indigenous heavyweight anti-submarine torpedo 'Varunastra'."
+  },
+  {
+    id: "REC-Q-JUN-085", articleId: "REC-JUN-085", category: "Government Schemes",
+    question: "The Ministry of Tribal Affairs launched the 'Van Dhan Startup Accelerator' program to scale up tribal enterprises under the administrative umbrella of:",
+    options: ["TRIFED", "NAFED", "APEDA", "SIDBI"],
+    answer: 0, explanation: "The Van Dhan Startup Accelerator provides seed funding and supply-chain integration for tribal micro-enterprises under the TRIFED network."
+  },
+  {
+    id: "REC-Q-JUN-086", articleId: "REC-JUN-086", category: "Economy & Banking",
+    question: "SEBI issued mandatory compliance guidelines requiring all registered Credit Rating Agencies (CRAs) to undergo annual external audits of their:",
+    options: ["Shareholder voting pattern declarations", "Artificial intelligence models and automated rating algorithms", "Cross-border debt holdings exposure", "Underwriter commission disclosures"],
+    answer: 1, explanation: "SEBI mandated annual external audits of artificial intelligence models and automated rating algorithms for all Credit Rating Agencies."
+  },
+  {
+    id: "REC-Q-JUN-087", articleId: "REC-JUN-087", category: "Science & Technology",
+    question: "IIT Madras inaugurated an advanced Hyperbaric Research Facility capable of simulating extreme deep-sea pressure environments down to:",
+    options: ["1,000 metres below sea level", "2,000 metres below sea level", "3,000 metres below sea level", "5,000 metres below sea level"],
+    answer: 2, explanation: "The facility simulates extreme pressure environments up to 3,000 metres below sea level to aid deep-ocean engineering."
+  },
+  {
+    id: "REC-Q-JUN-088", articleId: "REC-JUN-088", category: "International Affairs",
+    question: "Trade ministers from India and the European Free Trade Association (EFTA) member states met in which city to review trade pact implementation?",
+    options: ["Zurich", "Geneva", "Oslo", "Reykjavik"],
+    answer: 1, explanation: "India and EFTA member states (Switzerland, Norway, Iceland, Liechtenstein) met in Geneva to review trade pact timelines."
+  },
+  {
+    id: "REC-Q-JUN-089", articleId: "REC-JUN-089", category: "Environment & Wildlife",
+    question: "What is the name of the rare high-altitude butterfly species formally recorded fluttering across alpine scree slopes in the Zanskar range of Ladakh?",
+    options: ["Papilio ladakhensis", "Parnassius ladakhensis", "Colias zanskarica", "Vanessa himalayana"],
+    answer: 1, explanation: "Lepidopterists described a rare high-altitude butterfly species named Parnassius ladakhensis discovered in the Zanskar range."
+  },
+  {
+    id: "REC-Q-JUN-090", articleId: "REC-JUN-090", category: "National Affairs",
+    question: "The Ministry of Culture rolled out Phase 2 of the National Manuscript Digitization Mission deploying high-resolution optical scanners to archive:",
+    options: ["Stone-cut epigraphical edicts", "Centuries-old palm-leaf and paper manuscripts", "British-era administrative gazetteers", "Ancient copper-plate land grants"],
+    answer: 1, explanation: "Phase 2 of the National Manuscript Digitization Mission deploys high-resolution scanners to preserve centuries-old palm-leaf and paper manuscripts."
+  },
+  {
+    id: "REC-Q-JUN-091", articleId: "REC-JUN-091", category: "Science & Technology",
+    question: "CSIR-NEERI commissioned an indigenous network of low-cost IoT particulate matter sensor nodes across how many emerging tier-2 Indian cities?",
+    options: ["25 cities", "50 cities", "75 cities", "100 cities"],
+    answer: 1, explanation: "CSIR-NEERI deployed an indigenous network of low-cost IoT particulate matter sensor nodes across 50 emerging tier-2 Indian cities."
+  },
+  {
+    id: "REC-Q-JUN-092", articleId: "REC-JUN-092", category: "Economy & Infrastructure",
+    question: "A high-capacity integrated cargo terminal featuring automated storage and retrieval systems (ASRS) was inaugurated at which airport?",
+    options: ["Kempegowda International Airport, Bengaluru", "Chennai International Airport", "Cochin International Airport", "Rajiv Gandhi International Airport, Hyderabad"],
+    answer: 1, explanation: "An integrated cargo terminal equipped with automated storage and retrieval systems was inaugurated at Chennai International Airport."
+  },
+  {
+    id: "REC-Q-JUN-093", articleId: "REC-JUN-093", category: "International Affairs",
+    question: "During general assembly elections held at UNESCO Headquarters, India was elected as a member of the:",
+    options: ["UNESCO Executive Board", "UNESCO World Heritage Committee", "Intangible Cultural Heritage Evaluation Body", "Intergovernmental Oceanographic Commission"],
+    answer: 1, explanation: "India was elected as a member of the UNESCO World Heritage Committee during general assembly elections at UNESCO Headquarters in Paris."
+  },
+  {
+    id: "REC-Q-JUN-094", articleId: "REC-JUN-094", category: "Government Schemes",
+    question: "The nationwide network of upgraded primary healthcare facilities operationalized by the Health Ministry crossed what milestone for 'Ayushman Arogya Mandir' centers?",
+    options: ["Over 1.0 lakh centers", "Over 1.5 lakh centers", "Over 1.7 lakh centers", "Over 2.0 lakh centers"],
+    answer: 2, explanation: "The nationwide network of primary healthcare facilities officially crossed 1.7 lakh operational 'Ayushman Arogya Mandir' centers."
+  },
+  {
+    id: "REC-Q-JUN-095", articleId: "REC-JUN-095", category: "National Security",
+    question: "What is the name of India's first indigenous loitering munition (Kamikaze drone) formally inducted by the Indian Army?",
+    options: ["SkyStriker-X", "Nagastra-1", "Vajra-Kamikaze", "Astra-Loiter"],
+    answer: 1, explanation: "The Indian Army inducted the 'Nagastra-1', India's first indigenous loitering munition developed by EEL Nagpur."
+  },
+  {
+    id: "REC-Q-JUN-096", articleId: "REC-JUN-096", category: "Economy & Trade",
+    question: "India and Taiwan signed a landmark bilateral semiconductor supply chain and talent development framework in which city?",
+    options: ["New Delhi", "Taipei", "Hsinchu", "Kaohsiung"],
+    answer: 1, explanation: "India and Taiwan signed a semiconductor supply chain framework agreement in Taipei to connect chip manufacturing ecosystems."
+  },
+  {
+    id: "REC-Q-JUN-097", articleId: "REC-JUN-097", category: "Science & Space",
+    question: "ISRO successfully completed high-altitude balloon drop trials of its steering grid fins at Sriharikota to test:",
+    options: ["Radiation hardening durability", "Aerodynamic control response for reusable boosters", "Parachute deployment synchronization", "Plasma sheath communication windows"],
+    answer: 1, explanation: "ISRO completed high-altitude balloon drop trials of its steering grid fins at Sriharikota, testing aerodynamic control response for reusable rocket booster recovery."
+  },
+  {
+    id: "REC-Q-JUN-098", articleId: "REC-JUN-098", category: "Environment & Energy",
+    question: "NTPC Limited successfully commissioned India's first commercial-scale biomass torrefaction facility in which city to eliminate stubble burning?",
+    options: ["Karnal, Haryana", "Ludhiana, Punjab", "Varanasi, Uttar Pradesh", "Patna, Bihar"],
+    answer: 2, explanation: "NTPC commissioned India's first commercial-scale biomass torrefaction plant in Varanasi, UP, to convert agricultural stubble into co-firing pellets."
+  },
+  {
+    id: "REC-Q-JUN-099", articleId: "REC-JUN-099", category: "National Affairs",
+    question: "The Ministry of Home Affairs deployed the Automated National Forensic Case Tracking System (ANFCTS) across forensic labs to ensure:",
+    options: ["Ballistic fingerprint database matching speed", "Chain-of-custody integrity for criminal investigations", "DNA profile cross-state server synchronization", "Cyber forensic hard drive cloning speed"],
+    answer: 1, explanation: "The ANFCTS ensures chain-of-custody integrity for criminal investigations from crime scenes to courts."
+  },
+  {
+    id: "REC-Q-JUN-100", articleId: "REC-JUN-100", category: "Economy & Agriculture",
+    question: "NABARD announced the sanction of a ₹10,000 crore specialized credit facility titled the 'Climate-Resilient Agriculture Fund' dedicated to financing:",
+    options: ["Micro-irrigation networks, solar pumps, and drought-resistant storage", "Organic fertilizer manufacturing cooperatives", "Agro-forestry timber plantation subsidies", "Locust swarming drone interception grids"],
+    answer: 0, explanation: "The fund finances micro-irrigation networks, solar agricultural pumps, and drought-resistant crop warehousing infrastructure."
+  }
+];
+
+// 👉 PUSH DATA INTO GLOBAL ARRAYS
+if (typeof hiddenRecallArticles !== 'undefined') {
+  hiddenRecallArticles.push(...junRecallArticlesBatch5);
+}
+if (typeof recallQuestionPool !== 'undefined') {
+  recallQuestionPool.push(...junRecallQuestionsBatch5);
+}
+
+/* ==========================================================================
+   END OF JUNE BATCH 5 (JUNE 100% COMPLETE)
+   ========================================================================== */
