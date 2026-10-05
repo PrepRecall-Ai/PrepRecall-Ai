@@ -4715,6 +4715,10 @@ window.shareMockScore = function() {
       let autoMocksCache = (activeUser && activeUser.autoMocksCache) ? activeUser.autoMocksCache : JSON.parse(localStorage.getItem('prepRecall_autoMocks') || '[]');
       let autoNewsCache = (activeUser && activeUser.autoNewsCache) ? activeUser.autoNewsCache : JSON.parse(localStorage.getItem('prepRecall_autoNews') || '[]');
 
+      // 👉 NEW FIX 1: PURGE DUPLICATES. Remove automated September items from the cache since they are now hardcoded!
+      autoMocksCache = autoMocksCache.filter(q => q.month !== "Sep 2026");
+      autoNewsCache = autoNewsCache.filter(art => art.month !== "Sep 2026");
+
       // Clean up legacy naming
       autoMocksCache.forEach(q => { if (q.month && q.month.startsWith("Sept ")) q.month = q.month.replace("Sept ", "Sep "); });
       autoNewsCache.forEach(art => { if (art.month && art.month.startsWith("Sept ")) art.month = art.month.replace("Sept ", "Sep "); });
@@ -4751,6 +4755,9 @@ window.shareMockScore = function() {
           d.setDate(d.getDate() - i);
           let dateId = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, '0') + "-" + String(d.getDate()).padStart(2, '0');
           let monthStr = shortMonths[d.getMonth()] + ' ' + d.getFullYear();
+
+          // 👉 NEW FIX 2: PREVENT DUPLICATES. Tell Firebase to skip September entirely!
+          if (monthStr === "Sep 2026") continue;
 
           // CRASH PROTECTION: Ensure historical target month array exists
           if (!currentAffairs[monthStr]) {
